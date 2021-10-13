@@ -67,9 +67,9 @@ export const covidApi = createApi({
 
 export const {
   useGetGlobalCovidStatsQuery,
-  useGetEachCountriesTotals,
-  useGetSpecificCountryTotal,
-  useGetTotalsAllStatesUS,
+  useGetEachCountriesTotalsQuery,
+  useGetSpecificCountryTotalQuery,
+  useGetTotalsAllStatesUSQuery,
   useGetAllCountriesProvincesHistoricalQuery,
   useGetCountryHistoricalQuery,
   useGetCountriesHistoricalQuery,
