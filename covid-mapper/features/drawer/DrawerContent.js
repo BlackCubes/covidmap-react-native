@@ -64,15 +64,16 @@ const DrawerContent = (props) => {
         <GreenBorder></GreenBorder>
         {/*End Logo section and Begin DrawerItems section */}
         <DrawerSection>
-          {/* World */}
+          {/* World total section */}
           <Heading>World</Heading>
+         
           <DrawerItem
             label="World Stats"
             onPress={() => {
               props.navigation.navigate("World");
             }}
           />
-          {/* Non-US Country > Province */}
+          {/* Non-US Country > Province search */}
           <DrawerItem
             label="Search Country/Province"
             onPress={() => {
@@ -119,7 +120,7 @@ const DrawerContent = (props) => {
           />
         </DrawerSection>
       </DrawerContentScrollView>
-      {/* Github & About links */}
+      {/* Github & About Us */}
       <BottomInfoContainer>
         <DrawerItem
           label="About Us"
