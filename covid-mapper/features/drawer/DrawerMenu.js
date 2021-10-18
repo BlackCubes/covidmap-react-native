@@ -3,11 +3,9 @@ import { Button, View, Text } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import DrawerContent from "./DrawerContent";
+import DrawerButton from "../map-layout/components/DrawerButton";
+import { useWindowDimensions } from 'react-native';
 const Drawer = createDrawerNavigator();
-
-{
-  /* Components below placeholders */
-}
 
 function WorldScreen({ navigation }) {
   return (
@@ -17,6 +15,7 @@ function WorldScreen({ navigation }) {
         onPress={() => navigation.navigate("About Us")}
         title="Go to About Us screen"
       />
+      <DrawerButton/>
     </View>
   );
 }
@@ -53,6 +52,7 @@ function StateCountiesTotalScreen({ navigation }) {
     </View>
   );
 }
+
 
 function WorldVaxTotalsScreen({ navigation }) {
   return (
@@ -101,14 +101,19 @@ function AboutUsScreen({ navigation }) {
     </View>
   );
 }
-
 const DrawerMenu = () => {
+  const dimensions = useWindowDimensions();
   return (
     <NavigationContainer>
-      <Drawer.Navigator
-        initialRouteName="WorldScreen"
-        drawerContent={(props) => <DrawerContent {...props} />}
-      >
+      <Drawer.Navigator 
+      initialRouteName="World" 
+      screenOptions={{
+        drawerType: dimensions.width >= 768 ? 'permanent' : 'front',
+        drawerHideStatusBarOnOpen: true,
+      }}
+      drawerContent={(props) => <DrawerContent {...props}/>}>
+        {/* Component created for menu button test */}
+     
         {/* WORLD */}
         <Drawer.Screen name="World" component={WorldScreen} />
         <Drawer.Screen
@@ -121,6 +126,7 @@ const DrawerMenu = () => {
           name="State Counties Totals"
           component={StateCountiesTotalScreen}
         />
+
         {/* Vaccine */}
         <Drawer.Screen
           name="World Vaccination Totals"
@@ -131,6 +137,7 @@ const DrawerMenu = () => {
           component={USVaxTotalScreen}
         />
         <Drawer.Screen name="Trial Data" component={TrialDataScreen} />
+
         {/* Bottom Content */}
         <Drawer.Screen name="About Us" component={AboutUsScreen} />
       </Drawer.Navigator>
