@@ -15,6 +15,20 @@ const SearchbarWrapper = styled.View`
   z-index: -1;
 `;
 
+const SearchbarIconWrapper = styled.View`
+  position: absolute;
+  left: 5%;
+  width: 35px;
+  height: 35px;
+  z-index: 100;
+`;
+
+const SearchbarIcon = styled.Image`
+  width: 100%;
+  height: 100%;
+  opacity: ${({ isFocus }) => (isFocus ? "0.5" : "1")};
+`;
+
 const SearchbarInput = styled.TextInput`
   width: 95%;
   height: 84%;
@@ -31,6 +45,13 @@ const Searchbar = () => {
 
   return (
     <SearchbarWrapper>
+      <SearchbarIconWrapper>
+        <SearchbarIcon
+          isFocus={isFocus}
+          source={require("../../assets/search-icon.png")}
+        />
+      </SearchbarIconWrapper>
+
       <SearchbarInput
         defaultValue=""
         value={searchInput}
