@@ -30,10 +30,11 @@ const SearchbarIcon = styled.Image`
 `;
 
 const SearchbarInput = styled.TextInput`
+  font-size: 16px;
   width: 95%;
   height: 84%;
   padding-right: 10px;
-  padding-left: 10px;
+  padding-left: 39px;
   background-color: ${({ isFocus }) => (isFocus ? "#e2e2e8" : "#fbfbfc")};
   border: ${({ isFocus }) => (isFocus ? "1px solid #c6c6d1" : "none")};
   border-radius: 50px;
