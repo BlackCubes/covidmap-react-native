@@ -5,14 +5,14 @@ const SearchbarWrapper = styled.View`
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 20%;
+  top: 7%;
   left: 20%;
   width: 60%;
   height: 50px;
   background-color: #fbfbfc;
   border: 1px solid #f0f0f3;
   border-radius: 50px;
-  z-index: -1;
+  z-index: 10;
 `;
 
 const SearchbarIconWrapper = styled.View`
