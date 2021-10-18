@@ -1,82 +1,12 @@
 import * as React from "react";
-import { Button, View, Text } from "react-native";
+import { Button, View, Text, useWindowDimensions } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
+
 import DrawerContent from "./DrawerContent";
-import DrawerButton from "../map-layout/components/DrawerButton";
-import { useWindowDimensions } from 'react-native';
+import MapLayout from "../map-layout/MapLayout";
+
 const Drawer = createDrawerNavigator();
-
-function WorldScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>World Total screen</Text>
-      <Button
-        onPress={() => navigation.navigate("About Us")}
-        title="Go to About Us screen"
-      />
-      <DrawerButton/>
-    </View>
-  );
-}
-
-function CountryProvinceScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Search Country Provinces screen</Text>
-      <Button onPress={() => navigation.goBack()} title="Go to World" />
-    </View>
-  );
-}
-
-function USTotalScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>US Total screen</Text>
-      <Button
-        onPress={() => navigation.navigate("World")}
-        title="Go to World"
-      />
-    </View>
-  );
-}
-
-function StateCountiesTotalScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>State Counties Total screen</Text>
-      <Button
-        onPress={() => navigation.navigate("World")}
-        title="Go to World"
-      />
-    </View>
-  );
-}
-
-
-function WorldVaxTotalsScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>World Vaccination Totals screen</Text>
-      <Button
-        onPress={() => navigation.navigate("World")}
-        title="Go to World"
-      />
-    </View>
-  );
-}
-
-function USVaxTotalScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>US Vaccination Total screen</Text>
-      <Button
-        onPress={() => navigation.navigate("World")}
-        title="Go to World"
-      />
-    </View>
-  );
-}
 
 function TrialDataScreen({ navigation }) {
   return (
@@ -105,37 +35,26 @@ const DrawerMenu = () => {
   const dimensions = useWindowDimensions();
   return (
     <NavigationContainer>
-      <Drawer.Navigator 
-      initialRouteName="World" 
-      screenOptions={{
-        drawerType: dimensions.width >= 768 ? 'permanent' : 'front',
-        drawerHideStatusBarOnOpen: true,
-      }}
-      drawerContent={(props) => <DrawerContent {...props}/>}>
+      <Drawer.Navigator
+        initialRouteName="World"
+        screenOptions={{
+          drawerType: dimensions.width >= 768 ? "permanent" : "front",
+          drawerHideStatusBarOnOpen: true,
+        }}
+        drawerContent={(props) => <DrawerContent {...props} />}
+      >
         {/* Component created for menu button test */}
-     
+
         {/* WORLD */}
-        <Drawer.Screen name="World" component={WorldScreen} />
-        <Drawer.Screen
-          name="Country Province Stats"
-          component={CountryProvinceScreen}
-        />
+        <Drawer.Screen name="World" component={MapLayout} />
+        <Drawer.Screen name="Country Province Stats" component={MapLayout} />
         {/* US */}
-        <Drawer.Screen name="US Total" component={USTotalScreen} />
-        <Drawer.Screen
-          name="State Counties Totals"
-          component={StateCountiesTotalScreen}
-        />
+        <Drawer.Screen name="US Total" component={MapLayout} />
+        <Drawer.Screen name="State Counties Totals" component={MapLayout} />
 
         {/* Vaccine */}
-        <Drawer.Screen
-          name="World Vaccination Totals"
-          component={WorldVaxTotalsScreen}
-        />
-        <Drawer.Screen
-          name="US Vaccination Total"
-          component={USVaxTotalScreen}
-        />
+        <Drawer.Screen name="World Vaccination Totals" component={MapLayout} />
+        <Drawer.Screen name="US Vaccination Total" component={MapLayout} />
         <Drawer.Screen name="Trial Data" component={TrialDataScreen} />
 
         {/* Bottom Content */}
