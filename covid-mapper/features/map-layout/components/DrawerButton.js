@@ -7,7 +7,7 @@ const FloatingButton = styled.View`
   background-color: orange;
   color: white;
   border-color: white;
-  padding: 10px
+  padding: 10px;
   border-radius: 50px;
 `;
 
@@ -20,7 +20,10 @@ const DrawerButton = () => {
   const navigation = useNavigation();
   const openMenu = () => navigation.openDrawer();
   return (
-    <Pressable onPress={openMenu} style={{ position: 'absolute', right: '10%', bottom: '10%' }}>
+    <Pressable
+      onPress={openMenu}
+      style={{ position: "absolute", right: "10%", bottom: "10%" }}
+    >
       <FloatingButton>
         <MenuIcon source={require("../../../assets/globe.png")} />
       </FloatingButton>
