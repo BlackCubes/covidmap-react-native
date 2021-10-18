@@ -4,6 +4,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import DrawerContent from "./DrawerContent";
 import DrawerButton from "../map-layout/components/DrawerButton";
+import { useWindowDimensions } from 'react-native';
 const Drawer = createDrawerNavigator();
 
 function WorldScreen({ navigation }) {
@@ -101,9 +102,15 @@ function AboutUsScreen({ navigation }) {
   );
 }
 const DrawerMenu = () => {
+  const dimensions = useWindowDimensions();
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="World" 
+      <Drawer.Navigator 
+      initialRouteName="World" 
+      screenOptions={{
+        drawerType: dimensions.width >= 768 ? 'permanent' : 'front',
+        drawerHideStatusBarOnOpen: true,
+      }}
       drawerContent={(props) => <DrawerContent {...props}/>}>
         {/* Component created for menu button test */}
      
