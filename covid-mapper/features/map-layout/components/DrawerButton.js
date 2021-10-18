@@ -11,15 +11,20 @@ const FloatingButton = styled.View`
   border-radius: 50px;
 `;
 
+const MenuIcon = styled.Image`
+  height: 24px;
+  width: 24px;
+`;
+
 const DrawerButton = () => {
   const navigation = useNavigation();
   const openMenu = () => navigation.openDrawer();
   return (
-      <Pressable onPress={openMenu}>
-        <FloatingButton>
-            <Text>Menu</Text>
-        </FloatingButton>
-      </Pressable>
+    <Pressable onPress={openMenu} style={{ position: 'absolute', right: '10%', bottom: '10%' }}>
+      <FloatingButton>
+        <MenuIcon source={require("../../../assets/globe.png")} />
+      </FloatingButton>
+    </Pressable>
   );
 };
 

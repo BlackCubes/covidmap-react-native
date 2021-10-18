@@ -100,7 +100,6 @@ function AboutUsScreen({ navigation }) {
     </View>
   );
 }
-
 const DrawerMenu = () => {
   return (
     <NavigationContainer>
