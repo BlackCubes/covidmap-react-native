@@ -22,7 +22,12 @@ const DrawerButton = () => {
   return (
     <Pressable
       onPress={openMenu}
-      style={{ position: "absolute", right: "10%", bottom: "10%" }}
+      style={{
+        position: "absolute",
+        right: "10%",
+        bottom: "10%",
+        zIndex: 10,
+      }}
     >
       <FloatingButton>
         <MenuIcon source={require("../../../assets/globe.png")} />
