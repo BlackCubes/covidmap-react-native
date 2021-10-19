@@ -1,9 +1,9 @@
 import React from "react";
 import { useWindowDimensions } from "react-native";
 
-import DrawerButton from "./components/DrawerButton";
 import MapComponent from "../map/Map";
 import Searchbar from "../searchbar/Searchbar";
+import { OpenSesameButton } from "../../commons/components";
 
 const MapLayout = () => {
   const { width: mapviewWidth, height: mapviewHeight } = useWindowDimensions();
@@ -18,7 +18,7 @@ const MapLayout = () => {
     <>
       <Searchbar />
 
-      <DrawerButton />
+      <OpenSesameButton />
 
       <MapComponent
         mapviewHeight={mapviewHeight}
