@@ -1,8 +1,9 @@
 import * as React from "react";
-import { Text, SafeAreaView, FlatList, View } from "react-native";
+import { Text, SafeAreaView, FlatList } from "react-native";
 import styled from "styled-components/native";
 import VaccineItem from "./components/VaccineItem";
 import { useGetAllAvailableVaccinesQuery } from "../../api/covidApi";
+import Spinner from '../../commons/components/Spinner/Spinner'
 
 const Container = styled.View`
   height: 100%;
@@ -47,11 +48,18 @@ const VaccineLayout = () => {
   } = useGetAllAvailableVaccinesQuery();
 
   if (error) {
-    console.log(error);
-    return <Text>{error}</Text>;
-  }
+      return (<SafeAreaView>
+        <Container>
+         <Text>Error: {error}</Text>;
+        </Container>
+    </SafeAreaView>)
+  };
 
-  if (isLoading || !trialData) return <Text>Loading...</Text>;
+  if (isLoading || !trialData) return (<SafeAreaView>
+      <Container>
+        <Spinner/>
+      </Container>
+  </SafeAreaView>);
 
   return (
     <SafeAreaView>
@@ -64,7 +72,7 @@ const VaccineLayout = () => {
         {/* List starts here */}
         <ListContainer>
           <FlatList
-            data={trialData["data"]} // Replace with API data later and remove DUMMY_DATA above
+            data={trialData["data"]} 
             ItemSeparatorComponent={() => <LineSeparator />}
             initialNumToRender={3}
             keyExtractor={(item, index) => item + index}
