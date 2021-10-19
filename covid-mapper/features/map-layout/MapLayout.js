@@ -61,7 +61,9 @@ const MapLayout = ({ route }) => {
   };
 
   const handleSearchSubmit = (inputValue) => {
+    // Based on the name of the route to update particular states.
     if (routeName === "Country Province Stats") {
+      // If there are no inputs for this, then it is the initial start.
       if (!searchCountry.length && !searchProvince.length) {
         setSearchCountry(inputValue);
         setSearchPlaceholder("Search by province");
@@ -72,6 +74,7 @@ const MapLayout = ({ route }) => {
   };
 
   useEffect(() => {
+    // Based on the route names to update the data array or object to be displayed on the map.
     switch (routeName) {
       case "World":
         setMapDataObject(globalCovidStatsData);
