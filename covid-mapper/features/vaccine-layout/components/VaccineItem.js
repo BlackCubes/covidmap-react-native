@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Text, Pressable, SafeAreaView } from "react-native";
 import styled from "styled-components/native";
+import he from 'he';
 
 const ArticleContainer = styled.View`
   display: flex;
@@ -87,12 +88,12 @@ const VaccineItem = ({
         {/* Details */}
         <DetailsContainer>
           <Text numberOfLines={hideText ? 4 : undefined} ellipsizeMode="tail">
-            {details}
+            {he.decode(details)}
           </Text>
           {/* View More */}
           <Pressable onPress={viewMoreDetails} style={{ marginTop: "2%" }}>
             <ViewMoreButton>
-              <Text>View More...</Text>
+                {hideText? (<Text>View More...</Text>):(<Text>Hide...</Text>) }
             </ViewMoreButton>
           </Pressable>
         </DetailsContainer>
