@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useWindowDimensions } from "react-native";
 
 import MapComponent from "../map/Map";
@@ -12,7 +12,10 @@ import {
 import { OpenSesameButton } from "../../commons/components";
 
 const MapLayout = ({ route }) => {
+  const [mapDataArray, setMapDataArray] = useState([]);
+  const [mapDataObject, setMapDataObject] = useState(null);
   const [searchCountry, setSearchCountry] = useState("New Zealand");
+  const [searchProvince, setSearchProvince] = useState("mainland");
 
   // WORLD
   // - world stats
@@ -33,11 +36,14 @@ const MapLayout = ({ route }) => {
     isLoading: countryHistoricalLoading,
     error: countryHistoricalError,
   } = useGetCountryHistoricalQuery(searchCountry);
-  // const {
-  //   data: provinceHistoricalData,
-  //   isLoading: provinceHistoricalLoading,
-  //   error: provinceHistoricalError,
-  // } = useGetProvinceHistoricalQuery();
+  const {
+    data: provinceHistoricalData,
+    isLoading: provinceHistoricalLoading,
+    error: provinceHistoricalError,
+  } = useGetProvinceHistoricalQuery({
+    country: searchCountry,
+    province: searchProvince,
+  });
 
   // US
   // - national stats
@@ -53,6 +59,24 @@ const MapLayout = ({ route }) => {
   };
 
   const handleSearchSubmit = (inputValue) => setSearchCountry(inputValue);
+
+  useEffect(() => {
+    switch (route.name) {
+      case "World":
+        setMapDataObject(globalCovidStatsData);
+        break;
+      case "Country Province Stats":
+        setMapDataArray(allCountriesProvincesHistoricalData);
+        break;
+      case "US Total":
+        break;
+      case "State Counties Totals":
+        break;
+      default:
+        setMapDataArray(globalCovidStatsData);
+        break;
+    }
+  }, [route]);
 
   return (
     <>
