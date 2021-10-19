@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components/native';
-
+import SwipeUpDownModal from 'react-native-swipe-modal-up-down';
 
 const PopupContainer = styled.View`
     width: 100%;
@@ -35,26 +35,29 @@ const PopupContent = styled.Text`
     font-size: 15px;
     color: white;
 `
-
  
-
 const PopupSlider = ({testData}) => {
+  const [ShowComment, setShowModelComment] = useState(false);
+  const [animateModal, setanimateModal] = useState(false);
+
     return(
+        
         <PopupContainer>
             <PopupDivider/>
             <PopUpTitle>Latest from {testData.title}</PopUpTitle>
-            <PopupContentContainer>
-                <PopupContent>Location: {testData.location}</PopupContent>
-                <PopupContent>Updated at: {testData.update}</PopupContent>
-                <PopupContent>Confirmed Cases: {testData.confirmed}</PopupContent>
-                <PopupContent>Deaths: {testData.deaths}</PopupContent>
-                <PopupContent>Recovered: {testData.recovered}</PopupContent>
-            </PopupContentContainer>
-            
+           
+                <PopupContentContainer>
+                    <PopupContent>Location: {testData.location}</PopupContent>
+                    <PopupContent>Updated at: {testData.update}</PopupContent>
+                    <PopupContent>Confirmed Cases: {testData.confirmed}</PopupContent>
+                    <PopupContent>Deaths: {testData.deaths}</PopupContent>
+                    <PopupContent>Recovered: {testData.recovered}</PopupContent>
+                </PopupContentContainer>
+           
         </PopupContainer>
+      
     )
 }
-
 
 
 export default PopupSlider;
