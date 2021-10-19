@@ -72,7 +72,7 @@ const VaccineLayout = () => {
         {/* List starts here */}
         <ListContainer>
           <FlatList
-            data={trialData["data"]} // Replace with API data later and remove DUMMY_DATA above
+            data={trialData["data"]} 
             ItemSeparatorComponent={() => <LineSeparator />}
             initialNumToRender={3}
             keyExtractor={(item, index) => item + index}
