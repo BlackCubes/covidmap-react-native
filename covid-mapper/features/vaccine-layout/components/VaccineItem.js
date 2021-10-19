@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Button, View, Text } from "react-native";
+import { Text, Pressable, SafeAreaView } from "react-native";
 import styled from "styled-components/native";
 
 const ArticleContainer = styled.View`
@@ -30,6 +30,22 @@ const PhaseSponsorsContainer = styled.View`
   margin-bottom: 20px;
 `;
 
+const DetailsContainer = styled.View`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ViewMoreButton = styled.Text`
+    color: #77C280;
+    padding: 4px;
+    border-radius: 6px;
+    border: 1px solid #77C2B0;
+    width: 30%;
+    margin: 0 auto;
+    text-align:  center;
+    padding: 8px;
+`;
+
 const VaccineItem = ({
   candidate,
   mechanism,
@@ -38,9 +54,11 @@ const VaccineItem = ({
   trialPhase,
   institutions,
 }) => {
-    const [hideText, setHideText]=useState(true)
+    const [hideText, setHideText]=useState(true);
+    const viewMoreDetails =()=> setHideText(!hideText);
   return (
-    <ArticleContainer>
+   <SafeAreaView>
+        <ArticleContainer>
       <CandidateHeading>Candidate: {candidate}</CandidateHeading>
       <BoldText>
         Mechanism: <ItalicMechanism>{mechanism}</ItalicMechanism>
@@ -53,8 +71,17 @@ const VaccineItem = ({
         {/* Institutions */}
         <BoldText>Institutions: {institutions.map((siteName)=><Text key={siteName}>{siteName}</Text>)}</BoldText>
         {/* Details */}
-        <Text numberOfLines={hideText? 4: undefined} ellipsizeMode='tail'>{details}</Text>
+        <DetailsContainer>
+            <Text numberOfLines={hideText? 4: undefined} ellipsizeMode='tail'>{details}</Text>
+            {/* View More */}
+            <Pressable onPress={viewMoreDetails} style={{ marginTop: '2%',}}>
+                <ViewMoreButton>
+                    <Text>View More...</Text>
+                </ViewMoreButton>
+            </Pressable>
+        </DetailsContainer>
     </ArticleContainer>
+   </SafeAreaView>
   );
 };
 

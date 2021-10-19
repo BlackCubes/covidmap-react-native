@@ -8,17 +8,6 @@ import VaccineLayout from "../vaccine-layout/VaccineLayout";
 
 const Drawer = createDrawerNavigator();
 
-function TrialDataScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Trial Data screen</Text>
-      <Button
-        onPress={() => navigation.navigate("World")}
-        title="Go to World"
-      />
-    </View>
-  );
-}
 
 function AboutUsScreen({ navigation }) {
   return (

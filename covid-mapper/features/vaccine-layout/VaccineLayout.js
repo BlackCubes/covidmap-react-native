@@ -34,10 +34,11 @@ const LineSeparator = styled.View`
 `;
 
 const ListContainer = styled.View`
-  margin-top: 15%;
-  margin-bottom: 15%;
+  padding-top: 20%;
+  margin-bottom: 2%;
 `;
 
+// FOR TESTING PURPOSES;
 const DUMMY_DATA = [
   {
     candidate: "BNT162",
@@ -144,11 +145,12 @@ const VaccineLayout = () => {
             Vaccine Candidates in Development
           </Text>
         </Header>
-        {/* section list here */}
+        {/* List starts here */}
         <ListContainer>
           <FlatList
-            data={DUMMY_DATA}
+            data={DUMMY_DATA} // Replace with API data later and remove DUMMY_DATA above
             ItemSeparatorComponent={()=><LineSeparator/>}
+            initialNumToRender={3}
             keyExtractor={(item, index) => item + index}
             renderItem={({ item }) => (
               <VaccineItem
