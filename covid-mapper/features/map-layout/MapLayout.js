@@ -15,8 +15,9 @@ const MapLayout = ({ route }) => {
   const [mapDataArray, setMapDataArray] = useState([]);
   const [mapDataObject, setMapDataObject] = useState(null);
   const [searchPlaceholder, setSearchPlaceholder] = useState("");
-  const [searchCountry, setSearchCountry] = useState("New Zealand");
-  const [searchProvince, setSearchProvince] = useState("mainland");
+  const [searchCountry, setSearchCountry] = useState("");
+  const [searchProvince, setSearchProvince] = useState("");
+  const { name: routeName } = route;
 
   // WORLD
   // - world stats
@@ -59,10 +60,19 @@ const MapLayout = ({ route }) => {
     longitudeDelta: 0.0421,
   };
 
-  const handleSearchSubmit = (inputValue) => setSearchCountry(inputValue);
+  const handleSearchSubmit = (inputValue) => {
+    if (routeName === "Country Province Stats") {
+      if (!searchCountry.length && !searchProvince.length) {
+        setSearchCountry(inputValue);
+        setSearchPlaceholder("Search by province");
+      } else {
+        setSearchProvince(inputValue);
+      }
+    }
+  };
 
   useEffect(() => {
-    switch (route.name) {
+    switch (routeName) {
       case "World":
         setMapDataObject(globalCovidStatsData);
         setSearchPlaceholder("Search by world");
@@ -79,7 +89,9 @@ const MapLayout = ({ route }) => {
         setMapDataArray(globalCovidStatsData);
         break;
     }
-  }, [route]);
+  }, [routeName]);
+
+  console.log(provinceHistoricalData);
 
   return (
     <>
