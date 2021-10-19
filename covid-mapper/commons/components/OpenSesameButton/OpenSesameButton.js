@@ -4,7 +4,7 @@ import { Pressable } from "react-native";
 
 import { FloatingButton, MenuIcon } from "./styles";
 
-const DrawerButton = () => {
+const OpenSesameButton = () => {
   const navigation = useNavigation();
   const openMenu = () => navigation.openDrawer();
   return (
@@ -24,4 +24,4 @@ const DrawerButton = () => {
   );
 };
 
-export default DrawerButton;
+export default OpenSesameButton;
