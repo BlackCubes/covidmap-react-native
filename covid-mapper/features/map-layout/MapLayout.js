@@ -91,8 +91,6 @@ const MapLayout = ({ route }) => {
     }
   }, [routeName]);
 
-  console.log(provinceHistoricalData);
-
   return (
     <>
       <Searchbar
