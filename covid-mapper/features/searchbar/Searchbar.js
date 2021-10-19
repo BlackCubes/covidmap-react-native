@@ -40,7 +40,7 @@ const SearchbarInput = styled.TextInput`
   border-radius: 50px;
 `;
 
-const Searchbar = ({ handleSearchSubmit }) => {
+const Searchbar = ({ handleSearchSubmit, searchPlaceholder }) => {
   const [searchInput, setSearchInput] = useState("");
   const [isFocus, setIsFocus] = useState(false);
 
@@ -56,6 +56,7 @@ const Searchbar = ({ handleSearchSubmit }) => {
       <SearchbarInput
         defaultValue=""
         value={searchInput}
+        placeholder={searchPlaceholder}
         isFocus={isFocus}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(!searchInput.length ? false : true)}

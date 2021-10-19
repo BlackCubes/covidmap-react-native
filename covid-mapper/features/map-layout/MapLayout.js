@@ -14,6 +14,7 @@ import { OpenSesameButton } from "../../commons/components";
 const MapLayout = ({ route }) => {
   const [mapDataArray, setMapDataArray] = useState([]);
   const [mapDataObject, setMapDataObject] = useState(null);
+  const [searchPlaceholder, setSearchPlaceholder] = useState("");
   const [searchCountry, setSearchCountry] = useState("New Zealand");
   const [searchProvince, setSearchProvince] = useState("mainland");
 
@@ -64,9 +65,11 @@ const MapLayout = ({ route }) => {
     switch (route.name) {
       case "World":
         setMapDataObject(globalCovidStatsData);
+        setSearchPlaceholder("Search by world");
         break;
       case "Country Province Stats":
         setMapDataArray(allCountriesProvincesHistoricalData);
+        setSearchPlaceholder("Search by country");
         break;
       case "US Total":
         break;
@@ -80,7 +83,10 @@ const MapLayout = ({ route }) => {
 
   return (
     <>
-      <Searchbar handleSearchSubmit={handleSearchSubmit} />
+      <Searchbar
+        handleSearchSubmit={handleSearchSubmit}
+        searchPlaceholder={searchPlaceholder}
+      />
 
       <OpenSesameButton />
 
