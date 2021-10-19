@@ -1,11 +1,9 @@
 import React,{useState} from "react";
 import { useWindowDimensions } from "react-native";
 
-import DrawerButton from "./components/DrawerButton";
 import MapComponent from "../map/Map";
 import Searchbar from "../searchbar/Searchbar";
-import PopupSlider from "./components/PopupSlider";
-
+import { OpenSesameButton } from "../../commons/components";
 
 
 const MapLayout = () => {
@@ -22,8 +20,8 @@ const MapLayout = () => {
     <>
       {/* <Searchbar /> */}
 
+      <OpenSesameButton />
 
-      <DrawerButton />
       <PopupSlider testData={testData} />
       
       <MapComponent

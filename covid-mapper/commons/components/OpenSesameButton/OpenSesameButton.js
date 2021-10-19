@@ -1,22 +1,10 @@
 import * as React from "react";
-import styled from "styled-components/native";
 import { useNavigation } from "@react-navigation/native";
-import { Text, Pressable } from "react-native";
+import { Pressable } from "react-native";
 
-const FloatingButton = styled.View`
-  background-color: orange;
-  color: white;
-  border-color: white;
-  padding: 10px;
-  border-radius: 50px;
-`;
+import { FloatingButton, MenuIcon } from "./styles";
 
-const MenuIcon = styled.Image`
-  height: 24px;
-  width: 24px;
-`;
-
-const DrawerButton = () => {
+const OpenSesameButton = () => {
   const navigation = useNavigation();
   const openMenu = () => navigation.openDrawer();
   return (
@@ -36,4 +24,4 @@ const DrawerButton = () => {
   );
 };
 
-export default DrawerButton;
+export default OpenSesameButton;
