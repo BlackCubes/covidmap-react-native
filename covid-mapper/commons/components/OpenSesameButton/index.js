@@ -1,3 +1,3 @@
-import { OpenSesameButton } from ".";
+import OpenSesameButton from "./OpenSesameButton";
 
 export { OpenSesameButton };
