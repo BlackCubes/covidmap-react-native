@@ -3407,6 +3407,11 @@
   dependencies:
     "function-bind" "^1.1.1"
 
+"he@^1.2.0":
+  "integrity" "sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw=="
+  "resolved" "https://registry.npmjs.org/he/-/he-1.2.0.tgz"
+  "version" "1.2.0"
+
 "hermes-engine@~0.5.0":
   "integrity" "sha512-hLwqh8dejHayjlpvZY40e1aDCDvyP98cWx/L5DhAjSJLH8g4z9Tp08D7y4+3vErDsncPOdf1bxm+zUWpx0/Fxg=="
   "resolved" "https://registry.npmjs.org/hermes-engine/-/hermes-engine-0.5.1.tgz"
