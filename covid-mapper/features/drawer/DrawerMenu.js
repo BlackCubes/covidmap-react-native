@@ -2,23 +2,12 @@ import * as React from "react";
 import { Button, View, Text, useWindowDimensions } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
-
 import DrawerContent from "./DrawerContent";
 import MapLayout from "../map-layout/MapLayout";
+import VaccineLayout from "../vaccine-layout/VaccineLayout";
 
 const Drawer = createDrawerNavigator();
 
-function TrialDataScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Trial Data screen</Text>
-      <Button
-        onPress={() => navigation.navigate("World")}
-        title="Go to World"
-      />
-    </View>
-  );
-}
 
 function AboutUsScreen({ navigation }) {
   return (
@@ -55,7 +44,7 @@ const DrawerMenu = () => {
         {/* Vaccine */}
         <Drawer.Screen name="World Vaccination Totals" component={MapLayout} />
         <Drawer.Screen name="US Vaccination Total" component={MapLayout} />
-        <Drawer.Screen name="Trial Data" component={TrialDataScreen} />
+        <Drawer.Screen name="Trial Data" component={VaccineLayout} />
 
         {/* Bottom Content */}
         <Drawer.Screen name="About Us" component={AboutUsScreen} />
