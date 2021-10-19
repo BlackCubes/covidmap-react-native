@@ -52,9 +52,11 @@ const MapLayout = ({ route }) => {
     longitudeDelta: 0.0421,
   };
 
+  const handleSearchSubmit = (inputValue) => setSearchValue(inputValue);
+
   return (
     <>
-      <Searchbar />
+      <Searchbar handleSearchSubmit={handleSearchSubmit} />
 
       <OpenSesameButton />
 

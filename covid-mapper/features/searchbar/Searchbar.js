@@ -40,7 +40,7 @@ const SearchbarInput = styled.TextInput`
   border-radius: 50px;
 `;
 
-const Searchbar = () => {
+const Searchbar = ({ handleSearchSubmit }) => {
   const [searchInput, setSearchInput] = useState("");
   const [isFocus, setIsFocus] = useState(false);
 
@@ -60,6 +60,7 @@ const Searchbar = () => {
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(!searchInput.length ? false : true)}
         onChangeText={(text) => setSearchInput(text)}
+        onSubmitEditing={() => handleSearchSubmit(searchInput)}
       />
     </SearchbarWrapper>
   );
