@@ -1,11 +1,15 @@
-import React from "react";
+import React,{useState} from "react";
 import { useWindowDimensions } from "react-native";
 
 import DrawerButton from "./components/DrawerButton";
 import MapComponent from "../map/Map";
 import Searchbar from "../searchbar/Searchbar";
+import PopupSlider from "./components/PopupSlider";
+
+
 
 const MapLayout = () => {
+  const [testData, setTestData] = useState({title: 'Fresno', location: 'Fresno', update: '2021-10-12 04:21:09', confirmed: 142951, deaths: 2035, recovered: 'Not enough info' });
   const { width: mapviewWidth, height: mapviewHeight } = useWindowDimensions();
   const mapviewRegion = {
     latitude: 37.78825,
@@ -16,15 +20,18 @@ const MapLayout = () => {
 
   return (
     <>
-      <Searchbar />
+      {/* <Searchbar /> */}
+
 
       <DrawerButton />
-
+      <PopupSlider testData={testData} />
+      
       <MapComponent
         mapviewHeight={mapviewHeight}
         mapviewRegion={mapviewRegion}
         mapviewWidth={mapviewWidth}
       />
+      
     </>
   );
 };
