@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import DrawerContent from "./DrawerContent";
 import DrawerButton from "../map-layout/components/DrawerButton";
 import { useWindowDimensions } from 'react-native';
+import VaccineLayout from "../vaccine-layout/VaccineLayout";
 const Drawer = createDrawerNavigator();
 
 function WorldScreen({ navigation }) {
@@ -136,7 +137,7 @@ const DrawerMenu = () => {
           name="US Vaccination Total"
           component={USVaxTotalScreen}
         />
-        <Drawer.Screen name="Trial Data" component={TrialDataScreen} />
+        <Drawer.Screen name="Trial Data" component={VaccineLayout} />
 
         {/* Bottom Content */}
         <Drawer.Screen name="About Us" component={AboutUsScreen} />
