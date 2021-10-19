@@ -12,7 +12,7 @@ import {
 import { OpenSesameButton } from "../../commons/components";
 
 const MapLayout = ({ route }) => {
-  const [searchValue, setSearchValue] = useState("New Zealand");
+  const [searchCountry, setSearchCountry] = useState("New Zealand");
 
   // WORLD
   // - world stats
@@ -32,7 +32,7 @@ const MapLayout = ({ route }) => {
     data: countryHistoricalData,
     isLoading: countryHistoricalLoading,
     error: countryHistoricalError,
-  } = useGetCountryHistoricalQuery(searchValue);
+  } = useGetCountryHistoricalQuery(searchCountry);
   // const {
   //   data: provinceHistoricalData,
   //   isLoading: provinceHistoricalLoading,
@@ -52,7 +52,7 @@ const MapLayout = ({ route }) => {
     longitudeDelta: 0.0421,
   };
 
-  const handleSearchSubmit = (inputValue) => setSearchValue(inputValue);
+  const handleSearchSubmit = (inputValue) => setSearchCountry(inputValue);
 
   return (
     <>
