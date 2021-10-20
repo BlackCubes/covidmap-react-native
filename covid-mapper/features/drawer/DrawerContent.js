@@ -47,8 +47,8 @@ const LogoImage = styled.Image`
 `;
 
 const Heading = styled.Text`
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: 700;
   color: #203f59;
 `;
 
@@ -58,7 +58,7 @@ const DrawerContent = (props) => {
       <DrawerContentScrollView {...props}>
         <LogoContainer>
           {/* Logo */}
-          <LogoImage source={require('../../assets/logo.png')}/>
+          <LogoImage source={require("../../assets/logo.png")} />
           <LogoText>COVID Mapper</LogoText>
         </LogoContainer>
         <GreenBorder></GreenBorder>
@@ -66,14 +66,15 @@ const DrawerContent = (props) => {
         <DrawerSection>
           {/* World total section */}
           <Heading>World</Heading>
-         
+          {/* endpoint: /v3/covid-19/all AND /v3/covid-19/countries */}
           <DrawerItem
-            label="World Stats"
+            style={{ border: "1px solid blue" }}
+            label="World Data"
             onPress={() => {
               props.navigation.navigate("World");
             }}
           />
-          {/* Non-US Country > Province search */}
+          {/* endpoint: /v3/covid-19/historical/{country}/{province} */}
           <DrawerItem
             label="Search Country/Province"
             onPress={() => {
@@ -84,52 +85,55 @@ const DrawerContent = (props) => {
         {/* Start USA section */}
         <DrawerSection>
           <Heading>U.S.</Heading>
+          {/* endpoint: /v3/covid-19/states - totals for all US states */}
           <DrawerItem
-            label="National Stats"
+            label="US Data"
             onPress={() => {
-              props.navigation.navigate("Country Province Stats");
+              props.navigation.navigate("US Total");
             }}
           />
+          {/* endpoint: /v3/covid-19/historical/usacounties/{state} */}
           <DrawerItem
-            label="Search State/County"
+            label="Search State/Counties Data"
             onPress={() => {
               props.navigation.navigate("State Counties Totals");
             }}
           />
         </DrawerSection>
+
         {/* Start Vaccination section */}
         <DrawerSection>
-          <Heading>Vaccination Stats &amp; Trial Data</Heading>
-          {/* endpoint to use: /vaccine/coverage */}
+          <Heading>Vaccination Doses Administered &amp; Trial Data</Heading>
+          {/* endpoints to use: /vaccine/coverage AND /vaccine/coverage/countries */}
           <DrawerItem
-            label="World Vaccination Totals"
+            label="World Total &amp; All Countries"
             onPress={() => {
               props.navigation.navigate("World Vaccination Totals");
             }}
           />
           <DrawerItem
-            label="Search Vaccination Stats by Country"
+            label="Search Total by Country"
             onPress={() => {
-              props.navigation.navigate("US Vaccination Total");
+              props.navigation.navigate("Country Vaccination Total");
             }}
           />
           {/* endpoint to use: /vaccine/coverage/states */}
           <DrawerItem
-            label="US National Vaccination Total"
+            label="US National Total"
             onPress={() => {
               props.navigation.navigate("US Vaccination Total");
             }}
           />
           {/* endpoint to use: /vaccine/coverage/states/${state} */}
-             <DrawerItem
-            label="Search State Vaccination Stats(US)"
+          <DrawerItem
+            label="Specific State &amp; Counties(US)"
             onPress={() => {
-              props.navigation.navigate("Search State(US) Vaccination Stats");
+              props.navigation.navigate("State Vaccination Total");
             }}
-          />  
+          />
           {/* endpoint to use: /vaccine  */}
           <DrawerItem
-            label="Trial Data"
+            label="Vaccine Trial Data"
             onPress={() => {
               props.navigation.navigate("Trial Data");
             }}

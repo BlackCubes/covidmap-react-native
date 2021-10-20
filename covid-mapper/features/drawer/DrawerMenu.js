@@ -35,6 +35,7 @@ const DrawerMenu = () => {
           headerTintColor: "#fff",
           headerTitleStyle: { fontWeight: "bold" },
         }}
+
         drawerContent={(props) => <DrawerContent {...props} />}
       >
         {/* WORLD */}
@@ -46,8 +47,9 @@ const DrawerMenu = () => {
 
         {/* Vaccine */}
         <Drawer.Screen name="World Vaccination Totals" component={MapLayout} />
+        <Drawer.Screen name="Country Vaccination Total" component={MapLayout} />
         <Drawer.Screen name="US Vaccination Total" component={MapLayout} />
-        <Drawer.Screen name="Search State(US) Vaccination Stats" component={MapLayout} />
+        <Drawer.Screen name="State Vaccination Total" component={MapLayout} />
         <Drawer.Screen name="Trial Data" component={VaccineLayout} />
 
         {/* Bottom Content */}
