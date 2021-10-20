@@ -32,7 +32,7 @@ const SearchbarIcon = styled.Image`
 `;
 
 const SearchbarInput = styled.TextInput`
-  font-size: 16px;
+  font-size: 14px;
   width: 95%;
   height: 84%;
   padding-right: 10px;

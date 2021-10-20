@@ -6,12 +6,11 @@ import Searchbar from "../searchbar/Searchbar";
 import {
   useGetGlobalCovidStatsQuery,
   useGetAllCountriesProvincesHistoricalQuery,
+  useGetAllUSCountiesFromStateQuery,
   useGetCountryHistoricalQuery,
   useGetProvinceHistoricalQuery,
   useGetTotalsAllStatesUSQuery,
   useGetTotalOneUSStateQuery,
-  useGetTotalAllUSCountiesQuery,
-  useGetTotalOneUSCountyQuery,
 } from "../../api/covidApi";
 import { OpenSesameButton } from "../../commons/components";
 import PopupSlider from "./components/PopupSlider";
@@ -23,7 +22,7 @@ const MapLayout = ({ route }) => {
   const [searchCountry, setSearchCountry] = useState("");
   const [searchProvince, setSearchProvince] = useState("");
   const [searchUSState, setSearchUSState] = useState("");
-  const [searchUSCounty, setSearchUSCountry] = useState("");
+  const [searchUSCounty, setSearchUSCounty] = useState("");
   const { name: routeName } = route;
 
   const [testData, setTestData] = useState({
@@ -78,15 +77,10 @@ const MapLayout = ({ route }) => {
     error: oneUSStateError,
   } = useGetTotalOneUSStateQuery(searchUSState);
   const {
-    data: allUSCountiesData,
-    isLoading: allUSCountiesLoading,
-    error: allUSCountiesError,
-  } = useGetTotalAllUSCountiesQuery();
-  const {
-    data: oneUSCountyData,
-    isLoading: oneUSCountyLoading,
-    error: oneUSCountyError,
-  } = useGetTotalOneUSCountyQuery(searchUSCounty);
+    data: usCountiesData,
+    isLoading: usCountiesLoading,
+    error: usCountiesError,
+  } = useGetAllUSCountiesFromStateQuery(searchUSState);
 
   const { width: mapviewWidth, height: mapviewHeight } = useWindowDimensions();
   const mapviewRegion = {
@@ -112,9 +106,9 @@ const MapLayout = ({ route }) => {
     ) {
       if (!searchUSState.length && !searchUSCounty.length) {
         setSearchUSState(inputValue);
-        setSearchPlaceholder("Search by County");
+        setSearchPlaceholder("Search by county");
       } else {
-        setSearchUSCountry(inputValue);
+        setSearchUSCounty(inputValue);
       }
     }
   };
