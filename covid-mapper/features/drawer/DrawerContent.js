@@ -39,12 +39,11 @@ const LogoText = styled.Text`
   font-size: 20px;
 `;
 
-const LogoImage = styled.View`
-  height: 22px;
-  width: 22px;
-  background-color: white;
+const LogoImage = styled.Image`
+  height: 60px;
+  width: 60px;
   border-radius: 3px;
-  margin-right: 6px;
+  margin-right: 4px;
 `;
 
 const Heading = styled.Text`
@@ -58,7 +57,8 @@ const DrawerContent = (props) => {
     <DrawerContentContainer>
       <DrawerContentScrollView {...props}>
         <LogoContainer>
-          <LogoImage></LogoImage>
+          {/* Logo */}
+          <LogoImage source={require('../../assets/logo.png')}/>
           <LogoText>COVID Mapper</LogoText>
         </LogoContainer>
         <GreenBorder></GreenBorder>
