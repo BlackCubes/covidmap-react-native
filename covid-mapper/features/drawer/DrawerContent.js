@@ -3,7 +3,13 @@ import * as Linking from "expo-linking";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import styled from "styled-components/native";
 import { Pressable, View } from "react-native";
-import { GithubIcon, ToadIcon } from "../../commons/components/Icons";
+import {
+  GithubIcon,
+  ToadIcon,
+  USAFlagIcon,
+  GlobeIcon,
+  SyringeIcon,
+} from "../../commons/components/Icons";
 
 const DrawerContentContainer = styled.View`
   flex: 1;
@@ -91,7 +97,12 @@ const DrawerContent = (props) => {
         {/*End Logo section and Begin DrawerItems section */}
         <DrawerSection>
           {/* World total section */}
-          <Heading>World</Heading>
+          <Heading>
+            World
+            <View style={{ paddingLeft: 4 }}>
+              <GlobeIcon />
+            </View>
+          </Heading>
           {/* endpoint: /v3/covid-19/all AND /v3/covid-19/countries */}
           <DrawerItem
             label="World Total &amp; By Country"
@@ -106,11 +117,16 @@ const DrawerContent = (props) => {
               props.navigation.navigate("Country Province Stats");
             }}
           />
-          <SectionDivider/>
+          <SectionDivider />
         </DrawerSection>
         {/* Start USA section */}
         <DrawerSection>
-          <Heading>U.S.</Heading>
+          <Heading>
+            U.S.
+            <View style={{ paddingLeft: 4 }}>
+              <USAFlagIcon />
+            </View>
+          </Heading>
           {/* endpoint: /v3/covid-19/states - totals for all US states */}
           <DrawerItem
             label="US Total &amp; All States"
@@ -125,12 +141,17 @@ const DrawerContent = (props) => {
               props.navigation.navigate("State Counties Totals");
             }}
           />
-          <SectionDivider/>
+          <SectionDivider />
         </DrawerSection>
 
         {/* Start Vaccination section */}
         <DrawerSection>
-          <Heading>Vaccination Doses Administered &amp; Trial Data</Heading>
+          <Heading>
+            Vaccination Doses Administered &amp; Trial Data
+            <View style={{ paddingLeft: 4 }}>
+              <SyringeIcon />
+            </View>
+          </Heading>
           {/* endpoints to use: /vaccine/coverage AND /vaccine/coverage/countries */}
           <DrawerItem
             label="World Total &amp; All Countries"
