@@ -52,7 +52,7 @@ export const covidApi = createApi({
     }),
 
     // VACCINES
-    getAllAvailableVaccines: builder.query({
+    getVaccinesTrialData: builder.query({
       query: () => `vaccine`,
     }),
     getTotalPeopleVaccinatedGlobal: builder.query({
@@ -85,7 +85,7 @@ export const {
   useGetCountriesHistoricalQuery,
   useGetProvinceHistoricalQuery,
   useGetProvincesHistoricalQuery,
-  useGetAllAvailableVaccinesQuery,
+  useGetVaccinesTrialDataQuery,
   useGetTotalPeopleVaccinatedGlobalQuery,
   useGetTotalPeopleVaccinatedByCountriesQuery,
   useGetTotalPeopleVaccinatedByCountryQuery,
