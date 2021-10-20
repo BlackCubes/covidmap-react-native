@@ -36,10 +36,10 @@ export const covidApi = createApi({
       query: (countries) => `historical/${countries.join(",")}`,
     }),
     getProvinceHistorical: builder.query({
-      query: (country, province) => `historical/${country}/${province}`,
+      query: ({ country, province }) => `historical/${country}/${province}`,
     }),
     getProvincesHistorical: builder.query({
-      query: (country, provinces) =>
+      query: ({ country, provinces }) =>
         `historical/${country}/${provinces.join(",")}`,
     }),
 
