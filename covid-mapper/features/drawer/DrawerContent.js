@@ -10,13 +10,17 @@ const DrawerContentContainer = styled.View`
 `;
 
 const DrawerSection = styled.View`
-  height: 20%;
-  padding: 10px;
-  border: 1px solid #ddd;
+  padding: 5px 10px 5px 10px;
+`;
+
+const SectionDivider = styled.View`
+  height: 1px;
+  background-color: #ccc;
+  width: 100%;
 `;
 
 const LogoContainer = styled.View`
-  height: 15%;
+  height: 10%;
   width: 100%;
   background-color: #203f59;
   display: flex;
@@ -102,6 +106,7 @@ const DrawerContent = (props) => {
               props.navigation.navigate("Country Province Stats");
             }}
           />
+          <SectionDivider/>
         </DrawerSection>
         {/* Start USA section */}
         <DrawerSection>
@@ -120,6 +125,7 @@ const DrawerContent = (props) => {
               props.navigation.navigate("State Counties Totals");
             }}
           />
+          <SectionDivider/>
         </DrawerSection>
 
         {/* Start Vaccination section */}

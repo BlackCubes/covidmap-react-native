@@ -28,6 +28,7 @@ const DrawerMenu = () => {
         screenOptions={{
           drawerStyle: {
             width: 330,
+            paddingTop: 0,
           },
           drawerType: dimensions.width >= 768 ? "permanent" : "front",
           drawerHideStatusBarOnOpen: true,
