@@ -2,7 +2,8 @@ import * as React from "react";
 import * as Linking from "expo-linking";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import styled from "styled-components/native";
-import { Pressable, View, } from "react-native";
+import { Pressable, View } from "react-native";
+import { GithubIcon, ToadIcon } from "../../commons/components/Icons";
 
 const DrawerContentContainer = styled.View`
   flex: 1;
@@ -35,9 +36,18 @@ const BottomInfoContainer = styled.View`
   background-color: #fafafa;
 `;
 
+const BottomButtonView = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0px 20px 0px 0px;
+`;
+
 const BottomInfoText = styled.Text`
   color: #203f59;
-  font-weight: bold; 
+  font-weight: bold;
+  padding-left: 4px;
 `;
 
 const GreenBorder = styled.View`
@@ -153,24 +163,29 @@ const DrawerContent = (props) => {
       </DrawerContentScrollView>
       {/* Github & About Us */}
       <BottomInfoContainer>
-      <Pressable  onPress={() => {
+        <Pressable
+          onPress={() => {
             props.navigation.navigate("About Us");
-          }}>
-       <View>
-         <BottomInfoText>About Us</BottomInfoText>
-       </View>
-       </Pressable>
-          {/* Github  */}
-       <Pressable onPress={() =>
+          }}
+        >
+          <BottomButtonView>
+            <ToadIcon />
+            <BottomInfoText>About Us</BottomInfoText>
+          </BottomButtonView>
+        </Pressable>
+        {/* Github  */}
+        <Pressable
+          onPress={() =>
             Linking.openURL(
               "https://github.com/BlackCubes/covidmap-react-native"
             )
-          }>
-       <View>
-         <BottomInfoText>Github</BottomInfoText>
-       </View>
-       </Pressable>
-  
+          }
+        >
+          <BottomButtonView>
+            <GithubIcon />
+            <BottomInfoText>Github</BottomInfoText>
+          </BottomButtonView>
+        </Pressable>
       </BottomInfoContainer>
     </DrawerContentContainer>
   );
