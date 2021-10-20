@@ -61,7 +61,10 @@ const Searchbar = ({ handleSearchSubmit, searchPlaceholder }) => {
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(!searchInput.length ? false : true)}
         onChangeText={(text) => setSearchInput(text)}
-        onSubmitEditing={() => handleSearchSubmit(searchInput)}
+        onSubmitEditing={() => {
+          handleSearchSubmit(searchInput);
+          setSearchInput("");
+        }}
       />
     </SearchbarWrapper>
   );
