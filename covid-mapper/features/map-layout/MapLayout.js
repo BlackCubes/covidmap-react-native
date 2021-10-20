@@ -6,8 +6,11 @@ import Searchbar from "../searchbar/Searchbar";
 import {
   useGetGlobalCovidStatsQuery,
   useGetAllCountriesProvincesHistoricalQuery,
+  useGetAllUSCountiesFromStateQuery,
   useGetCountryHistoricalQuery,
   useGetProvinceHistoricalQuery,
+  useGetTotalsAllStatesUSQuery,
+  useGetTotalOneUSStateQuery,
 } from "../../api/covidApi";
 import { OpenSesameButton } from "../../commons/components";
 import PopupSlider from "./components/PopupSlider";
@@ -18,6 +21,8 @@ const MapLayout = ({ route }) => {
   const [searchPlaceholder, setSearchPlaceholder] = useState("");
   const [searchCountry, setSearchCountry] = useState("");
   const [searchProvince, setSearchProvince] = useState("");
+  const [searchUSState, setSearchUSState] = useState("");
+  const [searchUSCounty, setSearchUSCounty] = useState("");
   const { name: routeName } = route;
 
   const [testData, setTestData] = useState({
@@ -59,8 +64,23 @@ const MapLayout = ({ route }) => {
 
   // US
   // - national stats
+  const {
+    data: allUSStatesData,
+    isLoading: allUSStatesLoading,
+    error: allUSStatesError,
+  } = useGetTotalsAllStatesUSQuery();
 
   // - search state/county
+  const {
+    data: oneUSStateData,
+    isLoading: oneUSStateLoading,
+    error: oneUSStateError,
+  } = useGetTotalOneUSStateQuery(searchUSState);
+  const {
+    data: usCountiesData,
+    isLoading: usCountiesLoading,
+    error: usCountiesError,
+  } = useGetAllUSCountiesFromStateQuery(searchUSState);
 
   const { width: mapviewWidth, height: mapviewHeight } = useWindowDimensions();
   const mapviewRegion = {
@@ -80,6 +100,16 @@ const MapLayout = ({ route }) => {
       } else {
         setSearchProvince(inputValue);
       }
+    } else if (
+      routeName === "US Total" ||
+      routeName === "State Counties Totals"
+    ) {
+      if (!searchUSState.length && !searchUSCounty.length) {
+        setSearchUSState(inputValue);
+        setSearchPlaceholder("Search by county");
+      } else {
+        setSearchUSCounty(inputValue);
+      }
     }
   };
 
@@ -95,8 +125,10 @@ const MapLayout = ({ route }) => {
         setSearchPlaceholder("Search by country");
         break;
       case "US Total":
+        setSearchPlaceholder("Search by US state");
         break;
       case "State Counties Totals":
+        setSearchPlaceholder("Search by US state");
         break;
       default:
         setMapDataArray(globalCovidStatsData);

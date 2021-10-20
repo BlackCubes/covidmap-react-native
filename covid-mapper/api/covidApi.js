@@ -25,6 +25,11 @@ export const covidApi = createApi({
         return `states${sort}`;
       },
     }),
+    getTotalOneUSState: builder.query({
+      // get total from one particular US state
+      query: (usState) => `states/${usState}`,
+    }),
+
     // JHUCSSE - Provinces, US Counties
     getAllCountriesProvincesHistorical: builder.query({
       query: () => "historical/all",
@@ -41,6 +46,9 @@ export const covidApi = createApi({
     getProvincesHistorical: builder.query({
       query: ({ country, provinces }) =>
         `historical/${country}/${provinces.join(",")}`,
+    }),
+    getAllUSCountiesFromState: builder.query({
+      query: (usState) => `historical/usacounties/${usState}`,
     }),
 
     // VACCINES
@@ -70,7 +78,9 @@ export const {
   useGetEachCountriesTotalsQuery,
   useGetSpecificCountryTotalQuery,
   useGetTotalsAllStatesUSQuery,
+  useGetTotalOneUSStateQuery,
   useGetAllCountriesProvincesHistoricalQuery,
+  useGetAllUSCountiesFromStateQuery,
   useGetCountryHistoricalQuery,
   useGetCountriesHistoricalQuery,
   useGetProvinceHistoricalQuery,
