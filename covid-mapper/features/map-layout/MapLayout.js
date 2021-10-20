@@ -10,7 +10,10 @@ import {
   useGetProvinceHistoricalQuery,
 } from "../../api/covidApi";
 import { OpenSesameButton } from "../../commons/components";
+import PopupSlider from "./components/PopupSlider";
 
+
+  
 const MapLayout = ({ route }) => {
   const [mapDataArray, setMapDataArray] = useState([]);
   const [mapDataObject, setMapDataObject] = useState(null);
@@ -18,6 +21,15 @@ const MapLayout = ({ route }) => {
   const [searchCountry, setSearchCountry] = useState("");
   const [searchProvince, setSearchProvince] = useState("");
   const { name: routeName } = route;
+
+  const [testData, setTestData] = useState({
+    title: "Fresno",
+    location: "Fresno",
+    update: "2021-10-12 04:21:09",
+    confirmed: 142951,
+    deaths: 2035,
+    recovered: "Not enough info",
+  });
 
   // WORLD
   // - world stats
@@ -102,6 +114,8 @@ const MapLayout = ({ route }) => {
       />
 
       <OpenSesameButton />
+
+      <PopupSlider testData={testData} />
 
       <MapComponent
         mapviewHeight={mapviewHeight}
