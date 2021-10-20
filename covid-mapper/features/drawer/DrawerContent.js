@@ -2,13 +2,15 @@ import * as React from "react";
 import * as Linking from "expo-linking";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import styled from "styled-components/native";
+import { Pressable, View, } from "react-native";
 
 const DrawerContentContainer = styled.View`
   flex: 1;
 `;
 
 const DrawerSection = styled.View`
-  padding: 5px;
+  height: 20%;
+  padding: 10px;
   border: 1px solid #ddd;
 `;
 
@@ -23,11 +25,21 @@ const LogoContainer = styled.View`
 `;
 
 const BottomInfoContainer = styled.View`
-  height: 15%;
+  height: 8%;
   z-index: -100;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 80px 0px 80px;
+  background-color: #fafafa;
 `;
 
-// move GreenBorder to commmons folder later
+const BottomInfoText = styled.Text`
+  color: #203f59;
+  font-weight: bold; 
+`;
+
 const GreenBorder = styled.View`
   border-bottom-width: 4px;
   border-bottom-color: #77c280;
@@ -68,8 +80,7 @@ const DrawerContent = (props) => {
           <Heading>World</Heading>
           {/* endpoint: /v3/covid-19/all AND /v3/covid-19/countries */}
           <DrawerItem
-            style={{ border: "1px solid blue" }}
-            label="World Data"
+            label="World Total &amp; By Country"
             onPress={() => {
               props.navigation.navigate("World");
             }}
@@ -87,7 +98,7 @@ const DrawerContent = (props) => {
           <Heading>U.S.</Heading>
           {/* endpoint: /v3/covid-19/states - totals for all US states */}
           <DrawerItem
-            label="US Data"
+            label="US Total &amp; All States"
             onPress={() => {
               props.navigation.navigate("US Total");
             }}
@@ -142,20 +153,24 @@ const DrawerContent = (props) => {
       </DrawerContentScrollView>
       {/* Github & About Us */}
       <BottomInfoContainer>
-        <DrawerItem
-          label="About Us"
-          onPress={() => {
+      <Pressable  onPress={() => {
             props.navigation.navigate("About Us");
-          }}
-        />
-        <DrawerItem
-          label="Github"
-          onPress={() =>
+          }}>
+       <View>
+         <BottomInfoText>About Us</BottomInfoText>
+       </View>
+       </Pressable>
+          {/* Github  */}
+       <Pressable onPress={() =>
             Linking.openURL(
               "https://github.com/BlackCubes/covidmap-react-native"
             )
-          }
-        />
+          }>
+       <View>
+         <BottomInfoText>Github</BottomInfoText>
+       </View>
+       </Pressable>
+  
       </BottomInfoContainer>
     </DrawerContentContainer>
   );

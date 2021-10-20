@@ -27,15 +27,14 @@ const DrawerMenu = () => {
         initialRouteName="World"
         screenOptions={{
           drawerStyle: {
-            width: 330 
+            width: 330,
           },
           drawerType: dimensions.width >= 768 ? "permanent" : "front",
           drawerHideStatusBarOnOpen: true,
-          headerStyle: { backgroundColor: "#2EC2A0", height: 80,},
+          headerStyle: { backgroundColor: "#2EC2A0", height: 80 },
           headerTintColor: "#fff",
           headerTitleStyle: { fontWeight: "bold" },
         }}
-
         drawerContent={(props) => <DrawerContent {...props} />}
       >
         {/* WORLD */}
