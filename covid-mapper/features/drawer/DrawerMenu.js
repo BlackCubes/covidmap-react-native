@@ -8,7 +8,6 @@ import VaccineLayout from "../vaccine-layout/VaccineLayout";
 
 const Drawer = createDrawerNavigator();
 
-
 function AboutUsScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
@@ -29,11 +28,12 @@ const DrawerMenu = () => {
         screenOptions={{
           drawerType: dimensions.width >= 768 ? "permanent" : "front",
           drawerHideStatusBarOnOpen: true,
+          headerStyle: { backgroundColor: "#2EC2A0", height: 80, },
+          headerTintColor: "#fff",
+          headerTitleStyle: { fontWeight: "bold" },
         }}
         drawerContent={(props) => <DrawerContent {...props} />}
       >
-        {/* Component created for menu button test */}
-
         {/* WORLD */}
         <Drawer.Screen name="World" component={MapLayout} />
         <Drawer.Screen name="Country Province Stats" component={MapLayout} />
