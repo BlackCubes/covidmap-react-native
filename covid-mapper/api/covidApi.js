@@ -25,9 +25,22 @@ export const covidApi = createApi({
         return `states${sort}`;
       },
     }),
+    getTotalOneUSState: builder.query({
+      // get total from one particular US state
+      query: (usState) => `states/${usState}`,
+    }),
+
     // JHUCSSE - Provinces, US Counties
     getAllCountriesProvincesHistorical: builder.query({
       query: () => "historical/all",
+    }),
+    getTotalAllUSCounties: builder.query({
+      // get total for all US counties from all states
+      query: () => "jhucsse/counties",
+    }),
+    getTotalOneUSCounty: builder.query({
+      // get total from one particular US county
+      query: (usCounty) => `jhucsse/counties/${usCounty}`,
     }),
     getCountryHistorical: builder.query({
       query: (country) => `historical/${country}`,
