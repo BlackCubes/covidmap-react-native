@@ -47,7 +47,7 @@ const LogoImage = styled.Image`
 `;
 
 const Heading = styled.Text`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   color: #203f59;
 `;
@@ -99,7 +99,8 @@ const DrawerContent = (props) => {
         </DrawerSection>
         {/* Start Vaccination section */}
         <DrawerSection>
-          <Heading>Vaccination</Heading>
+          <Heading>Vaccination Stats &amp; Trial Data</Heading>
+          {/* endpoint to use: /vaccine/coverage */}
           <DrawerItem
             label="World Vaccination Totals"
             onPress={() => {
@@ -107,11 +108,26 @@ const DrawerContent = (props) => {
             }}
           />
           <DrawerItem
-            label="US Vaccination Total"
+            label="Search Vaccination Stats by Country"
             onPress={() => {
               props.navigation.navigate("US Vaccination Total");
             }}
           />
+          {/* endpoint to use: /vaccine/coverage/states */}
+          <DrawerItem
+            label="US National Vaccination Total"
+            onPress={() => {
+              props.navigation.navigate("US Vaccination Total");
+            }}
+          />
+          {/* endpoint to use: /vaccine/coverage/states/${state} */}
+             <DrawerItem
+            label="Search State Vaccination Stats(US)"
+            onPress={() => {
+              props.navigation.navigate("Search State(US) Vaccination Stats");
+            }}
+          />  
+          {/* endpoint to use: /vaccine  */}
           <DrawerItem
             label="Trial Data"
             onPress={() => {
