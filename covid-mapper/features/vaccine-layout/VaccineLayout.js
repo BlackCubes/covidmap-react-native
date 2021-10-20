@@ -2,7 +2,7 @@ import * as React from "react";
 import { Text, SafeAreaView, FlatList } from "react-native";
 import styled from "styled-components/native";
 import VaccineItem from "./components/VaccineItem";
-import { useGetAllAvailableVaccinesQuery } from "../../api/covidApi";
+import { useGetVaccinesTrialDataQuery } from "../../api/covidApi";
 import Spinner from '../../commons/components/Spinner/Spinner'
 
 const Container = styled.View`
@@ -45,7 +45,7 @@ const VaccineLayout = () => {
     data: trialData,
     isLoading,
     error,
-  } = useGetAllAvailableVaccinesQuery();
+  } = useGetVaccinesTrialDataQuery();
 
   if (error) {
       return (<SafeAreaView>
