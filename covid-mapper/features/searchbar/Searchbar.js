@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Pressable } from "react-native";
 import styled from "styled-components/native";
 
 const SearchbarWrapper = styled.View`
@@ -26,7 +27,8 @@ const SearchbarIconWrapper = styled.View`
 const SearchbarIcon = styled.Image`
   width: 100%;
   height: 100%;
-  opacity: ${({ isFocus }) => (isFocus ? "0.5" : "1")};
+  opacity: ${({ isFocus, isSearchIconPressedIn }) =>
+    isSearchIconPressedIn ? "1" : isFocus ? "0.5" : "1"};
 `;
 
 const SearchbarInput = styled.TextInput`
@@ -43,14 +45,25 @@ const SearchbarInput = styled.TextInput`
 const Searchbar = ({ handleSearchSubmit, searchPlaceholder }) => {
   const [searchInput, setSearchInput] = useState("");
   const [isFocus, setIsFocus] = useState(false);
+  const [isSearchIconPressedIn, setIsSearchIconPressedIn] = useState(false);
 
   return (
     <SearchbarWrapper>
       <SearchbarIconWrapper>
-        <SearchbarIcon
-          isFocus={isFocus}
-          source={require("../../assets/search-icon.png")}
-        />
+        <Pressable
+          onPressIn={() => setIsSearchIconPressedIn(true)}
+          onPressOut={() => setIsSearchIconPressedIn(false)}
+          onPress={() => {
+            handleSearchSubmit(searchInput);
+            setSearchInput("");
+          }}
+        >
+          <SearchbarIcon
+            isFocus={isFocus}
+            isSearchIconPressedIn={isSearchIconPressedIn}
+            source={require("../../assets/search-icon.png")}
+          />
+        </Pressable>
       </SearchbarIconWrapper>
 
       <SearchbarInput
@@ -61,7 +74,10 @@ const Searchbar = ({ handleSearchSubmit, searchPlaceholder }) => {
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(!searchInput.length ? false : true)}
         onChangeText={(text) => setSearchInput(text)}
-        onSubmitEditing={() => handleSearchSubmit(searchInput)}
+        onSubmitEditing={() => {
+          handleSearchSubmit(searchInput);
+          setSearchInput("");
+        }}
       />
     </SearchbarWrapper>
   );
