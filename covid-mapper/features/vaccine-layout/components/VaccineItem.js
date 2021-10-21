@@ -15,6 +15,7 @@ const CandidateHeading = styled.Text`
   font-size: 18px;
   font-weight: bold;
   margin-top: 20px;
+  text-decoration: underline;
 `;
 
 const ItalicMechanism = styled.Text`
@@ -22,7 +23,7 @@ const ItalicMechanism = styled.Text`
 `;
 
 const BoldText = styled.Text`
-  font-weight: 600;
+  font-weight: bold;
 `;
 
 const PhaseSponsorsContainer = styled.View`
@@ -37,7 +38,8 @@ const DetailsContainer = styled.View`
 `;
 
 const ViewMoreButton = styled.Text`
-  color: #77c280;
+  color: #255c7c;
+  font-weight: bold;
   padding: 4px;
   border-radius: 6px;
   border: 1px solid #77c2b0;
@@ -58,6 +60,10 @@ const VaccineItem = ({
 }) => {
   const [hideText, setHideText] = useState(true);
   const viewMoreDetails = () => setHideText(!hideText);
+
+  const formatDetails = unformattedDetailsString =>{
+
+  }
 
   return (
     <SafeAreaView>
@@ -82,7 +88,7 @@ const VaccineItem = ({
         <BoldText>
           Institutions:{" "}
           {institutions.map((siteName) => (
-            <Text key={siteName}>{siteName}</Text>
+            <Text key={siteName}>{he.decode(siteName)}</Text>
           ))}
         </BoldText>
         {/* Details */}
