@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Text, Pressable, SafeAreaView } from "react-native";
 import styled from "styled-components/native";
-import he from 'he';
+import he from "he";
 
 const ArticleContainer = styled.View`
   display: flex;
@@ -15,6 +15,7 @@ const CandidateHeading = styled.Text`
   font-size: 18px;
   font-weight: bold;
   margin-top: 20px;
+  text-decoration: underline;
 `;
 
 const ItalicMechanism = styled.Text`
@@ -22,7 +23,12 @@ const ItalicMechanism = styled.Text`
 `;
 
 const BoldText = styled.Text`
-  font-weight: 600;
+  font-weight: bold;
+`;
+
+const Subheading = styled.Text`
+  text-decoration: underline;
+  font-weight: 500;
 `;
 
 const PhaseSponsorsContainer = styled.View`
@@ -34,10 +40,12 @@ const PhaseSponsorsContainer = styled.View`
 const DetailsContainer = styled.View`
   display: flex;
   flex-direction: column;
+  padding-top: 4px;
 `;
 
 const ViewMoreButton = styled.Text`
-  color: #77c280;
+  color: #255c7c;
+  font-weight: bold;
   padding: 4px;
   border-radius: 6px;
   border: 1px solid #77c2b0;
@@ -46,7 +54,6 @@ const ViewMoreButton = styled.Text`
   text-align: center;
   padding: 8px;
 `;
-
 
 const VaccineItem = ({
   candidate,
@@ -58,6 +65,17 @@ const VaccineItem = ({
 }) => {
   const [hideText, setHideText] = useState(true);
   const viewMoreDetails = () => setHideText(!hideText);
+
+  const formatDetails = (unformattedDetailsString) => {
+    // replace all occurences of ':' and replace with colon and newline
+    const decodedString = he.decode(unformattedDetailsString);
+    // find all colons, replace with colons with newline after
+    const indented = decodedString.replace(/:\s*/g, ": \n");
+    // split indented string into array of not-underlined subheadings, and details texts
+    const subHeadingsAndTextArray = indented.split("\n");
+    // check if string in array is a subheading(includes colon); underline it if yes, else return detail string
+    return subHeadingsAndTextArray.map((detailString, i) => detailString.includes(": ") ? (<Subheading key={i}>{detailString} {"\n"}</Subheading>) : detailString+"\n");
+  };
 
   return (
     <SafeAreaView>
@@ -79,21 +97,20 @@ const VaccineItem = ({
           </Text>
         </PhaseSponsorsContainer>
         {/* Institutions */}
-        <BoldText>
-          Institutions:{" "}
-          {institutions.map((siteName) => (
-            <Text key={siteName}>{siteName}</Text>
-          ))}
-        </BoldText>
+        <BoldText>Institutions:</BoldText>
+        {institutions.map((siteName) => (
+          <Text key={siteName}>{he.decode(siteName)}</Text>
+        ))}
         {/* Details */}
         <DetailsContainer>
+          <BoldText>Details</BoldText>
           <Text numberOfLines={hideText ? 4 : undefined} ellipsizeMode="tail">
-            {he.decode(details)}
+            {formatDetails(details)}
           </Text>
           {/* View More */}
           <Pressable onPress={viewMoreDetails} style={{ marginTop: "2%" }}>
             <ViewMoreButton>
-                {hideText? (<Text>View More...</Text>):(<Text>Hide...</Text>) }
+              {hideText ? <Text>View More...</Text> : <Text>Hide Details</Text>}
             </ViewMoreButton>
           </Pressable>
         </DetailsContainer>

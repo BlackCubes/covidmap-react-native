@@ -27,7 +27,8 @@ const DrawerMenu = () => {
         initialRouteName="World"
         screenOptions={{
           drawerStyle: {
-            width: 330,
+            width: 350,
+            paddingTop: 0,
           },
           drawerType: dimensions.width >= 768 ? "permanent" : "front",
           drawerHideStatusBarOnOpen: true,
