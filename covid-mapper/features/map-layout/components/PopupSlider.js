@@ -6,10 +6,7 @@ import {
 } from "../../../api/covidApi";
 import { FlatList, Text, Button, View, StyleSheet } from "react-native";
 import Spinner from "../../../commons/components/Spinner/Spinner";
-import {
-  BottomSheetModal,
-  BottomSheetModalProvider,
-} from "@gorhom/bottom-sheet";
+import { BottomSheetModal } from "@gorhom/bottom-sheet";
 
 const PopupContainer = styled.View`
   width: 100%;
@@ -93,58 +90,23 @@ const PopupSlider = ({ searchCountry, searchProvince }) => {
     );
 
   return (
-    <BottomSheetModalProvider>
-      <View style={styles.container}>
-        <Button
-          onPress={handlePresentModalPress}
-          title="Present Modal"
-          color="black"
-        />
-        <BottomSheetModal
-          ref={bottomSheetModalRef}
-          index={1}
-          snapPoints={snapPoints}
-          onChange={handleSheetChanges}
-        >
-          <View style={styles.contentContainer}>
-            <Text>Awesome 🎉</Text>
-          </View>
-        </BottomSheetModal>
-      </View>
-      {/* <PopupButtonTest
+    <View style={styles.container}>
+      <Button
         onPress={handlePresentModalPress}
-        title={"show slider"}
+        title="Present Modal"
         color="black"
       />
-      <PopupContainer>
-        <BottomSheetModal
-          ref={bottomSheetModalRef}
-          index={1}
-          snapPoints={snapPoints}
-          onChange={handleSheetChanges}
-        >
-          <FlatList
-            data={countryData}
-            initialNumToRender={4}
-            keyExtractor={(item, index) => item + index}
-            renderItem={({ item }) => (
-              <>
-                <PopUpTitle>Lates from: {item.country}</PopUpTitle>
-                <PopupContentContainer>
-                  <PopupContent>
-                    Location: {item.province ? item.province : item.country}
-                  </PopupContent>
-                  <PopupContent>Updated at: {}</PopupContent>
-                  <PopupContent>Confirmed Cases: {}</PopupContent>
-                  <PopupContent>Deaths: {}</PopupContent>
-                  <PopupContent>Recovered: {}</PopupContent>
-                </PopupContentContainer>
-              </>
-            )}
-          />
-        </BottomSheetModal>
-      </PopupContainer> */}
-    </BottomSheetModalProvider>
+      <BottomSheetModal
+        ref={bottomSheetModalRef}
+        index={1}
+        snapPoints={snapPoints}
+        onChange={handleSheetChanges}
+      >
+        <View style={styles.contentContainer}>
+          <Text>Awesome 🎉</Text>
+        </View>
+      </BottomSheetModal>
+    </View>
   );
 };
 
@@ -152,8 +114,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
-    justifyContent: 'center',
-    backgroundColor: 'grey',
+    justifyContent: "center",
+    backgroundColor: "grey",
     zIndex: 1000,
     position: "absolute",
     borderColor: "blue",
@@ -161,11 +123,11 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: "center",
     position: "absolute",
     zIndex: 1000,
     borderColor: "orange",
-    borderWidth: 1
+    borderWidth: 1,
   },
 });
 

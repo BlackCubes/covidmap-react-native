@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useWindowDimensions } from "react-native";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
 import MapComponent from "../map/Map";
 import Searchbar from "../searchbar/Searchbar";
@@ -105,7 +106,7 @@ const MapLayout = ({ route }) => {
   }, [routeName]);
 
   return (
-    <>
+    <BottomSheetModalProvider>
       <Searchbar
         handleSearchSubmit={handleSearchSubmit}
         searchPlaceholder={searchPlaceholder}
@@ -113,17 +114,18 @@ const MapLayout = ({ route }) => {
 
       <OpenSesameButton />
 
-      <PopupSlider 
-        testData={testData} 
-        searchCountry={searchCountry} 
-        searchProvince={searchProvince}/>
+      <PopupSlider
+        testData={testData}
+        searchCountry={searchCountry}
+        searchProvince={searchProvince}
+      />
 
-      {/* <MapComponent
+      <MapComponent
         mapviewHeight={mapviewHeight}
         mapviewRegion={mapviewRegion}
         mapviewWidth={mapviewWidth}
-      /> */}
-    </>
+      />
+    </BottomSheetModalProvider>
   );
 };
 
