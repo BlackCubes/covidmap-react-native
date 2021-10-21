@@ -26,6 +26,11 @@ const BoldText = styled.Text`
   font-weight: bold;
 `;
 
+const Subheading = styled.Text`
+  text-decoration: underline;
+  font-weight: 500;
+`;
+
 const PhaseSponsorsContainer = styled.View`
   display: flex;
   justify-content: space-between;
@@ -64,7 +69,12 @@ const VaccineItem = ({
   const formatDetails = (unformattedDetailsString) => {
     // replace all occurences of ':' and replace with colon and newline
     const decodedString = he.decode(unformattedDetailsString);
-    return decodedString.replace(/:\s*/g, ": \n");
+    // find all colons, replace with colons with newline after
+    const indented = decodedString.replace(/:\s*/g, ": \n");
+    // split indented string into array of not-underlined subheadings, and details texts
+    const subHeadingsAndTextArray = indented.split("\n");
+    // check if string in array is a subheading(includes colon); underline it if yes, else return detail string
+    return subHeadingsAndTextArray.map((detailString, i) => detailString.includes(": ") ? (<Subheading key={i}>{detailString} {"\n"}</Subheading>) : detailString+"\n");
   };
 
   return (
@@ -100,7 +110,7 @@ const VaccineItem = ({
           {/* View More */}
           <Pressable onPress={viewMoreDetails} style={{ marginTop: "2%" }}>
             <ViewMoreButton>
-              {hideText ? <Text>View More...</Text> : <Text>Hide...</Text>}
+              {hideText ? <Text>View More...</Text> : <Text>Hide Details</Text>}
             </ViewMoreButton>
           </Pressable>
         </DetailsContainer>
