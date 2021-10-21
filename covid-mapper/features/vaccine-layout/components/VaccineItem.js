@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Text, Pressable, SafeAreaView } from "react-native";
 import styled from "styled-components/native";
-import he from 'he';
+import he from "he";
 
 const ArticleContainer = styled.View`
   display: flex;
@@ -35,6 +35,7 @@ const PhaseSponsorsContainer = styled.View`
 const DetailsContainer = styled.View`
   display: flex;
   flex-direction: column;
+  padding-top: 4px;
 `;
 
 const ViewMoreButton = styled.Text`
@@ -49,7 +50,6 @@ const ViewMoreButton = styled.Text`
   padding: 8px;
 `;
 
-
 const VaccineItem = ({
   candidate,
   mechanism,
@@ -61,9 +61,11 @@ const VaccineItem = ({
   const [hideText, setHideText] = useState(true);
   const viewMoreDetails = () => setHideText(!hideText);
 
-  const formatDetails = unformattedDetailsString =>{
-
-  }
+  const formatDetails = (unformattedDetailsString) => {
+    // replace all occurences of ':' and replace with colon and newline
+    const decodedString = he.decode(unformattedDetailsString);
+    return decodedString.replace(/:\s*/g, ": \n");
+  };
 
   return (
     <SafeAreaView>
@@ -85,21 +87,20 @@ const VaccineItem = ({
           </Text>
         </PhaseSponsorsContainer>
         {/* Institutions */}
-        <BoldText>
-          Institutions:{" "}
-          {institutions.map((siteName) => (
-            <Text key={siteName}>{he.decode(siteName)}</Text>
-          ))}
-        </BoldText>
+        <BoldText>Institutions:</BoldText>
+        {institutions.map((siteName) => (
+          <Text key={siteName}>{he.decode(siteName)}</Text>
+        ))}
         {/* Details */}
         <DetailsContainer>
+          <BoldText>Details</BoldText>
           <Text numberOfLines={hideText ? 4 : undefined} ellipsizeMode="tail">
-            {he.decode(details)}
+            {formatDetails(details)}
           </Text>
           {/* View More */}
           <Pressable onPress={viewMoreDetails} style={{ marginTop: "2%" }}>
             <ViewMoreButton>
-                {hideText? (<Text>View More...</Text>):(<Text>Hide...</Text>) }
+              {hideText ? <Text>View More...</Text> : <Text>Hide...</Text>}
             </ViewMoreButton>
           </Pressable>
         </DetailsContainer>
