@@ -106,7 +106,7 @@ const MapLayout = ({ route }) => {
   }, [routeName]);
 
   return (
-    <BottomSheetModalProvider>
+    <BottomSheetModalProvider style={{color: 'black'}}>
       <Searchbar
         handleSearchSubmit={handleSearchSubmit}
         searchPlaceholder={searchPlaceholder}
