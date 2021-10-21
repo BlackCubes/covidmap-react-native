@@ -1,20 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useMemo, useRef } from "react";
 import styled from "styled-components/native";
-import SwipeUpDownModal from "react-native-swipe-modal-up-down";
-
-// test function
-// const initialStyle = (modalState)=>{
-//     let currStyle=``;
-
-//     if(modalState) {
-//         currStyle = `translateY(0px)`
-//         return currStyle;
-//     } else {
-//         console.log(`modalState`, modalState)
-//         currStyle = `translateY(180px)`;
-//         return currStyle;
-//     }
-// }
+import {
+  useGetCountryHistoricalQuery,
+  useGetProvinceHistoricalQuery,
+} from "../../../api/covidApi";
+import { FlatList, Text, Button, View, StyleSheet } from "react-native";
+import Spinner from "../../../commons/components/Spinner/Spinner";
+import {
+  BottomSheetModal,
+  BottomSheetModalProvider,
+} from "@gorhom/bottom-sheet";
 
 const PopupContainer = styled.View`
   width: 100%;
@@ -50,8 +45,8 @@ const PopupContent = styled.Text`
 `;
 
 const PopupButtonTest = styled.Button`
-  position: absolute;
   margin-top: 0;
+  position: absolute;
   bottom: 0;
 `;
 
@@ -60,43 +55,118 @@ const HeaderStyleTest = styled.View`
   border: 1px solid blue;
 `;
 
-const PopupSlider = ({ testData }) => {
-  const [showModal, setShowModal] = useState(true);
-  const [animateModal, setAnimateModal] = useState(false);
+const PopupSlider = ({ searchCountry, searchProvince }) => {
+  const {
+    data: countryData,
+    isLoading,
+    error,
+  } = useGetCountryHistoricalQuery(searchCountry);
+
+  // const { data: provinceData } = useGetProvinceHistoricalQuery(searchProvince);
+
+  const bottomSheetModalRef = useRef(null);
+  const snapPoints = useMemo(() => ["25%", "50%"], []);
+
+  const handlePresentModalPress = useCallback(() => {
+    bottomSheetModalRef.current?.present();
+  }, []);
+
+  const handleSheetChanges = useCallback((index) => {
+    console.log("handleSheetChanges", index);
+  }, []);
+
+  if (error) {
+    return (
+      <PopupContainer>
+        <PopupDivider />
+        <Text>Error: {error}</Text>
+      </PopupContainer>
+    );
+  }
+
+  if (isLoading || !countryData)
+    return (
+      <PopupContainer>
+        <PopupDivider />
+        <Spinner />
+      </PopupContainer>
+    );
 
   return (
-    <>
-      <SwipeUpDownModal
-        modalVisible={showModal}
-        PressToanimate={animateModal}
-        ContentModal={
-         
-          <PopupContainer>
-            <PopupDivider />
-            <PopUpTitle>Latest from {testData.title}</PopUpTitle>
-            <PopupContentContainer>
-              <PopupContent>Location: {testData.location}</PopupContent>
-              <PopupContent>Updated at: {testData.update}</PopupContent>
-              <PopupContent>Confirmed Cases: {testData.confirmed}</PopupContent>
-              <PopupContent>Deaths: {testData.deaths}</PopupContent>
-              <PopupContent>Recovered: {testData.recovered}</PopupContent>
-            </PopupContentContainer>
-          </PopupContainer>
-        }
-        Headerstyle={<HeaderStyleTest />}
-        HeaderContent={
-          <PopupButtonTest
-            title="Test button"
-            onPress={() => setAnimateModal(true)}
+    <BottomSheetModalProvider>
+      <View style={styles.container}>
+        <Button
+          onPress={handlePresentModalPress}
+          title="Present Modal"
+          color="black"
+        />
+        <BottomSheetModal
+          ref={bottomSheetModalRef}
+          index={1}
+          snapPoints={snapPoints}
+          onChange={handleSheetChanges}
+        >
+          <View style={styles.contentContainer}>
+            <Text>Awesome 🎉</Text>
+          </View>
+        </BottomSheetModal>
+      </View>
+      {/* <PopupButtonTest
+        onPress={handlePresentModalPress}
+        title={"show slider"}
+        color="black"
+      />
+      <PopupContainer>
+        <BottomSheetModal
+          ref={bottomSheetModalRef}
+          index={1}
+          snapPoints={snapPoints}
+          onChange={handleSheetChanges}
+        >
+          <FlatList
+            data={countryData}
+            initialNumToRender={4}
+            keyExtractor={(item, index) => item + index}
+            renderItem={({ item }) => (
+              <>
+                <PopUpTitle>Lates from: {item.country}</PopUpTitle>
+                <PopupContentContainer>
+                  <PopupContent>
+                    Location: {item.province ? item.province : item.country}
+                  </PopupContent>
+                  <PopupContent>Updated at: {}</PopupContent>
+                  <PopupContent>Confirmed Cases: {}</PopupContent>
+                  <PopupContent>Deaths: {}</PopupContent>
+                  <PopupContent>Recovered: {}</PopupContent>
+                </PopupContentContainer>
+              </>
+            )}
           />
-        }
-        onClose={() => {
-          setShowModal(false);
-          setAnimateModal(false);
-        }}
-      ></SwipeUpDownModal>
-    </>
+        </BottomSheetModal>
+      </PopupContainer> */}
+    </BottomSheetModalProvider>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    justifyContent: 'center',
+    backgroundColor: 'grey',
+    zIndex: 1000,
+    position: "absolute",
+    borderColor: "blue",
+    borderWidth: 1,
+  },
+  contentContainer: {
+    flex: 1,
+    alignItems: 'center',
+    position: "absolute",
+    zIndex: 1000,
+    borderColor: "orange",
+    borderWidth: 1
+  },
+});
 
 export default PopupSlider;

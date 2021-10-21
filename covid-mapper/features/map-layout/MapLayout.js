@@ -113,13 +113,16 @@ const MapLayout = ({ route }) => {
 
       <OpenSesameButton />
 
-      <PopupSlider testData={testData} />
+      <PopupSlider 
+        testData={testData} 
+        searchCountry={searchCountry} 
+        searchProvince={searchProvince}/>
 
-      <MapComponent
+      {/* <MapComponent
         mapviewHeight={mapviewHeight}
         mapviewRegion={mapviewRegion}
         mapviewWidth={mapviewWidth}
-      />
+      /> */}
     </>
   );
 };
