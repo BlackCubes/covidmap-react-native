@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useWindowDimensions, Platform } from "react-native";
 import * as Location from 'expo-location';
+import { useWindowDimensions } from "react-native";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import MapComponent from "../map/Map";
 import Searchbar from "../searchbar/Searchbar";
 import {
@@ -66,15 +67,6 @@ const MapLayout = ({ route }) => {
   const [searchUSCounty, setSearchUSCounty] = useState("");
 
   const { name: routeName } = route;
-
-  const [testData, setTestData] = useState({
-    title: "Fresno",
-    location: "Fresno",
-    update: "2021-10-12 04:21:09",
-    confirmed: 142951,
-    deaths: 2035,
-    recovered: "Not enough info",
-  });
 
   // WORLD
   // - world stats
@@ -215,7 +207,7 @@ const MapLayout = ({ route }) => {
   }, [searchUSCounty, usCountiesData]);
 
   return (
-    <>
+    <BottomSheetModalProvider style={{color: 'black'}}>
       <Searchbar
         handleSearchSubmit={handleSearchSubmit}
         searchPlaceholder={searchPlaceholder}
@@ -223,14 +215,17 @@ const MapLayout = ({ route }) => {
 
       <OpenSesameButton />
 
-      <PopupSlider testData={testData} />
+      <PopupSlider
+        searchCountry={searchCountry}
+        searchProvince={searchProvince}
+      />
 
       <MapComponent
         mapviewHeight={mapviewHeight}
         mapviewRegion={mapviewRegion}
         mapviewWidth={mapviewWidth}
       />
-    </>
+    </BottomSheetModalProvider>
   );
 };
 

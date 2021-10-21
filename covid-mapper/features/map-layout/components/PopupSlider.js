@@ -1,100 +1,109 @@
-import React, { useState } from "react";
+import React, { useCallback, useMemo, useRef } from "react";
 import styled from "styled-components/native";
-import SwipeUpDownModal from "react-native-swipe-modal-up-down";
-
-// test function
-// const initialStyle = (modalState)=>{
-//     let currStyle=``;
-
-//     if(modalState) {
-//         currStyle = `translateY(0px)`
-//         return currStyle;
-//     } else {
-//         console.log(`modalState`, modalState)
-//         currStyle = `translateY(180px)`;
-//         return currStyle;
-//     }
-// }
-
-const PopupContainer = styled.View`
-  width: 100%;
-  height: 250px;
-  background-color: #273440;
-  color: white;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
-`;
-
-const PopupDivider = styled.View`
-  width: 70px;
-  height: 3px;
-  background-color: #fff;
-  border-radius: 2px;
-`;
+import {
+  useGetCountryHistoricalQuery,
+} from "../../../api/covidApi";
+import Spinner from "../../../commons/components/Spinner/Spinner";
+import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
 
 const PopUpTitle = styled.Text`
   font-size: 20px;
-  color: white;
-  margin: 20px 120px 10px 0;
+  color: #18181F;
+  margin: 20px 100px 10px 20px;
 `;
 
 const PopupContentContainer = styled.View`
   justify-content: flex-start;
+  margin-left: 50px;
 `;
 
 const PopupContent = styled.Text`
   font-size: 15px;
-  color: white;
+  color: #18181F;
 `;
 
 const PopupButtonTest = styled.Button`
-  position: absolute;
   margin-top: 0;
+  position: absolute;
   bottom: 0;
 `;
 
-const HeaderStyleTest = styled.View`
-  margin-top: 0;
-  border: 1px solid blue;
+const PopupError = styled.Text`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-const PopupSlider = ({ testData }) => {
-  const [showModal, setShowModal] = useState(true);
-  const [animateModal, setAnimateModal] = useState(false);
+const PopupSlider = ({ searchCountry }) => {
+  const {
+    data: countryData,
+    isLoading,
+    error,
+  } = useGetCountryHistoricalQuery(searchCountry);
+
+  const bottomSheetModalRef = useRef(null);
+  const snapPoints = useMemo(() => ["25%", "50%"], []);
+
+  const handlePresentModalPress = useCallback(() => {
+    bottomSheetModalRef.current?.present();
+  }, []);
+
+
+  if (error) {
+    return (
+      <BottomSheetModal
+        ref={bottomSheetModalRef}
+        index={1}
+        snapPoints={snapPoints}
+      >
+        <PopupError>Error: {error.message}</PopupError>
+      </BottomSheetModal>
+    );
+  }
+
+  if (isLoading || !countryData)
+    return (
+      <BottomSheetModal
+        ref={bottomSheetModalRef}
+        index={1}
+        snapPoints={snapPoints}
+      >
+        <Spinner />
+      </BottomSheetModal>
+    );
 
   return (
     <>
-      <SwipeUpDownModal
-        modalVisible={showModal}
-        PressToanimate={animateModal}
-        ContentModal={
-         
-          <PopupContainer>
-            <PopupDivider />
-            <PopUpTitle>Latest from {testData.title}</PopUpTitle>
-            <PopupContentContainer>
-              <PopupContent>Location: {testData.location}</PopupContent>
-              <PopupContent>Updated at: {testData.update}</PopupContent>
-              <PopupContent>Confirmed Cases: {testData.confirmed}</PopupContent>
-              <PopupContent>Deaths: {testData.deaths}</PopupContent>
-              <PopupContent>Recovered: {testData.recovered}</PopupContent>
-            </PopupContentContainer>
-          </PopupContainer>
-        }
-        Headerstyle={<HeaderStyleTest />}
-        HeaderContent={
-          <PopupButtonTest
-            title="Test button"
-            onPress={() => setAnimateModal(true)}
-          />
-        }
-        onClose={() => {
-          setShowModal(false);
-          setAnimateModal(false);
-        }}
-      ></SwipeUpDownModal>
+      <PopupButtonTest
+        onPress={handlePresentModalPress}
+        title="Present Slider"
+        color="#18181F"
+      />
+      <BottomSheetModal
+        ref={bottomSheetModalRef}
+        index={1}
+        snapPoints={snapPoints}
+      >
+        <BottomSheetFlatList
+          data={countryData}
+          initialNumToRender={2}
+          keyExtractor={(item, index) => item + index}
+          renderItem={({ item }) => (
+            <>
+              <PopUpTitle>Lates from: {item.country}</PopUpTitle>
+              <PopupContentContainer>
+                <PopupContent>
+                  Location: {item.province ? item.province : item.country}
+                </PopupContent>
+                <PopupContent>Updated at: {}</PopupContent>
+                <PopupContent>Confirmed Cases: {item.cases}</PopupContent>
+                <PopupContent>Deaths: {}</PopupContent>
+                <PopupContent>Recovered: {}</PopupContent>
+              </PopupContentContainer>
+            </>
+          )}
+        />
+      </BottomSheetModal>
     </>
   );
 };
