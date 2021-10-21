@@ -9,7 +9,7 @@ import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
 const PopUpTitle = styled.Text`
   font-size: 20px;
   color: black;
-  margin: 20px 120px 10px 20px;
+  margin: 20px 100px 10px 20px;
 `;
 
 const PopupContentContainer = styled.View`
@@ -92,7 +92,7 @@ const PopupSlider = ({ searchCountry }) => {
       >
         <BottomSheetFlatList
           data={countryData}
-          initialNumToRender={4}
+          initialNumToRender={3}
           keyExtractor={(item, index) => item + index}
           renderItem={({ item }) => (
             <>
@@ -101,7 +101,7 @@ const PopupSlider = ({ searchCountry }) => {
                 <PopupContent>
                   Location: {item.province ? item.province : item.country}
                 </PopupContent>
-                <PopupContent>Updated at: {item.dates}</PopupContent>
+                <PopupContent>Updated at: {}</PopupContent>
                 <PopupContent>Confirmed Cases: {item.cases}</PopupContent>
                 <PopupContent>Deaths: {}</PopupContent>
                 <PopupContent>Recovered: {}</PopupContent>

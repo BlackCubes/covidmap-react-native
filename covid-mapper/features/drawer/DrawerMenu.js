@@ -26,9 +26,13 @@ const DrawerMenu = () => {
       <Drawer.Navigator
         initialRouteName="World"
         screenOptions={{
+          drawerStyle: {
+            width: 350,
+            paddingTop: 0,
+          },
           drawerType: dimensions.width >= 768 ? "permanent" : "front",
           drawerHideStatusBarOnOpen: true,
-          headerStyle: { backgroundColor: "#2EC2A0", height: 80, },
+          headerStyle: { backgroundColor: "#2EC2A0", height: 80 },
           headerTintColor: "#fff",
           headerTitleStyle: { fontWeight: "bold" },
         }}
@@ -43,7 +47,9 @@ const DrawerMenu = () => {
 
         {/* Vaccine */}
         <Drawer.Screen name="World Vaccination Totals" component={MapLayout} />
+        <Drawer.Screen name="Country Vaccination Total" component={MapLayout} />
         <Drawer.Screen name="US Vaccination Total" component={MapLayout} />
+        <Drawer.Screen name="State Vaccination Total" component={MapLayout} />
         <Drawer.Screen name="Trial Data" component={VaccineLayout} />
 
         {/* Bottom Content */}
