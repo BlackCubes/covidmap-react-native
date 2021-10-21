@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useWindowDimensions } from "react-native";
-
+import { useWindowDimensions, Platform } from "react-native";
+import * as Location from 'expo-location';
 import MapComponent from "../map/Map";
 import Searchbar from "../searchbar/Searchbar";
 import {
@@ -14,6 +14,7 @@ import {
 } from "../../api/covidApi";
 import { OpenSesameButton } from "../../commons/components";
 import PopupSlider from "./components/PopupSlider";
+
 
 /**
  * Finds the selected county inside an array of counties inside the US State.
@@ -41,6 +42,9 @@ const retrieveCountyData = (county, stateCounties) => {
 };
 
 const MapLayout = ({ route }) => {
+  
+  const [userLocation, setUserLocation] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
   const [mapDataArray, setMapDataArray] = useState([]);
   const [mapDataObject, setMapDataObject] = useState(null);
   // This is to store the county data in this state after extraction:
@@ -152,6 +156,32 @@ const MapLayout = ({ route }) => {
       }
     }
   };
+  
+  // Ask permission to obtain user's current location
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        setErrorMsg("Permission to access location was denied");
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      setUserLocation(location);
+    })();
+  }, []);
+
+  /* 
+    Location JSON structure is different for iOS and Android.
+    iOS: currentLocation 
+    Android: currentLocatoin.coords
+  */
+  let currentLocation = "Waiting..";
+  if (errorMsg) {
+    currentLocation = errorMsg;
+  } else if (userLocation) {
+    currentLocation = JSON.stringify(userLocation);
+  }
 
   useEffect(() => {
     // Based on the route names to update the data array or object to be displayed on the map.
