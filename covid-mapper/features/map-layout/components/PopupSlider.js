@@ -8,7 +8,7 @@ import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
 
 const PopUpTitle = styled.Text`
   font-size: 20px;
-  color: black;
+  color: #18181F;
   margin: 20px 100px 10px 20px;
 `;
 
@@ -19,7 +19,7 @@ const PopupContentContainer = styled.View`
 
 const PopupContent = styled.Text`
   font-size: 15px;
-  color: black;
+  color: #18181F;
 `;
 
 const PopupButtonTest = styled.Button`
@@ -48,9 +48,6 @@ const PopupSlider = ({ searchCountry }) => {
     bottomSheetModalRef.current?.present();
   }, []);
 
-  const handleSheetChanges = useCallback((index) => {
-    console.log("handleSheetChanges", index);
-  }, []);
 
   if (error) {
     return (
@@ -58,9 +55,8 @@ const PopupSlider = ({ searchCountry }) => {
         ref={bottomSheetModalRef}
         index={1}
         snapPoints={snapPoints}
-        onChange={handleSheetChanges}
       >
-        <PopupError>Error: {error}</PopupError>
+        <PopupError>Error: {error.message}</PopupError>
       </BottomSheetModal>
     );
   }
@@ -71,7 +67,6 @@ const PopupSlider = ({ searchCountry }) => {
         ref={bottomSheetModalRef}
         index={1}
         snapPoints={snapPoints}
-        onChange={handleSheetChanges}
       >
         <Spinner />
       </BottomSheetModal>
@@ -81,18 +76,17 @@ const PopupSlider = ({ searchCountry }) => {
     <>
       <PopupButtonTest
         onPress={handlePresentModalPress}
-        title="Present Modal"
-        color="black"
+        title="Present Slider"
+        color="#18181F"
       />
       <BottomSheetModal
         ref={bottomSheetModalRef}
         index={1}
         snapPoints={snapPoints}
-        onChange={handleSheetChanges}
       >
         <BottomSheetFlatList
           data={countryData}
-          initialNumToRender={3}
+          initialNumToRender={2}
           keyExtractor={(item, index) => item + index}
           renderItem={({ item }) => (
             <>
