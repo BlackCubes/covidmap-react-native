@@ -15,9 +15,20 @@ import {
 import { OpenSesameButton } from "../../commons/components";
 import PopupSlider from "./components/PopupSlider";
 
+const retrieveCountyData = (county, stateCounties) => {
+  if (!county.length) return null;
+  if (!stateCounties) return null;
+  if (!stateCounties.length) return null;
+
+  const countyData = stateCounties.find((state) => state.county === county);
+
+  return countyData ?? null;
+};
+
 const MapLayout = ({ route }) => {
   const [mapDataArray, setMapDataArray] = useState([]);
   const [mapDataObject, setMapDataObject] = useState(null);
+  const [mapCountyDataObject, setMapCountyDataObject] = useState(null);
   const [searchPlaceholder, setSearchPlaceholder] = useState("");
   const [searchCountry, setSearchCountry] = useState("");
   const [searchProvince, setSearchProvince] = useState("");
@@ -80,7 +91,7 @@ const MapLayout = ({ route }) => {
     data: usCountiesData,
     isLoading: usCountiesLoading,
     error: usCountiesError,
-  } = useGetAllUSCountiesFromStateQuery(searchUSState);
+  } = useGetAllUSCountiesFromStateQuery("california");
 
   const { width: mapviewWidth, height: mapviewHeight } = useWindowDimensions();
   const mapviewRegion = {
@@ -136,6 +147,14 @@ const MapLayout = ({ route }) => {
     }
   }, [routeName]);
 
+  useEffect(() => {
+    if (searchUSCounty.length && usCountiesData) {
+      setMapCountyDataObject(
+        retrieveCountyData(searchUSCounty, usCountiesData)
+      );
+    }
+  }, [searchUSCounty, usCountiesData]);
+
   return (
     <>
       <Searchbar
@@ -145,7 +164,7 @@ const MapLayout = ({ route }) => {
 
       <OpenSesameButton />
 
-      <PopupSlider testData={testData} />
+      {/* <PopupSlider testData={testData} /> */}
 
       <MapComponent
         mapviewHeight={mapviewHeight}
