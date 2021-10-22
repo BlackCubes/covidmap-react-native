@@ -66,15 +66,28 @@ const VaccineItem = ({
   const [hideText, setHideText] = useState(true);
   const viewMoreDetails = () => setHideText(!hideText);
 
-  const formatDetails = (unformattedDetailsString) => {
-    // replace all occurences of ':' and replace with colon and newline
-    const decodedString = he.decode(unformattedDetailsString);
-    // find all colons, replace with colons with newline after
-    const indented = decodedString.replace(/:\s*/g, ": \n");
-    // split indented string into array of not-underlined subheadings, and details texts
-    const subHeadingsAndTextArray = indented.split("\n");
-    // check if string in array is a subheading(includes colon); underline it if yes, else return detail string
-    return subHeadingsAndTextArray.map((detailString, i) => detailString.includes(": ") ? (<Subheading key={i}>{detailString} {"\n"}</Subheading>) : detailString+"\n");
+  const subheadingReplacer = (match) => "\n" + match + "\n";
+
+  const formatString = (unformattedDetailsString) => {
+    // remove HTML entities
+    const decodedString = he.decode(unformattedDetailsString); // STRING WITHOUT HTML ENTITIES
+
+    const subheadingPattern =
+      /Background:|Trials:|Regulatory Actions:|Study Design[s]*:|Outcomes:|Status:|Funding:/g;
+
+    const subheadingsFormatted = decodedString.replace(
+      subheadingPattern,
+      subheadingReplacer
+    );
+    const splitByNewLines = subheadingsFormatted.split("\n");
+
+    // loop over array, check if arr element matches subheadingPattern
+    return splitByNewLines.map((detailString, i) => {
+      if (detailString === "") return <Text key={i}>{"\n"}</Text>;
+      else if (subheadingPattern.test(detailString)) {
+        return <Subheading key={i}>{"\n" + detailString + "\n"}</Subheading>;
+      } else return <Text key={i}>{detailString}</Text>;
+    });
   };
 
   return (
@@ -105,7 +118,7 @@ const VaccineItem = ({
         <DetailsContainer>
           <BoldText>Details</BoldText>
           <Text numberOfLines={hideText ? 4 : undefined} ellipsizeMode="tail">
-            {formatDetails(details)}
+            {formatString(details)}
           </Text>
           {/* View More */}
           <Pressable onPress={viewMoreDetails} style={{ marginTop: "2%" }}>
