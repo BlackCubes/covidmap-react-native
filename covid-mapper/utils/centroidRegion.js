@@ -1,10 +1,11 @@
 import coordinates from "./coordinates.json";
 
 const centroidRegion = (location, initialRegion, windowWidth, windowHeight) => {
-  if (!coordinates[location]) return initialRegion;
+  const lowercaseLocation = location.toLowerCase();
+  if (!coordinates[lowercaseLocation]) return initialRegion;
 
   const aspectRatio = windowWidth / windowHeight;
-  const { bounding_box, centroid } = coordinates[location];
+  const { bounding_box, centroid } = coordinates[lowercaseLocation];
 
   const lat = parseFloat(centroid.latitude);
   const lng = parseFloat(centroid.longitude);
