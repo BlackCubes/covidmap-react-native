@@ -1,0 +1,898 @@
+{
+  "alabama": {
+    "centroid": {
+      "latitude": "32.318230",
+      "longitude": "-86.902298"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "30.223334",
+        "longitude": "-88.473227"
+      },
+      "north_east": {
+        "latitude": "35.008028",
+        "longitude": "-84.88908"
+      }
+    }
+  },
+  "alaska": {
+    "centroid": {
+      "latitude": "66.160507",
+      "longitude": "-153.369141"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "51.214183",
+        "longitude": "-179.148909"
+      },
+      "north_east": {
+        "latitude": "71.365162",
+        "longitude": "179.77847"
+      }
+    }
+  },
+  "american samoa": {
+    "centroid": {
+      "latitude": "-14.270972",
+      "longitude": "-170.132217"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "-14.548699",
+        "longitude": "-171.089874"
+      },
+      "north_east": {
+        "latitude": "-11.046934",
+        "longitude": "-168.1433"
+      }
+    }
+  },
+  "arizona": {
+    "centroid": {
+      "latitude": "34.048927",
+      "longitude": "-111.093735"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "31.332177",
+        "longitude": "-114.81651"
+      },
+      "north_east": {
+        "latitude": "37.00426",
+        "longitude": "-109.045223"
+      }
+    }
+  },
+  "arkansas": {
+    "centroid": {
+      "latitude": "34.799999",
+      "longitude": "-92.199997"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "33.004106",
+        "longitude": "-94.617919"
+      },
+      "north_east": {
+        "latitude": "36.4996",
+        "longitude": "-89.644395"
+      }
+    }
+  },
+  "california": {
+    "centroid": {
+      "latitude": "36.778259",
+      "longitude": "-119.417931"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "32.534156",
+        "longitude": "-124.409591"
+      },
+      "north_east": {
+        "latitude": "42.009518",
+        "longitude": "-114.131211"
+      }
+    }
+  },
+  "colorado": {
+    "centroid": {
+      "latitude": "39.113014",
+      "longitude": "-105.358887"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "36.992426",
+        "longitude": "-109.060253"
+      },
+      "north_east": {
+        "latitude": "41.003444",
+        "longitude": "-102.041524"
+      }
+    }
+  },
+  "commonwealth of the northern mariana islands": {
+    "centroid": {
+      "latitude": "15.188830",
+      "longitude": "145.753500"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "14.110472",
+        "longitude": "144.886331"
+      },
+      "north_east": {
+        "latitude": "20.553802",
+        "longitude": "146.064818"
+      }
+    }
+  },
+  "connecticut": {
+    "centroid": {
+      "latitude": "41.599998",
+      "longitude": "-72.699997"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "40.980144",
+        "longitude": "-73.727775"
+      },
+      "north_east": {
+        "latitude": "42.050587",
+        "longitude": "-71.786994"
+      }
+    }
+  },
+  "delaware": {
+    "centroid": {
+      "latitude": "39.000000",
+      "longitude": "-75.500000"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "38.451013",
+        "longitude": "-75.788658"
+      },
+      "north_east": {
+        "latitude": "39.839007",
+        "longitude": "-75.048939"
+      }
+    }
+  },
+  "district of columbia": {
+    "centroid": {
+      "latitude": "38.907192",
+      "longitude": "-77.036873"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "38.791645",
+        "longitude": "-77.119759"
+      },
+      "north_east": {
+        "latitude": "38.99511",
+        "longitude": "-76.909395"
+      }
+    }
+  },
+  "florida": {
+    "centroid": {
+      "latitude": "27.994402",
+      "longitude": "-81.760254"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "24.523096",
+        "longitude": "-87.634938"
+      },
+      "north_east": {
+        "latitude": "31.000888",
+        "longitude": "-80.031362"
+      }
+    }
+  },
+  "georgia": {
+    "centroid": {
+      "latitude": "33.247875",
+      "longitude": "-83.441162"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "30.357851",
+        "longitude": "-85.605165"
+      },
+      "north_east": {
+        "latitude": "35.000659",
+        "longitude": "-80.839729"
+      }
+    }
+  },
+  "guam": {
+    "centroid": {
+      "latitude": "13.444304",
+      "longitude": "144.793732"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "13.234189",
+        "longitude": "144.618068"
+      },
+      "north_east": {
+        "latitude": "13.654383",
+        "longitude": "144.956712"
+      }
+    }
+  },
+  "hawaii": {
+    "centroid": {
+      "latitude": "19.741755",
+      "longitude": "-155.844437"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "18.910361",
+        "longitude": "-178.334698"
+      },
+      "north_east": {
+        "latitude": "28.402123",
+        "longitude": "-154.806773"
+      }
+    }
+  },
+  "idaho": {
+    "centroid": {
+      "latitude": "44.068203",
+      "longitude": "-114.742043"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "41.988057",
+        "longitude": "-117.243027"
+      },
+      "north_east": {
+        "latitude": "49.001146",
+        "longitude": "-111.043564"
+      }
+    }
+  },
+  "illinois": {
+    "centroid": {
+      "latitude": "40.000000",
+      "longitude": "-89.000000"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "36.970298",
+        "longitude": "-91.513079"
+      },
+      "north_east": {
+        "latitude": "42.508481",
+        "longitude": "-87.494756"
+      }
+    }
+  },
+  "indiana": {
+    "centroid": {
+      "latitude": "40.273502",
+      "longitude": "-86.126976"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "37.771742",
+        "longitude": "-88.09776"
+      },
+      "north_east": {
+        "latitude": "41.760592",
+        "longitude": "-84.784579"
+      }
+    }
+  },
+  "iowa": {
+    "centroid": {
+      "latitude": "42.032974",
+      "longitude": "-93.581543"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "40.375501",
+        "longitude": "-96.639704"
+      },
+      "north_east": {
+        "latitude": "43.501196",
+        "longitude": "-90.140061"
+      }
+    }
+  },
+  "kansas": {
+    "centroid": {
+      "latitude": "38.500000",
+      "longitude": "-98.000000"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "36.993016",
+        "longitude": "-102.051744"
+      },
+      "north_east": {
+        "latitude": "40.003162",
+        "longitude": "-94.588413"
+      }
+    }
+  },
+  "kentucky": {
+    "centroid": {
+      "latitude": "37.839333",
+      "longitude": "-84.270020"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "36.497129",
+        "longitude": "-89.571509"
+      },
+      "north_east": {
+        "latitude": "39.147458",
+        "longitude": "-81.964971"
+      }
+    }
+  },
+  "louisiana": {
+    "centroid": {
+      "latitude": "30.391830",
+      "longitude": "-92.329102"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "28.928609",
+        "longitude": "-94.043147"
+      },
+      "north_east": {
+        "latitude": "33.019457",
+        "longitude": "-88.817017"
+      }
+    }
+  },
+  "maine": {
+    "centroid": {
+      "latitude": "45.367584",
+      "longitude": "-68.972168"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "42.977764",
+        "longitude": "-71.083924"
+      },
+      "north_east": {
+        "latitude": "47.459686",
+        "longitude": "-66.949895"
+      }
+    }
+  },
+  "maryland": {
+    "centroid": {
+      "latitude": "39.045753",
+      "longitude": "-76.641273"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "37.911717",
+        "longitude": "-79.487651"
+      },
+      "north_east": {
+        "latitude": "39.723043",
+        "longitude": "-75.048939"
+      }
+    }
+  },
+  "massachusetts": {
+    "centroid": {
+      "latitude": "42.407211",
+      "longitude": "-71.382439"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "41.237964",
+        "longitude": "-73.508142"
+      },
+      "north_east": {
+        "latitude": "42.886589",
+        "longitude": "-69.928393"
+      }
+    }
+  },
+  "michigan": {
+    "centroid": {
+      "latitude": "44.182205",
+      "longitude": "-84.506836"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "41.696118",
+        "longitude": "-90.418136"
+      },
+      "north_east": {
+        "latitude": "48.2388",
+        "longitude": "-82.413474"
+      }
+    }
+  },
+  "minnesota": {
+    "centroid": {
+      "latitude": "46.392410",
+      "longitude": "-94.636230"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "43.499356",
+        "longitude": "-97.239209"
+      },
+      "north_east": {
+        "latitude": "49.384358",
+        "longitude": "-89.491739"
+      }
+    }
+  },
+  "mississippi": {
+    "centroid": {
+      "latitude": "33.000000",
+      "longitude": "-90.000000"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "30.173943",
+        "longitude": "-91.655009"
+      },
+      "north_east": {
+        "latitude": "34.996052",
+        "longitude": "-88.097888"
+      }
+    }
+  },
+  "missouri": {
+    "centroid": {
+      "latitude": "38.573936",
+      "longitude": "-92.603760"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "35.995683",
+        "longitude": "-95.774704"
+      },
+      "north_east": {
+        "latitude": "40.61364",
+        "longitude": "-89.098843"
+      }
+    }
+  },
+  "montana": {
+    "centroid": {
+      "latitude": "46.965260",
+      "longitude": "-109.533691"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "44.358221",
+        "longitude": "-116.050003"
+      },
+      "north_east": {
+        "latitude": "49.00139",
+        "longitude": "-104.039138"
+      }
+    }
+  },
+  "nebraska": {
+    "centroid": {
+      "latitude": "41.500000",
+      "longitude": "-100.000000"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "39.999998",
+        "longitude": "-104.053514"
+      },
+      "north_east": {
+        "latitude": "43.001708",
+        "longitude": "-95.30829"
+      }
+    }
+  },
+  "nevada": {
+    "centroid": {
+      "latitude": "39.876019",
+      "longitude": "-117.224121"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "35.001857",
+        "longitude": "-120.005746"
+      },
+      "north_east": {
+        "latitude": "42.002207",
+        "longitude": "-114.039648"
+      }
+    }
+  },
+  "new hampshire": {
+    "centroid": {
+      "latitude": "44.000000",
+      "longitude": "-71.500000"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "42.69699",
+        "longitude": "-72.557247"
+      },
+      "north_east": {
+        "latitude": "45.305476",
+        "longitude": "-70.610621"
+      }
+    }
+  },
+  "new jersey": {
+    "centroid": {
+      "latitude": "39.833851",
+      "longitude": "-74.871826"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "38.928519",
+        "longitude": "-75.559614"
+      },
+      "north_east": {
+        "latitude": "41.357423",
+        "longitude": "-73.893979"
+      }
+    }
+  },
+  "new mexico": {
+    "centroid": {
+      "latitude": "34.307144",
+      "longitude": "-106.018066"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "31.332301",
+        "longitude": "-109.050173"
+      },
+      "north_east": {
+        "latitude": "37.000232",
+        "longitude": "-103.001964"
+      }
+    }
+  },
+  "new york": {
+    "centroid": {
+      "latitude": "43.000000",
+      "longitude": "-75.000000"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "40.496103",
+        "longitude": "-79.762152"
+      },
+      "north_east": {
+        "latitude": "45.01585",
+        "longitude": "-71.856214"
+      }
+    }
+  },
+  "north carolina": {
+    "centroid": {
+      "latitude": "35.782169",
+      "longitude": "-80.793457"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "33.842316",
+        "longitude": "-84.321869"
+      },
+      "north_east": {
+        "latitude": "36.588117",
+        "longitude": "-75.460621"
+      }
+    }
+  },
+  "north dakota": {
+    "centroid": {
+      "latitude": "47.650589",
+      "longitude": "-100.437012"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "45.935054",
+        "longitude": "-104.0489"
+      },
+      "north_east": {
+        "latitude": "49.000574",
+        "longitude": "-96.554507"
+      }
+    }
+  },
+  "ohio": {
+    "centroid": {
+      "latitude": "40.367474",
+      "longitude": "-82.996216"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "38.403202",
+        "longitude": "-84.820159"
+      },
+      "north_east": {
+        "latitude": "41.977523",
+        "longitude": "-80.518693"
+      }
+    }
+  },
+  "oklahoma": {
+    "centroid": {
+      "latitude": "36.084621",
+      "longitude": "-96.921387"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "33.615833",
+        "longitude": "-103.002565"
+      },
+      "north_east": {
+        "latitude": "37.002206",
+        "longitude": "-94.430662"
+      }
+    }
+  },
+  "oregon": {
+    "centroid": {
+      "latitude": "44.000000",
+      "longitude": "-120.500000"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "41.991794",
+        "longitude": "-124.566244"
+      },
+      "north_east": {
+        "latitude": "46.292035",
+        "longitude": "-116.463504"
+      }
+    }
+  },
+  "pennsylvania": {
+    "centroid": {
+      "latitude": "41.203323",
+      "longitude": "-77.194527"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "39.7198",
+        "longitude": "-80.519891"
+      },
+      "north_east": {
+        "latitude": "42.26986",
+        "longitude": "-74.689516"
+      }
+    }
+  },
+  "puerto rico": {
+    "centroid": {
+      "latitude": "18.220833",
+      "longitude": "-66.590149"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "17.88328",
+        "longitude": "-67.945404"
+      },
+      "north_east": {
+        "latitude": "18.515683",
+        "longitude": "-65.220703"
+      }
+    }
+  },
+  "rhode island": {
+    "centroid": {
+      "latitude": "41.700001",
+      "longitude": "-71.500000"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "41.146339",
+        "longitude": "-71.862772"
+      },
+      "north_east": {
+        "latitude": "42.018798",
+        "longitude": "-71.12057"
+      }
+    }
+  },
+  "south carolina": {
+    "centroid": {
+      "latitude": "33.836082",
+      "longitude": "-81.163727"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "32.0346",
+        "longitude": "-83.35391"
+      },
+      "north_east": {
+        "latitude": "35.215402",
+        "longitude": "-78.54203"
+      }
+    }
+  },
+  "south dakota": {
+    "centroid": {
+      "latitude": "44.500000",
+      "longitude": "-100.000000"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "42.479635",
+        "longitude": "-104.057698"
+      },
+      "north_east": {
+        "latitude": "45.94545",
+        "longitude": "-96.436589"
+      }
+    }
+  },
+  "tennessee": {
+    "centroid": {
+      "latitude": "35.860119",
+      "longitude": "-86.660156"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "34.982972",
+        "longitude": "-90.310298"
+      },
+      "north_east": {
+        "latitude": "36.678118",
+        "longitude": "-81.6469"
+      }
+    }
+  },
+  "texas": {
+    "centroid": {
+      "latitude": "31.000000",
+      "longitude": "-100.000000"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "25.837377",
+        "longitude": "-106.645646"
+      },
+      "north_east": {
+        "latitude": "36.500704",
+        "longitude": "-93.508292"
+      }
+    }
+  },
+  "united states virgin islands": {
+    "centroid": {
+      "latitude": "18.335766",
+      "longitude": "-64.896332"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "17.673976",
+        "longitude": "-65.085452"
+      },
+      "north_east": {
+        "latitude": "18.412655",
+        "longitude": "-64.564907"
+      }
+    }
+  },
+  "utah": {
+    "centroid": {
+      "latitude": "39.419220",
+      "longitude": "-111.950684"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "36.997968",
+        "longitude": "-114.052962"
+      },
+      "north_east": {
+        "latitude": "42.001567",
+        "longitude": "-109.041058"
+      }
+    }
+  },
+  "vermont": {
+    "centroid": {
+      "latitude": "44.000000",
+      "longitude": "-72.699997"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "42.726853",
+        "longitude": "-73.43774"
+      },
+      "north_east": {
+        "latitude": "45.016659",
+        "longitude": "-71.464555"
+      }
+    }
+  },
+  "virginia": {
+    "centroid": {
+      "latitude": "37.926868",
+      "longitude": "-78.024902"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "36.540738",
+        "longitude": "-83.675395"
+      },
+      "north_east": {
+        "latitude": "39.466012",
+        "longitude": "-75.242266"
+      }
+    }
+  },
+  "washington": {
+    "centroid": {
+      "latitude": "47.751076",
+      "longitude": "-120.740135"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "45.543541",
+        "longitude": "-124.763068"
+      },
+      "north_east": {
+        "latitude": "49.002494",
+        "longitude": "-116.915989"
+      }
+    }
+  },
+  "west virginia": {
+    "centroid": {
+      "latitude": "39.000000",
+      "longitude": "-80.500000"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "37.201483",
+        "longitude": "-82.644739"
+      },
+      "north_east": {
+        "latitude": "40.638801",
+        "longitude": "-77.719519"
+      }
+    }
+  },
+  "wisconsin": {
+    "centroid": {
+      "latitude": "44.500000",
+      "longitude": "-89.500000"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "42.491983",
+        "longitude": "-92.888114"
+      },
+      "north_east": {
+        "latitude": "47.080621",
+        "longitude": "-86.805415"
+      }
+    }
+  },
+  "wyoming": {
+    "centroid": {
+      "latitude": "43.075970",
+      "longitude": "-107.290283"
+    },
+    "bounding_box": {
+      "south_west": {
+        "latitude": "40.994746",
+        "longitude": "-111.056888"
+      },
+      "north_east": {
+        "latitude": "45.005904",
+        "longitude": "-104.05216"
+      }
+    }
+  }
+}
