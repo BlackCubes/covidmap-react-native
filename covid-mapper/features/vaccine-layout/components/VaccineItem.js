@@ -66,19 +66,6 @@ const VaccineItem = ({
   const [hideText, setHideText] = useState(true);
   const viewMoreDetails = () => setHideText(!hideText);
 
-  // List of words to look for in detailString; add newline after each, and underline them via wrapping Subheading component
-  // Check if first word of each array item matches any of the following
-  // If match, style it properly, else return array item with newline after it
-  const keywords = [
-    "Background",
-    "Trials",
-    "Regulatory Actions",
-    "Study Designs",
-    "Outcomes",
-    "Status",
-    "Funding",
-  ];
-
   const subheadingReplacer = (match) => "\n" + match + "\n";
 
   const formatString = (unformattedDetailsString) => {
