@@ -40,7 +40,7 @@ const USStateInfoValues = styled.Text`
   font-size: 12px;
 `;
 
-const USStatesList = ({
+const USState = ({
   state,
   updated,
   cases,
@@ -92,4 +92,4 @@ const USStatesList = ({
   </USStateWrapper>
 );
 
-export default USStatesList;
+export default USState;
