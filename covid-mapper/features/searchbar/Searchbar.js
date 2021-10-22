@@ -1,20 +1,7 @@
 import React, { useState } from "react";
-import { Pressable } from "react-native";
+import { Pressable, Animated, StyleSheet } from "react-native";
 import styled from "styled-components/native";
 
-const SearchbarWrapper = styled.View`
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 7%;
-  left: 20%;
-  width: 60%;
-  height: 50px;
-  background-color: #fbfbfc;
-  border: 1px solid #f0f0f3;
-  border-radius: 50px;
-  z-index: 10;
-`;
 
 const SearchbarIconWrapper = styled.View`
   position: absolute;
@@ -42,45 +29,62 @@ const SearchbarInput = styled.TextInput`
   border-radius: 50px;
 `;
 
-const Searchbar = ({ handleSearchSubmit, searchPlaceholder }) => {
+const Searchbar = ({ handleSearchSubmit, searchPlaceholder, opacityLevel }) => {
   const [searchInput, setSearchInput] = useState("");
   const [isFocus, setIsFocus] = useState(false);
   const [isSearchIconPressedIn, setIsSearchIconPressedIn] = useState(false);
 
   return (
-    <SearchbarWrapper>
-      <SearchbarIconWrapper>
-        <Pressable
-          onPressIn={() => setIsSearchIconPressedIn(true)}
-          onPressOut={() => setIsSearchIconPressedIn(false)}
-          onPress={() => {
+    <Animated.View style={[styles.searchBarWrapper, {opacity: opacityLevel}]}>
+        <SearchbarIconWrapper>
+          <Pressable
+            onPressIn={() => setIsSearchIconPressedIn(true)}
+            onPressOut={() => setIsSearchIconPressedIn(false)}
+            onPress={() => {
+              handleSearchSubmit(searchInput);
+              setSearchInput("");
+            }}
+          >
+            <SearchbarIcon
+              isFocus={isFocus}
+              isSearchIconPressedIn={isSearchIconPressedIn}
+              source={require("../../assets/search-icon.png")}
+            />
+          </Pressable>
+        </SearchbarIconWrapper>
+
+        <SearchbarInput
+          defaultValue=""
+          value={searchInput}
+          placeholder={searchPlaceholder}
+          isFocus={isFocus}
+          onFocus={() => setIsFocus(true)}
+          onBlur={() => setIsFocus(!searchInput.length ? false : true)}
+          onChangeText={(text) => setSearchInput(text)}
+          onSubmitEditing={() => {
             handleSearchSubmit(searchInput);
             setSearchInput("");
           }}
-        >
-          <SearchbarIcon
-            isFocus={isFocus}
-            isSearchIconPressedIn={isSearchIconPressedIn}
-            source={require("../../assets/search-icon.png")}
-          />
-        </Pressable>
-      </SearchbarIconWrapper>
-
-      <SearchbarInput
-        defaultValue=""
-        value={searchInput}
-        placeholder={searchPlaceholder}
-        isFocus={isFocus}
-        onFocus={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(!searchInput.length ? false : true)}
-        onChangeText={(text) => setSearchInput(text)}
-        onSubmitEditing={() => {
-          handleSearchSubmit(searchInput);
-          setSearchInput("");
-        }}
-      />
-    </SearchbarWrapper>
+        />
+    </Animated.View>
   );
 };
+
+const styles=StyleSheet.create({
+  searchBarWrapper: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    top: '7%',
+    left: '20%',
+    width: '60%',
+    height: 50,
+    backgroundColor: '#fbfbfc',
+    borderWidth: 1,
+    borderColor: "#f0f0f3",
+    borderRadius: 50,
+    zIndex: 10,
+  }
+})
 
 export default Searchbar;
