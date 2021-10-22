@@ -14,6 +14,7 @@ import {
 } from "../../api/covidApi";
 import { OpenSesameButton } from "../../commons/components";
 import PopupSlider from "./components/PopupSlider";
+import { centroidRegion } from "../../utils";
 
 /**
  * Finds the selected county inside an array of counties inside the US State.
@@ -121,12 +122,13 @@ const MapLayout = ({ route }) => {
   } = useGetAllUSCountiesFromStateQuery(searchUSState);
 
   const { width: mapviewWidth, height: mapviewHeight } = useWindowDimensions();
-  const mapviewRegion = {
-    latitude: 37.78825,
-    longitude: -122.4324,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421,
-  };
+
+  const [mapRegion, setMapRegion] = useState({
+    latitude: 36.778259,
+    longitude: -119.417931,
+    latitudeDelta: 11.0922,
+    longitudeDelta: 11.0421,
+  });
 
   const handleSearchSubmit = (inputValue) => {
     // Based on the name of the route to update particular states.
@@ -177,6 +179,14 @@ const MapLayout = ({ route }) => {
   }, [routeName]);
 
   useEffect(() => {
+    if (searchUSState.length) {
+      setMapRegion(
+        centroidRegion(searchUSState, mapRegion, mapviewWidth, mapviewHeight)
+      );
+    }
+  }, [searchUSState]);
+
+  useEffect(() => {
     if (searchUSCounty.length && usCountiesData) {
       setMapCountyDataObject(
         retrieveCountyData(searchUSCounty, usCountiesData)
@@ -197,7 +207,7 @@ const MapLayout = ({ route }) => {
 
       <MapComponent
         mapviewHeight={mapviewHeight}
-        mapviewRegion={mapviewRegion}
+        mapviewRegion={mapRegion}
         mapviewWidth={mapviewWidth}
       />
     </>
