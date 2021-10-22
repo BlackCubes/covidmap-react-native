@@ -1,1 +1,1 @@
-export { default as centroidRegion } from "./centroid";
+export { default as centroidRegion } from "./centroidRegion";
