@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import * as Location from 'expo-location';
 import { useWindowDimensions } from "react-native";
-
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import MapComponent from "../map/Map";
 import Searchbar from "../searchbar/Searchbar";
 import {
@@ -15,6 +16,7 @@ import {
 import { OpenSesameButton } from "../../commons/components";
 import PopupSlider from "./components/PopupSlider";
 import { centroidRegion } from "../../utils";
+
 
 /**
  * Finds the selected county inside an array of counties inside the US State.
@@ -42,6 +44,9 @@ const retrieveCountyData = (county, stateCounties) => {
 };
 
 const MapLayout = ({ route }) => {
+  
+  const [userLocation, setUserLocation] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
   const [mapDataArray, setMapDataArray] = useState([]);
   const [mapDataObject, setMapDataObject] = useState(null);
   // This is to store the county data in this state after extraction:
@@ -63,15 +68,6 @@ const MapLayout = ({ route }) => {
   const [searchUSCounty, setSearchUSCounty] = useState("");
 
   const { name: routeName } = route;
-
-  const [testData, setTestData] = useState({
-    title: "Fresno",
-    location: "Fresno",
-    update: "2021-10-12 04:21:09",
-    confirmed: 142951,
-    deaths: 2035,
-    recovered: "Not enough info",
-  });
 
   // WORLD
   // - world stats
@@ -154,6 +150,32 @@ const MapLayout = ({ route }) => {
       }
     }
   };
+  
+  // Ask permission to obtain user's current location
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        setErrorMsg("Permission to access location was denied");
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      setUserLocation(location);
+    })();
+  }, []);
+
+  /* 
+    Location JSON structure is different for iOS and Android.
+    iOS: currentLocation 
+    Android: currentLocatoin.coords
+  */
+  let currentLocation = "Waiting..";
+  if (errorMsg) {
+    currentLocation = errorMsg;
+  } else if (userLocation) {
+    currentLocation = JSON.stringify(userLocation);
+  }
 
   useEffect(() => {
     // Based on the route names to update the data array or object to be displayed on the map.
@@ -195,7 +217,7 @@ const MapLayout = ({ route }) => {
   }, [searchUSCounty, usCountiesData]);
 
   return (
-    <>
+    <BottomSheetModalProvider style={{color: 'black'}}>
       <Searchbar
         handleSearchSubmit={handleSearchSubmit}
         searchPlaceholder={searchPlaceholder}
@@ -203,14 +225,17 @@ const MapLayout = ({ route }) => {
 
       <OpenSesameButton />
 
-      <PopupSlider testData={testData} />
+      <PopupSlider
+        searchCountry={searchCountry}
+        searchProvince={searchProvince}
+      />
 
       <MapComponent
         mapviewHeight={mapviewHeight}
         mapviewRegion={mapRegion}
         mapviewWidth={mapviewWidth}
       />
-    </>
+    </BottomSheetModalProvider>
   );
 };
 

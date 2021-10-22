@@ -2,20 +2,31 @@ import * as React from "react";
 import * as Linking from "expo-linking";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import styled from "styled-components/native";
-import { Pressable, View, } from "react-native";
+import { Pressable, View } from "react-native";
+import {
+  GithubIcon,
+  ToadIcon,
+  USAFlagIcon,
+  GlobeIcon,
+  SyringeIcon,
+} from "../../commons/components/Icons";
 
 const DrawerContentContainer = styled.View`
   flex: 1;
 `;
 
 const DrawerSection = styled.View`
-  height: 20%;
-  padding: 10px;
-  border: 1px solid #ddd;
+  padding: 5px 10px 5px 10px;
+`;
+
+const SectionDivider = styled.View`
+  height: 1px;
+  background-color: #ccc;
+  width: 100%;
 `;
 
 const LogoContainer = styled.View`
-  height: 15%;
+  height: 10%;
   width: 100%;
   background-color: #203f59;
   display: flex;
@@ -35,9 +46,18 @@ const BottomInfoContainer = styled.View`
   background-color: #fafafa;
 `;
 
+const BottomButtonView = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0px 20px 0px 0px;
+`;
+
 const BottomInfoText = styled.Text`
   color: #203f59;
-  font-weight: bold; 
+  font-weight: bold;
+  padding-left: 4px;
 `;
 
 const GreenBorder = styled.View`
@@ -77,7 +97,12 @@ const DrawerContent = (props) => {
         {/*End Logo section and Begin DrawerItems section */}
         <DrawerSection>
           {/* World total section */}
-          <Heading>World</Heading>
+          <Heading>
+            World
+            <View style={{ paddingLeft: 4 }}>
+              <GlobeIcon />
+            </View>
+          </Heading>
           {/* endpoint: /v3/covid-19/all AND /v3/covid-19/countries */}
           <DrawerItem
             label="World Total &amp; By Country"
@@ -92,10 +117,16 @@ const DrawerContent = (props) => {
               props.navigation.navigate("Country Province Stats");
             }}
           />
+          <SectionDivider />
         </DrawerSection>
         {/* Start USA section */}
         <DrawerSection>
-          <Heading>U.S.</Heading>
+          <Heading>
+            U.S.
+            <View style={{ paddingLeft: 4 }}>
+              <USAFlagIcon />
+            </View>
+          </Heading>
           {/* endpoint: /v3/covid-19/states - totals for all US states */}
           <DrawerItem
             label="US Total &amp; All States"
@@ -110,11 +141,17 @@ const DrawerContent = (props) => {
               props.navigation.navigate("State Counties Totals");
             }}
           />
+          <SectionDivider />
         </DrawerSection>
 
         {/* Start Vaccination section */}
         <DrawerSection>
-          <Heading>Vaccination Doses Administered &amp; Trial Data</Heading>
+          <Heading>
+            Vaccination Doses Administered &amp; Trial Data
+            <View style={{ paddingLeft: 4 }}>
+              <SyringeIcon />
+            </View>
+          </Heading>
           {/* endpoints to use: /vaccine/coverage AND /vaccine/coverage/countries */}
           <DrawerItem
             label="World Total &amp; All Countries"
@@ -153,24 +190,29 @@ const DrawerContent = (props) => {
       </DrawerContentScrollView>
       {/* Github & About Us */}
       <BottomInfoContainer>
-      <Pressable  onPress={() => {
+        <Pressable
+          onPress={() => {
             props.navigation.navigate("About Us");
-          }}>
-       <View>
-         <BottomInfoText>About Us</BottomInfoText>
-       </View>
-       </Pressable>
-          {/* Github  */}
-       <Pressable onPress={() =>
+          }}
+        >
+          <BottomButtonView>
+            <ToadIcon />
+            <BottomInfoText>About Us</BottomInfoText>
+          </BottomButtonView>
+        </Pressable>
+        {/* Github  */}
+        <Pressable
+          onPress={() =>
             Linking.openURL(
               "https://github.com/BlackCubes/covidmap-react-native"
             )
-          }>
-       <View>
-         <BottomInfoText>Github</BottomInfoText>
-       </View>
-       </Pressable>
-  
+          }
+        >
+          <BottomButtonView>
+            <GithubIcon />
+            <BottomInfoText>Github</BottomInfoText>
+          </BottomButtonView>
+        </Pressable>
       </BottomInfoContainer>
     </DrawerContentContainer>
   );
