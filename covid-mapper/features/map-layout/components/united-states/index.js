@@ -1,1 +1,1 @@
-export { default as USStatesList } from "./USStatesList";
+export { default as USState } from "./USState";
