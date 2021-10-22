@@ -4,6 +4,7 @@ import { useWindowDimensions } from "react-native";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import MapComponent from "../map/Map";
 import Searchbar from "../searchbar/Searchbar";
+import FloatingSearchButton from "../../commons/components/FloatingSearchButton/FloatingSearchButton";
 import {
   useGetGlobalCovidStatsQuery,
   useGetAllCountriesProvincesHistoricalQuery,
@@ -44,7 +45,6 @@ const retrieveCountyData = (county, stateCounties) => {
 };
 
 const MapLayout = ({ route }) => {
-  
   const [userLocation, setUserLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [mapDataArray, setMapDataArray] = useState([]);
@@ -216,13 +216,21 @@ const MapLayout = ({ route }) => {
     }
   }, [searchUSCounty, usCountiesData]);
 
+  const [searchBarActive, setSearchBarActive] = useState(false);
+  
+  const toggleSearchBar=()=>{
+    // onPress, setSearchBarActive(!searchBarActive)
+    setSearchBarActive(!searchBarActive);
+  }
+
   return (
     <BottomSheetModalProvider style={{color: 'black'}}>
-      <Searchbar
+     <FloatingSearchButton pressHandler={toggleSearchBar}/>
+      {searchBarActive?  <Searchbar
         handleSearchSubmit={handleSearchSubmit}
         searchPlaceholder={searchPlaceholder}
-      />
-
+      />:<></>}
+      
       <OpenSesameButton />
 
       <PopupSlider
