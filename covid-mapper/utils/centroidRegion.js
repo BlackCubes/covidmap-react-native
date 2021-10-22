@@ -16,7 +16,7 @@ const centroidRegion = (location, initialRegion, windowWidth, windowHeight) => {
   const lowercaseLocation = location.toLowerCase();
   if (!coordinates[lowercaseLocation]) return initialRegion;
 
-  // To calculate the
+  // Aspect ratio of the device.
   const aspectRatio = windowWidth / windowHeight;
   const { bounding_box, centroid } = coordinates[lowercaseLocation];
 
