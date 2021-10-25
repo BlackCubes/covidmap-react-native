@@ -1,5 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+import { cartesianCoordinateConverter } from "../utils";
+
 export const covidApi = createApi({
   reducerPath: "covidApi",
   baseQuery: fetchBaseQuery({
@@ -9,6 +11,14 @@ export const covidApi = createApi({
     // WORLDOMETERS - Global
     getGlobalCovidStats: builder.query({
       query: () => `all`,
+      transformResponse: (response) => ({
+        cases: response.cases,
+        deaths: response.deaths,
+        recovered: response.recovered,
+        hasTimelineSequence: typeof response.cases === "number" ? false : true,
+        provinces: "",
+        county: "",
+      }),
     }),
     getEachCountriesTotals: builder.query({
       // get totals for all countries
@@ -24,31 +34,121 @@ export const covidApi = createApi({
         const sort = sortBy ? `?sort=${sortBy}` : "";
         return `states${sort}`;
       },
+      transformResponse: (response) =>
+        response.map((state) => ({
+          cases: state.cases,
+          deaths: state.deaths,
+          recovered: state.recovered ?? "No info",
+          hasTimelineSequence: typeof state.cases === "number" ? false : true,
+          provinces: state.state,
+          county: "",
+        })),
     }),
     getTotalOneUSState: builder.query({
       // get total from one particular US state
-      query: (usState) => `states/${usState}`,
+      query: (usState) => {
+        const endpoint = !usState
+          ? "not-chosen"
+          : !usState.length
+          ? "not-chosen"
+          : usState;
+
+        return `states/${endpoint}`;
+      },
+      transformResponse: (response) => ({
+        cases: response.cases,
+        deaths: response.deaths,
+        recovered: response.recovered,
+        hasTimelineSequence: typeof response.cases === "number" ? false : true,
+        provinces: "",
+        county: "",
+      }),
     }),
 
     // JHUCSSE - Provinces, US Counties
     getAllCountriesProvincesHistorical: builder.query({
       query: () => "historical/all",
+      transformResponse: (response) => ({
+        cases: cartesianCoordinateConverter(response.cases),
+        deaths: cartesianCoordinateConverter(response.deaths),
+        recovered: cartesianCoordinateConverter(response.recovered),
+        hasTimelineSequence: typeof response.cases === "number" ? false : true,
+        provinces: "",
+        county: "",
+      }),
     }),
     getCountryHistorical: builder.query({
-      query: (country) => `historical/${country}`,
+      query: (country) => {
+        const endpoint = !country
+          ? "not-chosen"
+          : !country.length
+          ? "not-chosen"
+          : country;
+        return `historical/${endpoint}`;
+      },
+      transformResponse: (response) => ({
+        cases: cartesianCoordinateConverter(response.timeline.cases),
+        deaths: cartesianCoordinateConverter(response.timeline.deaths),
+        recovered: cartesianCoordinateConverter(response.timeline.recovered),
+        hasTimelineSequence:
+          typeof response.timeline.cases === "number" ? false : true,
+        provinces: response.province.join(", "),
+        county: "",
+      }),
     }),
     getCountriesHistorical: builder.query({
       query: (countries) => `historical/${countries.join(",")}`,
     }),
     getProvinceHistorical: builder.query({
-      query: ({ country, province }) => `historical/${country}/${province}`,
+      query: ({ country, province }) => {
+        const countryEndpoint = !country
+          ? "not-chosen"
+          : !country.length
+          ? "not-chosen"
+          : country;
+
+        const provinceEndpoint = !province
+          ? "not-chosen"
+          : !province.length
+          ? "not-chosen"
+          : province;
+
+        return `historical/${countryEndpoint}/${provinceEndpoint}`;
+      },
+      transformResponse: (response) => ({
+        cases: cartesianCoordinateConverter(response.timeline.cases),
+        deaths: cartesianCoordinateConverter(response.timeline.deaths),
+        recovered: cartesianCoordinateConverter(response.timeline.recovered),
+        hasTimelineSequence:
+          typeof response.timeline.cases === "number" ? false : true,
+        provinces: response.province,
+        county: "",
+      }),
     }),
     getProvincesHistorical: builder.query({
       query: ({ country, provinces }) =>
         `historical/${country}/${provinces.join(",")}`,
     }),
     getAllUSCountiesFromState: builder.query({
-      query: (usState) => `historical/usacounties/${usState}`,
+      query: (usState) => {
+        const endpoint = !usState
+          ? "not-chosen"
+          : !usState.length
+          ? "not-chosen"
+          : usState;
+
+        return `historical/usacounties/${endpoint}`;
+      },
+      transformResponse: (response) =>
+        response.map((county) => ({
+          cases: cartesianCoordinateConverter(county.timeline.cases),
+          deaths: cartesianCoordinateConverter(county.timeline.deaths),
+          recovered: cartesianCoordinateConverter(county.timeline.recovered),
+          hasTimelineSequence:
+            typeof county.timeline.cases === "number" ? false : true,
+          provinces: county.province,
+          county: county.county,
+        })),
     }),
 
     // VACCINES
