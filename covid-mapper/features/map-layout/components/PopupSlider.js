@@ -8,7 +8,6 @@ import {
 } from "../../../api/covidApi";
 import Spinner from "../../../commons/components/Spinner/Spinner";
 import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
-import { useGetCountryHistoricalQuery } from "../../../api/covidApi";
 import CasesOverTimeGraph from "../../graphs/TimeLineGraph";
 
 function separator(numb) {
@@ -23,11 +22,11 @@ const PopupButtonTest = styled.Button`
   bottom: 0;
 `;
 
-// const PopupError = styled.Text`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// `;
+const PopupError = styled.Text`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const USStateWrapper = styled.View`
   padding: 17px;
@@ -98,7 +97,6 @@ const PopupSlider = ({ searchCountry }) => {
     isLoading: stateLoading,
     error: stateError,
   } = useGetTotalOneUSStateQuery('california');
-  console.log('World Data: ', worldData);
 
 
   const bottomSheetModalRef = useRef(null);
@@ -108,25 +106,26 @@ const PopupSlider = ({ searchCountry }) => {
     bottomSheetModalRef.current?.present();
   }, []);
 
-  if (error) {
-    return (<>
-    <PopupButtonTest
-        onPress={handlePresentModalPress}
-        title="Present Slider"
-        color="#18181F"
-      />
-      <BottomSheetModal
-        ref={bottomSheetModalRef}
-        index={1}
-        snapPoints={snapPoints}
-      >
-        <PopupContentContainer>
-          <PopupContent>Error {error.status}: {error.data.message}</PopupContent>
-        </PopupContentContainer>
-      </BottomSheetModal>
-      </>
-    );
-  }
+  // Might need it in the future:
+  // if (error) {
+  //   return (<>
+  //   <PopupButtonTest
+  //       onPress={handlePresentModalPress}
+  //       title="Present Slider"
+  //       color="#18181F"
+  //     />
+  //     <BottomSheetModal
+  //       ref={bottomSheetModalRef}
+  //       index={1}
+  //       snapPoints={snapPoints}
+  //     >
+  //       <PopupContentContainer>
+  //         <PopupContent>Error {error.status}: {error.data.message}</PopupContent>
+  //       </PopupContentContainer>
+  //     </BottomSheetModal>
+  //     </>
+  //   );
+  // }
 
 
   return (
@@ -152,6 +151,8 @@ const PopupSlider = ({ searchCountry }) => {
             <USStateMainHeader>
               World Data
             </USStateMainHeader>
+
+            <USStatePopulation>400 million population size, Merica!!!!</USStatePopulation>
           </USStateMain>
           <USStateUpdate>(updated on {Date(new Date())})</USStateUpdate>
 
@@ -162,10 +163,12 @@ const PopupSlider = ({ searchCountry }) => {
             {!stateData.hasTimelineSequence && (<USStateInfoValues>Recovered: {separator(stateData.recovered)} or {(stateData.recovered/stateData.cases * 100).toPrecision(4)}% </USStateInfoValues>)}
             {!stateData.hasTimelineSequence && (<USStateInfoValues>Deaths: {separator(stateData.deaths)} or {(stateData.deaths/stateData.cases * 100).toPrecision(4)}%</USStateInfoValues>)}
           </USStateInfo>
+          <CasesOverTimeGraph/>
         </USStateWrapper>   
         )}
   
-        <BottomSheetFlatList
+        {/* Might need it later for testing purposes */}
+        {/* <BottomSheetFlatList
           data={countryData}
           initialNumToRender={2}
           keyExtractor={(item, index) => item + index}
@@ -180,12 +183,12 @@ const PopupSlider = ({ searchCountry }) => {
                 <PopupContent>Confirmed Cases: {item.cases}</PopupContent>
                 <PopupContent>Deaths: {}</PopupContent>
                 <PopupContent>Recovered: {}</PopupContent>
-                  {/* GRAPH */}
+            
                   <CasesOverTimeGraph />
               </PopupContentContainer>
             </>
           )}
-        />
+        /> */}
       </BottomSheetModal>
     </>
   );
