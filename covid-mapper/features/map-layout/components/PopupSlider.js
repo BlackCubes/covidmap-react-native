@@ -1,26 +1,19 @@
 import React, { useCallback, useMemo, useRef } from "react";
+import { View, Text } from "react-native"
 import styled from "styled-components/native";
 import {
   useGetCountryHistoricalQuery,
+  useGetGlobalCovidStatsQuery,
+  useGetTotalOneUSStateQuery
 } from "../../../api/covidApi";
 import Spinner from "../../../commons/components/Spinner/Spinner";
 import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
 
-const PopUpTitle = styled.Text`
-  font-size: 20px;
-  color: #18181F;
-  margin: 20px 100px 10px 20px;
-`;
-
-const PopupContentContainer = styled.View`
-  justify-content: flex-start;
-  margin-left: 50px;
-`;
-
-const PopupContent = styled.Text`
-  font-size: 15px;
-  color: #18181F;
-`;
+function separator(numb) {
+  var str = numb.toString().split(".");
+  str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return str.join(".");
+}
 
 const PopupButtonTest = styled.Button`
   margin-top: 0;
@@ -28,18 +21,70 @@ const PopupButtonTest = styled.Button`
   bottom: 0;
 `;
 
-const PopupError = styled.Text`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+// const PopupError = styled.Text`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// `;
+
+const USStateWrapper = styled.View`
+  padding: 17px;
 `;
+
+const USStateMain = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+`;
+
+const USStateMainHeader = styled.Text`
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 15px;
+`;
+
+const USStatePopulation = styled.Text`
+  font-size: 10px;
+  margin-bottom: 4px;
+`;
+
+const USStateUpdate = styled.Text`
+  font-size: 10px;
+  margin-bottom: 10px;
+`;
+
+const USStateInfo = styled.View`
+  margin-bottom: 10px;
+`;
+
+const USStateInfoHeader = styled.Text`
+  font-size: 15px;
+  text-decoration: underline;
+`;
+
+const USStateInfoValues = styled.Text`
+  font-size: 18px;
+`;
+
 
 const PopupSlider = ({ searchCountry }) => {
   const {
     data: countryData,
-    isLoading,
-    error,
-  } = useGetCountryHistoricalQuery(searchCountry);
+    isLoading: countryLoading,
+    error: countryError,
+  } = useGetCountryHistoricalQuery('China');
+  const {
+    data: worldData,
+    isLoading: worldLoading,
+    error: worldError,
+  } = useGetGlobalCovidStatsQuery();
+  const {
+    data: stateData,
+    isLoading: stateLoading,
+    error: stateError,
+  } = useGetTotalOneUSStateQuery('california');
+  console.log('World Data: ', worldData);
+
 
   const bottomSheetModalRef = useRef(null);
   const snapPoints = useMemo(() => ["25%", "50%"], []);
@@ -49,28 +94,7 @@ const PopupSlider = ({ searchCountry }) => {
   }, []);
 
 
-  if (error) {
-    return (
-      <BottomSheetModal
-        ref={bottomSheetModalRef}
-        index={1}
-        snapPoints={snapPoints}
-      >
-        <PopupError>Error: {error.message}</PopupError>
-      </BottomSheetModal>
-    );
-  }
 
-  if (isLoading || !countryData)
-    return (
-      <BottomSheetModal
-        ref={bottomSheetModalRef}
-        index={1}
-        snapPoints={snapPoints}
-      >
-        <Spinner />
-      </BottomSheetModal>
-    );
 
   return (
     <>
@@ -84,25 +108,30 @@ const PopupSlider = ({ searchCountry }) => {
         index={1}
         snapPoints={snapPoints}
       >
-        <BottomSheetFlatList
-          data={countryData}
-          initialNumToRender={2}
-          keyExtractor={(item, index) => item + index}
-          renderItem={({ item }) => (
-            <>
-              <PopUpTitle>Lates from: {item.country}</PopUpTitle>
-              <PopupContentContainer>
-                <PopupContent>
-                  Location: {item.province ? item.province : item.country}
-                </PopupContent>
-                <PopupContent>Updated at: {}</PopupContent>
-                <PopupContent>Confirmed Cases: {item.cases}</PopupContent>
-                <PopupContent>Deaths: {}</PopupContent>
-                <PopupContent>Recovered: {}</PopupContent>
-              </PopupContentContainer>
-            </>
-          )}
-        />
+
+        {stateLoading
+          ? <Spinner/>
+          : stateError
+          ? <Text>Error!</Text>
+          : (
+        <USStateWrapper>
+          <USStateMain>
+            <USStateMainHeader>
+              World Data
+            </USStateMainHeader>
+          </USStateMain>
+          <USStateUpdate>(updated on {Date(new Date())})</USStateUpdate>
+
+          <USStateInfo>
+            {stateData.provinces.length > 0 && (<USStateInfoValues>{stateData.provinces}</USStateInfoValues>)}
+            {stateData.county.length > 0 && (<USStateInfoValues>{stateData.county}</USStateInfoValues>)}
+            {!stateData.hasTimelineSequence && (<USStateInfoValues>Cases: {separator(stateData.cases)}</USStateInfoValues>)}
+            {!stateData.hasTimelineSequence && (<USStateInfoValues>Recovered: {separator(stateData.recovered)} or {(stateData.recovered/stateData.cases * 100).toPrecision(4)}% </USStateInfoValues>)}
+            {!stateData.hasTimelineSequence && (<USStateInfoValues>Deaths: {separator(stateData.deaths)} or {(stateData.deaths/stateData.cases * 100).toPrecision(4)}%</USStateInfoValues>)}
+          </USStateInfo>
+        </USStateWrapper>   
+        )}
+  
       </BottomSheetModal>
     </>
   );
