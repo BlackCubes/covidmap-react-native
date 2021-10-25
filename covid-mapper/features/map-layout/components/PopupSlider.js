@@ -1,25 +1,23 @@
 import React, { useCallback, useMemo, useRef } from "react";
 import styled from "styled-components/native";
-import {
-  useGetCountryHistoricalQuery,
-} from "../../../api/covidApi";
+import { useGetCountryHistoricalQuery } from "../../../api/covidApi";
 import Spinner from "../../../commons/components/Spinner/Spinner";
 import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
-
+import CasesOverTimeGraph from "../../graphs/TimeLineGraph";
 const PopUpTitle = styled.Text`
   font-size: 20px;
-  color: #18181F;
+  color: #18181f;
   margin: 20px 100px 10px 20px;
 `;
 
 const PopupContentContainer = styled.View`
   justify-content: flex-start;
-  margin-left: 50px;
+  margin-left: 20px;
 `;
 
 const PopupContent = styled.Text`
   font-size: 15px;
-  color: #18181F;
+  color: #18181f;
 `;
 
 const PopupButtonTest = styled.Button`
@@ -47,7 +45,6 @@ const PopupSlider = ({ searchCountry }) => {
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
   }, []);
-
 
   if (error) {
     return (
@@ -99,6 +96,8 @@ const PopupSlider = ({ searchCountry }) => {
                 <PopupContent>Confirmed Cases: {item.cases}</PopupContent>
                 <PopupContent>Deaths: {}</PopupContent>
                 <PopupContent>Recovered: {}</PopupContent>
+                  {/* GRAPH */}
+                  <CasesOverTimeGraph />
               </PopupContentContainer>
             </>
           )}
