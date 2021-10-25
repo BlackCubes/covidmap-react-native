@@ -5,7 +5,7 @@
  */
 const cartesianCoordinateConverter = (data) => {
   if (!data) return [];
-  if (!data.length) return [];
+  if (!Object.keys(data).length) return [];
 
   const cartesianCoordinates = [];
 
