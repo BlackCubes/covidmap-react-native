@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import * as Location from 'expo-location';
-import { useWindowDimensions } from "react-native";
+import React, { useEffect, useState, useRef } from "react";
+import * as Location from "expo-location";
+import { useWindowDimensions, Animated, Pressable } from "react-native";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import MapComponent from "../map/Map";
 import Searchbar from "../searchbar/Searchbar";
+import FloatingSearchButton from "../../commons/components/FloatingSearchButton/FloatingSearchButton";
 import {
   useGetGlobalCovidStatsQuery,
   useGetAllCountriesProvincesHistoricalQuery,
@@ -43,8 +44,19 @@ const retrieveCountyData = (county, stateCounties) => {
   return countyData ?? null;
 };
 
+const fadeInSearchBar = (fadeAnim) => {
+  Animated.timing(fadeAnim, {
+    toValue: 1,
+    duration: 500,
+    useNativeDriver: true,
+  }).start();
+};
+
 const MapLayout = ({ route }) => {
-  
+  // Searchbar animation
+  const [searchBarActive, setSearchBarActive] = useState(false);
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+
   const [userLocation, setUserLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [mapDataArray, setMapDataArray] = useState([]);
@@ -150,7 +162,7 @@ const MapLayout = ({ route }) => {
       }
     }
   };
-  
+
   // Ask permission to obtain user's current location
   useEffect(() => {
     (async () => {
@@ -216,12 +228,25 @@ const MapLayout = ({ route }) => {
     }
   }, [searchUSCounty, usCountiesData]);
 
+
   return (
-    <BottomSheetModalProvider style={{color: 'black'}}>
-      <Searchbar
-        handleSearchSubmit={handleSearchSubmit}
-        searchPlaceholder={searchPlaceholder}
-      />
+    <BottomSheetModalProvider style={{ color: "black" }}>
+      <FloatingSearchButton
+        pressHandler={() => {
+          setSearchBarActive(!searchBarActive);
+          fadeInSearchBar(fadeAnim);
+        }}
+      >
+      </FloatingSearchButton>
+      {searchBarActive ? (
+        <Searchbar
+          handleSearchSubmit={handleSearchSubmit}
+          searchPlaceholder={searchPlaceholder}
+          opacityLevel={fadeAnim}
+        />
+      ) : (
+        <></>
+      )}
 
       <OpenSesameButton />
 
