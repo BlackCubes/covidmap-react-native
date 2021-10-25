@@ -11,8 +11,9 @@ const PopUpTitle = styled.Text`
 `;
 
 const PopupContentContainer = styled.View`
-  justify-content: flex-start;
-  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 2%;
 `;
 
 const PopupContent = styled.Text`
@@ -26,13 +27,9 @@ const PopupButtonTest = styled.Button`
   bottom: 0;
 `;
 
-const PopupError = styled.Text`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 const PopupSlider = ({ searchCountry }) => {
+
   const {
     data: countryData,
     isLoading,
@@ -47,14 +44,22 @@ const PopupSlider = ({ searchCountry }) => {
   }, []);
 
   if (error) {
-    return (
+    return (<>
+    <PopupButtonTest
+        onPress={handlePresentModalPress}
+        title="Present Slider"
+        color="#18181F"
+      />
       <BottomSheetModal
         ref={bottomSheetModalRef}
         index={1}
         snapPoints={snapPoints}
       >
-        <PopupError>Error: {error.message}</PopupError>
+        <PopupContentContainer>
+          <PopupContent>Error {error.status}: {error.data.message}</PopupContent>
+        </PopupContentContainer>
       </BottomSheetModal>
+      </>
     );
   }
 
