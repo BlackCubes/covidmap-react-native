@@ -1,7 +1,7 @@
 import React from "react";
 import { Dimensions, View, Text } from "react-native";
 import { LineChart } from "react-native-chart-kit";
-
+// For testing
 const DUMMY_DATA = [
   { x: "9/25/21", y: 116800 },
   { x: "9/26/21", y: 116800 },
