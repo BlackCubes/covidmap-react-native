@@ -17,8 +17,7 @@ import {
 import { OpenSesameButton } from "../../commons/components";
 import PopupSlider from "./components/PopupSlider";
 import { centroidRegion } from "../../utils";
-import { FloatingButton } from "../../commons/components/FloatingSearchButton/styles";
-import { SearchIcon } from "../../commons/components/Icons";
+
 
 /**
  * Finds the selected county inside an array of counties inside the US State.
