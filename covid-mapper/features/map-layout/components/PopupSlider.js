@@ -8,6 +8,8 @@ import {
 } from "../../../api/covidApi";
 import Spinner from "../../../commons/components/Spinner/Spinner";
 import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
+import { useGetCountryHistoricalQuery } from "../../../api/covidApi";
+import CasesOverTimeGraph from "../../graphs/TimeLineGraph";
 
 function separator(numb) {
   var str = numb.toString().split(".");
@@ -51,6 +53,18 @@ const USStatePopulation = styled.Text`
 const USStateUpdate = styled.Text`
   font-size: 10px;
   margin-bottom: 10px;
+  `
+
+
+const PopupContentContainer = styled.View`
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+`;
+
+const PopupContent = styled.Text`
+  font-size: 15px;
+  color: #18181f;
 `;
 
 const USStateInfo = styled.View`
@@ -68,6 +82,7 @@ const USStateInfoValues = styled.Text`
 
 
 const PopupSlider = ({ searchCountry }) => {
+
   const {
     data: countryData,
     isLoading: countryLoading,
@@ -93,7 +108,25 @@ const PopupSlider = ({ searchCountry }) => {
     bottomSheetModalRef.current?.present();
   }, []);
 
-
+  if (error) {
+    return (<>
+    <PopupButtonTest
+        onPress={handlePresentModalPress}
+        title="Present Slider"
+        color="#18181F"
+      />
+      <BottomSheetModal
+        ref={bottomSheetModalRef}
+        index={1}
+        snapPoints={snapPoints}
+      >
+        <PopupContentContainer>
+          <PopupContent>Error {error.status}: {error.data.message}</PopupContent>
+        </PopupContentContainer>
+      </BottomSheetModal>
+      </>
+    );
+  }
 
 
   return (
@@ -132,6 +165,27 @@ const PopupSlider = ({ searchCountry }) => {
         </USStateWrapper>   
         )}
   
+        <BottomSheetFlatList
+          data={countryData}
+          initialNumToRender={2}
+          keyExtractor={(item, index) => item + index}
+          renderItem={({ item }) => (
+            <>
+              <PopUpTitle>Lates from: {item.country}</PopUpTitle>
+              <PopupContentContainer>
+                <PopupContent>
+                  Location: {item.province ? item.province : item.country}
+                </PopupContent>
+                <PopupContent>Updated at: {}</PopupContent>
+                <PopupContent>Confirmed Cases: {item.cases}</PopupContent>
+                <PopupContent>Deaths: {}</PopupContent>
+                <PopupContent>Recovered: {}</PopupContent>
+                  {/* GRAPH */}
+                  <CasesOverTimeGraph />
+              </PopupContentContainer>
+            </>
+          )}
+        />
       </BottomSheetModal>
     </>
   );
