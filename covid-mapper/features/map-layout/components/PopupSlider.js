@@ -1,25 +1,24 @@
 import React, { useCallback, useMemo, useRef } from "react";
 import styled from "styled-components/native";
-import {
-  useGetCountryHistoricalQuery,
-} from "../../../api/covidApi";
+import { useGetCountryHistoricalQuery } from "../../../api/covidApi";
 import Spinner from "../../../commons/components/Spinner/Spinner";
 import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
-
+import CasesOverTimeGraph from "../../graphs/TimeLineGraph";
 const PopUpTitle = styled.Text`
   font-size: 20px;
-  color: #18181F;
+  color: #18181f;
   margin: 20px 100px 10px 20px;
 `;
 
 const PopupContentContainer = styled.View`
-  justify-content: flex-start;
-  margin-left: 50px;
+  display: flex;
+  justify-content: center;
+  padding: 2%;
 `;
 
 const PopupContent = styled.Text`
   font-size: 15px;
-  color: #18181F;
+  color: #18181f;
 `;
 
 const PopupButtonTest = styled.Button`
@@ -28,13 +27,9 @@ const PopupButtonTest = styled.Button`
   bottom: 0;
 `;
 
-const PopupError = styled.Text`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 const PopupSlider = ({ searchCountry }) => {
+
   const {
     data: countryData,
     isLoading,
@@ -48,16 +43,23 @@ const PopupSlider = ({ searchCountry }) => {
     bottomSheetModalRef.current?.present();
   }, []);
 
-
   if (error) {
-    return (
+    return (<>
+    <PopupButtonTest
+        onPress={handlePresentModalPress}
+        title="Present Slider"
+        color="#18181F"
+      />
       <BottomSheetModal
         ref={bottomSheetModalRef}
         index={1}
         snapPoints={snapPoints}
       >
-        <PopupError>Error: {error.message}</PopupError>
+        <PopupContentContainer>
+          <PopupContent>Error {error.status}: {error.data.message}</PopupContent>
+        </PopupContentContainer>
       </BottomSheetModal>
+      </>
     );
   }
 
@@ -99,6 +101,8 @@ const PopupSlider = ({ searchCountry }) => {
                 <PopupContent>Confirmed Cases: {item.cases}</PopupContent>
                 <PopupContent>Deaths: {}</PopupContent>
                 <PopupContent>Recovered: {}</PopupContent>
+                  {/* GRAPH */}
+                  <CasesOverTimeGraph />
               </PopupContentContainer>
             </>
           )}
