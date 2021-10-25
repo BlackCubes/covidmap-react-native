@@ -18,7 +18,6 @@ import { OpenSesameButton } from "../../commons/components";
 import PopupSlider from "./components/PopupSlider";
 import { centroidRegion } from "../../utils";
 
-
 /**
  * Finds the selected county inside an array of counties inside the US State.
  * If it can't find the county, it return undefined. If it does, returns the county's
@@ -228,7 +227,6 @@ const MapLayout = ({ route }) => {
     }
   }, [searchUSCounty, usCountiesData]);
 
-
   return (
     <BottomSheetModalProvider style={{ color: "black" }}>
       <FloatingSearchButton
@@ -236,8 +234,7 @@ const MapLayout = ({ route }) => {
           setSearchBarActive(!searchBarActive);
           fadeInSearchBar(fadeAnim);
         }}
-      >
-      </FloatingSearchButton>
+      ></FloatingSearchButton>
       {searchBarActive ? (
         <Searchbar
           handleSearchSubmit={handleSearchSubmit}
