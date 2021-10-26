@@ -4,6 +4,7 @@ import styled from "styled-components/native";
 import VaccineItem from "./components/VaccineItem";
 import { useGetVaccinesTrialDataQuery } from "../../api/covidApi";
 import Spinner from '../../commons/components/Spinner/Spinner'
+import uuid from 'react-native-uuid';
 
 const Container = styled.View`
   height: 100%;
@@ -61,6 +62,18 @@ const VaccineLayout = () => {
       </Container>
   </SafeAreaView>);
 
+  const renderItem =()=>{
+    return trialData["data"].map(item=>(<VaccineItem
+      key={uuid.v4()}
+      candidate={item.candidate}
+      mechanism={item.mechanism}
+      institutions={item.institutions}
+      details={item.details}
+      sponsors={item.sponsors}
+      trialPhase={item.trialPhase}
+    />))
+  }
+
   return (
     <SafeAreaView>
       <Container>
@@ -75,17 +88,9 @@ const VaccineLayout = () => {
             data={trialData["data"]} 
             ItemSeparatorComponent={() => <LineSeparator />}
             initialNumToRender={3}
+            removeClippedSubviews={true}
             keyExtractor={(item, index) => item + index}
-            renderItem={({ item }) => (
-              <VaccineItem
-                candidate={item.candidate}
-                mechanism={item.mechanism}
-                institutions={item.institutions}
-                details={item.details}
-                sponsors={item.sponsors}
-                trialPhase={item.trialPhase}
-              />
-            )}
+            renderItem={renderItem}
           />
         </ListContainer>
       </Container>

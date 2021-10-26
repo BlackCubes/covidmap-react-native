@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 import Spinner from "../../../commons/components/Spinner/Spinner";
 import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
 import CasesOverTimeGraph from "../../graphs/TimeLineGraph";
+import uuid from 'react-native-uuid';
 
 function separator(numb) {
   var str = numb.toString().split(".");

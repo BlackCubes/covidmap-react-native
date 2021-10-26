@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Text, Pressable, SafeAreaView } from "react-native";
 import styled from "styled-components/native";
 import he from "he";
-
+import uuid from 'react-native-uuid';
 const ArticleContainer = styled.View`
   display: flex;
   flex-direction: column;
@@ -24,6 +24,7 @@ const ItalicMechanism = styled.Text`
 
 const BoldText = styled.Text`
   font-weight: bold;
+  padding-top: 4px;
 `;
 
 const Subheading = styled.Text`
@@ -40,7 +41,7 @@ const PhaseSponsorsContainer = styled.View`
 const DetailsContainer = styled.View`
   display: flex;
   flex-direction: column;
-  padding-top: 4px;
+  padding-top: 8px;
 `;
 
 const ViewMoreButton = styled.Text`
@@ -82,11 +83,11 @@ const VaccineItem = ({
     const splitByNewLines = subheadingsFormatted.split("\n");
 
     // loop over array, check if arr element matches subheadingPattern
-    return splitByNewLines.map((detailString, i) => {
-      if (detailString === "") return <Text key={i}>{"\n"}</Text>;
+    return splitByNewLines.map((detailString) => {
+      if (detailString === "") return <Text key={uuid.v4()}>{"\n"}</Text>;
       else if (subheadingPattern.test(detailString)) {
-        return <Subheading key={i}>{"\n" + detailString + "\n"}</Subheading>;
-      } else return <Text key={i}>{detailString}</Text>;
+        return <Subheading key={uuid.v4()}>{"\n" + detailString + "\n"}</Subheading>;
+      } else return <Text key={uuid.v4()}>{detailString}</Text>;
     });
   };
 
@@ -105,14 +106,14 @@ const VaccineItem = ({
           <Text>
             <BoldText>Sponsors:</BoldText>{" "}
             {sponsors.map((sponsorName) => (
-              <Text key={sponsorName}>{sponsorName}</Text>
+              <Text key={uuid.v4()}>{sponsorName}</Text>
             ))}
           </Text>
         </PhaseSponsorsContainer>
         {/* Institutions */}
         <BoldText>Institutions:</BoldText>
         {institutions.map((siteName) => (
-          <Text key={siteName}>{he.decode(siteName)}</Text>
+          <Text key={uuid.v4()}>{he.decode(siteName)}</Text>
         ))}
         {/* Details */}
         <DetailsContainer>
