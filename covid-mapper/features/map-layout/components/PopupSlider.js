@@ -1,11 +1,5 @@
 import React, { useCallback, useMemo, useRef } from "react";
-import { View, Text } from "react-native";
 import styled from "styled-components/native";
-import {
-  useGetCountryHistoricalQuery,
-  useGetGlobalCovidStatsQuery,
-  useGetTotalOneUSStateQuery,
-} from "../../../api/covidApi";
 import Spinner from "../../../commons/components/Spinner/Spinner";
 import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
 import CasesOverTimeGraph from "../../graphs/TimeLineGraph";
@@ -79,28 +73,11 @@ const USStateInfoValues = styled.Text`
 `;
 
 const PopupSlider = ({
-  searchCountry,
   sliderData,
   sliderDataLoading,
   sliderDataError,
   sliderHeader,
 }) => {
-  const {
-    data: countryData,
-    isLoading: countryLoading,
-    error: countryError,
-  } = useGetCountryHistoricalQuery("China");
-  const {
-    data: worldData,
-    isLoading: worldLoading,
-    error: worldError,
-  } = useGetGlobalCovidStatsQuery();
-  const {
-    data: stateData,
-    isLoading: stateLoading,
-    error: stateError,
-  } = useGetTotalOneUSStateQuery("california");
-
   const bottomSheetModalRef = useRef(null);
   const snapPoints = useMemo(() => ["25%", "50%"], []);
 
@@ -110,7 +87,6 @@ const PopupSlider = ({
 
   if (sliderDataLoading) return <Spinner />;
 
-  // Might need it in the future:
   if (sliderDataError) {
     return (
       <>
@@ -239,29 +215,6 @@ const PopupSlider = ({
             )}
           />
         )}
-
-        {/* Might need it later for testing purposes */}
-        {/* <BottomSheetFlatList
-          data={countryData}
-          initialNumToRender={2}
-          keyExtractor={(item, index) => item + index}
-          renderItem={({ item }) => (
-            <>
-              <PopUpTitle>Lates from: {item.country}</PopUpTitle>
-              <PopupContentContainer>
-                <PopupContent>
-                  Location: {item.province ? item.province : item.country}
-                </PopupContent>
-                <PopupContent>Updated at: {}</PopupContent>
-                <PopupContent>Confirmed Cases: {item.cases}</PopupContent>
-                <PopupContent>Deaths: {}</PopupContent>
-                <PopupContent>Recovered: {}</PopupContent>
-            
-                  <CasesOverTimeGraph />
-              </PopupContentContainer>
-            </>
-          )}
-        /> */}
       </BottomSheetModal>
     </>
   );

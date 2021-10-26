@@ -62,10 +62,6 @@ const MapLayout = ({ route }) => {
   const [sliderDataLoading, setSliderDataLoading] = useState(null);
   const [sliderDataError, setSliderDataError] = useState(null);
   const [sliderHeader, setSliderHeader] = useState("World Data");
-  const [mapDataArray, setMapDataArray] = useState([]);
-  const [mapDataObject, setMapDataObject] = useState(null);
-  // This is to store the county data in this state after extraction:
-  const [mapCountyDataObject, setMapCountyDataObject] = useState(null);
 
   // This is to dynamically change the placeholder for the searchbar:
   const [searchPlaceholder, setSearchPlaceholder] = useState("");
@@ -303,8 +299,6 @@ const MapLayout = ({ route }) => {
       <OpenSesameButton />
 
       <PopupSlider
-        searchCountry={searchCountry}
-        searchProvince={searchProvince}
         sliderData={sliderData}
         sliderDataLoading={sliderDataLoading}
         sliderDataError={sliderDataError}
