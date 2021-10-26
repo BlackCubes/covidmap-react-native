@@ -61,6 +61,7 @@ const MapLayout = ({ route }) => {
   const [sliderData, setSliderData] = useState(null);
   const [sliderDataLoading, setSliderDataLoading] = useState(null);
   const [sliderDataError, setSliderDataError] = useState(null);
+  const [sliderHeader, setSliderHeader] = useState("World Data");
   const [mapDataArray, setMapDataArray] = useState([]);
   const [mapDataObject, setMapDataObject] = useState(null);
   // This is to store the county data in this state after extraction:
@@ -204,6 +205,7 @@ const MapLayout = ({ route }) => {
     switch (routeName) {
       case "World":
         setSearchPlaceholder("Search by world");
+        setSliderHeader("World Data");
         break;
       case "Country Province Stats":
         setSliderData(allCountriesProvincesHistoricalData);
@@ -211,6 +213,7 @@ const MapLayout = ({ route }) => {
         setSliderDataError(allCountriesProvincesHistoricalError);
 
         setSearchPlaceholder("Search by country");
+        setSliderHeader("Country/Province Data");
         break;
       case "US Total":
         setSliderData(allUSStatesData);
@@ -218,6 +221,7 @@ const MapLayout = ({ route }) => {
         setSliderDataError(allUSStatesError);
 
         setSearchPlaceholder("Search by US state");
+        setSliderHeader("US Total Data");
         break;
       case "State Counties Totals":
         setSliderData(allUSStatesData);
@@ -225,27 +229,56 @@ const MapLayout = ({ route }) => {
         setSliderDataError(allUSStatesError);
 
         setSearchPlaceholder("Search by US state");
+        setSliderHeader("US State/Counties Data");
         break;
       default:
-        // setSliderData(globalCovidStatsData);
         setSearchPlaceholder("Search by world");
+        setSliderHeader("World Data");
         break;
     }
   }, [routeName]);
+
+  useEffect(() => {
+    if (searchCountry.length && countryHistoricalData) {
+      setSliderData(countryHistoricalData);
+      setSliderDataError(countryHistoricalError);
+      setSliderDataLoading(countryHistoricalLoading);
+
+      setSliderHeader(`${searchCountry} Data`);
+    }
+  }, [searchCountry, countryHistoricalData]);
+
+  useEffect(() => {
+    if (searchProvince.length && provinceHistoricalData) {
+      setSliderData(provinceHistoricalData);
+      setSliderDataError(provinceHistoricalError);
+      setSliderDataLoading(provinceHistoricalLoading);
+
+      setSliderHeader(`${searchProvince} Data`);
+    }
+  }, [searchProvince, provinceHistoricalData]);
 
   useEffect(() => {
     if (searchUSState.length) {
       setMapRegion(
         centroidRegion(searchUSState, mapRegion, mapviewWidth, mapviewHeight)
       );
+
+      setSliderData(oneUSStateData);
+      setSliderDataError(oneUSStateError);
+      setSliderDataLoading(oneUSStateLoading);
+
+      setSliderHeader(`${searchUSState} Data`);
     }
   }, [searchUSState]);
 
   useEffect(() => {
     if (searchUSCounty.length && usCountiesData) {
-      setMapCountyDataObject(
-        retrieveCountyData(searchUSCounty, usCountiesData)
-      );
+      setSliderData(retrieveCountyData(searchUSCounty, usCountiesData));
+      setSliderDataError(usCountiesError);
+      setSliderDataLoading(usCountiesLoading);
+
+      setSliderHeader(`${searchUSCounty} Data`);
     }
   }, [searchUSCounty, usCountiesData]);
 
@@ -275,6 +308,7 @@ const MapLayout = ({ route }) => {
         sliderData={sliderData}
         sliderDataLoading={sliderDataLoading}
         sliderDataError={sliderDataError}
+        sliderHeader={sliderHeader}
       />
 
       <MapComponent

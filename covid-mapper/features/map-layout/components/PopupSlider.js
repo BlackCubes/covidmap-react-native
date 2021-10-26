@@ -83,6 +83,7 @@ const PopupSlider = ({
   sliderData,
   sliderDataLoading,
   sliderDataError,
+  sliderHeader,
 }) => {
   const {
     data: countryData,
@@ -106,8 +107,6 @@ const PopupSlider = ({
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
   }, []);
-
-  console.log("sliderloading: ", sliderData);
 
   if (sliderDataLoading) return <Spinner />;
 
@@ -152,7 +151,7 @@ const PopupSlider = ({
         {typeof sliderData === "object" && !Array.isArray(sliderData) ? (
           <USStateWrapper>
             <USStateMain>
-              <USStateMainHeader>World Data</USStateMainHeader>
+              <USStateMainHeader>{sliderHeader}</USStateMainHeader>
 
               <USStatePopulation>
                 400 million population size, Merica!!!!
@@ -202,7 +201,7 @@ const PopupSlider = ({
             renderItem={({ item }) => (
               <USStateWrapper>
                 <USStateMain>
-                  <USStateMainHeader>World Data</USStateMainHeader>
+                  <USStateMainHeader>{sliderHeader}</USStateMainHeader>
 
                   <USStatePopulation>
                     400 million population size, Merica!!!!
