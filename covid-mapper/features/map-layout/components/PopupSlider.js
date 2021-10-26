@@ -3,13 +3,9 @@ import styled from "styled-components/native";
 import Spinner from "../../../commons/components/Spinner/Spinner";
 import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
 import CasesOverTimeGraph from "../../graphs/TimeLineGraph";
-import uuid from 'react-native-uuid';
+import numSeparator from "../../../utils/numSeparator";
 
-function separator(numb) {
-  var str = numb.toString().split(".");
-  str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  return str.join(".");
-}
+
 
 const PopupButtonTest = styled.Button`
   margin-top: 0;
@@ -145,12 +141,12 @@ const PopupSlider = ({
               )}
               {!sliderData.hasTimelineSequence && (
                 <USStateInfoValues>
-                  Cases: {separator(sliderData.cases)}
+                  Cases: {numSeparator(sliderData.cases)}
                 </USStateInfoValues>
               )}
               {!sliderData.hasTimelineSequence && (
                 <USStateInfoValues>
-                  Recovered: {separator(sliderData.recovered)} or{" "}
+                  Recovered: {numSeparator(sliderData.recovered)} or{" "}
                   {(
                     (sliderData.recovered / sliderData.cases) *
                     100
@@ -160,7 +156,7 @@ const PopupSlider = ({
               )}
               {!sliderData.hasTimelineSequence && (
                 <USStateInfoValues>
-                  Deaths: {separator(sliderData.deaths)} or{" "}
+                  Deaths: {numSeparator(sliderData.deaths)} or{" "}
                   {((sliderData.deaths / sliderData.cases) * 100).toPrecision(
                     4
                   )}
@@ -195,18 +191,18 @@ const PopupSlider = ({
                   )}
                   {!item.hasTimelineSequence && (
                     <USStateInfoValues>
-                      Cases: {separator(item.cases)}
+                      Cases: {numSeparator(item.cases)}
                     </USStateInfoValues>
                   )}
                   {!item.hasTimelineSequence && (
                     <USStateInfoValues>
-                      Recovered: {separator(item.recovered)} or{" "}
+                      Recovered: {numSeparator(item.recovered)} or{" "}
                       {((item.recovered / item.cases) * 100).toPrecision(4)}%{" "}
                     </USStateInfoValues>
                   )}
                   {!item.hasTimelineSequence && (
                     <USStateInfoValues>
-                      Deaths: {separator(item.deaths)} or{" "}
+                      Deaths: {numSeparator(item.deaths)} or{" "}
                       {((item.deaths / item.cases) * 100).toPrecision(4)}%
                     </USStateInfoValues>
                   )}
