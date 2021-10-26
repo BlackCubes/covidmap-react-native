@@ -58,10 +58,10 @@ const MapLayout = ({ route }) => {
 
   const [userLocation, setUserLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
-  const [mapDataArray, setMapDataArray] = useState([]);
-  const [mapDataObject, setMapDataObject] = useState(null);
-  // This is to store the county data in this state after extraction:
-  const [mapCountyDataObject, setMapCountyDataObject] = useState(null);
+  const [sliderData, setSliderData] = useState(null);
+  const [sliderDataLoading, setSliderDataLoading] = useState(null);
+  const [sliderDataError, setSliderDataError] = useState(null);
+  const [sliderHeader, setSliderHeader] = useState("World Data");
 
   // This is to dynamically change the placeholder for the searchbar:
   const [searchPlaceholder, setSearchPlaceholder] = useState("");
@@ -162,6 +162,15 @@ const MapLayout = ({ route }) => {
     }
   };
 
+  // To render to the slider since it is null initially when the app first starts.
+  useEffect(() => {
+    if (globalCovidStatsData) {
+      setSliderData(globalCovidStatsData);
+      setSliderDataLoading(globalCovidStatsLoading);
+      setSliderDataError(globalCovidStatsError);
+    }
+  }, [globalCovidStatsData]);
+
   // Ask permission to obtain user's current location
   useEffect(() => {
     (async () => {
@@ -192,38 +201,85 @@ const MapLayout = ({ route }) => {
     // Based on the route names to update the data array or object to be displayed on the map.
     switch (routeName) {
       case "World":
-        setMapDataObject(globalCovidStatsData);
         setSearchPlaceholder("Search by world");
+        setSliderHeader("World Data");
         break;
       case "Country Province Stats":
-        setMapDataArray(allCountriesProvincesHistoricalData);
+        setSliderData(allCountriesProvincesHistoricalData);
+        setSliderDataLoading(allCountriesProvincesHistoricalLoading);
+        setSliderDataError(allCountriesProvincesHistoricalError);
+
         setSearchPlaceholder("Search by country");
+        setSliderHeader("Country/Province Data");
         break;
       case "US Total":
+        setSliderData(allUSStatesData);
+        setSliderDataLoading(allUSStatesLoading);
+        setSliderDataError(allUSStatesError);
+
         setSearchPlaceholder("Search by US state");
+        setSliderHeader("US Total Data");
         break;
       case "State Counties Totals":
+        setSliderData(allUSStatesData);
+        setSliderDataLoading(allUSStatesLoading);
+        setSliderDataError(allUSStatesError);
+
         setSearchPlaceholder("Search by US state");
+        setSliderHeader("US State/Counties Data");
         break;
       default:
-        setMapDataArray(globalCovidStatsData);
+        setSearchPlaceholder("Search by world");
+        setSliderHeader("World Data");
         break;
     }
   }, [routeName]);
 
+  // To render to the slider if user entered a country.
+  useEffect(() => {
+    if (searchCountry.length && countryHistoricalData) {
+      setSliderData(countryHistoricalData);
+      setSliderDataError(countryHistoricalError);
+      setSliderDataLoading(countryHistoricalLoading);
+
+      setSliderHeader(`${searchCountry} Data`);
+    }
+  }, [searchCountry, countryHistoricalData]);
+
+  // To render to the slider if user entered a province.
+  useEffect(() => {
+    if (searchProvince.length && provinceHistoricalData) {
+      setSliderData(provinceHistoricalData);
+      setSliderDataError(provinceHistoricalError);
+      setSliderDataLoading(provinceHistoricalLoading);
+
+      setSliderHeader(`${searchProvince} Data`);
+    }
+  }, [searchProvince, provinceHistoricalData]);
+
+  // To render to the slider if the user entered a US State.
   useEffect(() => {
     if (searchUSState.length) {
       setMapRegion(
         centroidRegion(searchUSState, mapRegion, mapviewWidth, mapviewHeight)
       );
+
+      setSliderData(oneUSStateData);
+      setSliderDataError(oneUSStateError);
+      setSliderDataLoading(oneUSStateLoading);
+
+      setSliderHeader(`${searchUSState} Data`);
     }
   }, [searchUSState]);
 
+  // To render to the slider if the user entered a US County.
   useEffect(() => {
     if (searchUSCounty.length && usCountiesData) {
-      setMapCountyDataObject(
-        retrieveCountyData(searchUSCounty, usCountiesData)
-      );
+      setSliderData(retrieveCountyData(searchUSCounty, usCountiesData));
+      setSliderDataError(usCountiesError);
+      setSliderDataLoading(usCountiesLoading);
+
+      setSliderHeader(`${searchUSCounty} Data`);
     }
   }, [searchUSCounty, usCountiesData]);
 
@@ -248,8 +304,10 @@ const MapLayout = ({ route }) => {
       <OpenSesameButton />
 
       <PopupSlider
-        searchCountry={searchCountry}
-        searchProvince={searchProvince}
+        sliderData={sliderData}
+        sliderDataLoading={sliderDataLoading}
+        sliderDataError={sliderDataError}
+        sliderHeader={sliderHeader}
       />
 
       <MapComponent
