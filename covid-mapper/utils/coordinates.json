@@ -2,8 +2,8 @@
   "countries": {
     "afghanistan": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "33.7680065",
+        "longitude": "66.2385139"
       },
       "bounding_box": {
         "south_west": {
@@ -18,8 +18,8 @@
     },
     "albania": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "41.000028",
+        "longitude": "19.9999619"
       },
       "bounding_box": {
         "south_west": {
@@ -34,8 +34,8 @@
     },
     "algeria": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "28.0000272",
+        "longitude": "2.9999825"
       },
       "bounding_box": {
         "south_west": {
@@ -50,8 +50,8 @@
     },
     "andorra": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "42.5407167",
+        "longitude": "1.5732033"
       },
       "bounding_box": {
         "south_west": {
@@ -66,8 +66,8 @@
     },
     "angola": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "-11.8775768",
+        "longitude": "17.5691241"
       },
       "bounding_box": {
         "south_west": {
@@ -82,8 +82,8 @@
     },
     "antigua and barbuda": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "17.2234721",
+        "longitude": "-61.9554608"
       },
       "bounding_box": {
         "south_west": {
@@ -98,8 +98,8 @@
     },
     "argentina": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "-34.9964963",
+        "longitude": "-64.9672817"
       },
       "bounding_box": {
         "south_west": {
@@ -114,8 +114,8 @@
     },
     "armenia": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "40.7696272",
+        "longitude": "44.6736646"
       },
       "bounding_box": {
         "south_west": {
@@ -130,8 +130,8 @@
     },
     "australia": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "-24.7761086",
+        "longitude": "134.755"
       },
       "bounding_box": {
         "south_west": {
@@ -146,8 +146,8 @@
     },
     "austria": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "47.59397",
+        "longitude": "14.12456"
       },
       "bounding_box": {
         "south_west": {
@@ -162,8 +162,8 @@
     },
     "azerbaijan": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "40.3936294",
+        "longitude": "47.7872508"
       },
       "bounding_box": {
         "south_west": {
@@ -178,8 +178,8 @@
     },
     "bahamas": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "24.7736546",
+        "longitude": "-78.0000547"
       },
       "bounding_box": {
         "south_west": {
@@ -194,8 +194,8 @@
     },
     "bahrain": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "26.1551249",
+        "longitude": "50.5344606"
       },
       "bounding_box": {
         "south_west": {
@@ -210,8 +210,8 @@
     },
     "bangladesh": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "23.5031022",
+        "longitude": "90.0038652"
       },
       "bounding_box": {
         "south_west": {
@@ -226,8 +226,8 @@
     },
     "barbados": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "13.1500331",
+        "longitude": "-59.5250305"
       },
       "bounding_box": {
         "south_west": {
@@ -242,8 +242,8 @@
     },
     "belarus": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "53.4250605",
+        "longitude": "27.6971358"
       },
       "bounding_box": {
         "south_west": {
@@ -258,8 +258,8 @@
     },
     "belgium": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "50.6402809",
+        "longitude": "4.6667145"
       },
       "bounding_box": {
         "south_west": {
@@ -274,8 +274,8 @@
     },
     "belize": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "16.8259793",
+        "longitude": "-88.7600927"
       },
       "bounding_box": {
         "south_west": {
@@ -290,8 +290,8 @@
     },
     "benin": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "9.5293472",
+        "longitude": "2.2584408"
       },
       "bounding_box": {
         "south_west": {
@@ -306,8 +306,8 @@
     },
     "bhutan": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "27.549511",
+        "longitude": "90.5119273"
       },
       "bounding_box": {
         "south_west": {
@@ -322,8 +322,8 @@
     },
     "bolivia": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "-17.0568696",
+        "longitude": "-64.9912286"
       },
       "bounding_box": {
         "south_west": {
@@ -338,8 +338,8 @@
     },
     "bosnia": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "44.3053476",
+        "longitude": "17.5961467"
       },
       "bounding_box": {
         "south_west": {
@@ -354,8 +354,8 @@
     },
     "botswana": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "-23.1681782",
+        "longitude": "24.5928742"
       },
       "bounding_box": {
         "south_west": {
@@ -370,8 +370,8 @@
     },
     "brazil": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "-10.3333333",
+        "longitude": "-53.2"
       },
       "bounding_box": {
         "south_west": {
@@ -386,8 +386,8 @@
     },
     "brunei": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "4.4137155",
+        "longitude": "114.5653908"
       },
       "bounding_box": {
         "south_west": {
@@ -402,8 +402,8 @@
     },
     "bulgaria": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "42.6073975",
+        "longitude": "25.4856617"
       },
       "bounding_box": {
         "south_west": {
@@ -418,8 +418,8 @@
     },
     "burkina faso": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "12.0753083",
+        "longitude": "-1.6880314"
       },
       "bounding_box": {
         "south_west": {
@@ -434,8 +434,8 @@
     },
     "burma": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "17.1750495",
+        "longitude": "95.9999652"
       },
       "bounding_box": {
         "south_west": {
@@ -450,8 +450,8 @@
     },
     "burundi": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "-3.426449",
+        "longitude": "29.9324519"
       },
       "bounding_box": {
         "south_west": {
@@ -464,10 +464,10 @@
         }
       }
     },
-    "cabo Verde": {
+    "cabo verde": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "16.0000552",
+        "longitude": "-24.0083947"
       },
       "bounding_box": {
         "south_west": {
@@ -482,8 +482,8 @@
     },
     "cambodia": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "13.5066394",
+        "longitude": "104.869423"
       },
       "bounding_box": {
         "south_west": {
@@ -498,8 +498,8 @@
     },
     "cameroon": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "4.6125522",
+        "longitude": "13.1535811"
       },
       "bounding_box": {
         "south_west": {
@@ -514,8 +514,8 @@
     },
     "canada": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "61.0666922",
+        "longitude": "-107.991707"
       },
       "bounding_box": {
         "south_west": {
@@ -530,8 +530,8 @@
     },
     "central african republic": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "7.0323598",
+        "longitude": "19.9981227"
       },
       "bounding_box": {
         "south_west": {
@@ -546,8 +546,8 @@
     },
     "chad": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "15.6134137",
+        "longitude": "19.0156172"
       },
       "bounding_box": {
         "south_west": {
@@ -562,8 +562,8 @@
     },
     "chile": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "-31.7613365",
+        "longitude": "-71.3187697"
       },
       "bounding_box": {
         "south_west": {
@@ -578,8 +578,8 @@
     },
     "china": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "35.000074",
+        "longitude": "104.999927"
       },
       "bounding_box": {
         "south_west": {
@@ -594,8 +594,8 @@
     },
     "colombia": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "4.099917",
+        "longitude": "-72.9088133"
       },
       "bounding_box": {
         "south_west": {
@@ -610,8 +610,8 @@
     },
     "comoros": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "-12.2045176",
+        "longitude": "44.2832964"
       },
       "bounding_box": {
         "south_west": {
@@ -626,8 +626,8 @@
     },
     "congo": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "-0.7264327",
+        "longitude": "15.6419155"
       },
       "bounding_box": {
         "south_west": {
@@ -642,8 +642,8 @@
     },
     "drc": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "-2.9814344",
+        "longitude": "23.8222636"
       },
       "bounding_box": {
         "south_west": {
@@ -658,8 +658,8 @@
     },
     "costa rica": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "10.2735633",
+        "longitude": "-84.0739102"
       },
       "bounding_box": {
         "south_west": {
@@ -674,8 +674,8 @@
     },
     "côte d'ivoire": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "7.9897371",
+        "longitude": "-5.5679458"
       },
       "bounding_box": {
         "south_west": {
@@ -690,8 +690,8 @@
     },
     "croatia": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "45.5643442",
+        "longitude": "17.0118954"
       },
       "bounding_box": {
         "south_west": {
@@ -706,8 +706,8 @@
     },
     "cuba": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "23.0131338",
+        "longitude": "-80.8328748"
       },
       "bounding_box": {
         "south_west": {
@@ -722,8 +722,8 @@
     },
     "cyprus": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "34.9823018",
+        "longitude": "33.1451285"
       },
       "bounding_box": {
         "south_west": {
@@ -738,8 +738,8 @@
     },
     "czechia": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "49.8167003",
+        "longitude": "15.4749544"
       },
       "bounding_box": {
         "south_west": {
@@ -754,8 +754,8 @@
     },
     "denmark": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "55.670249",
+        "longitude": "10.3333283"
       },
       "bounding_box": {
         "south_west": {
@@ -786,8 +786,8 @@
     },
     "djibouti": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "11.8145966",
+        "longitude": "42.8453061"
       },
       "bounding_box": {
         "south_west": {
@@ -802,8 +802,8 @@
     },
     "dominica": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "15.4113138",
+        "longitude": "-61.3653618"
       },
       "bounding_box": {
         "south_west": {
@@ -818,8 +818,8 @@
     },
     "dominican republic": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "19.0974031",
+        "longitude": "-70.3028026"
       },
       "bounding_box": {
         "south_west": {
@@ -834,8 +834,8 @@
     },
     "ecuador": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "-1.3397668",
+        "longitude": "-79.3666965"
       },
       "bounding_box": {
         "south_west": {
@@ -850,8 +850,8 @@
     },
     "egypt": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "26.2540493",
+        "longitude": "29.2675469"
       },
       "bounding_box": {
         "south_west": {
@@ -866,8 +866,8 @@
     },
     "el salvador": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "13.8000382",
+        "longitude": "-88.9140683"
       },
       "bounding_box": {
         "south_west": {
@@ -882,8 +882,8 @@
     },
     "equatorial guinea": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "1.613172",
+        "longitude": "10.5170357"
       },
       "bounding_box": {
         "south_west": {
@@ -898,8 +898,8 @@
     },
     "eritrea": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "15.9500319",
+        "longitude": "37.9999668"
       },
       "bounding_box": {
         "south_west": {
@@ -914,8 +914,8 @@
     },
     "estonia": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "58.7523778",
+        "longitude": "25.3319078"
       },
       "bounding_box": {
         "south_west": {
@@ -930,8 +930,8 @@
     },
     "swaziland": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "-26.5624806",
+        "longitude": "31.3991317"
       },
       "bounding_box": {
         "south_west": {
@@ -946,8 +946,8 @@
     },
     "ethiopia": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "10.2116702",
+        "longitude": "38.6521203"
       },
       "bounding_box": {
         "south_west": {
@@ -962,8 +962,8 @@
     },
     "fiji": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "-18.1239696",
+        "longitude": "179.0122737"
       },
       "bounding_box": {
         "south_west": {
@@ -978,8 +978,8 @@
     },
     "finland": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "63.2467777",
+        "longitude": "25.9209164"
       },
       "bounding_box": {
         "south_west": {
@@ -994,8 +994,8 @@
     },
     "france": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "46.603354",
+        "longitude": "1.8883335"
       },
       "bounding_box": {
         "south_west": {
@@ -1010,8 +1010,8 @@
     },
     "gabon": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "-0.8999695",
+        "longitude": "11.6899699"
       },
       "bounding_box": {
         "south_west": {
@@ -1026,8 +1026,8 @@
     },
     "gambia": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "13.470062",
+        "longitude": "-15.4900464"
       },
       "bounding_box": {
         "south_west": {
@@ -1042,8 +1042,8 @@
     },
     "georgia": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "41.6809707",
+        "longitude": "44.0287382"
       },
       "bounding_box": {
         "south_west": {
@@ -1058,8 +1058,8 @@
     },
     "germany": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "51.0834196",
+        "longitude": "10.4234469"
       },
       "bounding_box": {
         "south_west": {
@@ -1074,8 +1074,8 @@
     },
     "ghana": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "8.0300284",
+        "longitude": "-1.0800271"
       },
       "bounding_box": {
         "south_west": {
@@ -1090,8 +1090,8 @@
     },
     "greece": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "38.9953683",
+        "longitude": "21.9877132"
       },
       "bounding_box": {
         "south_west": {
@@ -1106,8 +1106,8 @@
     },
     "grenada": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "12.1360374",
+        "longitude": "-61.6904045"
       },
       "bounding_box": {
         "south_west": {
@@ -1122,8 +1122,8 @@
     },
     "guatemala": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "15.6356088",
+        "longitude": "-89.8988087"
       },
       "bounding_box": {
         "south_west": {
@@ -1138,8 +1138,8 @@
     },
     "guinea": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "10.7226226",
+        "longitude": "-10.7083587"
       },
       "bounding_box": {
         "south_west": {
@@ -1154,8 +1154,8 @@
     },
     "guinea-bissau": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "12.100035",
+        "longitude": "-14.9000214"
       },
       "bounding_box": {
         "south_west": {
@@ -1170,8 +1170,8 @@
     },
     "guyana": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "4.8417097",
+        "longitude": "-58.6416891"
       },
       "bounding_box": {
         "south_west": {
@@ -1186,8 +1186,8 @@
     },
     "haiti": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "19.1399952",
+        "longitude": "-72.3570972"
       },
       "bounding_box": {
         "south_west": {
@@ -1202,8 +1202,8 @@
     },
     "holy see": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "41.9029",
+        "longitude": "12.4534"
       },
       "bounding_box": {
         "south_west": {
@@ -1218,8 +1218,8 @@
     },
     "honduras": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "15.2572432",
+        "longitude": "-86.0755145"
       },
       "bounding_box": {
         "south_west": {
@@ -1234,8 +1234,8 @@
     },
     "hungary": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "47.1817585",
+        "longitude": "19.5060937"
       },
       "bounding_box": {
         "south_west": {
@@ -1250,8 +1250,8 @@
     },
     "iceland": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "64.9841821",
+        "longitude": "-18.1059013"
       },
       "bounding_box": {
         "south_west": {
@@ -1266,8 +1266,8 @@
     },
     "india": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "22.3511148",
+        "longitude": "78.6677428"
       },
       "bounding_box": {
         "south_west": {
@@ -1282,8 +1282,8 @@
     },
     "indonesia": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "-2.4833826",
+        "longitude": "117.8902853"
       },
       "bounding_box": {
         "south_west": {
@@ -1298,8 +1298,8 @@
     },
     "iran": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "32.6475314",
+        "longitude": "54.5643516"
       },
       "bounding_box": {
         "south_west": {
@@ -1314,8 +1314,8 @@
     },
     "iraq": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "33.0955793",
+        "longitude": "44.1749775"
       },
       "bounding_box": {
         "south_west": {
@@ -1330,8 +1330,8 @@
     },
     "ireland": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "52.865196",
+        "longitude": "-7.9794599"
       },
       "bounding_box": {
         "south_west": {
@@ -1346,8 +1346,8 @@
     },
     "israel": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "31.5313113",
+        "longitude": "34.8667654"
       },
       "bounding_box": {
         "south_west": {
@@ -1362,8 +1362,8 @@
     },
     "italy": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "42.6384261",
+        "longitude": "12.674297"
       },
       "bounding_box": {
         "south_west": {
@@ -1378,8 +1378,8 @@
     },
     "jamaica": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "18.1850507",
+        "longitude": "-77.3947693"
       },
       "bounding_box": {
         "south_west": {
@@ -1394,8 +1394,8 @@
     },
     "japan": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "36.5748441",
+        "longitude": "139.2394179"
       },
       "bounding_box": {
         "south_west": {
@@ -1410,8 +1410,8 @@
     },
     "jordan": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "31.1667049",
+        "longitude": "36.941628"
       },
       "bounding_box": {
         "south_west": {
@@ -1426,8 +1426,8 @@
     },
     "kazakhstan": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "47.2286086",
+        "longitude": "65.2093197"
       },
       "bounding_box": {
         "south_west": {
@@ -1442,8 +1442,8 @@
     },
     "kenya": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "1.4419683",
+        "longitude": "38.4313975"
       },
       "bounding_box": {
         "south_west": {
@@ -1458,8 +1458,8 @@
     },
     "kiribati": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "1.8709185",
+        "longitude": "-157.3626011"
       },
       "bounding_box": {
         "south_west": {
@@ -1474,8 +1474,8 @@
     },
     "s. korea": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "36.638392",
+        "longitude": "127.6961188"
       },
       "bounding_box": {
         "south_west": {
@@ -1490,8 +1490,8 @@
     },
     "kosovo": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "42.5833",
+        "longitude": "21.0001"
       },
       "bounding_box": {
         "south_west": {
@@ -1506,8 +1506,8 @@
     },
     "kuwait": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "29.2733964",
+        "longitude": "47.4979476"
       },
       "bounding_box": {
         "south_west": {
@@ -1522,8 +1522,8 @@
     },
     "kyrgyzstan": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "41.5089324",
+        "longitude": "74.724091"
       },
       "bounding_box": {
         "south_west": {
@@ -1538,8 +1538,8 @@
     },
     "lao people's democratic republic": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "20.0171109",
+        "longitude": "103.378253"
       },
       "bounding_box": {
         "south_west": {
@@ -1554,8 +1554,8 @@
     },
     "latvia": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "56.8406494",
+        "longitude": "24.7537645"
       },
       "bounding_box": {
         "south_west": {
@@ -1570,8 +1570,8 @@
     },
     "lebanon": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "33.8750629",
+        "longitude": "35.843409"
       },
       "bounding_box": {
         "south_west": {
@@ -1586,8 +1586,8 @@
     },
     "lesotho": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "-29.6039267",
+        "longitude": "28.3350193"
       },
       "bounding_box": {
         "south_west": {
@@ -1602,8 +1602,8 @@
     },
     "liberia": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "5.7499721",
+        "longitude": "-9.3658524"
       },
       "bounding_box": {
         "south_west": {
@@ -1618,8 +1618,8 @@
     },
     "libyan arab jamahiriya": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "26.8234472",
+        "longitude": "18.1236723"
       },
       "bounding_box": {
         "south_west": {
@@ -1634,8 +1634,8 @@
     },
     "liechtenstein": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "47.1416307",
+        "longitude": "9.5531527"
       },
       "bounding_box": {
         "south_west": {
@@ -1650,8 +1650,8 @@
     },
     "lithuania": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "55.3500003",
+        "longitude": "23.7499997"
       },
       "bounding_box": {
         "south_west": {
@@ -1666,8 +1666,8 @@
     },
     "luxembourg": {
       "centroid": {
-        "latitude": "",
-        "longitude": ""
+        "latitude": "49.8158683",
+        "longitude": "6.1296751"
       },
       "bounding_box": {
         "south_west": {
