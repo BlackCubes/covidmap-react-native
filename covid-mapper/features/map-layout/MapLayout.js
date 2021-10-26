@@ -58,6 +58,9 @@ const MapLayout = ({ route }) => {
 
   const [userLocation, setUserLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
+  const [sliderData, setSliderData] = useState(null);
+  const [sliderDataLoading, setSliderDataLoading] = useState(null);
+  const [sliderDataError, setSliderDataError] = useState(null);
   const [mapDataArray, setMapDataArray] = useState([]);
   const [mapDataObject, setMapDataObject] = useState(null);
   // This is to store the county data in this state after extraction:
@@ -162,6 +165,14 @@ const MapLayout = ({ route }) => {
     }
   };
 
+  useEffect(() => {
+    if (allUSStatesData) {
+      setSliderData(globalCovidStatsData);
+      setSliderDataLoading(globalCovidStatsLoading);
+      setSliderDataError(globalCovidStatsError);
+    }
+  }, [allUSStatesData]);
+
   // Ask permission to obtain user's current location
   useEffect(() => {
     (async () => {
@@ -192,21 +203,32 @@ const MapLayout = ({ route }) => {
     // Based on the route names to update the data array or object to be displayed on the map.
     switch (routeName) {
       case "World":
-        setMapDataObject(globalCovidStatsData);
         setSearchPlaceholder("Search by world");
         break;
       case "Country Province Stats":
-        setMapDataArray(allCountriesProvincesHistoricalData);
+        setSliderData(allCountriesProvincesHistoricalData);
+        setSliderDataLoading(allCountriesProvincesHistoricalLoading);
+        setSliderDataError(allCountriesProvincesHistoricalError);
+
         setSearchPlaceholder("Search by country");
         break;
       case "US Total":
+        setSliderData(allUSStatesData);
+        setSliderDataLoading(allUSStatesLoading);
+        setSliderDataError(allUSStatesError);
+
         setSearchPlaceholder("Search by US state");
         break;
       case "State Counties Totals":
+        setSliderData(allUSStatesData);
+        setSliderDataLoading(allUSStatesLoading);
+        setSliderDataError(allUSStatesError);
+
         setSearchPlaceholder("Search by US state");
         break;
       default:
-        setMapDataArray(globalCovidStatsData);
+        // setSliderData(globalCovidStatsData);
+        setSearchPlaceholder("Search by world");
         break;
     }
   }, [routeName]);
@@ -250,6 +272,9 @@ const MapLayout = ({ route }) => {
       <PopupSlider
         searchCountry={searchCountry}
         searchProvince={searchProvince}
+        sliderData={sliderData}
+        sliderDataLoading={sliderDataLoading}
+        sliderDataError={sliderDataError}
       />
 
       <MapComponent
