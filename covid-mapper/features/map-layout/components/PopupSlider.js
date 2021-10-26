@@ -146,7 +146,7 @@ const PopupSlider = ({
       />
       <BottomSheetModal
         ref={bottomSheetModalRef}
-        index={1}
+        index={0}
         snapPoints={snapPoints}
       >
         {typeof sliderData === "object" && !Array.isArray(sliderData) ? (
@@ -195,45 +195,50 @@ const PopupSlider = ({
             <CasesOverTimeGraph />
           </USStateWrapper>
         ) : (
-          sliderData.map((data, index) => (
-            <USStateWrapper key={index}>
-              <USStateMain>
-                <USStateMainHeader>World Data</USStateMainHeader>
+          <BottomSheetFlatList
+            data={sliderData}
+            initialNumToRender={2}
+            keyExtractor={(item, index) => item + index}
+            renderItem={({ item }) => (
+              <USStateWrapper>
+                <USStateMain>
+                  <USStateMainHeader>World Data</USStateMainHeader>
 
-                <USStatePopulation>
-                  400 million population size, Merica!!!!
-                </USStatePopulation>
-              </USStateMain>
-              <USStateUpdate>(updated on {Date(new Date())})</USStateUpdate>
+                  <USStatePopulation>
+                    400 million population size, Merica!!!!
+                  </USStatePopulation>
+                </USStateMain>
+                <USStateUpdate>(updated on {Date(new Date())})</USStateUpdate>
 
-              <USStateInfo>
-                {data.provinces.length > 0 && (
-                  <USStateInfoValues>{data.provinces}</USStateInfoValues>
-                )}
-                {data.county.length > 0 && (
-                  <USStateInfoValues>{data.county}</USStateInfoValues>
-                )}
-                {!data.hasTimelineSequence && (
-                  <USStateInfoValues>
-                    Cases: {separator(data.cases)}
-                  </USStateInfoValues>
-                )}
-                {!data.hasTimelineSequence && (
-                  <USStateInfoValues>
-                    Recovered: {separator(data.recovered)} or{" "}
-                    {((data.recovered / data.cases) * 100).toPrecision(4)}%{" "}
-                  </USStateInfoValues>
-                )}
-                {!data.hasTimelineSequence && (
-                  <USStateInfoValues>
-                    Deaths: {separator(data.deaths)} or{" "}
-                    {((data.deaths / data.cases) * 100).toPrecision(4)}%
-                  </USStateInfoValues>
-                )}
-              </USStateInfo>
-              <CasesOverTimeGraph />
-            </USStateWrapper>
-          ))
+                <USStateInfo>
+                  {item.provinces.length > 0 && (
+                    <USStateInfoValues>{item.provinces}</USStateInfoValues>
+                  )}
+                  {item.county.length > 0 && (
+                    <USStateInfoValues>{item.county}</USStateInfoValues>
+                  )}
+                  {!item.hasTimelineSequence && (
+                    <USStateInfoValues>
+                      Cases: {separator(item.cases)}
+                    </USStateInfoValues>
+                  )}
+                  {!item.hasTimelineSequence && (
+                    <USStateInfoValues>
+                      Recovered: {separator(item.recovered)} or{" "}
+                      {((item.recovered / item.cases) * 100).toPrecision(4)}%{" "}
+                    </USStateInfoValues>
+                  )}
+                  {!item.hasTimelineSequence && (
+                    <USStateInfoValues>
+                      Deaths: {separator(item.deaths)} or{" "}
+                      {((item.deaths / item.cases) * 100).toPrecision(4)}%
+                    </USStateInfoValues>
+                  )}
+                </USStateInfo>
+                <CasesOverTimeGraph />
+              </USStateWrapper>
+            )}
+          />
         )}
 
         {/* Might need it later for testing purposes */}
