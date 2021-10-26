@@ -163,12 +163,12 @@ const MapLayout = ({ route }) => {
   };
 
   useEffect(() => {
-    if (allUSStatesData) {
+    if (globalCovidStatsData) {
       setSliderData(globalCovidStatsData);
       setSliderDataLoading(globalCovidStatsLoading);
       setSliderDataError(globalCovidStatsError);
     }
-  }, [allUSStatesData]);
+  }, [globalCovidStatsData]);
 
   // Ask permission to obtain user's current location
   useEffect(() => {
