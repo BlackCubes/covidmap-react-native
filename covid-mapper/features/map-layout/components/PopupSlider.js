@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo, useRef } from "react";
-import { View, Text } from "react-native"
+import { View, Text } from "react-native";
 import styled from "styled-components/native";
 import {
   useGetCountryHistoricalQuery,
   useGetGlobalCovidStatsQuery,
-  useGetTotalOneUSStateQuery
+  useGetTotalOneUSStateQuery,
 } from "../../../api/covidApi";
 import Spinner from "../../../commons/components/Spinner/Spinner";
 import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
@@ -52,8 +52,7 @@ const USStatePopulation = styled.Text`
 const USStateUpdate = styled.Text`
   font-size: 10px;
   margin-bottom: 10px;
-  `
-
+`;
 
 const PopupContentContainer = styled.View`
   display: flex;
@@ -79,14 +78,17 @@ const USStateInfoValues = styled.Text`
   font-size: 18px;
 `;
 
-
-const PopupSlider = ({ searchCountry }) => {
-
+const PopupSlider = ({
+  searchCountry,
+  sliderData,
+  sliderDataLoading,
+  sliderDataError,
+}) => {
   const {
     data: countryData,
     isLoading: countryLoading,
     error: countryError,
-  } = useGetCountryHistoricalQuery('China');
+  } = useGetCountryHistoricalQuery("China");
   const {
     data: worldData,
     isLoading: worldLoading,
@@ -96,8 +98,7 @@ const PopupSlider = ({ searchCountry }) => {
     data: stateData,
     isLoading: stateLoading,
     error: stateError,
-  } = useGetTotalOneUSStateQuery('california');
-
+  } = useGetTotalOneUSStateQuery("california");
 
   const bottomSheetModalRef = useRef(null);
   const snapPoints = useMemo(() => ["25%", "50%"], []);
@@ -106,27 +107,35 @@ const PopupSlider = ({ searchCountry }) => {
     bottomSheetModalRef.current?.present();
   }, []);
 
-  // Might need it in the future:
-  // if (error) {
-  //   return (<>
-  //   <PopupButtonTest
-  //       onPress={handlePresentModalPress}
-  //       title="Present Slider"
-  //       color="#18181F"
-  //     />
-  //     <BottomSheetModal
-  //       ref={bottomSheetModalRef}
-  //       index={1}
-  //       snapPoints={snapPoints}
-  //     >
-  //       <PopupContentContainer>
-  //         <PopupContent>Error {error.status}: {error.data.message}</PopupContent>
-  //       </PopupContentContainer>
-  //     </BottomSheetModal>
-  //     </>
-  //   );
-  // }
+  console.log("sliderloading: ", sliderData);
 
+  if (sliderDataLoading) return <Spinner />;
+
+  // Might need it in the future:
+  if (sliderDataError) {
+    return (
+      <>
+        <PopupButtonTest
+          onPress={handlePresentModalPress}
+          title="Present Slider"
+          color="#18181F"
+        />
+        <BottomSheetModal
+          ref={bottomSheetModalRef}
+          index={1}
+          snapPoints={snapPoints}
+        >
+          <PopupContentContainer>
+            <PopupContent>
+              Error {sliderDataError.status}: {sliderDataError.data.message}
+            </PopupContent>
+          </PopupContentContainer>
+        </BottomSheetModal>
+      </>
+    );
+  }
+
+  if (!sliderData) return null;
 
   return (
     <>
@@ -140,33 +149,93 @@ const PopupSlider = ({ searchCountry }) => {
         index={1}
         snapPoints={snapPoints}
       >
+        {typeof sliderData === "object" && !Array.isArray(sliderData) ? (
+          <USStateWrapper>
+            <USStateMain>
+              <USStateMainHeader>World Data</USStateMainHeader>
 
-        {stateLoading
-          ? <Spinner/>
-          : stateError
-          ? <Text>Error!</Text>
-          : (
-        <USStateWrapper>
-          <USStateMain>
-            <USStateMainHeader>
-              World Data
-            </USStateMainHeader>
+              <USStatePopulation>
+                400 million population size, Merica!!!!
+              </USStatePopulation>
+            </USStateMain>
+            <USStateUpdate>(updated on {Date(new Date())})</USStateUpdate>
 
-            <USStatePopulation>400 million population size, Merica!!!!</USStatePopulation>
-          </USStateMain>
-          <USStateUpdate>(updated on {Date(new Date())})</USStateUpdate>
+            <USStateInfo>
+              {sliderData.provinces.length > 0 && (
+                <USStateInfoValues>{sliderData.provinces}</USStateInfoValues>
+              )}
+              {sliderData.county.length > 0 && (
+                <USStateInfoValues>{sliderData.county}</USStateInfoValues>
+              )}
+              {!sliderData.hasTimelineSequence && (
+                <USStateInfoValues>
+                  Cases: {separator(sliderData.cases)}
+                </USStateInfoValues>
+              )}
+              {!sliderData.hasTimelineSequence && (
+                <USStateInfoValues>
+                  Recovered: {separator(sliderData.recovered)} or{" "}
+                  {(
+                    (sliderData.recovered / sliderData.cases) *
+                    100
+                  ).toPrecision(4)}
+                  %{" "}
+                </USStateInfoValues>
+              )}
+              {!sliderData.hasTimelineSequence && (
+                <USStateInfoValues>
+                  Deaths: {separator(sliderData.deaths)} or{" "}
+                  {((sliderData.deaths / sliderData.cases) * 100).toPrecision(
+                    4
+                  )}
+                  %
+                </USStateInfoValues>
+              )}
+            </USStateInfo>
+            <CasesOverTimeGraph />
+          </USStateWrapper>
+        ) : (
+          sliderData.map((data, index) => (
+            <USStateWrapper key={index}>
+              <USStateMain>
+                <USStateMainHeader>World Data</USStateMainHeader>
 
-          <USStateInfo>
-            {stateData.provinces.length > 0 && (<USStateInfoValues>{stateData.provinces}</USStateInfoValues>)}
-            {stateData.county.length > 0 && (<USStateInfoValues>{stateData.county}</USStateInfoValues>)}
-            {!stateData.hasTimelineSequence && (<USStateInfoValues>Cases: {separator(stateData.cases)}</USStateInfoValues>)}
-            {!stateData.hasTimelineSequence && (<USStateInfoValues>Recovered: {separator(stateData.recovered)} or {(stateData.recovered/stateData.cases * 100).toPrecision(4)}% </USStateInfoValues>)}
-            {!stateData.hasTimelineSequence && (<USStateInfoValues>Deaths: {separator(stateData.deaths)} or {(stateData.deaths/stateData.cases * 100).toPrecision(4)}%</USStateInfoValues>)}
-          </USStateInfo>
-          <CasesOverTimeGraph/>
-        </USStateWrapper>   
+                <USStatePopulation>
+                  400 million population size, Merica!!!!
+                </USStatePopulation>
+              </USStateMain>
+              <USStateUpdate>(updated on {Date(new Date())})</USStateUpdate>
+
+              <USStateInfo>
+                {data.provinces.length > 0 && (
+                  <USStateInfoValues>{data.provinces}</USStateInfoValues>
+                )}
+                {data.county.length > 0 && (
+                  <USStateInfoValues>{data.county}</USStateInfoValues>
+                )}
+                {!data.hasTimelineSequence && (
+                  <USStateInfoValues>
+                    Cases: {separator(data.cases)}
+                  </USStateInfoValues>
+                )}
+                {!data.hasTimelineSequence && (
+                  <USStateInfoValues>
+                    Recovered: {separator(data.recovered)} or{" "}
+                    {((data.recovered / data.cases) * 100).toPrecision(4)}%{" "}
+                  </USStateInfoValues>
+                )}
+                {!data.hasTimelineSequence && (
+                  <USStateInfoValues>
+                    Deaths: {separator(data.deaths)} or{" "}
+                    {((data.deaths / data.cases) * 100).toPrecision(4)}%
+                  </USStateInfoValues>
+                )}
+              </USStateInfo>
+              <CasesOverTimeGraph />
+            </USStateWrapper>
+          ))
         )}
-  
+
         {/* Might need it later for testing purposes */}
         {/* <BottomSheetFlatList
           data={countryData}
