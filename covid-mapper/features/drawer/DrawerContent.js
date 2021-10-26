@@ -13,10 +13,11 @@ import {
 
 const DrawerContentContainer = styled.View`
   flex: 1;
+  max-height: 100%;
 `;
 
 const DrawerSection = styled.View`
-  padding: 5px 10px 5px 10px;
+  padding: 2% 4% 2% 4%;
 `;
 
 const SectionDivider = styled.View`
@@ -26,17 +27,18 @@ const SectionDivider = styled.View`
 `;
 
 const LogoContainer = styled.View`
-  height: 10%;
+  height: 8%;
   width: 100%;
   background-color: #203f59;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding: 4%;
 `;
 
 const BottomInfoContainer = styled.View`
-  height: 8%;
+  height: 6%;
   z-index: -100;
   display: flex;
   flex-direction: row;
@@ -68,12 +70,12 @@ const GreenBorder = styled.View`
 const LogoText = styled.Text`
   color: #ddd;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
 `;
 
 const LogoImage = styled.Image`
-  height: 60px;
-  width: 60px;
+  max-height: 50px;
+  max-width: 50px;
   border-radius: 3px;
   margin-right: 4px;
 `;
@@ -105,6 +107,7 @@ const DrawerContent = (props) => {
           </Heading>
           {/* endpoint: /v3/covid-19/all AND /v3/covid-19/countries */}
           <DrawerItem
+            style={{ backgroundColor: 'green', padding: '0%', margin: '0%'}}
             label="World Total &amp; By Country"
             onPress={() => {
               props.navigation.navigate("World");
@@ -147,7 +150,7 @@ const DrawerContent = (props) => {
         {/* Start Vaccination section */}
         <DrawerSection>
           <Heading>
-            Vaccination Doses Administered &amp; Trial Data
+            Vaccination Doses Administered &amp; Trial
             <View style={{ paddingLeft: 4 }}>
               <SyringeIcon />
             </View>
