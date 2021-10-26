@@ -162,6 +162,7 @@ const MapLayout = ({ route }) => {
     }
   };
 
+  // To render to the slider since it is null initially when the app first starts.
   useEffect(() => {
     if (globalCovidStatsData) {
       setSliderData(globalCovidStatsData);
@@ -234,6 +235,7 @@ const MapLayout = ({ route }) => {
     }
   }, [routeName]);
 
+  // To render to the slider if user entered a country.
   useEffect(() => {
     if (searchCountry.length && countryHistoricalData) {
       setSliderData(countryHistoricalData);
@@ -244,6 +246,7 @@ const MapLayout = ({ route }) => {
     }
   }, [searchCountry, countryHistoricalData]);
 
+  // To render to the slider if user entered a province.
   useEffect(() => {
     if (searchProvince.length && provinceHistoricalData) {
       setSliderData(provinceHistoricalData);
@@ -254,6 +257,7 @@ const MapLayout = ({ route }) => {
     }
   }, [searchProvince, provinceHistoricalData]);
 
+  // To render to the slider if the user entered a US State.
   useEffect(() => {
     if (searchUSState.length) {
       setMapRegion(
@@ -268,6 +272,7 @@ const MapLayout = ({ route }) => {
     }
   }, [searchUSState]);
 
+  // To render to the slider if the user entered a US County.
   useEffect(() => {
     if (searchUSCounty.length && usCountiesData) {
       setSliderData(retrieveCountyData(searchUSCounty, usCountiesData));
