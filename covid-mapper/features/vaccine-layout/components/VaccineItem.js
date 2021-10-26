@@ -24,6 +24,7 @@ const ItalicMechanism = styled.Text`
 
 const BoldText = styled.Text`
   font-weight: bold;
+  padding-top: 4px;
 `;
 
 const Subheading = styled.Text`
@@ -40,7 +41,7 @@ const PhaseSponsorsContainer = styled.View`
 const DetailsContainer = styled.View`
   display: flex;
   flex-direction: column;
-  padding-top: 4px;
+  padding-top: 8px;
 `;
 
 const ViewMoreButton = styled.Text`
