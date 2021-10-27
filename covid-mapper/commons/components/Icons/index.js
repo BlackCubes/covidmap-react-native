@@ -13,9 +13,9 @@ const GlobeIcon =()=> <Entypo name="globe" size={15} color="#000"/>;
 
 const SyringeIcon =()=> <FaIcon name="syringe" size={15} color="#000"/>;
 
-const SearchIcon =()=> <Icon name="search1" size={20} color="#000" />
+const SearchIcon =()=> <Icon name="search1" size={20} color="#aaa" />
 
-const MenuIcon =()=> <Icon name="menu-fold" size={15} color="#000"/>
+const MenuIcon =()=> <Icon name="menu-fold" size={15} color="#aaa"/>
 
 export {
     GithubIcon,
