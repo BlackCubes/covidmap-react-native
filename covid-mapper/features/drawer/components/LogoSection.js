@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components/native";
 
 const LogoContainer = styled.View`
-  height: 10%;
+  height: 8%;
   width: 100%;
   background-color: #203f59;
   display: flex;
@@ -35,7 +35,6 @@ const LogoSection = () => {
   return (
     <>
       <LogoContainer>
-        {/* Logo */}
         <LogoImage source={require("../../../assets/logo.png")} />
         <LogoText>COVID Mapper</LogoText>
       </LogoContainer>
