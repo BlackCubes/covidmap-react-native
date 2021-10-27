@@ -17,6 +17,7 @@ import {
 import { OpenSesameButton } from "../../commons/components";
 import PopupSlider from "./components/PopupSlider";
 import { centroidRegion } from "../../utils";
+import { SearchBackButton } from "../../commons/components/SearchBackButton";
 
 /**
  * Finds the selected county inside an array of counties inside the US State.
@@ -316,6 +317,8 @@ const MapLayout = ({ route }) => {
       ) : (
         <></>
       )}
+
+      <SearchBackButton />
 
       <OpenSesameButton />
 
