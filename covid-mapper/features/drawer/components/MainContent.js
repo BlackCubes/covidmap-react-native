@@ -23,7 +23,7 @@ const Heading = styled.Text`
 `;
 
 
-const MainContent=()=>{
+const MainContent=(props)=>{
     return (<ContentSections>
         {/* World total section */}
         <Heading>
