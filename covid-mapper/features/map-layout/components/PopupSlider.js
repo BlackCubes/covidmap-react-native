@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef } from "react";
+import React from "react";
 import styled from "styled-components/native";
 import Spinner from "../../../commons/components/Spinner/Spinner";
 import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
@@ -70,28 +70,21 @@ const USStateInfoValues = styled.Text`
 `;
 
 const PopupSlider = ({
+  handlePresentModalPress,
   sliderData,
   sliderDataLoading,
   sliderDataError,
   sliderHeader,
+  snapPoints,
+  bottomSheetModalRef
 }) => {
-  const bottomSheetModalRef = useRef(null);
-  const snapPoints = useMemo(() => ["25%", "50%"], []);
 
-  const handlePresentModalPress = useCallback(() => {
-    bottomSheetModalRef.current?.present();
-  }, []);
+  
 
   if (sliderDataLoading) return <Spinner />;
 
   if (sliderDataError) {
     return (
-      <>
-        <PopupButtonTest
-          onPress={handlePresentModalPress}
-          title="Present Slider"
-          color="#18181F"
-        />
         <BottomSheetModal
           ref={bottomSheetModalRef}
           index={1}
@@ -103,23 +96,18 @@ const PopupSlider = ({
             </PopupContent>
           </PopupContentContainer>
         </BottomSheetModal>
-      </>
     );
   }
 
   if (!sliderData) return null;
 
   return (
-    <>
-      <PopupButtonTest
-        onPress={handlePresentModalPress}
-        title="Present Slider"
-        color="#18181F"
-      />
       <BottomSheetModal
         ref={bottomSheetModalRef}
         index={0}
         snapPoints={snapPoints}
+        backgroundStyle={{backgroundColor: '#F5F5F5'}}
+        
       >
         {typeof sliderData === "object" && !Array.isArray(sliderData) ? (
           <USStateWrapper>
@@ -213,7 +201,6 @@ const PopupSlider = ({
           />
         )}
       </BottomSheetModal>
-    </>
   );
 };
 
