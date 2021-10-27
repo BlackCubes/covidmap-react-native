@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Pressable, Animated, StyleSheet } from "react-native";
+import { Pressable, Animated, StyleSheet, Keyboard } from "react-native";
 import styled from "styled-components/native";
 
 
@@ -29,7 +29,7 @@ const SearchbarInput = styled.TextInput`
   border-radius: 50px;
 `;
 
-const Searchbar = ({ handleSearchSubmit, searchPlaceholder, opacityLevel }) => {
+const Searchbar = ({ handleSearchSubmit, searchPlaceholder, opacityLevel, handlePresentModalPress }) => {
   const [searchInput, setSearchInput] = useState("");
   const [isFocus, setIsFocus] = useState(false);
   const [isSearchIconPressedIn, setIsSearchIconPressedIn] = useState(false);
@@ -43,6 +43,8 @@ const Searchbar = ({ handleSearchSubmit, searchPlaceholder, opacityLevel }) => {
             onPress={() => {
               handleSearchSubmit(searchInput);
               setSearchInput("");
+              handlePresentModalPress()
+              Keyboard.dismiss()
             }}
           >
             <SearchbarIcon

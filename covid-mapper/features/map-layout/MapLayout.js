@@ -1,4 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  useCallback,
+  useMemo,
+} from "react";
 import * as Location from "expo-location";
 import { useWindowDimensions, Animated, Pressable } from "react-native";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
@@ -17,6 +23,7 @@ import {
 import { OpenSesameButton } from "../../commons/components";
 import PopupSlider from "./components/PopupSlider";
 import { centroidRegion } from "../../utils";
+import styled from "styled-components/native";
 
 /**
  * Finds the selected county inside an array of counties inside the US State.
@@ -136,6 +143,14 @@ const MapLayout = ({ route }) => {
     latitudeDelta: 11.0922,
     longitudeDelta: 11.0421,
   });
+
+  // -------Handles the modal
+  const handlePresentModalPress = useCallback(() => {
+    bottomSheetModalRef.current?.present();
+  }, []);
+  // ---------Bottom Sheet Modal useRef and useMemo
+  const bottomSheetModalRef = useRef(null);
+  const snapPoints = useMemo(() => ["25%", "100%"], []);
 
   const handleSearchSubmit = (inputValue) => {
     // Based on the name of the route to update particular states.
@@ -300,7 +315,7 @@ const MapLayout = ({ route }) => {
   }, [searchUSCounty, usCountiesData]);
 
   return (
-    <BottomSheetModalProvider style={{ color: "black" }}>
+    <>
       <FloatingSearchButton
         pressHandler={() => {
           setSearchBarActive(!searchBarActive);
@@ -312,6 +327,7 @@ const MapLayout = ({ route }) => {
           handleSearchSubmit={handleSearchSubmit}
           searchPlaceholder={searchPlaceholder}
           opacityLevel={fadeAnim}
+          handlePresentModalPress={handlePresentModalPress}
         />
       ) : (
         <></>
@@ -319,19 +335,24 @@ const MapLayout = ({ route }) => {
 
       <OpenSesameButton />
 
-      <PopupSlider
-        sliderData={sliderData}
-        sliderDataLoading={sliderDataLoading}
-        sliderDataError={sliderDataError}
-        sliderHeader={sliderHeader}
-      />
+      <BottomSheetModalProvider>
+        <PopupSlider
+          sliderData={sliderData}
+          sliderDataLoading={sliderDataLoading}
+          sliderDataError={sliderDataError}
+          sliderHeader={sliderHeader}
+          handlePresentModalPress={handlePresentModalPress}
+          bottomSheetModalRef={bottomSheetModalRef}
+          snapPoints={snapPoints}
+        />
 
-      <MapComponent
-        mapviewHeight={mapviewHeight}
-        mapviewRegion={mapRegion}
-        mapviewWidth={mapviewWidth}
-      />
-    </BottomSheetModalProvider>
+        <MapComponent
+          mapviewHeight={mapviewHeight}
+          mapviewRegion={mapRegion}
+          mapviewWidth={mapviewWidth}
+        />
+      </BottomSheetModalProvider>
+    </>
   );
 };
 
