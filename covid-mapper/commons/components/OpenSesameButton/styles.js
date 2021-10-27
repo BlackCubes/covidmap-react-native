@@ -1,14 +1,34 @@
-import styled from "styled-components/native";
+import * as React from "react";
+import { StyleSheet, View } from "react-native";
+import { MenuIcon } from "../Icons";
 
-export const FloatingButton = styled.View`
-  background-color: orange;
-  color: white;
-  border-color: white;
-  padding: 10px;
-  border-radius: 50px;
-`;
+export const FloatingButton = () => (
+  <View
+    style={[
+      styles.circle,
+      {
+        shadowOffset: {
+          width: 6,
+          height: 10,
+        },
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
+      },
+    ]}
+  >
+    <MenuIcon />
+  </View>
+);
 
-export const MenuIcon = styled.Image`
-  height: 24px;
-  width: 24px;
-`;
+const styles = StyleSheet.create({
+  circle: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white",
+    borderRadius: 40,
+    height: 40,
+    shadowColor: "black",
+    width: 40,
+  },
+});

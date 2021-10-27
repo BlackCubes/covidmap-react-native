@@ -15,11 +15,14 @@ const SyringeIcon =()=> <FaIcon name="syringe" size={15} color="#000"/>;
 
 const SearchIcon =()=> <Icon name="search1" size={20} color="#000" />
 
+const MenuIcon =()=> <Icon name="menu-fold" size={15} color="#000"/>
+
 export {
     GithubIcon,
     ToadIcon,
     USAFlagIcon,
     GlobeIcon,
     SyringeIcon,
-    SearchIcon
+    SearchIcon,
+    MenuIcon
 };

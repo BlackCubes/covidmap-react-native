@@ -2,7 +2,7 @@ import * as React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Pressable } from "react-native";
 
-import { FloatingButton, MenuIcon } from "./styles";
+import { FloatingButton } from "./styles";
 
 const OpenSesameButton = () => {
   const navigation = useNavigation();
@@ -17,9 +17,7 @@ const OpenSesameButton = () => {
         zIndex: 10,
       }}
     >
-      <FloatingButton>
-        <MenuIcon source={require("../../../assets/globe.png")} />
-      </FloatingButton>
+      <FloatingButton/>
     </Pressable>
   );
 };
