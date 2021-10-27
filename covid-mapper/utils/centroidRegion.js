@@ -1,10 +1,11 @@
 import coordinates from "./coordinates.json";
 
 /**
- * Centers the map of the selected location based on the viewable map area of the device. If
- * the location does not exist in the coordinates JSON, then it returns the previous region.
- * Otherwise, it returns an object of the center location (latitude, longitude) and the
- * calculated viewable map area (latitudeDelta, longitudeDelta).
+ * Centers the map of the selected location and landmass based on the viewable map area of
+ * the device. If the location or landmass does not exist in the coordinates JSON, then it
+ * returns the previous region. Otherwise, it returns an object of the center location
+ * (latitude, longitude) and the calculated viewable map area (latitudeDelta, longitudeDelta).
+ * @param {String} landmass
  * @param {String} location
  * @param {{latitude:Number, longitude:Number, latitudeDelta:Number, longitudeDelta:Number}} initialRegion
  * @param {Number} windowWidth
@@ -12,13 +13,21 @@ import coordinates from "./coordinates.json";
  * @returns {{latitude:Number, longitude:Number, latitudeDelta:Number, longitudeDelta:Number}}
  * An object of the center location and viewable map area.
  */
-const centroidRegion = (location, initialRegion, windowWidth, windowHeight) => {
+const centroidRegion = (
+  landmass,
+  location,
+  initialRegion,
+  windowWidth,
+  windowHeight
+) => {
   const lowercaseLocation = location.toLowerCase();
-  if (!coordinates[lowercaseLocation]) return initialRegion;
+
+  if (!coordinates[landmass]) return initialRegion;
+  if (!coordinates[landmass][lowercaseLocation]) return initialRegion;
 
   // Aspect ratio of the device.
   const aspectRatio = windowWidth / windowHeight;
-  const { bounding_box, centroid } = coordinates[lowercaseLocation];
+  const { bounding_box, centroid } = coordinates[landmass][lowercaseLocation];
 
   // Parse the JSON.
   const lat = parseFloat(centroid.latitude);
