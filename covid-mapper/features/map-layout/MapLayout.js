@@ -148,7 +148,7 @@ const MapLayout = ({ route }) => {
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
   }, []);
-// ---------Bottom Sheet Modal useRef and useMemo
+  // ---------Bottom Sheet Modal useRef and useMemo
   const bottomSheetModalRef = useRef(null);
   const snapPoints = useMemo(() => ["25%", "100%"], []);
 
@@ -315,9 +315,7 @@ const MapLayout = ({ route }) => {
   }, [searchUSCounty, usCountiesData]);
 
   return (
-    <BottomSheetModalProvider
-    
-    style={{ color: "black", zIndex:'110' }}>
+    <>
       <FloatingSearchButton
         pressHandler={() => {
           setSearchBarActive(!searchBarActive);
@@ -336,33 +334,26 @@ const MapLayout = ({ route }) => {
       )}
 
       <OpenSesameButton />
-    
-      <PopupSlider
-        sliderData={sliderData}
-        sliderDataLoading={sliderDataLoading}
-        sliderDataError={sliderDataError}
-        sliderHeader={sliderHeader}
-        handlePresentModalPress={handlePresentModalPress}
-        bottomSheetModalRef={bottomSheetModalRef}
-        snapPoints={snapPoints}
-      />
 
-      <MapComponent
-        mapviewHeight={mapviewHeight}
-        mapviewRegion={mapRegion}
-        mapviewWidth={mapviewWidth}
-      />
-    </BottomSheetModalProvider>
+      <BottomSheetModalProvider>
+        <PopupSlider
+          sliderData={sliderData}
+          sliderDataLoading={sliderDataLoading}
+          sliderDataError={sliderDataError}
+          sliderHeader={sliderHeader}
+          handlePresentModalPress={handlePresentModalPress}
+          bottomSheetModalRef={bottomSheetModalRef}
+          snapPoints={snapPoints}
+        />
+
+        <MapComponent
+          mapviewHeight={mapviewHeight}
+          mapviewRegion={mapRegion}
+          mapviewWidth={mapviewWidth}
+        />
+      </BottomSheetModalProvider>
+    </>
   );
 };
-
-const PopupButtonTest = styled.Button`
-  position: absolute;
-  bottom: 100px;
-  height: 50px;
-  width: 50px;
-  border-radius: 50px;
-  background: red;
-`;
 
 export default MapLayout;
