@@ -261,7 +261,13 @@ const MapLayout = ({ route }) => {
   useEffect(() => {
     if (searchUSState.length) {
       setMapRegion(
-        centroidRegion(searchUSState, mapRegion, mapviewWidth, mapviewHeight)
+        centroidRegion(
+          "united_states",
+          searchUSState,
+          mapRegion,
+          mapviewWidth,
+          mapviewHeight
+        )
       );
 
       setSliderData(oneUSStateData);
