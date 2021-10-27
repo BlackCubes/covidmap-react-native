@@ -13,38 +13,43 @@ import {
 
 const DrawerContentContainer = styled.View`
   flex: 1;
-  max-height: 100%;
+  height: 100%;
+  background-color: #203f59;
 `;
 
-const DrawerSection = styled.View`
-  padding: 2% 4% 2% 4%;
+const ContentSections = styled.View`
+  padding: 4% 4% 0% 4%;
+  background-color: white;
+  height: 100%;
 `;
 
 const SectionDivider = styled.View`
   height: 1px;
-  background-color: #ccc;
+  background-color: #eee;
   width: 100%;
+  margin: 2px;
 `;
 
 const LogoContainer = styled.View`
-  height: 8%;
+  height: 100%;
   width: 100%;
   background-color: #203f59;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 4%;
+  padding: 0%;
 `;
 
 const BottomInfoContainer = styled.View`
   height: 6%;
+  width: 100%;
   z-index: -100;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  padding: 0px 80px 0px 80px;
+  justify-content: space-around;
+  padding: 0% 10% 0% 10%;
   background-color: #fafafa;
 `;
 
@@ -58,13 +63,14 @@ const BottomButtonView = styled.View`
 
 const BottomInfoText = styled.Text`
   color: #203f59;
-  font-weight: bold;
+  font-weight: 500;
   padding-left: 4px;
 `;
 
 const GreenBorder = styled.View`
   border-bottom-width: 4px;
   border-bottom-color: #77c280;
+  margin-top: 2%;
 `;
 
 const LogoText = styled.Text`
@@ -84,20 +90,29 @@ const Heading = styled.Text`
   font-size: 14px;
   font-weight: 700;
   color: #203f59;
+  margin-top: 4px;
+`;
+
+const TopWrapper = styled.View`
+  height: 4%;
+  margin-bottom: 4%;
 `;
 
 const DrawerContent = (props) => {
   return (
     <DrawerContentContainer>
       <DrawerContentScrollView {...props}>
-        <LogoContainer>
-          {/* Logo */}
-          <LogoImage source={require("../../assets/logo.png")} />
-          <LogoText>COVID Mapper</LogoText>
-        </LogoContainer>
+        <TopWrapper>
+          <LogoContainer>
+            {/* Logo */}
+            <LogoImage source={require("../../assets/logo.png")} />
+            <LogoText>COVID Mapper</LogoText>
+          </LogoContainer>
+          {/* <GreenBorder></GreenBorder> */}
+        </TopWrapper>
         <GreenBorder></GreenBorder>
         {/*End Logo section and Begin DrawerItems section */}
-        <DrawerSection>
+        <ContentSections>
           {/* World total section */}
           <Heading>
             World
@@ -120,9 +135,9 @@ const DrawerContent = (props) => {
             }}
           />
           <SectionDivider />
-        </DrawerSection>
-        {/* Start USA section */}
-        <DrawerSection>
+          {/* </DrawerSection> */}
+          {/* Start USA section */}
+          {/* <DrawerSection> */}
           <Heading>
             U.S.
             <View style={{ paddingLeft: 4 }}>
@@ -144,10 +159,10 @@ const DrawerContent = (props) => {
             }}
           />
           <SectionDivider />
-        </DrawerSection>
+          {/* </DrawerSection> */}
 
-        {/* Start Vaccination section */}
-        <DrawerSection>
+          {/* Start Vaccination section */}
+          {/* <DrawerSection> */}
           <Heading>
             Vaccination Doses Administered &amp; Trial
             <View style={{ paddingLeft: 4 }}>
@@ -188,34 +203,34 @@ const DrawerContent = (props) => {
               props.navigation.navigate("Trial Data");
             }}
           />
-        </DrawerSection>
+          {/* Github & About Us */}
+          <BottomInfoContainer>
+            <Pressable
+              onPress={() => {
+                props.navigation.navigate("About Us");
+              }}
+            >
+              <BottomButtonView>
+                <ToadIcon />
+                <BottomInfoText>About Us</BottomInfoText>
+              </BottomButtonView>
+            </Pressable>
+            {/* Github  */}
+            <Pressable
+              onPress={() =>
+                Linking.openURL(
+                  "https://github.com/BlackCubes/covidmap-react-native"
+                )
+              }
+            >
+              <BottomButtonView>
+                <GithubIcon />
+                <BottomInfoText>Github</BottomInfoText>
+              </BottomButtonView>
+            </Pressable>
+          </BottomInfoContainer>
+        </ContentSections>
       </DrawerContentScrollView>
-      {/* Github & About Us */}
-      <BottomInfoContainer>
-        <Pressable
-          onPress={() => {
-            props.navigation.navigate("About Us");
-          }}
-        >
-          <BottomButtonView>
-            <ToadIcon />
-            <BottomInfoText>About Us</BottomInfoText>
-          </BottomButtonView>
-        </Pressable>
-        {/* Github  */}
-        <Pressable
-          onPress={() =>
-            Linking.openURL(
-              "https://github.com/BlackCubes/covidmap-react-native"
-            )
-          }
-        >
-          <BottomButtonView>
-            <GithubIcon />
-            <BottomInfoText>Github</BottomInfoText>
-          </BottomButtonView>
-        </Pressable>
-      </BottomInfoContainer>
     </DrawerContentContainer>
   );
 };
