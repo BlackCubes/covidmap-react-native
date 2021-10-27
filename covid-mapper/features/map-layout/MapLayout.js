@@ -238,6 +238,16 @@ const MapLayout = ({ route }) => {
   // To render to the slider if user entered a country.
   useEffect(() => {
     if (searchCountry.length && countryHistoricalData) {
+      setMapRegion(
+        centroidRegion(
+          "countries",
+          searchCountry,
+          mapRegion,
+          mapviewWidth,
+          mapviewHeight
+        )
+      );
+
       setSliderData(countryHistoricalData);
       setSliderDataError(countryHistoricalError);
       setSliderDataLoading(countryHistoricalLoading);
