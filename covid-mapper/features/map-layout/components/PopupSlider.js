@@ -5,8 +5,6 @@ import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
 import CasesOverTimeGraph from "../../graphs/TimeLineGraph";
 import numSeparator from "../../../utils/numSeparator";
 
-
-
 const PopupButtonTest = styled.Button`
   margin-top: 0;
   position: absolute;
@@ -164,7 +162,10 @@ const PopupSlider = ({
                 </USStateInfoValues>
               )}
             </USStateInfo>
-            <CasesOverTimeGraph />
+
+            {sliderData.hasTimelineSequence ? (
+              <CasesOverTimeGraph graphData={sliderData.cases} />
+            ) : null}
           </USStateWrapper>
         ) : (
           <BottomSheetFlatList
@@ -175,10 +176,6 @@ const PopupSlider = ({
               <USStateWrapper>
                 <USStateMain>
                   <USStateMainHeader>{sliderHeader}</USStateMainHeader>
-
-                  <USStatePopulation>
-                    400 million population size, Merica!!!!
-                  </USStatePopulation>
                 </USStateMain>
                 <USStateUpdate>(updated on {Date(new Date())})</USStateUpdate>
 
@@ -207,7 +204,10 @@ const PopupSlider = ({
                     </USStateInfoValues>
                   )}
                 </USStateInfo>
-                <CasesOverTimeGraph />
+
+                {item.hasTimelineSequence ? (
+                  <CasesOverTimeGraph graphData={item.cases} />
+                ) : null}
               </USStateWrapper>
             )}
           />
