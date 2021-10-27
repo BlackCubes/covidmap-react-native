@@ -9,14 +9,14 @@ import {
   } from "../../../commons/components/Icons";
 
   const BottomInfoContainer = styled.View`
-    height: 5%;
+    min-height: 20px;
     width: 100%;
     z-index: -100;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    padding: 0% 10% 2% 10%;
+    padding: 2% 10% 20% 10%;
     background-color: #fafafa;
 `;
 

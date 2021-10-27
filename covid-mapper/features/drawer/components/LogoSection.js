@@ -1,5 +1,7 @@
 import * as React from "react";
 import styled from "styled-components/native";
+import { LinearGradient } from "expo-linear-gradient";
+import { StyleSheet, Text, View } from "react-native";
 
 const LogoContainer = styled.View`
   height: 8%;
@@ -33,14 +35,48 @@ const LogoImage = styled.Image`
 
 const LogoSection = () => {
   return (
-    <>
-      <LogoContainer>
+    <View
+      style={{
+        // borderColor: "red",
+        // borderWidth: "1px",
+        height: "10%",
+        marginTop: "0%",
+        paddingTop: "0%",
+      }}
+    >
+      {/* <LogoContainer>
         <LogoImage source={require("../../../assets/logo.png")} />
         <LogoText>COVID Mapper</LogoText>
-      </LogoContainer>
+      </LogoContainer> */}
+      <LinearGradient
+        // Background Linear Gradient
+        colors={["#203f59", "black","#77c280"]} // right, left
+        style={styles.background}
+        end={{
+          x: 0.5, y: 0.95
+        }}
+        locations={[
+          0, 0.95,1
+        ]}
+      >
+        <LogoImage source={require("../../../assets/logo.png")} />
+        <LogoText>COVID Mapper</LogoText>
+      </LinearGradient>
       <GreenBorder />
-    </>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  background: {
+    height: "100%",
+    width: "100%",
+    display: "flex",
+    flexDirection: 'row',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: '#77c280'
+  },
+});
 
 export default LogoSection;

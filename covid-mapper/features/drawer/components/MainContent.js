@@ -76,7 +76,7 @@ const MainContent=()=>{
         {/* Start Vaccination section */}
         {/* <DrawerSection> */}
         <Heading>
-          Vaccination Doses Administered &amp; Trial
+          Vaccine Doses Administered &amp; Trial
           <View style={{ paddingLeft: 4 }}>
             <SyringeIcon />
           </View>

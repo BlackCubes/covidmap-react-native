@@ -15,7 +15,8 @@ const ContentWrapper=styled.View`
   height: 100%;
   display: flex;
   width: 100%;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
+  margin-top: 0px;
 `;
 
 const DrawerContent = (props) => {
