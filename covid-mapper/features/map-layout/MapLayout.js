@@ -284,7 +284,7 @@ const MapLayout = ({ route }) => {
 
   // To render to the slider if the user entered a US State.
   useEffect(() => {
-    if (searchUSState.length && oneUSStateData) {
+    if (searchUSState.length && usCountiesData) {
       setMapRegion(
         centroidRegion(
           "united_states",
@@ -295,13 +295,13 @@ const MapLayout = ({ route }) => {
         )
       );
 
-      setSliderData(oneUSStateData);
-      setSliderDataError(oneUSStateError);
-      setSliderDataLoading(oneUSStateLoading);
+      setSliderData(usCountiesData);
+      setSliderDataError(usCountiesError);
+      setSliderDataLoading(usCountiesLoading);
 
       setSliderHeader(`${searchUSState} Data`);
     }
-  }, [searchUSState, oneUSStateData]);
+  }, [searchUSState, usCountiesData]);
 
   // To render to the slider if the user entered a US County.
   useEffect(() => {

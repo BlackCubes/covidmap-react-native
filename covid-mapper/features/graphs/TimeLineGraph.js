@@ -1,30 +1,26 @@
 import React from "react";
 import { Dimensions, View, Text } from "react-native";
 import { LineChart } from "react-native-chart-kit";
-// For testing
-const DUMMY_DATA = [
-  { x: "9/25/21", y: 116800 },
-  { x: "9/26/21", y: 116800 },
-  { x: "9/27/21", y: 117387 },
-  { x: "9/28/21", y: 117517 },
-  { x: "9/29/21", y: 117655}
-];
 
 const chartWidth = Dimensions.get("window").width - 40;
 const chartHeight = Dimensions.get("window").width - 20;
 
-const CasesOverTimeGraph = () => {
+const CasesOverTimeGraph = ({ graphData }) => {
+  if (!graphData) return null;
+
   return (
-    <View style={{
-        width: '100%',
-    }}>
-        <Text style={{textAlign: 'center'}}>Cases over Time</Text>
+    <View
+      style={{
+        width: "100%",
+      }}
+    >
+      <Text style={{ textAlign: "center" }}>Cases over Time</Text>
       <LineChart
         data={{
-          labels: DUMMY_DATA.map((point) => point.x),
+          labels: graphData.map((point) => point.x),
           datasets: [
             {
-              data: DUMMY_DATA.map((point) => {
+              data: graphData.map((point) => {
                 return point.y;
               }),
             },

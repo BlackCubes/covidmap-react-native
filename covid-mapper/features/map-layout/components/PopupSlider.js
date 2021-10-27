@@ -135,7 +135,9 @@ const PopupSlider = ({
               </USStateInfoValues>
             )}
           </USStateInfo>
-          <CasesOverTimeGraph />
+          {sliderData.hasTimelineSequence ? (
+            <CasesOverTimeGraph graphData={sliderData.cases} />
+          ) : null}
         </USStateWrapper>
       ) : (
         <BottomSheetFlatList
@@ -178,7 +180,10 @@ const PopupSlider = ({
                   </USStateInfoValues>
                 )}
               </USStateInfo>
-              <CasesOverTimeGraph />
+
+              {item.hasTimelineSequence ? (
+                <CasesOverTimeGraph graphData={item.cases} />
+              ) : null}
             </USStateWrapper>
           )}
         />
