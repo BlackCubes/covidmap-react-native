@@ -107,7 +107,6 @@ const DrawerContent = (props) => {
           </Heading>
           {/* endpoint: /v3/covid-19/all AND /v3/covid-19/countries */}
           <DrawerItem
-            style={{ backgroundColor: 'green', padding: '0%', margin: '0%'}}
             label="World Total &amp; By Country"
             onPress={() => {
               props.navigation.navigate("World");
