@@ -35,7 +35,7 @@ const SearchBackButton = ({
       onPress={handleOnPress}
     >
       <SearchBackWrapper>
-        <SearchBackTitle>{searchBackBtnTitle}</SearchBackTitle>
+        <SearchBackTitle>Search {searchBackBtnTitle}</SearchBackTitle>
       </SearchBackWrapper>
     </Pressable>
   );

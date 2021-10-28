@@ -365,7 +365,7 @@ const MapLayout = ({ route }) => {
         <SearchBackButton
           previousMapRegion={prevRegion}
           previousSearchPlaceholder={prevPlaceholder}
-          searchBackBtnTitle="States"
+          searchBackBtnTitle="State"
           searchLandmass={searchUSState}
           searchSubLandmass={searchUSCounty}
           setMapRegion={setMapRegion}
