@@ -107,11 +107,13 @@ const MapLayout = ({ route }) => {
     data: countryHistoricalData,
     isLoading: countryHistoricalLoading,
     error: countryHistoricalError,
+    refetch: refetchCountryHistorical,
   } = useGetCountryHistoricalQuery(searchCountry);
   const {
     data: provinceHistoricalData,
     isLoading: provinceHistoricalLoading,
     error: provinceHistoricalError,
+    refetch: refetchProvinceHistorical,
   } = useGetProvinceHistoricalQuery({
     country: searchCountry,
     province: searchProvince,
@@ -135,6 +137,7 @@ const MapLayout = ({ route }) => {
     data: usCountiesData,
     isLoading: usCountiesLoading,
     error: usCountiesError,
+    refetch: refetchUSCounties,
   } = useGetAllUSCountiesFromStateQuery(searchUSState);
 
   const { width: mapviewWidth, height: mapviewHeight } = useWindowDimensions();
@@ -279,6 +282,8 @@ const MapLayout = ({ route }) => {
       setSliderDataLoading(countryHistoricalLoading);
 
       setSliderHeader(`${searchCountry} Data`);
+
+      refetchCountryHistorical();
     }
   }, [searchCountry, countryHistoricalData]);
 
@@ -300,6 +305,8 @@ const MapLayout = ({ route }) => {
       setSliderDataLoading(provinceHistoricalLoading);
 
       setSliderHeader(`${searchProvince} Data`);
+
+      refetchProvinceHistorical();
     }
   }, [searchProvince, provinceHistoricalData]);
 
@@ -322,6 +329,8 @@ const MapLayout = ({ route }) => {
       setSliderDataLoading(usCountiesLoading);
 
       setSliderHeader(`${searchUSState} Data`);
+
+      refetchUSCounties();
     }
   }, [searchUSState, usCountiesData]);
 
