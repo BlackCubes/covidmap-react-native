@@ -349,7 +349,7 @@ const MapLayout = ({ route }) => {
       {!searchCountry.length > 0 ? null : (
         <PreviousRegionButton
           previousMapRegion={prevRegion}
-          previousRegionTitle="Country"
+          previousRegionTitle="country"
           previousSearchPlaceholder={prevPlaceholder}
           searchLandmass={searchCountry}
           searchSubLandmass={searchProvince}
@@ -364,7 +364,7 @@ const MapLayout = ({ route }) => {
       {!searchUSState.length > 0 ? null : (
         <PreviousRegionButton
           previousMapRegion={prevRegion}
-          previousRegionTitle="State"
+          previousRegionTitle="state"
           previousSearchPlaceholder={prevPlaceholder}
           searchLandmass={searchUSState}
           searchSubLandmass={searchUSCounty}

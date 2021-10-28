@@ -35,7 +35,9 @@ const PreviousRegionButton = ({
       onPress={handleOnPress}
     >
       <PreviousRegionWrapper>
-        <PreviousRegionTitle>Search {previousRegionTitle}</PreviousRegionTitle>
+        <PreviousRegionTitle>
+          Search by {previousRegionTitle}
+        </PreviousRegionTitle>
       </PreviousRegionWrapper>
     </Pressable>
   );
