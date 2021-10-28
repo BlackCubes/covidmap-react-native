@@ -3,7 +3,41 @@ import { Pressable } from "react-native";
 
 import { SearchBackTitle, SearchBackWrapper } from "./styles";
 
-const SearchBackButton = () => {
+const SearchBackButton = ({
+  previousMapRegion,
+  previousSearchPlaceholder,
+  searchBackBtnTitle,
+  searchCountry,
+  searchProvince,
+  searchUSCounty,
+  searchUSState,
+  setMapRegion,
+  setSearchCountry,
+  setSearchPlaceholder,
+  setSearchProvince,
+  setSearchUSCounty,
+  setSearchUSState,
+}) => {
+  const handleOnPress = () => {
+    if (searchCountry.length) {
+      setSearchCountry("");
+    } else if (searchUSState.length) {
+      setSearchUSState("");
+    }
+
+    if (searchProvince.length) {
+      setSearchProvince("");
+    } else if (searchUSCounty.length) {
+      setSearchUSCounty("");
+    }
+
+    if (searchProvince.length || searchUSCounty.length) {
+      setMapRegion(previousMapRegion);
+    }
+
+    setSearchPlaceholder(previousSearchPlaceholder);
+  };
+
   return (
     <Pressable
       style={{
@@ -12,10 +46,10 @@ const SearchBackButton = () => {
         left: "10%",
         zIndex: 10,
       }}
-      onPress={() => console.log("in search back button!")}
+      onPress={handleOnPress}
     >
       <SearchBackWrapper>
-        <SearchBackTitle>Country</SearchBackTitle>
+        <SearchBackTitle>{searchBackBtnTitle}</SearchBackTitle>
       </SearchBackWrapper>
     </Pressable>
   );
