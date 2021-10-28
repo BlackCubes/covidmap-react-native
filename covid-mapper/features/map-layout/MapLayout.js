@@ -285,6 +285,16 @@ const MapLayout = ({ route }) => {
   // To render to the slider if user entered a province.
   useEffect(() => {
     if (searchProvince.length && provinceHistoricalData) {
+      setMapRegion(
+        centroidRegion(
+          "provinces",
+          searchProvince,
+          mapRegion,
+          mapviewWidth,
+          mapviewHeight
+        )
+      );
+
       setSliderData(provinceHistoricalData);
       setSliderDataError(provinceHistoricalError);
       setSliderDataLoading(provinceHistoricalLoading);
