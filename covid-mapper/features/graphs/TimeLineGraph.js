@@ -28,7 +28,7 @@ const CasesOverTimeGraph = ({ graphData }) => {
         }}
         width={chartWidth} // from react-native
         height={chartHeight}
-        yAxisInterval={0.5} // optional, defaults to 1
+        yAxisInterval={4} // optional, defaults to 1
         chartConfig={{
           backgroundColor: "#e26a00",
           backgroundGradientFrom: "blue",
@@ -37,7 +37,7 @@ const CasesOverTimeGraph = ({ graphData }) => {
           color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           propsForDots: {
-            r: "4",
+            r: "2",
             strokeWidth: "2",
             stroke: "#ffa726",
           },
@@ -47,6 +47,9 @@ const CasesOverTimeGraph = ({ graphData }) => {
           marginVertical: 8,
           borderRadius: 8,
         }}
+        formatXLabel={(value) => parseInt(value.split('/')[1]) % 7 == 0 ? value : ''}
+        // formatYLabel={(value) => value % 2 === 0 ? value : '' }
+        
       />
     </View>
   );
