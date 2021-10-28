@@ -263,24 +263,16 @@ const MapLayout = ({ route }) => {
   // To render to the slider if user entered a country.
   useEffect(() => {
     if (searchCountry.length && countryHistoricalData) {
-      setMapRegion(
-        centroidRegion(
-          "countries",
-          searchCountry,
-          mapRegion,
-          mapviewWidth,
-          mapviewHeight
-        )
+      const centeredRegion = centroidRegion(
+        "countries",
+        searchCountry,
+        mapRegion,
+        mapviewWidth,
+        mapviewHeight
       );
-      setPrevRegion(
-        centroidRegion(
-          "countries",
-          searchCountry,
-          mapRegion,
-          mapviewWidth,
-          mapviewHeight
-        )
-      );
+
+      setMapRegion(centeredRegion);
+      setPrevRegion(centeredRegion);
 
       setSliderData(countryHistoricalData);
       setSliderDataError(countryHistoricalError);
@@ -304,24 +296,16 @@ const MapLayout = ({ route }) => {
   // To render to the slider if the user entered a US State.
   useEffect(() => {
     if (searchUSState.length && usCountiesData) {
-      setMapRegion(
-        centroidRegion(
-          "united_states",
-          searchUSState,
-          mapRegion,
-          mapviewWidth,
-          mapviewHeight
-        )
+      const centeredRegion = centroidRegion(
+        "united_states",
+        searchUSState,
+        mapRegion,
+        mapviewWidth,
+        mapviewHeight
       );
-      setPrevRegion(
-        centroidRegion(
-          "united_states",
-          searchUSState,
-          mapRegion,
-          mapviewWidth,
-          mapviewHeight
-        )
-      );
+
+      setMapRegion(centeredRegion);
+      setPrevRegion(centeredRegion);
 
       setSliderData(usCountiesData);
       setSliderDataError(usCountiesError);
