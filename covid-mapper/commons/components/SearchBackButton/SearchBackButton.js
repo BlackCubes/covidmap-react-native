@@ -7,33 +7,19 @@ const SearchBackButton = ({
   previousMapRegion,
   previousSearchPlaceholder,
   searchBackBtnTitle,
-  searchCountry,
-  searchProvince,
-  searchUSCounty,
-  searchUSState,
+  searchLandmass,
+  searchSubLandmass,
   setMapRegion,
-  setSearchCountry,
+  setSearchLandmass,
   setSearchPlaceholder,
-  setSearchProvince,
-  setSearchUSCounty,
-  setSearchUSState,
+  setSearchSubLandmass,
 }) => {
   const handleOnPress = () => {
-    if (searchCountry.length) {
-      setSearchCountry("");
-    } else if (searchUSState.length) {
-      setSearchUSState("");
-    }
+    if (searchLandmass.length) setSearchLandmass("");
 
-    if (searchProvince.length) {
-      setSearchProvince("");
-    } else if (searchUSCounty.length) {
-      setSearchUSCounty("");
-    }
+    if (searchSubLandmass.length) setSearchSubLandmass("");
 
-    if (searchProvince.length || searchUSCounty.length) {
-      setMapRegion(previousMapRegion);
-    }
+    if (searchSubLandmass.length) setMapRegion(previousMapRegion);
 
     setSearchPlaceholder(previousSearchPlaceholder);
   };
