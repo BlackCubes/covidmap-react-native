@@ -1,10 +1,9 @@
 import styled from "styled-components/native";
 
 export const SearchBackWrapper = styled.View`
-  width: 70px;
   height: 25px;
-  padding-right: 5px;
-  padding-left: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
   background-color: #fbfbfc;
   border: 0.5px solid #c6c6d1;
   border-radius: 50px;
@@ -13,6 +12,6 @@ export const SearchBackWrapper = styled.View`
 `;
 
 export const SearchBackTitle = styled.Text`
-  font-size: 12px;
+  font-size: 10px;
   color: black;
 `;
