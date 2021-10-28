@@ -366,33 +366,26 @@ const MapLayout = ({ route }) => {
           previousMapRegion={prevRegion}
           previousSearchPlaceholder={prevPlaceholder}
           searchBackBtnTitle="Country"
-          searchCountry={searchCountry}
-          searchProvince={searchPlaceholder}
-          searchUSCounty={searchUSCounty}
-          searchUSState={searchUSState}
+          searchLandmass={searchCountry}
+          searchSubLandmass={searchProvince}
           setMapRegion={setMapRegion}
-          setSearchCountry={setSearchCountry}
+          setSearchLandmass={setSearchCountry}
           setSearchPlaceholder={setSearchPlaceholder}
-          setSearchProvince={setSearchProvince}
-          setSearchUSCounty={setSearchUSCounty}
-          setSearchUSState={setSearchUSState}
+          setSearchSubLandmass={setSearchProvince}
         />
       )}
+
       {!searchUSState.length > 0 ? null : (
         <SearchBackButton
           previousMapRegion={prevRegion}
           previousSearchPlaceholder={prevPlaceholder}
           searchBackBtnTitle="States"
-          searchCountry={searchCountry}
-          searchProvince={searchPlaceholder}
-          searchUSCounty={searchUSCounty}
-          searchUSState={searchUSState}
+          searchLandmass={searchUSState}
+          searchSubLandmass={searchUSCounty}
           setMapRegion={setMapRegion}
-          setSearchCountry={setSearchCountry}
+          setSearchLandmass={setSearchUSState}
           setSearchPlaceholder={setSearchPlaceholder}
-          setSearchProvince={setSearchProvince}
-          setSearchUSCounty={setSearchUSCounty}
-          setSearchUSState={setSearchUSState}
+          setSearchSubLandmass={setSearchUSCounty}
         />
       )}
 
