@@ -23,7 +23,7 @@ import {
 import { OpenSesameButton } from "../../commons/components";
 import PopupSlider from "./components/PopupSlider";
 import { centroidRegion } from "../../utils";
-import { SearchBackButton } from "../../commons/components/SearchBackButton";
+import { PreviousRegionButton } from "../../commons/components/PreviousRegionButton";
 import styled from "styled-components/native";
 
 /**
@@ -347,10 +347,10 @@ const MapLayout = ({ route }) => {
 
       {/* This button should only be "connected" to country-based */}
       {!searchCountry.length > 0 ? null : (
-        <SearchBackButton
+        <PreviousRegionButton
           previousMapRegion={prevRegion}
+          previousRegionTitle="Country"
           previousSearchPlaceholder={prevPlaceholder}
-          searchBackBtnTitle="Country"
           searchLandmass={searchCountry}
           searchSubLandmass={searchProvince}
           setMapRegion={setMapRegion}
@@ -362,10 +362,10 @@ const MapLayout = ({ route }) => {
 
       {/* This button should only be "connected" to states in the US */}
       {!searchUSState.length > 0 ? null : (
-        <SearchBackButton
+        <PreviousRegionButton
           previousMapRegion={prevRegion}
+          previousRegionTitle="State"
           previousSearchPlaceholder={prevPlaceholder}
-          searchBackBtnTitle="State"
           searchLandmass={searchUSState}
           searchSubLandmass={searchUSCounty}
           setMapRegion={setMapRegion}
