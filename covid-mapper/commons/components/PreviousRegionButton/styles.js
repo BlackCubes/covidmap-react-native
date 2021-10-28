@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 
-export const SearchBackWrapper = styled.View`
+export const PreviousRegionWrapper = styled.View`
   height: 25px;
   padding-right: 10px;
   padding-left: 10px;
@@ -11,7 +11,7 @@ export const SearchBackWrapper = styled.View`
   justify-content: center;
 `;
 
-export const SearchBackTitle = styled.Text`
+export const PreviousRegionTitle = styled.Text`
   font-size: 10px;
   color: black;
 `;

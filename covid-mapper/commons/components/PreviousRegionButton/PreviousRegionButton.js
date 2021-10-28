@@ -1,12 +1,12 @@
 import React from "react";
 import { Pressable } from "react-native";
 
-import { SearchBackTitle, SearchBackWrapper } from "./styles";
+import { PreviousRegionTitle, PreviousRegionWrapper } from "./styles";
 
-const SearchBackButton = ({
+const PreviousRegionButton = ({
   previousMapRegion,
+  previousRegionTitle,
   previousSearchPlaceholder,
-  searchBackBtnTitle,
   searchLandmass,
   searchSubLandmass,
   setMapRegion,
@@ -34,11 +34,11 @@ const SearchBackButton = ({
       }}
       onPress={handleOnPress}
     >
-      <SearchBackWrapper>
-        <SearchBackTitle>Search {searchBackBtnTitle}</SearchBackTitle>
-      </SearchBackWrapper>
+      <PreviousRegionWrapper>
+        <PreviousRegionTitle>Search {previousRegionTitle}</PreviousRegionTitle>
+      </PreviousRegionWrapper>
     </Pressable>
   );
 };
 
-export default SearchBackButton;
+export default PreviousRegionButton;
