@@ -7,13 +7,15 @@ const GithubIcon =()=> <Icon name="github" size={20} color="#000"/>;
 
 const ToadIcon =()=> <FaIcon name="frog" size={20} color="#000"/>;
 
-const USAFlagIcon =()=> <FaIcon name="flag-usa" size={20} color="#000"/>;
+const USAFlagIcon =()=> <FaIcon name="flag-usa" size={15} color="#000"/>;
 
-const GlobeIcon =()=> <Entypo name="globe" size={20} color="#000"/>;
+const GlobeIcon =()=> <Entypo name="globe" size={15} color="#000"/>;
 
-const SyringeIcon =()=> <FaIcon name="syringe" size={20} color="#000"/>;
+const SyringeIcon =()=> <FaIcon name="syringe" size={15} color="#000"/>;
 
-const SearchIcon =()=> <Icon name="search1" size={20} color="#000" />
+const SearchIcon =()=> <Icon name="search1" size={20} color="#aaa" />
+
+const MenuIcon =()=> <Icon name="menu-fold" size={15} color="#aaa"/>
 
 export {
     GithubIcon,
@@ -21,5 +23,6 @@ export {
     USAFlagIcon,
     GlobeIcon,
     SyringeIcon,
-    SearchIcon
+    SearchIcon,
+    MenuIcon
 };
