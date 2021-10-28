@@ -345,6 +345,7 @@ const MapLayout = ({ route }) => {
         <></>
       )}
 
+      {/* This button should only be "connected" to country-based */}
       {!searchCountry.length > 0 ? null : (
         <SearchBackButton
           previousMapRegion={prevRegion}
@@ -359,6 +360,7 @@ const MapLayout = ({ route }) => {
         />
       )}
 
+      {/* This button should only be "connected" to states in the US */}
       {!searchUSState.length > 0 ? null : (
         <SearchBackButton
           previousMapRegion={prevRegion}
