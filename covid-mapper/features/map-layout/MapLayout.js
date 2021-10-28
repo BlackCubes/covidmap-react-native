@@ -73,6 +73,7 @@ const MapLayout = ({ route }) => {
 
   // This is to dynamically change the placeholder for the searchbar:
   const [searchPlaceholder, setSearchPlaceholder] = useState("");
+  const [prevPlaceholder, setPrevPlaceholder] = useState("");
 
   // These are for storing the user's search inputs so that it could be inserted into
   // the Redux Toolkit query hooks:
@@ -144,6 +145,12 @@ const MapLayout = ({ route }) => {
     latitudeDelta: 11.0922,
     longitudeDelta: 11.0421,
   });
+  const [prevRegion, setPrevRegion] = useState({
+    latitude: 36.778259,
+    longitude: -119.417931,
+    latitudeDelta: 11.0922,
+    longitudeDelta: 11.0421,
+  });
 
   // -------Handles the modal
   const handlePresentModalPress = useCallback(() => {
@@ -159,6 +166,7 @@ const MapLayout = ({ route }) => {
       // If there are no inputs for this, then it is the initial start.
       if (!searchCountry.length && !searchProvince.length) {
         setSearchCountry(inputValue);
+        setPrevPlaceholder(searchPlaceholder);
         setSearchPlaceholder("Search by province");
 
         // This would only happen only if the user has provided a country search:
@@ -171,6 +179,7 @@ const MapLayout = ({ route }) => {
     ) {
       if (!searchUSState.length && !searchUSCounty.length) {
         setSearchUSState(inputValue);
+        setPrevPlaceholder(searchPlaceholder);
         setSearchPlaceholder("Search by county");
       } else {
         setSearchUSCounty(inputValue);
@@ -263,6 +272,15 @@ const MapLayout = ({ route }) => {
           mapviewHeight
         )
       );
+      setPrevRegion(
+        centroidRegion(
+          "countries",
+          searchCountry,
+          mapRegion,
+          mapviewWidth,
+          mapviewHeight
+        )
+      );
 
       setSliderData(countryHistoricalData);
       setSliderDataError(countryHistoricalError);
@@ -287,6 +305,15 @@ const MapLayout = ({ route }) => {
   useEffect(() => {
     if (searchUSState.length && usCountiesData) {
       setMapRegion(
+        centroidRegion(
+          "united_states",
+          searchUSState,
+          mapRegion,
+          mapviewWidth,
+          mapviewHeight
+        )
+      );
+      setPrevRegion(
         centroidRegion(
           "united_states",
           searchUSState,
@@ -334,7 +361,40 @@ const MapLayout = ({ route }) => {
         <></>
       )}
 
-      <SearchBackButton />
+      {!searchCountry.length > 0 ? null : (
+        <SearchBackButton
+          previousMapRegion={prevRegion}
+          previousSearchPlaceholder={prevPlaceholder}
+          searchBackBtnTitle="Country"
+          searchCountry={searchCountry}
+          searchProvince={searchPlaceholder}
+          searchUSCounty={searchUSCounty}
+          searchUSState={searchUSState}
+          setMapRegion={setMapRegion}
+          setSearchCountry={setSearchCountry}
+          setSearchPlaceholder={setSearchPlaceholder}
+          setSearchProvince={setSearchProvince}
+          setSearchUSCounty={setSearchUSCounty}
+          setSearchUSState={setSearchUSState}
+        />
+      )}
+      {!searchUSState.length > 0 ? null : (
+        <SearchBackButton
+          previousMapRegion={prevRegion}
+          previousSearchPlaceholder={prevPlaceholder}
+          searchBackBtnTitle="States"
+          searchCountry={searchCountry}
+          searchProvince={searchPlaceholder}
+          searchUSCounty={searchUSCounty}
+          searchUSState={searchUSState}
+          setMapRegion={setMapRegion}
+          setSearchCountry={setSearchCountry}
+          setSearchPlaceholder={setSearchPlaceholder}
+          setSearchProvince={setSearchProvince}
+          setSearchUSCounty={setSearchUSCounty}
+          setSearchUSState={setSearchUSState}
+        />
+      )}
 
       <OpenSesameButton />
 
