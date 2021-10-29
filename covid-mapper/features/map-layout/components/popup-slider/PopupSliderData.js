@@ -23,13 +23,13 @@ const SliderDataInfoValues = styled.Text`
 `;
 
 const PopupSliderData = ({
-  provinces,
-  state,
-  county,
-  hasTimelineSequence,
   cases,
-  recovered,
+  county,
   deaths,
+  hasTimelineSequence,
+  provinces,
+  recovered,
+  state,
 }) => (
   <>
     <SliderDataPopulation>
