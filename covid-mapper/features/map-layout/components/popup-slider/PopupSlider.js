@@ -5,6 +5,7 @@ import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
 import CasesOverTimeGraph from "../../../graphs/TimeLineGraph";
 import numSeparator from "../../../../utils/numSeparator";
 import { capitalize } from "../../../../utils";
+import PopupSliderData from "./PopupSliderData";
 
 const PopupError = styled.Text`
   display: flex;
@@ -12,14 +13,18 @@ const PopupError = styled.Text`
   align-items: center;
 `;
 
-const PopupSliderWrapper = styled.View`
-  padding: 17px;
+const PopupSliderContainer = styled.View`
+  padding-right: 5px;
+  padding-left: 5px;
 `;
 
 const PopupSliderHeader = styled.View`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
+  padding-top: 17px;
+  padding-right: 10px;
+  padding-left: 10px;
 `;
 
 const PopupSliderHeaderText = styled.Text`
@@ -97,110 +102,40 @@ const PopupSlider = ({
       snapPoints={snapPoints}
       backgroundStyle={{ backgroundColor: "#F5F5F5" }}
     >
-      <PopupSliderWrapper>
-        <PopupSliderHeader>
-          <PopupSliderHeaderText>
-            {capitalize(sliderHeader)}
-          </PopupSliderHeaderText>
-        </PopupSliderHeader>
+      <PopupSliderHeader>
+        <PopupSliderHeaderText>
+          {capitalize(sliderHeader)}
+        </PopupSliderHeaderText>
+      </PopupSliderHeader>
 
-        {typeof sliderData === "object" && !Array.isArray(sliderData) ? (
-          <>
-            <USStatePopulation>
-              400 million population size, Merica!!!!
-            </USStatePopulation>
-
-            <USStateUpdate>(updated on {Date(new Date())})</USStateUpdate>
-
-            <USStateInfo>
-              {sliderData.provinces.length > 0 && (
-                <USStateInfoValues>{sliderData.provinces}</USStateInfoValues>
-              )}
-              {sliderData.state.length > 0 && (
-                <USStateInfoValues>{sliderData.state}</USStateInfoValues>
-              )}
-              {sliderData.county.length > 0 && (
-                <USStateInfoValues>{sliderData.county}</USStateInfoValues>
-              )}
-              {!sliderData.hasTimelineSequence && (
-                <USStateInfoValues>
-                  Cases: {numSeparator(sliderData.cases)}
-                </USStateInfoValues>
-              )}
-              {!sliderData.hasTimelineSequence && (
-                <USStateInfoValues>
-                  Recovered: {numSeparator(sliderData.recovered)} or{" "}
-                  {(
-                    (sliderData.recovered / sliderData.cases) *
-                    100
-                  ).toPrecision(4)}
-                  %{" "}
-                </USStateInfoValues>
-              )}
-              {!sliderData.hasTimelineSequence && (
-                <USStateInfoValues>
-                  Deaths: {numSeparator(sliderData.deaths)} or{" "}
-                  {((sliderData.deaths / sliderData.cases) * 100).toPrecision(
-                    4
-                  )}
-                  %
-                </USStateInfoValues>
-              )}
-            </USStateInfo>
-            {sliderData.hasTimelineSequence ? (
-              <CasesOverTimeGraph graphData={sliderData.cases} />
-            ) : null}
-          </>
-        ) : (
-          <BottomSheetFlatList
-            data={sliderData}
-            initialNumToRender={2}
-            keyExtractor={(item, index) => item + index}
-            renderItem={({ item }) => (
-              <>
-                <USStatePopulation>
-                  400 million population size, Merica!!!!
-                </USStatePopulation>
-
-                <USStateUpdate>(updated on {Date(new Date())})</USStateUpdate>
-
-                <USStateInfo>
-                  {item.provinces.length > 0 && (
-                    <USStateInfoValues>{item.provinces}</USStateInfoValues>
-                  )}
-                  {item.state.length > 0 && (
-                    <USStateInfoValues>{item.state}</USStateInfoValues>
-                  )}
-                  {item.county.length > 0 && (
-                    <USStateInfoValues>{item.county}</USStateInfoValues>
-                  )}
-                  {!item.hasTimelineSequence && (
-                    <USStateInfoValues>
-                      Cases: {numSeparator(item.cases)}
-                    </USStateInfoValues>
-                  )}
-                  {!item.hasTimelineSequence && (
-                    <USStateInfoValues>
-                      Recovered: {numSeparator(item.recovered)} or{" "}
-                      {((item.recovered / item.cases) * 100).toPrecision(4)}%{" "}
-                    </USStateInfoValues>
-                  )}
-                  {!item.hasTimelineSequence && (
-                    <USStateInfoValues>
-                      Deaths: {numSeparator(item.deaths)} or{" "}
-                      {((item.deaths / item.cases) * 100).toPrecision(4)}%
-                    </USStateInfoValues>
-                  )}
-                </USStateInfo>
-
-                {item.hasTimelineSequence ? (
-                  <CasesOverTimeGraph graphData={item.cases} />
-                ) : null}
-              </>
-            )}
-          />
-        )}
-      </PopupSliderWrapper>
+      {typeof sliderData === "object" && !Array.isArray(sliderData) ? (
+        <PopupSliderData
+          cases={sliderData.cases}
+          county={sliderData.county}
+          deaths={sliderData.deaths}
+          hasTimelineSequence={sliderData.hasTimelineSequence}
+          provinces={sliderData.provinces}
+          recovered={sliderData.recovered}
+          state={sliderData.state}
+        />
+      ) : (
+        <BottomSheetFlatList
+          data={sliderData}
+          initialNumToRender={2}
+          keyExtractor={(item, index) => item + index}
+          renderItem={({ item }) => (
+            <PopupSliderData
+              cases={item.cases}
+              county={item.county}
+              deaths={item.deaths}
+              hasTimelineSequence={item.hasTimelineSequence}
+              provinces={item.provinces}
+              recovered={item.recovered}
+              state={item.state}
+            />
+          )}
+        />
+      )}
     </BottomSheetModal>
   );
 };
