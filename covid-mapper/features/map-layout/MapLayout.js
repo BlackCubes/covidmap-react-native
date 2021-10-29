@@ -20,11 +20,10 @@ import {
   useGetTotalsAllStatesUSQuery,
   useGetTotalOneUSStateQuery,
 } from "../../api/covidApi";
-import { OpenSesameButton } from "../../commons/components";
 import PopupSlider from "./components/PopupSlider";
 import { centroidRegion } from "../../utils";
 import { PreviousRegionButton } from "../../commons/components/PreviousRegionButton";
-import styled from "styled-components/native";
+
 
 /**
  * Finds the selected county inside an array of counties inside the US State.
@@ -393,8 +392,6 @@ const MapLayout = ({ route }) => {
           setSearchSubLandmass={setSearchUSCounty}
         />
       )}
-
-      <OpenSesameButton />
 
       <BottomSheetModalProvider>
         <PopupSlider
