@@ -38,16 +38,22 @@ const PopupSliderData = ({
   county,
   deaths,
   hasTimelineSequence,
+  population,
   provinces,
   recovered,
   state,
+  updatedAt,
 }) => (
   <SliderDataWrapper>
-    <SliderDataPopulation>
-      400 million population size, Merica!!!!
-    </SliderDataPopulation>
+    {population > 0 && (
+      <SliderDataPopulation>
+        {numSeparator(population)} total population size
+      </SliderDataPopulation>
+    )}
 
-    <SliderDataUpdate>(updated on {Date(new Date())})</SliderDataUpdate>
+    {updatedAt > 0 && (
+      <SliderDataUpdate>(updated on {updatedAt})</SliderDataUpdate>
+    )}
 
     <SliderDataInfo>
       {provinces.length > 0 && (

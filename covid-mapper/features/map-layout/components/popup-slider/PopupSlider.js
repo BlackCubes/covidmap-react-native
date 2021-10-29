@@ -89,9 +89,11 @@ const PopupSlider = ({
             county={sliderData.county}
             deaths={sliderData.deaths}
             hasTimelineSequence={sliderData.hasTimelineSequence}
+            population={sliderData.population}
             provinces={sliderData.provinces}
             recovered={sliderData.recovered}
             state={sliderData.state}
+            updatedAt={sliderData.updatedAt}
           />
         </BottomSheetScrollView>
       ) : (
@@ -105,9 +107,11 @@ const PopupSlider = ({
               county={item.county}
               deaths={item.deaths}
               hasTimelineSequence={item.hasTimelineSequence}
+              population={item.population}
               provinces={item.provinces}
               recovered={item.recovered}
               state={item.state}
+              updatedAt={item.updatedAt}
             />
           )}
         />
