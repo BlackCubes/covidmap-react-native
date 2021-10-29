@@ -20,10 +20,9 @@ import {
   useGetTotalsAllStatesUSQuery,
   useGetTotalOneUSStateQuery,
 } from "../../api/covidApi";
-import PopupSlider from "./components/PopupSlider";
+import { PopupSlider } from "./components/popup-slider";
 import { centroidRegion } from "../../utils";
 import { PreviousRegionButton } from "../../commons/components/PreviousRegionButton";
-
 
 /**
  * Finds the selected county inside an array of counties inside the US State.
@@ -160,7 +159,7 @@ const MapLayout = ({ route }) => {
   }, []);
   // ---------Bottom Sheet Modal useRef and useMemo
   const bottomSheetModalRef = useRef(null);
-  const snapPoints = useMemo(() => ["25%", "100%"], []);
+  const snapPoints = useMemo(() => ["25%", "82%"], []);
 
   const handleSearchSubmit = (inputValue) => {
     // Based on the name of the route to update particular states.
