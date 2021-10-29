@@ -103,13 +103,13 @@ const VaccineItem = ({
   } else return (
     <SafeAreaView>
       <ArticleContainer>
-        <CandidateHeading>Candidate: {candidate}</CandidateHeading>
-        <BoldText>
+        <CandidateHeading style={{ fontFamily: 'NotoSans_400Regular' }}>Candidate: {candidate}</CandidateHeading>
+        <BoldText style={{ fontFamily: 'NotoSans_400Regular' }}>
           Mechanism: <ItalicMechanism>{mechanism}</ItalicMechanism>
         </BoldText>
         {/* Phase & Sponsors section*/}
         <PhaseSponsorsContainer>
-          <Text>
+          <Text style={{ fontFamily: 'NotoSans_400Regular' }}>
             <BoldText>Trial Phase:</BoldText> {trialPhase}
           </Text>
           <Text>
@@ -122,7 +122,7 @@ const VaccineItem = ({
         {/* Institutions */}
         <BoldText>Institutions:</BoldText>
         {institutions.map((siteName) => (
-          <Text key={uuid.v4()}>{he.decode(siteName)}</Text>
+          <Text key={uuid.v4()} style={{ fontFamily: 'NotoSans_400Regular' }}>{he.decode(siteName)}</Text>
         ))}
         {/* Details */}
         <DetailsContainer>
@@ -133,7 +133,7 @@ const VaccineItem = ({
           {/* View More */}
           <Pressable onPress={viewMoreDetails} style={{ marginTop: "2%" }}>
             <ViewMoreButton>
-              {hideText ? <Text>View More...</Text> : <Text>Hide Details</Text>}
+              {hideText ? <Text>View More</Text> : <Text>Hide Details</Text>}
             </ViewMoreButton>
           </Pressable>
         </DetailsContainer>
