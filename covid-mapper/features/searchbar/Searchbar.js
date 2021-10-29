@@ -33,7 +33,7 @@ const Searchbar = ({ handleSearchSubmit, searchPlaceholder, opacityLevel, handle
   const [isSearchIconPressedIn, setIsSearchIconPressedIn] = useState(false);
 
   return (
-    <Animated.View style={[styles.searchBarWrapper, {opacity: opacityLevel}]}>
+    <Animated.View style={[styles.searchBarWrapper, {opacity: opacityLevel, position: 'absolute', top: '3%'}]}>
         <SearchbarIconWrapper>
           <Pressable
             onPressIn={() => setIsSearchIconPressedIn(true)}

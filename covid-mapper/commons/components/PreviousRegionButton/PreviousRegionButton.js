@@ -28,7 +28,7 @@ const PreviousRegionButton = ({
     <Pressable
       style={{
         position: "absolute",
-        top: "17%",
+        top: "12%",
         left: "10%",
         zIndex: 10,
       }}
