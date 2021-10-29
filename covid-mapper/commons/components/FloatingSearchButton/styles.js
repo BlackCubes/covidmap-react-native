@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Platform } from "react-native";
 import { SearchIcon } from "../Icons";
 
 export const FloatingButton =()=>(<View style={[
@@ -23,9 +23,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: "white",
-    borderRadius: 40,
-    height: 40,
+    borderRadius: 48,
+    height: 48,
     shadowColor: "black",
-    width: 40
+    width: 48,
+    borderStyle: 'solid',
+    borderColor: '#2EC2A0',
+    borderWidth: 1,
   },
 });

@@ -24,8 +24,6 @@ const SearchbarInput = styled.TextInput`
   height: 84%;
   padding-right: 10px;
   padding-left: 39px;
-  background-color: ${({ isFocus }) => (isFocus ? "#e2e2e8" : "#fbfbfc")};
-  border: ${({ isFocus }) => (isFocus ? "1px solid #c6c6d1" : "none")};
   border-radius: 50px;
 `;
 

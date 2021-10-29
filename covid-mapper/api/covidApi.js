@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import { cartesianCoordinateConverter } from "../utils";
+import { capitalize, cartesianCoordinateConverter } from "../utils";
 
 export const covidApi = createApi({
   reducerPath: "covidApi",
@@ -92,7 +92,9 @@ export const covidApi = createApi({
         recovered: cartesianCoordinateConverter(response.timeline.recovered),
         hasTimelineSequence:
           typeof response.timeline.cases === "number" ? false : true,
-        provinces: response.province.join(", "),
+        provinces: response.province
+          .map((val) => capitalize(val, true))
+          .join(", "),
         county: "",
       }),
     }),
@@ -121,7 +123,7 @@ export const covidApi = createApi({
         recovered: cartesianCoordinateConverter(response.timeline.recovered),
         hasTimelineSequence:
           typeof response.timeline.cases === "number" ? false : true,
-        provinces: response.province,
+        provinces: capitalize(response.province, true),
         county: "",
       }),
     }),
@@ -146,8 +148,8 @@ export const covidApi = createApi({
           recovered: cartesianCoordinateConverter(county.timeline.recovered),
           hasTimelineSequence:
             typeof county.timeline.cases === "number" ? false : true,
-          provinces: county.province,
-          county: county.county,
+          provinces: capitalize(county.province, true),
+          county: capitalize(county.county, true),
         })),
     }),
 
