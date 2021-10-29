@@ -9,7 +9,7 @@ const LogoContainer = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 6% 00% 0% 0%;
+  padding: 6% 0% 0% 0%;
 `;
 
 const GreenBorder = styled.View`
