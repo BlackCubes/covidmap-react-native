@@ -78,7 +78,7 @@ const PopupSlider = ({
     >
       <PopupSliderHeader>
         <PopupSliderHeaderText>
-          {capitalize(sliderHeader)}
+          {capitalize(sliderHeader, true)}
         </PopupSliderHeaderText>
       </PopupSliderHeader>
 
