@@ -112,6 +112,9 @@ const PopupSlider = ({
             {sliderData.provinces.length > 0 && (
               <USStateInfoValues>{sliderData.provinces}</USStateInfoValues>
             )}
+            {sliderData.state.length > 0 && (
+              <USStateInfoValues>{sliderData.state}</USStateInfoValues>
+            )}
             {sliderData.county.length > 0 && (
               <USStateInfoValues>{sliderData.county}</USStateInfoValues>
             )}
@@ -161,6 +164,9 @@ const PopupSlider = ({
               <USStateInfo>
                 {item.provinces.length > 0 && (
                   <USStateInfoValues>{item.provinces}</USStateInfoValues>
+                )}
+                {item.state.length > 0 && (
+                  <USStateInfoValues>{item.state}</USStateInfoValues>
                 )}
                 {item.county.length > 0 && (
                   <USStateInfoValues>{item.county}</USStateInfoValues>
