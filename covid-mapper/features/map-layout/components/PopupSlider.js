@@ -12,17 +12,17 @@ const PopupError = styled.Text`
   align-items: center;
 `;
 
-const USStateWrapper = styled.View`
+const PopupSliderWrapper = styled.View`
   padding: 17px;
 `;
 
-const USStateMain = styled.View`
+const PopupSliderHeader = styled.View`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
 `;
 
-const USStateMainHeader = styled.Text`
+const PopupSliderHeaderText = styled.Text`
   font-size: 20px;
   font-weight: bold;
   margin-right: 15px;
@@ -97,10 +97,12 @@ const PopupSlider = ({
       snapPoints={snapPoints}
       backgroundStyle={{ backgroundColor: "#F5F5F5" }}
     >
-      <USStateWrapper>
-        <USStateMain>
-          <USStateMainHeader>{capitalize(sliderHeader)}</USStateMainHeader>
-        </USStateMain>
+      <PopupSliderWrapper>
+        <PopupSliderHeader>
+          <PopupSliderHeaderText>
+            {capitalize(sliderHeader)}
+          </PopupSliderHeaderText>
+        </PopupSliderHeader>
 
         {typeof sliderData === "object" && !Array.isArray(sliderData) ? (
           <>
@@ -198,7 +200,7 @@ const PopupSlider = ({
             )}
           />
         )}
-      </USStateWrapper>
+      </PopupSliderWrapper>
     </BottomSheetModal>
   );
 };
