@@ -8,8 +8,8 @@ const FloatingSearchButton=({pressHandler})=>{
           onPress={pressHandler}
           style={{
             position: "absolute",
-            right: "10%",
-            bottom: "20%",
+            right: "6%",
+            top: "7%",
             zIndex: 10,
           }}
         >
