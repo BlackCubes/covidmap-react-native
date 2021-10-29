@@ -18,7 +18,7 @@ const LogoText = styled.Text`
 const IOSLogoSection =()=>(
     <View
       style={{
-        height: "9%",
+        height: "8%",
         marginBottom: "0%",
         paddingBottom: "0%",
       }}
