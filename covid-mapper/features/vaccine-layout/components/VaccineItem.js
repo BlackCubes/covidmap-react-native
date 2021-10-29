@@ -3,7 +3,7 @@ import { Text, Pressable, SafeAreaView } from "react-native";
 import styled from "styled-components/native";
 import he from "he";
 import uuid from 'react-native-uuid';
-import { NotoSans_400Regular} from '@expo-google-fonts/noto-sans';
+
 
 const ArticleContainer = styled.View`
   display: flex;
