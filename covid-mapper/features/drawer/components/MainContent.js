@@ -47,9 +47,7 @@ const MainContent=(props)=>{
           }}
         />
         <Divider/>
-        {/* </DrawerSection> */}
         {/* Start USA section */}
-        {/* <DrawerSection> */}
         <Heading>
           U.S.
           <View style={{ paddingLeft: 4 }}>
@@ -71,10 +69,7 @@ const MainContent=(props)=>{
           }}
         />
         <Divider />
-        {/* </DrawerSection> */}
-
         {/* Start Vaccination section */}
-        {/* <DrawerSection> */}
         <Heading>
           Vaccine Doses Administered &amp; Trial
           <View style={{ paddingLeft: 4 }}>

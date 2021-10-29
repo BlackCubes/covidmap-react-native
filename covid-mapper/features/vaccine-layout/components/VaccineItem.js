@@ -3,6 +3,8 @@ import { Text, Pressable, SafeAreaView } from "react-native";
 import styled from "styled-components/native";
 import he from "he";
 import uuid from 'react-native-uuid';
+
+
 const ArticleContainer = styled.View`
   display: flex;
   flex-direction: column;
@@ -67,6 +69,7 @@ const VaccineItem = ({
   const [hideText, setHideText] = useState(true);
   const viewMoreDetails = () => setHideText(!hideText);
 
+
   const subheadingReplacer = (match) => "\n" + match + "\n";
 
   const formatString = (unformattedDetailsString) => {
@@ -91,16 +94,16 @@ const VaccineItem = ({
     });
   };
 
-  return (
+ return (
     <SafeAreaView>
       <ArticleContainer>
-        <CandidateHeading>Candidate: {candidate}</CandidateHeading>
-        <BoldText>
+        <CandidateHeading style={{ fontFamily: 'NotoSans_400Regular' }}>Candidate: {candidate}</CandidateHeading>
+        <BoldText style={{ fontFamily: 'NotoSans_400Regular' }}>
           Mechanism: <ItalicMechanism>{mechanism}</ItalicMechanism>
         </BoldText>
         {/* Phase & Sponsors section*/}
         <PhaseSponsorsContainer>
-          <Text>
+          <Text style={{ fontFamily: 'NotoSans_400Regular' }}>
             <BoldText>Trial Phase:</BoldText> {trialPhase}
           </Text>
           <Text>
@@ -113,18 +116,18 @@ const VaccineItem = ({
         {/* Institutions */}
         <BoldText>Institutions:</BoldText>
         {institutions.map((siteName) => (
-          <Text key={uuid.v4()}>{he.decode(siteName)}</Text>
+          <Text key={uuid.v4()} style={{ fontFamily: 'NotoSans_400Regular' }}>{he.decode(siteName)}</Text>
         ))}
         {/* Details */}
         <DetailsContainer>
           <BoldText>Details</BoldText>
-          <Text numberOfLines={hideText ? 4 : undefined} ellipsizeMode="tail">
+          <Text numberOfLines={hideText ? 4 : undefined} ellipsizeMode="tail" style={{ fontFamily: 'NotoSans_400Regular' }}>
             {formatString(details)}
           </Text>
           {/* View More */}
           <Pressable onPress={viewMoreDetails} style={{ marginTop: "2%" }}>
             <ViewMoreButton>
-              {hideText ? <Text>View More...</Text> : <Text>Hide Details</Text>}
+              {hideText ? <Text>View More</Text> : <Text>Hide Details</Text>}
             </ViewMoreButton>
           </Pressable>
         </DetailsContainer>
