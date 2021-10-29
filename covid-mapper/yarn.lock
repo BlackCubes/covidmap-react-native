@@ -1161,6 +1161,11 @@
   "resolved" "https://registry.npmjs.org/@emotion/unitless/-/unitless-0.7.5.tgz"
   "version" "0.7.5"
 
+"@expo-google-fonts/noto-sans@^0.2.0":
+  "integrity" "sha512-Qk9goIvIQxAF0FRHSpw63smmp0uGBKmcRdhIqI4SvJNYEomQzH/Xzy5MA5MJanh/UhYx9KnyaidSH6FiJLLXeg=="
+  "resolved" "https://registry.npmjs.org/@expo-google-fonts/noto-sans/-/noto-sans-0.2.0.tgz"
+  "version" "0.2.0"
+
 "@expo/config-plugins@^3.0.0", "@expo/config-plugins@3.1.0":
   "integrity" "sha512-V5qxaxCAExBM0TXmbU1QKiZcAGP3ecu7KXede8vByT15cro5PkcWu2sSdJCYbHQ/gw6Vf/i8sr8gKlN8V8TSLg=="
   "resolved" "https://registry.npmjs.org/@expo/config-plugins/-/config-plugins-3.1.0.tgz"

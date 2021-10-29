@@ -3,6 +3,8 @@ import { Text, Pressable, SafeAreaView } from "react-native";
 import styled from "styled-components/native";
 import he from "he";
 import uuid from 'react-native-uuid';
+import { useFonts, NotoSans_400Regular} from '@expo-google-fonts/noto-sans';
+
 const ArticleContainer = styled.View`
   display: flex;
   flex-direction: column;
@@ -66,6 +68,11 @@ const VaccineItem = ({
 }) => {
   const [hideText, setHideText] = useState(true);
   const viewMoreDetails = () => setHideText(!hideText);
+  let [fontsLoaded] = useFonts({
+    NotoSans_400Regular
+  });
+
+
 
   const subheadingReplacer = (match) => "\n" + match + "\n";
 
@@ -91,7 +98,9 @@ const VaccineItem = ({
     });
   };
 
-  return (
+  if (!fontsLoaded) {
+    return <Text>Font Loading</Text>;
+  } else return (
     <SafeAreaView>
       <ArticleContainer>
         <CandidateHeading>Candidate: {candidate}</CandidateHeading>
@@ -118,7 +127,7 @@ const VaccineItem = ({
         {/* Details */}
         <DetailsContainer>
           <BoldText>Details</BoldText>
-          <Text numberOfLines={hideText ? 4 : undefined} ellipsizeMode="tail">
+          <Text numberOfLines={hideText ? 4 : undefined} ellipsizeMode="tail" style={{ fontFamily: 'NotoSans_400Regular' }}>
             {formatString(details)}
           </Text>
           {/* View More */}
