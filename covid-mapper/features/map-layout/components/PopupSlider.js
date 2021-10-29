@@ -4,6 +4,7 @@ import Spinner from "../../../commons/components/Spinner/Spinner";
 import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
 import CasesOverTimeGraph from "../../graphs/TimeLineGraph";
 import numSeparator from "../../../utils/numSeparator";
+import { capitalize } from "../../../utils";
 
 const PopupError = styled.Text`
   display: flex;
@@ -99,7 +100,7 @@ const PopupSlider = ({
       {typeof sliderData === "object" && !Array.isArray(sliderData) ? (
         <USStateWrapper>
           <USStateMain>
-            <USStateMainHeader>{sliderHeader}</USStateMainHeader>
+            <USStateMainHeader>{capitalize(sliderHeader)}</USStateMainHeader>
 
             <USStatePopulation>
               400 million population size, Merica!!!!
@@ -147,7 +148,9 @@ const PopupSlider = ({
           renderItem={({ item }) => (
             <USStateWrapper>
               <USStateMain>
-                <USStateMainHeader>{sliderHeader}</USStateMainHeader>
+                <USStateMainHeader>
+                  {capitalize(sliderHeader)}
+                </USStateMainHeader>
 
                 <USStatePopulation>
                   400 million population size, Merica!!!!
