@@ -5,6 +5,7 @@ import VaccineItem from "./components/VaccineItem";
 import { useGetVaccinesTrialDataQuery } from "../../api/covidApi";
 import Spinner from '../../commons/components/Spinner/Spinner'
 import uuid from 'react-native-uuid';
+import { useFonts, NotoSans_400Regular} from '@expo-google-fonts/noto-sans';
 
 const Container = styled.View`
   height: 100%;
@@ -41,13 +42,16 @@ const ListContainer = styled.View`
   margin-bottom: 2%;
 `;
 
+
 const VaccineLayout = () => {
   const {
     data: trialData,
     isLoading,
     error,
   } = useGetVaccinesTrialDataQuery();
-
+  let [fontsLoaded] = useFonts({
+    NotoSans_400Regular
+  });
   if (error) {
       return (<SafeAreaView>
         <Container>
@@ -56,11 +60,13 @@ const VaccineLayout = () => {
     </SafeAreaView>)
   };
 
-  if (isLoading || !trialData) return (<SafeAreaView>
+  if (isLoading || !fontsLoaded || !trialData) return (<SafeAreaView>
       <Container>
         <Spinner/>
       </Container>
   </SafeAreaView>);
+
+  
 
   const renderItem =()=>{
     return trialData["data"].map(item=>(<VaccineItem

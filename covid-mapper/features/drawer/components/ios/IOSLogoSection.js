@@ -2,6 +2,7 @@ import * as React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet,View } from "react-native";
 import styled from "styled-components/native";
+import { useFonts, NotoSans_400Regular } from "@expo-google-fonts/noto-sans";
 
 const LogoImage = styled.Image`
   height: 40px;
@@ -15,7 +16,13 @@ const LogoText = styled.Text`
   font-size: 18px;
 `;
 
-const IOSLogoSection =()=>(
+const IOSLogoSection =()=>{
+  let [fontsLoaded] = useFonts({
+    NotoSans_400Regular
+  });
+
+  if(!fontsLoaded) return null;
+  return (
     <View
       style={{
         height: "8%",
@@ -35,10 +42,11 @@ const IOSLogoSection =()=>(
         ]}
       >
         <LogoImage source={require("../../../../assets/logo.png")} />
-        <LogoText>COVID Mapper</LogoText>
+        <LogoText style={{fontFamily: 'NotoSans_400Regular'}}>COVID Mapper</LogoText>
       </LinearGradient>
     </View>
   );
+}
 
   const styles = StyleSheet.create({
     background: {

@@ -1,11 +1,12 @@
 import * as React from "react";
-import { Button, View, Text, useWindowDimensions } from "react-native";
+import { Button, View, Text, useWindowDimensions, SafeAreaView } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import DrawerContent from "./DrawerContent";
 import MapLayout from "../map-layout/MapLayout";
 import VaccineLayout from "../vaccine-layout/VaccineLayout";
-
+import { useFonts, NotoSans_400Regular } from "@expo-google-fonts/noto-sans";
+import Spinner from "../../commons/components/Spinner/Spinner";
 const Drawer = createDrawerNavigator();
 
 function AboutUsScreen({ navigation }) {
@@ -21,6 +22,12 @@ function AboutUsScreen({ navigation }) {
 }
 const DrawerMenu = () => {
   const dimensions = useWindowDimensions();
+  let [fontsLoaded] = useFonts({
+    NotoSans_400Regular
+  });
+  if (!fontsLoaded) return (<SafeAreaView>
+      <Spinner/>
+</SafeAreaView>);
   return (
     <NavigationContainer>
       <Drawer.Navigator
@@ -37,7 +44,7 @@ const DrawerMenu = () => {
             height: 80,
            },
           headerTintColor: "#fff",
-          headerTitleStyle: { fontWeight: "bold" },
+          headerTitleStyle: { fontWeight: "bold",  fontFamily: 'NotoSans_400Regular' },
         }}
         drawerContent={(props) => <DrawerContent {...props} />}
       >
