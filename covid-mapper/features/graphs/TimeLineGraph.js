@@ -1,13 +1,30 @@
 import React from "react";
-import { Dimensions, View, Text } from "react-native";
+import { Dimensions, View, Text, SafeAreaView } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import numSeparator from "../../utils/numSeparator";
+import { useFonts, NotoSans_400Regular } from "@expo-google-fonts/noto-sans";
+import Spinner from "../../commons/components/Spinner/Spinner";
 
 const chartWidth = Dimensions.get("window").width - 30;
 const chartHeight = Dimensions.get("window").width - 20;
 
 const CasesOverTimeGraph = ({ graphData }) => {
-  if (!graphData) return null;
+  let [fontsLoaded] = useFonts({
+    NotoSans_400Regular,
+  });
+
+  if (!fontsLoaded || !graphData)
+    return (
+      <SafeAreaView>
+        <View
+          style={{
+            width: "100%",
+          }}
+        >
+          <Spinner />
+        </View>
+      </SafeAreaView>
+    );
 
   return (
     <View
@@ -15,14 +32,16 @@ const CasesOverTimeGraph = ({ graphData }) => {
         width: "100%",
       }}
     >
-      <Text style={{ textAlign: "center" }}>Last 30 Days cases/time</Text>
+      <Text style={{ textAlign: "center", fontFamily: "NotoSans_400Regular" }}>
+        Last 30 Days cases/time
+      </Text>
       <LineChart
         data={{
           labels: graphData.map((point) => point.x),
           datasets: [
             {
               data: graphData.map((point) => {
-                return point.y ;
+                return point.y;
               }),
             },
           ],
