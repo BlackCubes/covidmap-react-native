@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components/native";
 import Spinner from "../../../../commons/components/Spinner/Spinner";
-import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
+import {
+  BottomSheetModal,
+  BottomSheetFlatList,
+  BottomSheetScrollView,
+} from "@gorhom/bottom-sheet";
 import { capitalize } from "../../../../utils";
 import PopupSliderData from "./PopupSliderData";
 
@@ -79,15 +83,17 @@ const PopupSlider = ({
       </PopupSliderHeader>
 
       {typeof sliderData === "object" && !Array.isArray(sliderData) ? (
-        <PopupSliderData
-          cases={sliderData.cases}
-          county={sliderData.county}
-          deaths={sliderData.deaths}
-          hasTimelineSequence={sliderData.hasTimelineSequence}
-          provinces={sliderData.provinces}
-          recovered={sliderData.recovered}
-          state={sliderData.state}
-        />
+        <BottomSheetScrollView>
+          <PopupSliderData
+            cases={sliderData.cases}
+            county={sliderData.county}
+            deaths={sliderData.deaths}
+            hasTimelineSequence={sliderData.hasTimelineSequence}
+            provinces={sliderData.provinces}
+            recovered={sliderData.recovered}
+            state={sliderData.state}
+          />
+        </BottomSheetScrollView>
       ) : (
         <BottomSheetFlatList
           data={sliderData}
