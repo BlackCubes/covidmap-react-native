@@ -6,9 +6,6 @@ import { capitalize } from "../../../../utils";
 import PopupSliderData from "./PopupSliderData";
 
 const PopupSliderHeader = styled.View`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
   padding-top: 17px;
   padding-right: 10px;
   padding-left: 10px;
