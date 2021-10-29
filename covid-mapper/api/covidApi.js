@@ -19,6 +19,8 @@ export const covidApi = createApi({
         provinces: "",
         state: "",
         county: "",
+        updatedAt: response.cases ?? 0,
+        population: response.population ?? 0,
       }),
     }),
     getEachCountriesTotals: builder.query({
@@ -44,6 +46,8 @@ export const covidApi = createApi({
           provinces: "",
           state: state.state,
           county: "",
+          updatedAt: response.cases ?? 0,
+          population: response.population ?? 0,
         })),
     }),
     getTotalOneUSState: builder.query({
@@ -65,6 +69,8 @@ export const covidApi = createApi({
         provinces: "",
         state: response.state,
         county: "",
+        updatedAt: response.cases ?? 0,
+        population: response.population ?? 0,
       }),
     }),
 
@@ -79,6 +85,8 @@ export const covidApi = createApi({
         provinces: "",
         state: "",
         county: "",
+        updatedAt: response.cases ?? 0,
+        population: response.population ?? 0,
       }),
     }),
     getCountryHistorical: builder.query({
@@ -101,6 +109,8 @@ export const covidApi = createApi({
           .join(", "),
         state: "",
         county: "",
+        updatedAt: response.cases ?? 0,
+        population: response.population ?? 0,
       }),
     }),
     getCountriesHistorical: builder.query({
@@ -131,6 +141,8 @@ export const covidApi = createApi({
         provinces: capitalize(response.province, true),
         state: "",
         county: "",
+        updatedAt: response.cases ?? 0,
+        population: response.population ?? 0,
       }),
     }),
     getProvincesHistorical: builder.query({
@@ -157,6 +169,8 @@ export const covidApi = createApi({
           provinces: "",
           state: "",
           county: capitalize(county.county, true),
+          updatedAt: response.cases ?? 0,
+          population: response.population ?? 0,
         })),
     }),
 
