@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components/native";
-import Spinner from "../../../commons/components/Spinner/Spinner";
+import Spinner from "../../../../commons/components/Spinner/Spinner";
 import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
-import CasesOverTimeGraph from "../../graphs/TimeLineGraph";
-import numSeparator from "../../../utils/numSeparator";
-import { capitalize } from "../../../utils";
+import CasesOverTimeGraph from "../../../graphs/TimeLineGraph";
+import numSeparator from "../../../../utils/numSeparator";
+import { capitalize } from "../../../../utils";
 
 const PopupError = styled.Text`
   display: flex;
