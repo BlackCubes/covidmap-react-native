@@ -6,7 +6,7 @@ import React, {
   useMemo,
 } from "react";
 import * as Location from "expo-location";
-import { useWindowDimensions, Animated, Pressable } from "react-native";
+import { useWindowDimensions, Animated, Pressable, Keyboard } from "react-native";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import MapComponent from "../map/Map";
 import Searchbar from "../searchbar/Searchbar";
@@ -403,11 +403,13 @@ const MapLayout = ({ route }) => {
           snapPoints={snapPoints}
         />
 
-        <MapComponent
-          mapviewHeight={mapviewHeight}
-          mapviewRegion={mapRegion}
-          mapviewWidth={mapviewWidth}
-        />
+        <Pressable onPressOut={Keyboard.dismiss}>
+          <MapComponent
+            mapviewHeight={mapviewHeight}
+            mapviewRegion={mapRegion}
+            mapviewWidth={mapviewWidth}
+          />
+        </Pressable>
       </BottomSheetModalProvider>
     </>
   );
