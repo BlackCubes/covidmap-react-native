@@ -5,7 +5,7 @@ import CasesOverTimeGraph from "../../../graphs/TimeLineGraph";
 import numSeparator from "../../../../utils/numSeparator";
 
 const SliderDataWrapper = styled.View`
-  padding: 17px;
+  padding: 3px 17px 17px 17px;
 `;
 
 const SliderDataPopulation = styled.Text`
