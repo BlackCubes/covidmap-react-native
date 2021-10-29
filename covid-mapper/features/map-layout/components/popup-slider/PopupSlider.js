@@ -36,7 +36,16 @@ const PopupSlider = ({
   snapPoints,
   bottomSheetModalRef,
 }) => {
-  if (sliderDataLoading) return <Spinner />;
+  if (sliderDataLoading)
+    return (
+      <BottomSheetModal>
+        <PopupContentContainer>
+          <PopupContent>
+            <Spinner />
+          </PopupContent>
+        </PopupContentContainer>
+      </BottomSheetModal>
+    );
 
   if (sliderDataError) {
     return (
