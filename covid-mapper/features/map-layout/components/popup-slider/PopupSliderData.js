@@ -4,6 +4,10 @@ import styled from "styled-components/native";
 import CasesOverTimeGraph from "../../../graphs/TimeLineGraph";
 import numSeparator from "../../../../utils/numSeparator";
 
+const SliderDataWrapper = styled.View`
+  padding: 17px;
+`;
+
 const SliderDataPopulation = styled.Text`
   font-size: 10px;
   margin-bottom: 4px;
@@ -31,7 +35,7 @@ const PopupSliderData = ({
   recovered,
   state,
 }) => (
-  <>
+  <SliderDataWrapper>
     <SliderDataPopulation>
       400 million population size, Merica!!!!
     </SliderDataPopulation>
@@ -71,7 +75,7 @@ const PopupSliderData = ({
     </SliderDataInfo>
 
     {hasTimelineSequence ? <CasesOverTimeGraph graphData={cases} /> : null}
-  </>
+  </SliderDataWrapper>
 );
 
 export default PopupSliderData;
