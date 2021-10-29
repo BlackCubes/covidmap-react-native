@@ -29,6 +29,6 @@ const styles = StyleSheet.create({
     width: 48,
     borderStyle: 'solid',
     borderColor: '#2EC2A0',
-    borderWidth: 1
+    borderWidth: 1,
   },
 });
