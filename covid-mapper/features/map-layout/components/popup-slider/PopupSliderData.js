@@ -22,8 +22,15 @@ const SliderDataInfo = styled.View`
   margin-bottom: 10px;
 `;
 
-const SliderDataInfoValues = styled.Text`
+const SliderDataInfoHeader = styled.Text`
   font-size: 18px;
+  text-decoration: underline;
+`;
+
+const SliderDataInfoValues = styled.Text`
+  font-size: 16px;
+  padding-right: 2px;
+  padding-left: 2px;
 `;
 
 const PopupSliderData = ({
@@ -44,13 +51,27 @@ const PopupSliderData = ({
 
     <SliderDataInfo>
       {provinces.length > 0 && (
-        <SliderDataInfoValues>{provinces}</SliderDataInfoValues>
+        <>
+          <SliderDataInfoHeader>Provinces</SliderDataInfoHeader>
+
+          <SliderDataInfoValues>{provinces}</SliderDataInfoValues>
+        </>
       )}
 
-      {state.length > 0 && <SliderDataInfoValues>{state}</SliderDataInfoValues>}
+      {state.length > 0 && (
+        <>
+          <SliderDataInfoHeader>State</SliderDataInfoHeader>
+
+          <SliderDataInfoValues>{state}</SliderDataInfoValues>
+        </>
+      )}
 
       {county.length > 0 && (
-        <SliderDataInfoValues>{county}</SliderDataInfoValues>
+        <>
+          <SliderDataInfoHeader>County</SliderDataInfoHeader>
+
+          <SliderDataInfoValues>{county}</SliderDataInfoValues>
+        </>
       )}
 
       {!hasTimelineSequence && (
