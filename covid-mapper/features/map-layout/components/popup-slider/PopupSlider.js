@@ -2,21 +2,8 @@ import React from "react";
 import styled from "styled-components/native";
 import Spinner from "../../../../commons/components/Spinner/Spinner";
 import { BottomSheetModal, BottomSheetFlatList } from "@gorhom/bottom-sheet";
-import CasesOverTimeGraph from "../../../graphs/TimeLineGraph";
-import numSeparator from "../../../../utils/numSeparator";
 import { capitalize } from "../../../../utils";
 import PopupSliderData from "./PopupSliderData";
-
-const PopupError = styled.Text`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const PopupSliderContainer = styled.View`
-  padding-right: 5px;
-  padding-left: 5px;
-`;
 
 const PopupSliderHeader = styled.View`
   display: flex;
@@ -33,16 +20,6 @@ const PopupSliderHeaderText = styled.Text`
   margin-right: 15px;
 `;
 
-const USStatePopulation = styled.Text`
-  font-size: 10px;
-  margin-bottom: 4px;
-`;
-
-const USStateUpdate = styled.Text`
-  font-size: 10px;
-  margin-bottom: 10px;
-`;
-
 const PopupContentContainer = styled.View`
   display: flex;
   justify-content: center;
@@ -52,19 +29,6 @@ const PopupContentContainer = styled.View`
 const PopupContent = styled.Text`
   font-size: 15px;
   color: #18181f;
-`;
-
-const USStateInfo = styled.View`
-  margin-bottom: 10px;
-`;
-
-const USStateInfoHeader = styled.Text`
-  font-size: 15px;
-  text-decoration: underline;
-`;
-
-const USStateInfoValues = styled.Text`
-  font-size: 18px;
 `;
 
 const PopupSlider = ({
