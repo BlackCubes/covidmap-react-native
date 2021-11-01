@@ -28,7 +28,7 @@ const DrawerContent = (props) => {
         {/*End Logo section and Begin DrawerItems section */}
         <MainContent  {...props}/>
         {/* Github & About Us */}
-        <Footer/>
+        <Footer {...props}/>
         </ContentWrapper>
       </DrawerContentScrollView>
     </DrawerContentContainer>

@@ -34,7 +34,7 @@ const BottomInfoText = styled.Text`
     padding-left: 4px;
 `;
 
-const Footer=()=>{
+const Footer=(props)=>{
     return (
         <BottomInfoContainer>
             {/* About Us button */}
