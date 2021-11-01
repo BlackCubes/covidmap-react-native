@@ -39,7 +39,7 @@ const Searchbar = ({ handleSearchSubmit, searchPlaceholder, opacityLevel, handle
             onPressIn={() => setIsSearchIconPressedIn(true)}
             onPressOut={() => setIsSearchIconPressedIn(false)}
             onPress={() => {
-              handleSearchSubmit(searchInput);
+              handleSearchSubmit(searchInput.toLowerCase());
               setSearchInput("");
               handlePresentModalPress()
               Keyboard.dismiss()
