@@ -6,7 +6,12 @@ import React, {
   useMemo,
 } from "react";
 import * as Location from "expo-location";
-import { useWindowDimensions, Animated, Pressable, Keyboard } from "react-native";
+import {
+  useWindowDimensions,
+  Animated,
+  Pressable,
+  Keyboard,
+} from "react-native";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import MapComponent from "../map/Map";
 import Searchbar from "../searchbar/Searchbar";
@@ -41,7 +46,9 @@ const retrieveCountyData = (county, stateCounties) => {
   if (!stateCounties.length) return null;
 
   // Returns that county's data as an object, or undefined if nothing.
-  const countyData = stateCounties.find((state) => state.county === county);
+  const countyData = stateCounties.find(
+    (state) => state.county.toLowerCase() === county.toLowerCase()
+  );
 
   // Nullish coalescing operator that checks if it is undefined. If it is undefined,
   // return null instead for better functionality checks in the future. If there is
