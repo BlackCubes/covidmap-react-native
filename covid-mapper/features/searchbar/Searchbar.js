@@ -47,21 +47,21 @@ const Searchbar = ({
   const [isSearchIconPressedIn, setIsSearchIconPressedIn] = useState(false);
   
 
-  // if searchOptions doesn't contain search input, render Alert
+  // For later use: if searchOptions doesn't contain search input, render Alert
 
         // Returns boolean for conditionally rendering Alert in Searchbar
       let validSearchInput;
-      if(searchOptions.length>0){
-        validSearchInput = searchOptions.some(region=>region===searchInput.toLowerCase())
-      } 
+      // if(searchOptionsAlertMessage.length>0){
+      //   validSearchInput = searchOptionsAlertMessage.some(region=>region===searchInput.toLowerCase())
+      // } 
 
-      const CreateSearchOptionsAlert = ()=>Alert.alert( "What you could search for: \n\n",
-      `${searchOptions.map(region=><Text>{capitalize(region)+',\n'}</Text>)}`,
-      [
-        {
-          text: "Cancel",
-        },
-      ])
+      // const CreateSearchOptionsAlert = ()=>Alert.alert( "What you could search for: \n\n",
+      // `${searchOptionsAlertMessage.map(region=><Text>{capitalize(region)+',\n'}</Text>)}`,
+      // [
+      //   {
+      //     text: "Cancel",
+      //   },
+      // ])
 
        
       if(validSearchInput){
