@@ -58,7 +58,6 @@ const ModalCloseButtonText = styled.Text`
 
 const ErrorModal = ({ error }) => {
   const [modalVisible, setModalVisible] = useState(false);
-  console.log(error);
 
   useEffect(() => {
     if (error) {
@@ -84,7 +83,7 @@ const ErrorModal = ({ error }) => {
 
         <ModalContent>
           <ModalContentText>
-            Country not found or doesn't have any historical data
+            {error?.data?.message ? error.data.message : ""}
           </ModalContentText>
         </ModalContent>
 
