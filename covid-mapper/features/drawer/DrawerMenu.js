@@ -4,22 +4,12 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import DrawerContent from "./DrawerContent";
 import MapLayout from "../map-layout/MapLayout";
+import About from "../about/About";
 import VaccineLayout from "../vaccine-layout/VaccineLayout";
 import { useFonts, NotoSans_400Regular } from "@expo-google-fonts/noto-sans";
 import Spinner from "../../commons/components/Spinner/Spinner";
 const Drawer = createDrawerNavigator();
 
-function AboutUsScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>About Us screen</Text>
-      <Button
-        onPress={() => navigation.navigate("World")}
-        title="Go to World Stat"
-      />
-    </View>
-  );
-}
 const DrawerMenu = () => {
   const dimensions = useWindowDimensions();
   let [fontsLoaded] = useFonts({
@@ -63,7 +53,7 @@ const DrawerMenu = () => {
         <Drawer.Screen name="Trial Data" component={VaccineLayout} />
 
         {/* Bottom Content */}
-        <Drawer.Screen name="About Us" component={AboutUsScreen} />
+        <Drawer.Screen name="About Us" component={About} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
