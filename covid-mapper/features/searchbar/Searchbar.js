@@ -37,7 +37,7 @@ const Searchbar = ({
   searchPlaceholder,
   opacityLevel,
   handlePresentModalPress,
-  sliderDataLoading,
+  dataLoading,
 }) => {
   const [searchInput, setSearchInput] = useState("");
   const [isFocus, setIsFocus] = useState(false);
@@ -84,7 +84,7 @@ const Searchbar = ({
         }}
       />
 
-      {sliderDataLoading && (
+      {dataLoading && (
         <SearchbarSpinnerLoading>
           <Spinner />
         </SearchbarSpinnerLoading>
