@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components/native";
-import Spinner from "../../../../commons/components/Spinner/Spinner";
 import {
   BottomSheetModal,
   BottomSheetFlatList,
@@ -34,39 +33,10 @@ const PopupContent = styled.Text`
 
 const PopupSlider = ({
   sliderData,
-  sliderDataLoading,
-  sliderDataError,
   sliderHeader,
   snapPoints,
   bottomSheetModalRef,
 }) => {
-  if (sliderDataLoading)
-    return (
-      <BottomSheetModal>
-        <PopupContentContainer>
-          <PopupContent>
-            <Spinner />
-          </PopupContent>
-        </PopupContentContainer>
-      </BottomSheetModal>
-    );
-
-  if (sliderDataError) {
-    return (
-      <BottomSheetModal
-        ref={bottomSheetModalRef}
-        index={1}
-        snapPoints={snapPoints}
-      >
-        <PopupContentContainer>
-          <PopupContent>
-            Error {sliderDataError.status}: {sliderDataError.data.message}
-          </PopupContent>
-        </PopupContentContainer>
-      </BottomSheetModal>
-    );
-  }
-
   if (!sliderData) return null;
 
   return (
