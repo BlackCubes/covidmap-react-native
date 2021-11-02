@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Pressable, Animated, StyleSheet, Keyboard } from "react-native";
 import styled from "styled-components/native";
+import Spinner from "../../commons/components/Spinner/Spinner";
 
 const SearchbarIconWrapper = styled.View`
   position: absolute;
@@ -26,11 +27,17 @@ const SearchbarInput = styled.TextInput`
   border-radius: 50px;
 `;
 
+const SearchbarSpinnerLoading = styled.View`
+  position: absolute;
+  right: 5%;
+`;
+
 const Searchbar = ({
   handleSearchSubmit,
   searchPlaceholder,
   opacityLevel,
   handlePresentModalPress,
+  sliderDataLoading,
 }) => {
   const [searchInput, setSearchInput] = useState("");
   const [isFocus, setIsFocus] = useState(false);
@@ -76,6 +83,12 @@ const Searchbar = ({
           setSearchInput("");
         }}
       />
+
+      {sliderDataLoading && (
+        <SearchbarSpinnerLoading>
+          <Spinner />
+        </SearchbarSpinnerLoading>
+      )}
     </Animated.View>
   );
 };
