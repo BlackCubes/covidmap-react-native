@@ -383,10 +383,7 @@ const MapLayout = ({ route }) => {
       <BottomSheetModalProvider>
         <PopupSlider
           sliderData={sliderData}
-          sliderDataLoading={sliderDataLoading}
-          sliderDataError={sliderDataError}
           sliderHeader={sliderHeader}
-          handlePresentModalPress={handlePresentModalPress}
           bottomSheetModalRef={bottomSheetModalRef}
           snapPoints={snapPoints}
         />
