@@ -388,6 +388,7 @@ const MapLayout = ({ route }) => {
             mapviewHeight={mapviewHeight}
             mapviewRegion={mapRegion}
             mapviewWidth={mapviewWidth}
+            userLocation={userLocation}
           />
         </Pressable>
       </BottomSheetModalProvider>
