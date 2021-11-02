@@ -66,7 +66,15 @@ const MapLayout = ({ route }) => {
   const [searchUSCounty, setSearchUSCounty] = useState("");
 
   const { name: routeName } = route;
+  /*
+     Hook for storing alert content rendered in Searchbar; need to invoke setter function with one of these arguments: 
+      
+     1. countryHistoricalData.province
+     2. usCountiesData.map(countyObj=>countyObj.county) 
 
+     Need to pass setter function to sub-apps' useEffects and 'searchOptionsAlertMessage' to Searchbar
+  */ 
+  const [searchOptionsAlertMessage, setSearchOptionsAlertMessage] = useState([]);
   // WORLD
   // - world stats
   const {

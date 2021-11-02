@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Pressable, Animated, StyleSheet, Keyboard } from "react-native";
+import { Pressable, Animated, StyleSheet, Keyboard, Alert } from "react-native";
 import styled from "styled-components/native";
+import { capitalize } from "../../utils";
 
 
 const SearchbarIconWrapper = styled.View`
@@ -27,10 +28,34 @@ const SearchbarInput = styled.TextInput`
   border-radius: 50px;
 `;
 
-const Searchbar = ({ handleSearchSubmit, searchPlaceholder, opacityLevel, handlePresentModalPress }) => {
+const Searchbar = ({ handleSearchSubmit, searchPlaceholder, opacityLevel, handlePresentModalPress, searchOptions,  }) => {
   const [searchInput, setSearchInput] = useState("");
   const [isFocus, setIsFocus] = useState(false);
   const [isSearchIconPressedIn, setIsSearchIconPressedIn] = useState(false);
+  
+
+  // if searchOptions doesn't contain search input, render Alert
+
+        // Returns boolean for conditionally rendering Alert in Searchbar
+      let validSearchInput;
+      if(searchOptions.length>0){
+        validSearchInput = searchOptions.some(region=>region===searchInput.toLowerCase())
+      } 
+
+      const CreateSearchOptionsAlert = ()=>Alert.alert( "What you could search for: \n\n",
+      `${searchOptions.map(region=><Text>{capitalize(region)+',\n'}</Text>)}`,
+      [
+        {
+          text: "Cancel",
+        },
+      ])
+
+       
+      if(validSearchInput){
+        CreateSearchOptionsAlert();
+      }
+
+  
 
   return (
     <Animated.View style={[styles.searchBarWrapper, {opacity: opacityLevel, position: 'absolute', top: '3%'}]}>
@@ -41,7 +66,8 @@ const Searchbar = ({ handleSearchSubmit, searchPlaceholder, opacityLevel, handle
             onPress={() => {
               handleSearchSubmit(searchInput.toLowerCase());
               setSearchInput("");
-              handlePresentModalPress()
+              handlePresentModalPress();
+              CreateSearchOptionsAlert();
               Keyboard.dismiss()
             }}
           >
