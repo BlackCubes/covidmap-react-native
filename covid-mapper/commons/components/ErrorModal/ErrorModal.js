@@ -12,14 +12,13 @@ import {
   ModalWrapper,
 } from "./styles";
 
-const ErrorModal = ({ error }) => {
+const ErrorModal = ({ errorMsg, errorStatus }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
-    if (error) {
-      setModalVisible(true);
-    }
-  }, [error]);
+    if (errorStatus) setModalVisible(true);
+    else setModalVisible(false);
+  }, [errorStatus]);
 
   return (
     <Modal
@@ -38,9 +37,7 @@ const ErrorModal = ({ error }) => {
         </ModalHeader>
 
         <ModalContent>
-          <ModalContentText>
-            {error?.data?.message ? error.data.message : ""}
-          </ModalContentText>
+          <ModalContentText>{errorMsg ? errorMsg : ""}</ModalContentText>
         </ModalContent>
 
         <ModalCloseButton
