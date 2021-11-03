@@ -178,10 +178,22 @@ const USSearchMapLayout = () => {
   // To render to the slider if the user entered a US County.
   useEffect(() => {
     if (searchUSCounty.length && usCountiesData) {
-      setSliderData(retrieveCountyData(searchUSCounty, usCountiesData));
-      setSliderDataLoading(usCountiesLoading);
+      const selectedCountyData = retrieveCountyData(
+        searchUSCounty,
+        usCountiesData
+      );
 
-      setSliderHeader(`${searchUSCounty} Data`);
+      if (!selectedCountyData) {
+        setDataError({
+          error: true,
+          message: "County not found or doesn't have any historical data",
+        });
+      } else {
+        setSliderData(selectedCountyData);
+        setSliderDataLoading(usCountiesLoading);
+
+        setSliderHeader(`${searchUSCounty} Data`);
+      }
     }
   }, [searchUSCounty, usCountiesData]);
 
