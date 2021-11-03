@@ -8,7 +8,12 @@ const StyledMapView = styled(MapView).attrs((props) => ({
   height: props.mapviewHeight,
 }))``;
 
-const MapComponent = ({ mapviewHeight, mapviewRegion, mapviewWidth }) => {
+const MapComponent = ({
+  mapviewHeight,
+  mapviewRegion,
+  mapviewWidth,
+  userLocation,
+}) => {
   const [markers, setMarkers] = useState([
     {
       type: "userMarker",
@@ -45,6 +50,22 @@ const MapComponent = ({ mapviewHeight, mapviewRegion, mapviewWidth }) => {
       );
     }
   }, [mapviewRegion]);
+
+  useEffect(() => {
+    if (userLocation) {
+      setMarkers((previousRegions) =>
+        previousRegions.map((prevRegion) => {
+          if (prevRegion.type === "userMarker") {
+            prevRegion.latlong = {
+              latitude: userLocation.coords.latitude,
+              longitude: userLocation.coords.longitude,
+            };
+          }
+          return prevRegion;
+        })
+      );
+    }
+  }, [userLocation]);
 
   return (
     <StyledMapView
