@@ -14,7 +14,7 @@ import {
 } from "react-native";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
-import { PopupSlider } from "./components/popup-slider";
+import { PopupSlider, PopupSliderButton } from "./components/popup-slider";
 import MapComponent from "../map/Map";
 import Searchbar from "../searchbar/Searchbar";
 import {
@@ -107,7 +107,8 @@ const WorldSearchMapLayout = () => {
   }, []);
   // ---------Bottom Sheet Modal useRef and useMemo
   const bottomSheetModalRef = useRef(null);
-  const snapPoints = useMemo(() => ["25%", "82%"], []);
+  // State to handle the opening/closing of the Slider
+  const [sliderButton, setSliderButton] = useState(true);
 
   const handleSearchSubmit = (inputValue) => {
     // There must be a input longer than 0 characters.
@@ -230,12 +231,19 @@ const WorldSearchMapLayout = () => {
         />
       )}
 
+      {!sliderData ? null : !sliderButton ? null : (
+        <PopupSliderButton
+          handlePresentModalPress={handlePresentModalPress}
+          setSliderButton={setSliderButton}
+        />
+      )}
+
       <BottomSheetModalProvider>
         <PopupSlider
+          setSliderButton={setSliderButton}
           sliderData={sliderData}
           sliderHeader={sliderHeader}
           bottomSheetModalRef={bottomSheetModalRef}
-          snapPoints={snapPoints}
         />
 
         <Pressable onPressOut={Keyboard.dismiss}>
