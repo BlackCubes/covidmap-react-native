@@ -205,7 +205,10 @@ const USSearchMapLayout = () => {
       )}
 
       {!sliderData ? null : !sliderButton ? null : (
-        <PopupSliderButton handlePresentModalPress={handlePresentModalPress} />
+        <PopupSliderButton
+          handlePresentModalPress={handlePresentModalPress}
+          setSliderButton={setSliderButton}
+        />
       )}
 
       <BottomSheetModalProvider>

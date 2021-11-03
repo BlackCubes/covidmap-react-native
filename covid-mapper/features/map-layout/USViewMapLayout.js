@@ -101,7 +101,10 @@ const USViewMapLayout = () => {
   return (
     <>
       {sliderData && sliderButton && (
-        <PopupSliderButton handlePresentModalPress={handlePresentModalPress} />
+        <PopupSliderButton
+          handlePresentModalPress={handlePresentModalPress}
+          setSliderButton={setSliderButton}
+        />
       )}
 
       <BottomSheetModalProvider>

@@ -28,8 +28,13 @@ const SliderButtonText = styled.Text`
   text-align: center;
 `;
 
-const PopupSliderButton = ({ handlePresentModalPress }) => (
-  <SliderButton onPress={() => handlePresentModalPress()}>
+const PopupSliderButton = ({ handlePresentModalPress, setSliderButton }) => (
+  <SliderButton
+    onPress={() => {
+      setSliderButton(false);
+      handlePresentModalPress();
+    }}
+  >
     <SliderButtonWrapper>
       <InfoIcon size={12} />
 
