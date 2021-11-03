@@ -223,8 +223,7 @@ const USSearchMapLayout = () => {
         <></>
       )}
 
-      {/* This button should only be "connected" to states in the US */}
-      {!searchUSState.length > 0 ? null : (
+      {dataError.error && !searchUSState.length && (
         <PreviousRegionButton
           previousMapRegion={prevRegion}
           previousRegionTitle="state"
@@ -246,12 +245,14 @@ const USSearchMapLayout = () => {
       )}
 
       <BottomSheetModalProvider>
-        <PopupSlider
-          setSliderButton={setSliderButton}
-          sliderData={sliderData}
-          sliderHeader={sliderHeader}
-          bottomSheetModalRef={bottomSheetModalRef}
-        />
+        {!dataError.error && (
+          <PopupSlider
+            setSliderButton={setSliderButton}
+            sliderData={sliderData}
+            sliderHeader={sliderHeader}
+            bottomSheetModalRef={bottomSheetModalRef}
+          />
+        )}
 
         <Pressable onPressOut={Keyboard.dismiss}>
           <MapComponent
