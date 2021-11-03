@@ -11,6 +11,7 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import DrawerContent from "./DrawerContent";
 import {
+  USSearchMapLayout,
   USViewMapLayout,
   WorldSearchMapLayout,
   WorldViewMapLayout,
@@ -64,7 +65,10 @@ const DrawerMenu = () => {
         />
         {/* US */}
         <Drawer.Screen name="US Total" component={USViewMapLayout} />
-        <Drawer.Screen name="State Counties Totals" component={MapLayout} />
+        <Drawer.Screen
+          name="State Counties Totals"
+          component={USSearchMapLayout}
+        />
 
         {/* Vaccine */}
         <Drawer.Screen name="World Vaccination Totals" component={MapLayout} />
