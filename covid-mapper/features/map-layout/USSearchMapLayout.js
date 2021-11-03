@@ -203,6 +203,7 @@ const USSearchMapLayout = () => {
         <ErrorModal
           errorMsg={dataError.message}
           errorStatus={dataError.error}
+          setDataError={setDataError}
         />
       )}
 
