@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components/native";
 import {
   BottomSheetModal,
@@ -32,11 +32,13 @@ const PopupContent = styled.Text`
 `;
 
 const PopupSlider = ({
+  setSliderButton,
   sliderData,
   sliderHeader,
-  snapPoints,
   bottomSheetModalRef,
 }) => {
+  const snapPoints = useMemo(() => ["7%", "82%"], []);
+
   if (!sliderData) return null;
 
   return (
@@ -45,6 +47,13 @@ const PopupSlider = ({
       index={0}
       snapPoints={snapPoints}
       backgroundStyle={{ backgroundColor: "#F5F5F5" }}
+      onChange={(index) => {
+        // If the index is -1, then the slider has closed and therefore render the button.
+        if (index === -1) setSliderButton(true);
+        // Else, if it is greater than -1, then the slider is open and thus don't render
+        // the button.
+        else setSliderButton(false);
+      }}
     >
       <PopupSliderHeader>
         <PopupSliderHeaderText>
