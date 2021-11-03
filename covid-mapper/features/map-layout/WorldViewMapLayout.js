@@ -9,7 +9,7 @@ import * as Location from "expo-location";
 import { useWindowDimensions, Pressable, Keyboard } from "react-native";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
-import { PopupSlider } from "./components/popup-slider";
+import { PopupSlider, PopupSliderButton } from "./components/popup-slider";
 import MapComponent from "../map/Map";
 import { useGetGlobalCovidStatsQuery } from "../../api/covidApi";
 
@@ -55,7 +55,8 @@ const WorldMapLayout = () => {
   }, []);
   // ---------Bottom Sheet Modal useRef and useMemo
   const bottomSheetModalRef = useRef(null);
-  const snapPoints = useMemo(() => ["25%", "82%"], []);
+  // State to handle the opening/closing of the Slider
+  const [sliderButton, setSliderButton] = useState(false);
 
   // Since it is null initially when the app first starts.
   useEffect(() => {
@@ -98,23 +99,29 @@ const WorldMapLayout = () => {
   }
 
   return (
-    <BottomSheetModalProvider>
-      <PopupSlider
-        sliderData={sliderData}
-        sliderHeader={sliderHeader}
-        bottomSheetModalRef={bottomSheetModalRef}
-        snapPoints={snapPoints}
-      />
+    <>
+      {sliderData && sliderButton && (
+        <PopupSliderButton handlePresentModalPress={handlePresentModalPress} />
+      )}
 
-      <Pressable onPressOut={Keyboard.dismiss}>
-        <MapComponent
-          mapviewHeight={mapviewHeight}
-          mapviewRegion={mapRegion}
-          mapviewWidth={mapviewWidth}
-          userLocation={userLocation}
+      <BottomSheetModalProvider>
+        <PopupSlider
+          setSliderButton={setSliderButton}
+          sliderData={sliderData}
+          sliderHeader={sliderHeader}
+          bottomSheetModalRef={bottomSheetModalRef}
         />
-      </Pressable>
-    </BottomSheetModalProvider>
+
+        <Pressable onPressOut={Keyboard.dismiss}>
+          <MapComponent
+            mapviewHeight={mapviewHeight}
+            mapviewRegion={mapRegion}
+            mapviewWidth={mapviewWidth}
+            userLocation={userLocation}
+          />
+        </Pressable>
+      </BottomSheetModalProvider>
+    </>
   );
 };
 
