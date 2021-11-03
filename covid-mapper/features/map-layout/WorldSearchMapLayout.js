@@ -110,15 +110,17 @@ const WorldSearchMapLayout = () => {
   const snapPoints = useMemo(() => ["25%", "82%"], []);
 
   const handleSearchSubmit = (inputValue) => {
-    // If there are no inputs for this, then it is the initial start.
-    if (!searchCountry.length && !searchProvince.length) {
-      setSearchCountry(inputValue);
-      setPrevPlaceholder(searchPlaceholder);
-      setSearchPlaceholder("Search by province");
-
-      // This would only happen only if the user has provided a country search:
-    } else {
-      setSearchProvince(inputValue);
+    // There must be a input longer than 0 characters.
+    if (inputValue.length) {
+      // If there are no inputs for this, then it is the initial start which is searching by country first before province.
+      if(!searchCountry.length && !searchProvince.length){
+        setSearchCountry(inputValue);
+        setPrevPlaceholder(searchPlaceholder);
+        setSearchPlaceholder("Search by province");
+      // If the country has been selected, then the first if-conditional does not pass which means the country has been selected.
+      } else {
+        setSearchProvince(inputValue);
+      }
     }
   };
 
