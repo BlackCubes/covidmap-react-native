@@ -33,7 +33,7 @@ const PopupSliderButton = ({ handlePresentModalPress }) => (
     <SliderButtonWrapper>
       <InfoIcon size={12} />
 
-      <SliderButtonText>Slider</SliderButtonText>
+      <SliderButtonText>Data</SliderButtonText>
     </SliderButtonWrapper>
   </SliderButton>
 );
