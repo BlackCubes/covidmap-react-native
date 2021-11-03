@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MapView, { Marker, Circle, Callout } from "react-native-maps";
 import styled from "styled-components";
-import { Text } from "react-native";
+
 
 const StyledMapView = styled(MapView).attrs((props) => ({
   width: props.mapviewWidth,
