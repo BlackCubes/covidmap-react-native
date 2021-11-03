@@ -1,3 +1,5 @@
+import styled from "styled-components/native";
+
 export const ModalOverlay = styled.View`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
@@ -38,7 +40,7 @@ export const ModalContentText = styled.Text`
   font-size: 16px;
 `;
 
-export const ModalCloseButton = styled(Pressable)`
+export const ModalCloseButton = styled.Pressable`
   justify-content: center;
   align-items: center;
   width: 95%;
