@@ -10,7 +10,11 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 
 import DrawerContent from "./DrawerContent";
-import { USViewMapLayout, WorldViewMapLayout } from "../map-layout";
+import {
+  USViewMapLayout,
+  WorldSearchMapLayout,
+  WorldViewMapLayout,
+} from "../map-layout";
 import MapLayout from "../map-layout/MapLayout";
 import About from "../about/About";
 import VaccineLayout from "../vaccine-layout/VaccineLayout";
@@ -54,7 +58,10 @@ const DrawerMenu = () => {
       >
         {/* WORLD */}
         <Drawer.Screen name="World" component={WorldViewMapLayout} />
-        <Drawer.Screen name="Country Province Stats" component={MapLayout} />
+        <Drawer.Screen
+          name="Country Province Stats"
+          component={WorldSearchMapLayout}
+        />
         {/* US */}
         <Drawer.Screen name="US Total" component={USViewMapLayout} />
         <Drawer.Screen name="State Counties Totals" component={MapLayout} />
