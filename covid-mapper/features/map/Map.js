@@ -18,7 +18,7 @@ const MapComponent = ({
     {
       type: "userMarker",
       title: "Current Location",
-      color: "green",
+      color: "red",
       latlong: {
         latitude: mapviewRegion.latitude,
         longitude: mapviewRegion.longitude,
@@ -27,7 +27,7 @@ const MapComponent = ({
     {
       type: "searchedMarker",
       title: "Searched Location",
-      color: "red",
+      color: "green",
       latlong: {
         latitude: mapviewRegion.latitude,
         longitude: mapviewRegion.longitude,
