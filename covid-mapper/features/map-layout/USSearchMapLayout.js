@@ -18,6 +18,7 @@ import { PopupSlider, PopupSliderButton } from "./components/popup-slider";
 import MapComponent from "../map/Map";
 import Searchbar from "../searchbar/Searchbar";
 import { useGetAllUSCountiesFromStateQuery } from "../../api/covidApi";
+import { ErrorModal } from "../../commons/components/ErrorModal";
 import FloatingSearchButton from "../../commons/components/FloatingSearchButton/FloatingSearchButton";
 import { PreviousRegionButton } from "../../commons/components/PreviousRegionButton";
 import { centroidRegion, retrieveCountyData } from "../../utils";
@@ -40,7 +41,10 @@ const USSearchMapLayout = () => {
 
   const [sliderData, setSliderData] = useState(null);
   const [sliderDataLoading, setSliderDataLoading] = useState(null);
-  const [sliderDataError, setSliderDataError] = useState(null);
+  const [dataError, setDataError] = useState({
+    error: false,
+    message: "",
+  });
   const [sliderHeader, setSliderHeader] = useState("World Data");
 
   const { width: mapviewWidth, height: mapviewHeight } = useWindowDimensions();
@@ -150,7 +154,6 @@ const USSearchMapLayout = () => {
       setPrevRegion(centeredRegion);
 
       setSliderData(usCountiesData);
-      setSliderDataError(usCountiesError);
       setSliderDataLoading(usCountiesLoading);
 
       setSliderHeader(`${searchUSState} Data`);
@@ -159,11 +162,23 @@ const USSearchMapLayout = () => {
     }
   }, [searchUSState, usCountiesData]);
 
+  useEffect(() => {
+    if (searchUSState.length && usCountiesError)
+      setDataError({
+        error: true,
+        message: usCountiesError.data.message,
+      });
+    else
+      setDataError({
+        error: false,
+        message: "",
+      });
+  }, [searchUSState, usCountiesError]);
+
   // To render to the slider if the user entered a US County.
   useEffect(() => {
     if (searchUSCounty.length && usCountiesData) {
       setSliderData(retrieveCountyData(searchUSCounty, usCountiesData));
-      setSliderDataError(usCountiesError);
       setSliderDataLoading(usCountiesLoading);
 
       setSliderHeader(`${searchUSCounty} Data`);
@@ -172,6 +187,13 @@ const USSearchMapLayout = () => {
 
   return (
     <>
+      {dataError.error && (
+        <ErrorModal
+          errorMsg={dataError.message}
+          errorStatus={dataError.error}
+        />
+      )}
+
       <FloatingSearchButton
         pressHandler={() => {
           setSearchBarActive(!searchBarActive);
