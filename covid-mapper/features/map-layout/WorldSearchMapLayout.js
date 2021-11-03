@@ -21,6 +21,7 @@ import {
   useGetCountryHistoricalQuery,
   useGetProvinceHistoricalQuery,
 } from "../../api/covidApi";
+import { ErrorModal } from "../../commons/components/ErrorModal";
 import FloatingSearchButton from "../../commons/components/FloatingSearchButton/FloatingSearchButton";
 import { PreviousRegionButton } from "../../commons/components/PreviousRegionButton";
 import { centroidRegion } from "../../utils";
@@ -43,7 +44,10 @@ const WorldSearchMapLayout = () => {
 
   const [sliderData, setSliderData] = useState(null);
   const [sliderDataLoading, setSliderDataLoading] = useState(null);
-  const [sliderDataError, setSliderDataError] = useState(null);
+  const [dataError, setDataError] = useState({
+    error: false,
+    message: "",
+  });
   const [sliderHeader, setSliderHeader] = useState("Country/Province Data");
 
   const { width: mapviewWidth, height: mapviewHeight } = useWindowDimensions();
@@ -114,11 +118,11 @@ const WorldSearchMapLayout = () => {
     // There must be a input longer than 0 characters.
     if (inputValue.length) {
       // If there are no inputs for this, then it is the initial start which is searching by country first before province.
-      if(!searchCountry.length && !searchProvince.length){
+      if (!searchCountry.length && !searchProvince.length) {
         setSearchCountry(inputValue);
         setPrevPlaceholder(searchPlaceholder);
         setSearchPlaceholder("Search by province");
-      // If the country has been selected, then the first if-conditional does not pass which means the country has been selected.
+        // If the country has been selected, then the first if-conditional does not pass which means the country has been selected.
       } else {
         setSearchProvince(inputValue);
       }
@@ -166,7 +170,6 @@ const WorldSearchMapLayout = () => {
       setPrevRegion(centeredRegion);
 
       setSliderData(countryHistoricalData);
-      setSliderDataError(countryHistoricalError);
       setSliderDataLoading(countryHistoricalLoading);
 
       setSliderHeader(`${searchCountry} Data`);
@@ -174,6 +177,19 @@ const WorldSearchMapLayout = () => {
       refetchCountryHistorical();
     }
   }, [searchCountry, countryHistoricalData]);
+
+  useEffect(() => {
+    if (searchCountry.length && countryHistoricalError)
+      setDataError({
+        error: true,
+        message: countryHistoricalError.data.message,
+      });
+    else
+      setDataError({
+        error: false,
+        message: "",
+      });
+  }, [searchCountry, countryHistoricalError]);
 
   // To render to the slider if user entered a province.
   useEffect(() => {
@@ -189,7 +205,6 @@ const WorldSearchMapLayout = () => {
       );
 
       setSliderData(provinceHistoricalData);
-      setSliderDataError(provinceHistoricalError);
       setSliderDataLoading(provinceHistoricalLoading);
 
       setSliderHeader(`${searchProvince} Data`);
@@ -198,8 +213,30 @@ const WorldSearchMapLayout = () => {
     }
   }, [searchProvince, provinceHistoricalData]);
 
+  useEffect(() => {
+    if (!countryHistoricalError) {
+      if (searchProvince.length && provinceHistoricalError)
+        setDataError({
+          error: true,
+          message: provinceHistoricalError.data.message,
+        });
+      else
+        setDataError({
+          error: false,
+          message: "",
+        });
+    }
+  }, [countryHistoricalError, searchProvince, provinceHistoricalError]);
+
   return (
     <>
+      {dataError.error && (
+        <ErrorModal
+          errorMsg={dataError.message}
+          errorStatus={dataError.error}
+        />
+      )}
+
       <FloatingSearchButton
         pressHandler={() => {
           setSearchBarActive(!searchBarActive);
