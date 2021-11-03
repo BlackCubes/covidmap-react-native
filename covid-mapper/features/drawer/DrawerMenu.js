@@ -1,8 +1,21 @@
 import * as React from "react";
-import { Button, View, Text, useWindowDimensions, SafeAreaView } from "react-native";
+import {
+  Button,
+  View,
+  Text,
+  useWindowDimensions,
+  SafeAreaView,
+} from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
+
 import DrawerContent from "./DrawerContent";
+import {
+  USSearchMapLayout,
+  USViewMapLayout,
+  WorldSearchMapLayout,
+  WorldViewMapLayout,
+} from "../map-layout";
 import MapLayout from "../map-layout/MapLayout";
 import About from "../about/About";
 import VaccineLayout from "../vaccine-layout/VaccineLayout";
@@ -13,11 +26,14 @@ const Drawer = createDrawerNavigator();
 const DrawerMenu = () => {
   const dimensions = useWindowDimensions();
   let [fontsLoaded] = useFonts({
-    NotoSans_400Regular
+    NotoSans_400Regular,
   });
-  if (!fontsLoaded) return (<SafeAreaView>
-      <Spinner/>
-</SafeAreaView>);
+  if (!fontsLoaded)
+    return (
+      <SafeAreaView>
+        <Spinner />
+      </SafeAreaView>
+    );
   return (
     <NavigationContainer>
       <Drawer.Navigator
@@ -29,21 +45,30 @@ const DrawerMenu = () => {
           },
           drawerType: dimensions.width >= 768 ? "permanent" : "front",
           drawerHideStatusBarOnOpen: true,
-          headerStyle: { 
+          headerStyle: {
             backgroundColor: "#2EC2A0",
             height: 80,
-           },
+          },
           headerTintColor: "#fff",
-          headerTitleStyle: { fontWeight: "bold",  fontFamily: 'NotoSans_400Regular' },
+          headerTitleStyle: {
+            fontWeight: "bold",
+            fontFamily: "NotoSans_400Regular",
+          },
         }}
         drawerContent={(props) => <DrawerContent {...props} />}
       >
         {/* WORLD */}
-        <Drawer.Screen name="World" component={MapLayout} />
-        <Drawer.Screen name="Country Province Stats" component={MapLayout} />
+        <Drawer.Screen name="World" component={WorldViewMapLayout} />
+        <Drawer.Screen
+          name="Country Province Stats"
+          component={WorldSearchMapLayout}
+        />
         {/* US */}
-        <Drawer.Screen name="US Total" component={MapLayout} />
-        <Drawer.Screen name="State Counties Totals" component={MapLayout} />
+        <Drawer.Screen name="US Total" component={USViewMapLayout} />
+        <Drawer.Screen
+          name="State Counties Totals"
+          component={USSearchMapLayout}
+        />
 
         {/* Vaccine */}
         <Drawer.Screen name="World Vaccination Totals" component={MapLayout} />
