@@ -100,15 +100,18 @@ const USSearchMapLayout = () => {
   const [sliderButton, setSliderButton] = useState(true);
 
   const handleSearchSubmit = (inputValue) => {
-    // If there are no inputs for State, then it is the initial start.
-    if (!searchUSState.length && !searchUSCounty.length) {
-      // Refetch belongs here since the States data should be refetched. The County data
-      // would be extracted out of the States data, and so no refetch after the else block.
-      refetchUSCounties();
+    // There must be a input longer than 0 characters.
+    if (inputValue.length) {
+      // If there are no inputs for State, then it is the initial start.
+      if (!searchUSState.length && !searchUSCounty.length) {
+        // Refetch belongs here since the States data should be refetched. The County data
+        // would be extracted out of the States data, and so no refetch after the else block.
+        refetchUSCounties();
 
-      setSearchUSState(inputValue);
-    } else {
-      setSearchUSCounty(inputValue);
+        setSearchUSState(inputValue);
+      } else {
+        setSearchUSCounty(inputValue);
+      }
     }
   };
 
