@@ -45,6 +45,7 @@ const USSearchMapLayout = () => {
     error: false,
     message: "",
   });
+
   const [sliderHeader, setSliderHeader] = useState("World Data");
 
   const { width: mapviewWidth, height: mapviewHeight } = useWindowDimensions();
@@ -224,7 +225,7 @@ const USSearchMapLayout = () => {
         <></>
       )}
 
-      {dataError.error && !searchUSState.length && (
+      {searchUSState.length > 0 && !dataError.error && (
         <PreviousRegionButton
           previousMapRegion={prevRegion}
           previousRegionTitle="state"
