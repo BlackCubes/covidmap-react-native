@@ -12,6 +12,7 @@ import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { PopupSlider, PopupSliderButton } from "./components/popup-slider";
 import MapComponent from "../map/Map";
 import { useGetGlobalCovidStatsQuery } from "../../api/covidApi";
+import { ErrorModal } from "./../../commons/components/ErrorModal";
 
 const WorldMapLayout = () => {
   const {
@@ -25,7 +26,10 @@ const WorldMapLayout = () => {
 
   const [sliderData, setSliderData] = useState(null);
   const [sliderDataLoading, setSliderDataLoading] = useState(null);
-  const [sliderDataError, setSliderDataError] = useState(null);
+  const [dataError, setDataError] = useState({
+    error: false,
+    message: "",
+  });
 
   const { width: mapviewWidth, height: mapviewHeight } = useWindowDimensions();
 
@@ -63,9 +67,21 @@ const WorldMapLayout = () => {
     if (globalCovidStatsData) {
       setSliderData(globalCovidStatsData);
       setSliderDataLoading(globalCovidStatsLoading);
-      setSliderDataError(globalCovidStatsError);
     }
   }, [globalCovidStatsData]);
+
+  useEffect(() => {
+    if (globalCovidStatsError)
+      setDataError({
+        error: true,
+        message: globalCovidStatsError.data.message,
+      });
+    else
+      setDataError({
+        error: false,
+        message: "",
+      });
+  }, [globalCovidStatsError]);
 
   // To open the slider once data has been loaded
   useEffect(() => {
@@ -100,6 +116,14 @@ const WorldMapLayout = () => {
 
   return (
     <>
+      {dataError.error && (
+        <ErrorModal
+          errorMsg={dataError.message}
+          errorStatus={dataError.error}
+          setDataError={setDataError}
+        />
+      )}
+
       {sliderData && sliderButton && (
         <PopupSliderButton
           handlePresentModalPress={handlePresentModalPress}
