@@ -89,7 +89,7 @@ const VaccineWorldSearchMapLayout = () => {
     // There must be a input longer than 0 characters.
     if (inputValue.length) {
       // Refetch the Country.
-      refetchCountryHistorical();
+      refetchVaccinatedCountry();
 
       setSearchCountry(inputValue);
     }
