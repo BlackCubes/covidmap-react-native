@@ -84,6 +84,7 @@ const PopupSlider = ({
           renderItem={({ item }) => (
             <PopupSliderData
               cases={item.cases}
+              country={item.country}
               county={item.county}
               deaths={item.deaths}
               hasTimelineSequence={item.hasTimelineSequence}
