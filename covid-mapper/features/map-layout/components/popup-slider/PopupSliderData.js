@@ -35,6 +35,7 @@ const SliderDataInfoValues = styled.Text`
 
 const PopupSliderData = ({
   cases,
+  country,
   county,
   deaths,
   hasTimelineSequence,
@@ -56,6 +57,14 @@ const PopupSliderData = ({
     )}
 
     <SliderDataInfo>
+      {country.length > 0 && (
+        <>
+          <SliderDataInfoHeader>Country</SliderDataInfoHeader>
+
+          <SliderDataInfoValues>{country}</SliderDataInfoValues>
+        </>
+      )}
+
       {provinces.length > 0 && (
         <>
           <SliderDataInfoHeader>Provinces</SliderDataInfoHeader>

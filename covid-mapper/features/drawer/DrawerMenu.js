@@ -13,6 +13,10 @@ import DrawerContent from "./DrawerContent";
 import {
   USSearchMapLayout,
   USViewMapLayout,
+  VaccineUSSearchMapLayout,
+  VaccineUSViewMapLayout,
+  VaccineWorldSearchMapLayout,
+  VaccineWorldViewMapLayout,
   WorldSearchMapLayout,
   WorldViewMapLayout,
 } from "../map-layout";
@@ -71,10 +75,22 @@ const DrawerMenu = () => {
         />
 
         {/* Vaccine */}
-        <Drawer.Screen name="World Vaccination Totals" component={MapLayout} />
-        <Drawer.Screen name="Country Vaccination Total" component={MapLayout} />
-        <Drawer.Screen name="US Vaccination Total" component={MapLayout} />
-        <Drawer.Screen name="State Vaccination Total" component={MapLayout} />
+        <Drawer.Screen
+          name="World Vaccination Totals"
+          component={VaccineWorldViewMapLayout}
+        />
+        <Drawer.Screen
+          name="Country Vaccination Total"
+          component={VaccineWorldSearchMapLayout}
+        />
+        <Drawer.Screen
+          name="US Vaccination Total"
+          component={VaccineUSViewMapLayout}
+        />
+        <Drawer.Screen
+          name="State Vaccination Total"
+          component={VaccineUSSearchMapLayout}
+        />
         <Drawer.Screen name="Trial Data" component={VaccineLayout} />
 
         {/* Bottom Content */}

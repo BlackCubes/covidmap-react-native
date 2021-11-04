@@ -65,6 +65,7 @@ const PopupSlider = ({
         <BottomSheetScrollView>
           <PopupSliderData
             cases={sliderData.cases}
+            country={sliderData.country}
             county={sliderData.county}
             deaths={sliderData.deaths}
             hasTimelineSequence={sliderData.hasTimelineSequence}
@@ -83,6 +84,7 @@ const PopupSlider = ({
           renderItem={({ item }) => (
             <PopupSliderData
               cases={item.cases}
+              country={item.country}
               county={item.county}
               deaths={item.deaths}
               hasTimelineSequence={item.hasTimelineSequence}
