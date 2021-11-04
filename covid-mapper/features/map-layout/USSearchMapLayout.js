@@ -1,10 +1,4 @@
-import React, {
-  useEffect,
-  useState,
-  useRef,
-  useCallback,
-  useMemo,
-} from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import * as Location from "expo-location";
 import {
   useWindowDimensions,
@@ -109,9 +103,8 @@ const USSearchMapLayout = () => {
     // If there are no inputs for this, then it is the initial start.
     if (!searchUSState.length && !searchUSCounty.length) {
       refetchUSCounties();
+
       setSearchUSState(inputValue);
-      // setPrevPlaceholder(searchPlaceholder);
-      // setSearchPlaceholder("Search by county");
     } else {
       setSearchUSCounty(inputValue);
     }
@@ -153,7 +146,6 @@ const USSearchMapLayout = () => {
         });
 
         setSearchUSState("");
-        // refetchUSCounties();
       } else if (usCountiesSuccess) {
         const centeredRegion = centroidRegion(
           "united_states",
@@ -173,24 +165,9 @@ const USSearchMapLayout = () => {
         setSliderDataLoading(usCountiesLoading);
 
         setSliderHeader(`${searchUSState} Data`);
-
-        // refetchUSCounties();
       }
     }
   }, [searchUSState, usCountiesError, usCountiesFetching, usCountiesSuccess]);
-
-  // useEffect(() => {
-  //   if (searchUSState.length && usCountiesError)
-  //     setDataError({
-  //       error: true,
-  //       message: usCountiesError.data.message,
-  //     });
-  //   else
-  //     setDataError({
-  //       error: false,
-  //       message: "",
-  //     });
-  // }, [searchUSState, usCountiesError]);
 
   // To render to the slider if the user entered a US County.
   useEffect(() => {
