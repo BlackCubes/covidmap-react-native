@@ -22,7 +22,7 @@ const VaccineUSViewMapLayout = () => {
 
   const { width: mapviewWidth, height: mapviewHeight } = useWindowDimensions();
 
-  const sliderHeader = "World Vaccinated Data";
+  const sliderHeader = "US Vaccinated Data";
   const mapRegion = {
     latitude: 36.778259,
     longitude: -119.417931,
