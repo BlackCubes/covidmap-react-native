@@ -15,7 +15,7 @@ const VaccineUSViewMapLayout = () => {
     isSuccess: statesVaccinatedSuccess,
   } = useGetTotalPeopleVaccinatedByStatesQuery();
 
-  const [useLocation, setUserLocation] = useState(null);
+  const [userLocation, setUserLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
 
   const [sliderData, setSliderData] = useState(null);
