@@ -37,7 +37,6 @@ const WorldSearchMapLayout = () => {
   const [errorMsg, setErrorMsg] = useState(null);
 
   const [sliderData, setSliderData] = useState(null);
-  const [sliderDataLoading, setSliderDataLoading] = useState(null);
   const [dataError, setDataError] = useState({
     error: false,
     message: "",
@@ -60,7 +59,6 @@ const WorldSearchMapLayout = () => {
 
   const {
     data: countryHistoricalData,
-    isLoading: countryHistoricalLoading,
     isFetching: countryHistoricalFetching,
     isSuccess: countryHistoricalSuccess,
     error: countryHistoricalError,
@@ -68,7 +66,6 @@ const WorldSearchMapLayout = () => {
   } = useGetCountryHistoricalQuery(searchCountry);
   const {
     data: provinceHistoricalData,
-    isLoading: provinceHistoricalLoading,
     isFetching: provinceHistoricalFetching,
     isSuccess: provinceHistoricalSuccess,
     error: provinceHistoricalError,
@@ -197,7 +194,6 @@ const WorldSearchMapLayout = () => {
 
         // Update the slider data to be displayed.
         setSliderData(countryHistoricalData);
-        setSliderDataLoading(countryHistoricalLoading);
 
         // Update the slider header to display the user's selected Country.
         setSliderHeader(`${searchCountry} Data`);
@@ -232,7 +228,6 @@ const WorldSearchMapLayout = () => {
         );
 
         setSliderData(provinceHistoricalData);
-        setSliderDataLoading(provinceHistoricalLoading);
 
         setSliderHeader(`${searchProvince} Data`);
       }

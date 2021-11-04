@@ -34,7 +34,6 @@ const USSearchMapLayout = () => {
   const [errorMsg, setErrorMsg] = useState(null);
 
   const [sliderData, setSliderData] = useState(null);
-  const [sliderDataLoading, setSliderDataLoading] = useState(null);
   const [dataError, setDataError] = useState({
     error: false,
     message: "",
@@ -58,7 +57,6 @@ const USSearchMapLayout = () => {
 
   const {
     data: usCountiesData,
-    isLoading: usCountiesLoading,
     isFetching: usCountiesFetching,
     isSuccess: usCountiesSuccess,
     error: usCountiesError,
@@ -178,7 +176,6 @@ const USSearchMapLayout = () => {
 
         // Update the slider data to be displayed.
         setSliderData(usCountiesData);
-        setSliderDataLoading(usCountiesLoading);
 
         // Update the slider header to display the user's selected State.
         setSliderHeader(`${searchUSState} Data`);
@@ -206,7 +203,6 @@ const USSearchMapLayout = () => {
         });
       } else {
         setSliderData(selectedCountyData);
-        setSliderDataLoading(usCountiesLoading);
 
         setSliderHeader(`${searchUSCounty} Data`);
       }
