@@ -195,54 +195,52 @@ const USSearchMapLayout = () => {
   }, [searchUSState, usCountiesError, usCountiesFetching, usCountiesSuccess]);
 
   useEffect(() => {
-    if (countyCoordinatesData) {
-      /*
-       Filter out the county object whose "state" property value matches searchUSState:
-        Example: California and New York both have a "Kings county". This filters the county(in the right US state) user searched for.
-      */
-      const targetCountyObj = countyCoordinatesData.filter(
-        (countyObj) =>
-          countyObj.state.toLowerCase() === searchUSState.toLowerCase()
-      )[0];
-
-      // object with latitude and longtitude properties(stirngs)
-      const { coordinates } = targetCountyObj;
-      const { latitude, longitude } = coordinates;
-
-      setMapRegion({
-        latitude: parseInt(latitude),
-        longitude: parseInt(longitude),
-        latitudeDelta: 1.0922,
-        longitudeDelta: 1.0421,
-      });
-    }
-  }, [countyCoordinatesData]);
-
-  // To render to the slider if the user entered a US County.
-  useEffect(() => {
-    // First check if the user has entered a County and if the API data exists so that
-    // the County could be extracted from it (don't want to extract from NULL).
-    if (searchUSCounty.length && usCountiesData) {
-      // Extract the selected county, if it exists.
-      const selectedCountyData = retrieveCountyData(
-        searchUSCounty,
-        usCountiesData
-      );
-
-      // If the extracted selected county does not exist, let the user know what they
-      // typed is incorrect.
-      if (!selectedCountyData) {
+    if (searchUSCounty.length && !countyCoordinatesFetching) {
+      if (countyCoordinatesError) {
         setDataError({
           error: true,
-          message: "County not found or doesn't have any historical data",
+          message: countyCoordinatesError.data.message,
         });
-      } else {
+
+        setSearchUSCounty("");
+      } else if (countyCooordinatesSuccess) {
+        /*
+         Filter out the county object whose "state" property value matches searchUSState:
+          Example: California and New York both have a "Kings county". This filters the county(in the right US state) user searched for.
+        */
+        const targetCountyObj = countyCoordinatesData.filter(
+          (countyObj) =>
+            countyObj.state.toLowerCase() === searchUSState.toLowerCase()
+        )[0];
+
+        // object with latitude and longtitude properties(stirngs)
+        const { coordinates } = targetCountyObj;
+        const { latitude, longitude } = coordinates;
+
+        setMapRegion({
+          latitude: parseInt(latitude),
+          longitude: parseInt(longitude),
+          latitudeDelta: 1.0922,
+          longitudeDelta: 1.0421,
+        });
+
+        // Extract the selected county, if it exists.
+        const selectedCountyData = retrieveCountyData(
+          searchUSCounty,
+          usCountiesData
+        );
+
         setSliderData(selectedCountyData);
 
         setSliderHeader(`${searchUSCounty} Data`);
       }
     }
-  }, [searchUSCounty, usCountiesData]);
+  }, [
+    searchUSCounty,
+    countyCoordinatesError,
+    countyCoordinatesFetching,
+    countyCooordinatesSuccess,
+  ]);
 
   return (
     <>
