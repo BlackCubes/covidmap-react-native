@@ -37,7 +37,6 @@ const WorldSearchMapLayout = () => {
   const [errorMsg, setErrorMsg] = useState(null);
 
   const [sliderData, setSliderData] = useState(null);
-  const [sliderDataLoading, setSliderDataLoading] = useState(null);
   const [dataError, setDataError] = useState({
     error: false,
     message: "",
@@ -60,7 +59,6 @@ const WorldSearchMapLayout = () => {
 
   const {
     data: countryHistoricalData,
-    isLoading: countryHistoricalLoading,
     isFetching: countryHistoricalFetching,
     isSuccess: countryHistoricalSuccess,
     error: countryHistoricalError,
@@ -68,7 +66,6 @@ const WorldSearchMapLayout = () => {
   } = useGetCountryHistoricalQuery(searchCountry);
   const {
     data: provinceHistoricalData,
-    isLoading: provinceHistoricalLoading,
     isFetching: provinceHistoricalFetching,
     isSuccess: provinceHistoricalSuccess,
     error: provinceHistoricalError,
@@ -138,7 +135,7 @@ const WorldSearchMapLayout = () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== "granted") {
         setErrorMsg("Permission to access location was denied");
-        
+
         setUserLocation(mapRegion);
         return;
       }
@@ -197,7 +194,6 @@ const WorldSearchMapLayout = () => {
 
         // Update the slider data to be displayed.
         setSliderData(countryHistoricalData);
-        setSliderDataLoading(countryHistoricalLoading);
 
         // Update the slider header to display the user's selected Country.
         setSliderHeader(`${searchCountry} Data`);
@@ -232,7 +228,6 @@ const WorldSearchMapLayout = () => {
         );
 
         setSliderData(provinceHistoricalData);
-        setSliderDataLoading(provinceHistoricalLoading);
 
         setSliderHeader(`${searchProvince} Data`);
       }
@@ -262,6 +257,9 @@ const WorldSearchMapLayout = () => {
       ></FloatingSearchButton>
       {searchBarActive ? (
         <Searchbar
+          dataLoading={
+            countryHistoricalFetching || provinceHistoricalFetching || false
+          }
           handleSearchSubmit={handleSearchSubmit}
           searchPlaceholder={searchPlaceholder}
           opacityLevel={fadeAnim}
@@ -271,21 +269,24 @@ const WorldSearchMapLayout = () => {
         <></>
       )}
 
-      {searchCountry.length > 0 && !dataError.error && (
-        <PreviousRegionButton
-          previousMapRegion={prevRegion}
-          previousRegionTitle="country"
-          previousSearchPlaceholder={prevPlaceholder}
-          searchLandmass={searchCountry}
-          searchSubLandmass={searchProvince}
-          setMapRegion={setMapRegion}
-          setSearchLandmass={setSearchCountry}
-          setSearchPlaceholder={setSearchPlaceholder}
-          setSearchSubLandmass={setSearchProvince}
-        />
-      )}
+      {!countryHistoricalFetching &&
+        !provinceHistoricalFetching &&
+        searchCountry.length > 0 &&
+        !dataError.error && (
+          <PreviousRegionButton
+            previousMapRegion={prevRegion}
+            previousRegionTitle="country"
+            previousSearchPlaceholder={prevPlaceholder}
+            searchLandmass={searchCountry}
+            searchSubLandmass={searchProvince}
+            setMapRegion={setMapRegion}
+            setSearchLandmass={setSearchCountry}
+            setSearchPlaceholder={setSearchPlaceholder}
+            setSearchSubLandmass={setSearchProvince}
+          />
+        )}
 
-      {!sliderData ? null : !sliderButton ? null : (
+      {countryHistoricalFetching ? null : provinceHistoricalFetching ? null : !sliderData ? null : !sliderButton ? null : (
         <PopupSliderButton
           handlePresentModalPress={handlePresentModalPress}
           setSliderButton={setSliderButton}
@@ -293,14 +294,17 @@ const WorldSearchMapLayout = () => {
       )}
 
       <BottomSheetModalProvider>
-        {!dataError.error && sliderData && (
-          <PopupSlider
-            setSliderButton={setSliderButton}
-            sliderData={sliderData}
-            sliderHeader={sliderHeader}
-            bottomSheetModalRef={bottomSheetModalRef}
-          />
-        )}
+        {!countryHistoricalFetching &&
+          !provinceHistoricalFetching &&
+          !dataError.error &&
+          sliderData && (
+            <PopupSlider
+              setSliderButton={setSliderButton}
+              sliderData={sliderData}
+              sliderHeader={sliderHeader}
+              bottomSheetModalRef={bottomSheetModalRef}
+            />
+          )}
 
         <Pressable onPressOut={Keyboard.dismiss}>
           <MapComponent
