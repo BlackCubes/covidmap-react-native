@@ -12,23 +12,36 @@ import {
   ModalWrapper,
 } from "./styles";
 
-const ErrorModal = ({ error }) => {
+const ErrorModal = ({ errorMsg, errorStatus, setDataError }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
-    if (error) {
-      setModalVisible(true);
-    }
-  }, [error]);
+    if (errorStatus) setModalVisible(true);
+    else setModalVisible(false);
+  }, [errorStatus]);
 
   return (
     <Modal
       animationType="none"
       transparent={true}
       visible={modalVisible}
-      onRequestClose={() => setModalVisible(!modalVisible)}
+      onRequestClose={() => {
+        setDataError({
+          error: false,
+          message: "",
+        });
+        setModalVisible(!modalVisible);
+      }}
     >
-      <Pressable onPress={() => setModalVisible(!modalVisible)}>
+      <Pressable
+        onPress={() => {
+          setDataError({
+            error: false,
+            message: "",
+          });
+          setModalVisible(!modalVisible);
+        }}
+      >
         <ModalOverlay></ModalOverlay>
       </Pressable>
 
@@ -38,16 +51,20 @@ const ErrorModal = ({ error }) => {
         </ModalHeader>
 
         <ModalContent>
-          <ModalContentText>
-            {error?.data?.message ? error.data.message : ""}
-          </ModalContentText>
+          <ModalContentText>{errorMsg ? errorMsg : ""}</ModalContentText>
         </ModalContent>
 
         <ModalCloseButton
           style={({ pressed }) => ({
             backgroundColor: pressed ? "#c6c6d1" : "white",
           })}
-          onPress={() => setModalVisible(!modalVisible)}
+          onPress={() => {
+            setDataError({
+              error: false,
+              message: "",
+            });
+            setModalVisible(!modalVisible);
+          }}
         >
           <ModalCloseButtonText>Close</ModalCloseButtonText>
         </ModalCloseButton>
