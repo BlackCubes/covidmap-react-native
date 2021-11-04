@@ -107,8 +107,8 @@ const USSearchMapLayout = () => {
     // If there are no inputs for this, then it is the initial start.
     if (!searchUSState.length && !searchUSCounty.length) {
       setSearchUSState(inputValue);
-      setPrevPlaceholder(searchPlaceholder);
-      setSearchPlaceholder("Search by county");
+      // setPrevPlaceholder(searchPlaceholder);
+      // setSearchPlaceholder("Search by county");
     } else {
       setSearchUSCounty(inputValue);
     }
@@ -151,6 +151,9 @@ const USSearchMapLayout = () => {
         mapviewHeight
       );
 
+      setPrevPlaceholder(searchPlaceholder);
+      setSearchPlaceholder("Search by county");
+
       setMapRegion(centeredRegion);
       setPrevRegion(centeredRegion);
 
@@ -160,21 +163,31 @@ const USSearchMapLayout = () => {
       setSliderHeader(`${searchUSState} Data`);
 
       refetchUSCounties();
-    }
-  }, [searchUSState, usCountiesData]);
-
-  useEffect(() => {
-    if (searchUSState.length && usCountiesError)
+    } else if (searchUSState.length && usCountiesError) {
       setDataError({
         error: true,
         message: usCountiesError.data.message,
       });
-    else
-      setDataError({
-        error: false,
-        message: "",
-      });
-  }, [searchUSState, usCountiesError]);
+
+      setSearchUSState("");
+      refetchUSCounties();
+    }
+  }, [searchUSState, usCountiesData, usCountiesError]);
+  console.log("hello: ", searchUSState, searchUSCounty);
+  console.log("usCountiesError: ", usCountiesError);
+
+  // useEffect(() => {
+  //   if (searchUSState.length && usCountiesError)
+  //     setDataError({
+  //       error: true,
+  //       message: usCountiesError.data.message,
+  //     });
+  //   else
+  //     setDataError({
+  //       error: false,
+  //       message: "",
+  //     });
+  // }, [searchUSState, usCountiesError]);
 
   // To render to the slider if the user entered a US County.
   useEffect(() => {
