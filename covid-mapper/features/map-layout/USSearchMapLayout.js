@@ -11,7 +11,7 @@ import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { PopupSlider, PopupSliderButton } from "./components/popup-slider";
 import MapComponent from "../map/Map";
 import Searchbar from "../searchbar/Searchbar";
-import { useGetAllUSCountiesFromStateQuery } from "../../api/covidApi";
+import { useGetAllUSCountiesFromStateQuery, useGetUSCountyCoordinatesQuery } from "../../api/covidApi";
 import { ErrorModal } from "../../commons/components/ErrorModal";
 import FloatingSearchButton from "../../commons/components/FloatingSearchButton/FloatingSearchButton";
 import { PreviousRegionButton } from "../../commons/components/PreviousRegionButton";
@@ -62,6 +62,14 @@ const USSearchMapLayout = () => {
     error: usCountiesError,
     refetch: refetchUSCounties,
   } = useGetAllUSCountiesFromStateQuery(searchUSState);
+
+  // For obtaininig array of counties object, with "coordinates" & "state"(string; in case of different states having counties with same name)
+  const {
+    data: countyCoordinatesData,
+    isLoading: countyCoordinatesLoading,
+    isSuccess: countyCooordinatesSuccess,
+    error: countyCoordinatesError
+  } = useGetUSCountyCoordinatesQuery(searchUSCounty);
 
   const [mapRegion, setMapRegion] = useState({
     latitude: 36.778259,
@@ -182,6 +190,27 @@ const USSearchMapLayout = () => {
       }
     }
   }, [searchUSState, usCountiesError, usCountiesFetching, usCountiesSuccess]);
+
+  useEffect(()=>{
+    if(countyCoordinatesData){
+      /*
+       Filter out the county object whose "state" property value matches searchUSState:
+        Example: California and New York both have a "Kings county". This filters the county(in the right US state) user searched for.
+      */
+      const targetCountyObj = countyCoordinatesData.filter(countyObj=>countyObj.state===searchUSState)[0];
+      
+      // object with latitude and longtitude properties(stirngs)
+      const {coordinates} = targetCountyObj;
+      const {latitude, longitude}=coordinates;
+      
+      setMapRegion({
+        latitude: parseInt(latitude),
+        longitude: parseInt(longitude),
+        latitudeDelta: 1.0922,
+        longitudeDelta: 1.0421,
+      });
+    }
+  },[countyCoordinatesData])
 
   // To render to the slider if the user entered a US County.
   useEffect(() => {
