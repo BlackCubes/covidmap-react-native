@@ -12,7 +12,7 @@ import {
   ModalWrapper,
 } from "./styles";
 
-const ErrorModal = ({ errorMsg, errorStatus, setDataError }) => {
+const ErrorModal = ({ errorMsg, errorStatus }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
@@ -25,25 +25,9 @@ const ErrorModal = ({ errorMsg, errorStatus, setDataError }) => {
       animationType="none"
       transparent={true}
       visible={modalVisible}
-      onRequestClose={() => {
-        setDataError({
-          error: false,
-          message: "",
-        });
-
-        setModalVisible(!modalVisible);
-      }}
+      onRequestClose={() => setModalVisible(!modalVisible)}
     >
-      <Pressable
-        onPress={() => {
-          setDataError({
-            error: false,
-            message: "",
-          });
-
-          setModalVisible(!modalVisible);
-        }}
-      >
+      <Pressable onPress={() => setModalVisible(!modalVisible)}>
         <ModalOverlay></ModalOverlay>
       </Pressable>
 
@@ -60,14 +44,7 @@ const ErrorModal = ({ errorMsg, errorStatus, setDataError }) => {
           style={({ pressed }) => ({
             backgroundColor: pressed ? "#c6c6d1" : "white",
           })}
-          onPress={() => {
-            setDataError({
-              error: false,
-              message: "",
-            });
-
-            setModalVisible(!modalVisible);
-          }}
+          onPress={() => setModalVisible(!modalVisible)}
         >
           <ModalCloseButtonText>Close</ModalCloseButtonText>
         </ModalCloseButton>
