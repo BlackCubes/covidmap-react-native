@@ -231,6 +231,7 @@ const USSearchMapLayout = () => {
       ></FloatingSearchButton>
       {searchBarActive ? (
         <Searchbar
+          dataLoading={usCountiesFetching}
           handleSearchSubmit={handleSearchSubmit}
           searchPlaceholder={searchPlaceholder}
           opacityLevel={fadeAnim}
@@ -240,7 +241,7 @@ const USSearchMapLayout = () => {
         <></>
       )}
 
-      {searchUSState.length > 0 && !dataError.error && (
+      {!usCountiesFetching && searchUSState.length > 0 && !dataError.error && (
         <PreviousRegionButton
           previousMapRegion={prevRegion}
           previousRegionTitle="state"
@@ -254,7 +255,7 @@ const USSearchMapLayout = () => {
         />
       )}
 
-      {!sliderData ? null : !sliderButton ? null : (
+      {usCountiesFetching ? null : !sliderData ? null : !sliderButton ? null : (
         <PopupSliderButton
           handlePresentModalPress={handlePresentModalPress}
           setSliderButton={setSliderButton}
@@ -262,7 +263,7 @@ const USSearchMapLayout = () => {
       )}
 
       <BottomSheetModalProvider>
-        {!dataError.error && sliderData && (
+        {!usCountiesFetching && !dataError.error && sliderData && (
           <PopupSlider
             setSliderButton={setSliderButton}
             sliderData={sliderData}
