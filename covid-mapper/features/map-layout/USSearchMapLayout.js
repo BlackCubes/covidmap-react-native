@@ -71,9 +71,7 @@ const USSearchMapLayout = () => {
     isLoading: countyCoordinatesLoading,
     isSuccess: countyCooordinatesSuccess,
     error: countyCoordinatesError
-  } = useGetUSCountyCoordinatesQuery(searchUSCounty)
-
-  console.log('COUNTY COORDS: ', countyCoordinatesData)
+  } = useGetUSCountyCoordinatesQuery(searchUSCounty);
 
   const [mapRegion, setMapRegion] = useState({
     latitude: 36.778259,
@@ -196,6 +194,27 @@ const USSearchMapLayout = () => {
     }
   }, [searchUSState, usCountiesError, usCountiesFetching, usCountiesSuccess]);
 
+  useEffect(()=>{
+    if(countyCoordinatesData){
+      /*
+       Filter out the county object whose "state" property value matches searchUSState:
+        Example: California and New York both have a "Kings county". This filters the county(in the right US state) user searched for.
+      */
+      const targetCountyObj = countyCoordinatesData.filter(countyObj=>countyObj.state===searchUSState)[0];
+      
+      // object with latitude and longtitude properties(stirngs)
+      const {coordinates} = targetCountyObj;
+      const {latitude, longitude}=coordinates;
+      
+      setMapRegion({
+        latitude: parseInt(latitude),
+        longitude: parseInt(longitude),
+        latitudeDelta: 1.0922,
+        longitudeDelta: 1.0421,
+      });
+    }
+  },[countyCoordinatesData])
+
   // To render to the slider if the user entered a US County.
   useEffect(() => {
     // First check if the user has entered a County and if the API data exists so that
@@ -222,13 +241,6 @@ const USSearchMapLayout = () => {
       }
     }
   }, [searchUSCounty, usCountiesData]);
-
-  useEffect(()=>{
-    if(countyCoordinatesData){
-      // Filter out the county object whose "state" value matches searchUSState
-      const targetCountyObj = countyCoordinatesData.filter(countyObj=>countyObj.state===searchUSState)[0];
-    }
-  },[countyCoordinatesData])
 
   return (
     <>
