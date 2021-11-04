@@ -1,10 +1,4 @@
-import React, {
-  useEffect,
-  useState,
-  useRef,
-  useCallback,
-  useMemo,
-} from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import * as Location from "expo-location";
 import {
   useWindowDimensions,
@@ -67,12 +61,16 @@ const WorldSearchMapLayout = () => {
   const {
     data: countryHistoricalData,
     isLoading: countryHistoricalLoading,
+    isFetching: countryHistoricalFetching,
+    isSuccess: countryHistoricalSuccess,
     error: countryHistoricalError,
     refetch: refetchCountryHistorical,
   } = useGetCountryHistoricalQuery(searchCountry);
   const {
     data: provinceHistoricalData,
     isLoading: provinceHistoricalLoading,
+    isFetching: provinceHistoricalFetching,
+    isSuccess: provinceHistoricalSuccess,
     error: provinceHistoricalError,
     refetch: refetchProvinceHistorical,
   } = useGetProvinceHistoricalQuery({
@@ -119,11 +117,16 @@ const WorldSearchMapLayout = () => {
     if (inputValue.length) {
       // If there are no inputs for this, then it is the initial start which is searching by country first before province.
       if (!searchCountry.length && !searchProvince.length) {
+        // Refetch the Country.
+        refetchCountryHistorical();
+
         setSearchCountry(inputValue);
-        setPrevPlaceholder(searchPlaceholder);
-        setSearchPlaceholder("Search by province");
+
         // If the country has been selected, then the first if-conditional does not pass which means the country has been selected.
       } else {
+        // Refetch the Province.
+        refetchProvinceHistorical();
+
         setSearchProvince(inputValue);
       }
     }
@@ -157,76 +160,87 @@ const WorldSearchMapLayout = () => {
 
   // To render to the slider if user entered a country.
   useEffect(() => {
-    if (searchCountry.length && countryHistoricalData) {
-      const centeredRegion = centroidRegion(
-        "countries",
-        searchCountry,
-        mapRegion,
-        mapviewWidth,
-        mapviewHeight
-      );
+    // First check if the user has entered a Country and if the data is not being fetched.
+    if (searchCountry.length && !countryHistoricalFetching) {
+      // After the fetch, check to see first if there are errors from the API.
+      if (countryHistoricalError) {
+        setDataError({
+          error: true,
+          message: countryHistoricalError.data.message,
+        });
 
-      setMapRegion(centeredRegion);
-      setPrevRegion(centeredRegion);
+        // Reset the searchCountry to an empty string. This is the case if the user entered
+        // the wrong name of the Country.
+        setSearchCountry("");
 
-      setSliderData(countryHistoricalData);
-      setSliderDataLoading(countryHistoricalLoading);
-
-      setSliderHeader(`${searchCountry} Data`);
-
-      refetchCountryHistorical();
-    }
-  }, [searchCountry, countryHistoricalData]);
-
-  useEffect(() => {
-    if (searchCountry.length && countryHistoricalError)
-      setDataError({
-        error: true,
-        message: countryHistoricalError.data.message,
-      });
-    else
-      setDataError({
-        error: false,
-        message: "",
-      });
-  }, [searchCountry, countryHistoricalError]);
-
-  // To render to the slider if user entered a province.
-  useEffect(() => {
-    if (searchProvince.length && provinceHistoricalData) {
-      setMapRegion(
-        centroidRegion(
-          "provinces",
-          searchProvince,
+        // Check to see if the API call was a success.
+      } else if (countryHistoricalSuccess) {
+        // Get the centered region.
+        const centeredRegion = centroidRegion(
+          "countries",
+          searchCountry,
           mapRegion,
           mapviewWidth,
           mapviewHeight
-        )
-      );
+        );
 
-      setSliderData(provinceHistoricalData);
-      setSliderDataLoading(provinceHistoricalLoading);
+        // Update the placeholder and store the previous placeholder in case the user
+        // reverts back to selecting a Country.
+        setPrevPlaceholder(searchPlaceholder);
+        setSearchPlaceholder("Search by province");
 
-      setSliderHeader(`${searchProvince} Data`);
+        // Set the centered region.
+        setMapRegion(centeredRegion);
+        setPrevRegion(centeredRegion);
 
-      refetchProvinceHistorical();
+        // Update the slider data to be displayed.
+        setSliderData(countryHistoricalData);
+        setSliderDataLoading(countryHistoricalLoading);
+
+        // Update the slider header to display the user's selected Country.
+        setSliderHeader(`${searchCountry} Data`);
+      }
     }
-  }, [searchProvince, provinceHistoricalData]);
+  }, [
+    searchCountry,
+    countryHistoricalError,
+    countryHistoricalFetching,
+    countryHistoricalSuccess,
+  ]);
 
+  // To render to the slider if user entered a province.
   useEffect(() => {
-    if (!countryHistoricalError) {
-      if (searchProvince.length && provinceHistoricalError)
+    if (searchProvince.length && !provinceHistoricalFetching) {
+      if (provinceHistoricalError) {
         setDataError({
           error: true,
           message: provinceHistoricalError.data.message,
         });
-      else
-        setDataError({
-          error: false,
-          message: "",
-        });
+
+        setSearchProvince("");
+      } else if (provinceHistoricalSuccess) {
+        setMapRegion(
+          centroidRegion(
+            "provinces",
+            searchProvince,
+            mapRegion,
+            mapviewWidth,
+            mapviewHeight
+          )
+        );
+
+        setSliderData(provinceHistoricalData);
+        setSliderDataLoading(provinceHistoricalLoading);
+
+        setSliderHeader(`${searchProvince} Data`);
+      }
     }
-  }, [countryHistoricalError, searchProvince, provinceHistoricalError]);
+  }, [
+    searchProvince,
+    provinceHistoricalError,
+    provinceHistoricalFetching,
+    provinceHistoricalSuccess,
+  ]);
 
   return (
     <>
@@ -255,7 +269,7 @@ const WorldSearchMapLayout = () => {
         <></>
       )}
 
-      {!searchCountry.length > 0 ? null : (
+      {searchCountry.length > 0 && !dataError.error && (
         <PreviousRegionButton
           previousMapRegion={prevRegion}
           previousRegionTitle="country"
@@ -277,12 +291,14 @@ const WorldSearchMapLayout = () => {
       )}
 
       <BottomSheetModalProvider>
-        <PopupSlider
-          setSliderButton={setSliderButton}
-          sliderData={sliderData}
-          sliderHeader={sliderHeader}
-          bottomSheetModalRef={bottomSheetModalRef}
-        />
+        {!dataError.error && sliderData && (
+          <PopupSlider
+            setSliderButton={setSliderButton}
+            sliderData={sliderData}
+            sliderHeader={sliderHeader}
+            bottomSheetModalRef={bottomSheetModalRef}
+          />
+        )}
 
         <Pressable onPressOut={Keyboard.dismiss}>
           <MapComponent
