@@ -12,7 +12,6 @@ const VaccineWorldViewMapLayout = () => {
     data: countriesVaccinatedData,
     error: countriesVaccinatedError,
     isFetching: countriesVaccinatedFetching,
-    isLoading: countriesVaccinatedLoading,
     isSuccess: countriesVaccinatedSuccess,
   } = useGetTotalPeopleVaccinatedByCountriesQuery();
 
