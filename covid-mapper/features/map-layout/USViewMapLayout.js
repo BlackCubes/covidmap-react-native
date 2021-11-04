@@ -12,6 +12,7 @@ import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { PopupSliderButton, PopupSlider } from "./components/popup-slider";
 import MapComponent from "../map/Map";
 import { useGetTotalsAllStatesUSQuery } from "../../api/covidApi";
+import { ErrorModal } from "../../commons/components/ErrorModal";
 
 const USViewMapLayout = () => {
   const {
@@ -25,7 +26,10 @@ const USViewMapLayout = () => {
 
   const [sliderData, setSliderData] = useState(null);
   const [sliderDataLoading, setSliderDataLoading] = useState(null);
-  const [sliderDataError, setSliderDataError] = useState(null);
+  const [dataError, setDataError] = useState({
+    error: false,
+    message: "",
+  });
 
   const { width: mapviewWidth, height: mapviewHeight } = useWindowDimensions();
 
@@ -63,9 +67,21 @@ const USViewMapLayout = () => {
     if (allUSStatesData) {
       setSliderData(allUSStatesData);
       setSliderDataLoading(allUSStatesLoading);
-      setSliderDataError(allUSStatesError);
     }
   }, [allUSStatesData]);
+
+  useEffect(() => {
+    if (allUSStatesError)
+      setDataError({
+        error: true,
+        message: allUSStatesError.data.message,
+      });
+    else
+      setDataError({
+        error: false,
+        message: "",
+      });
+  }, [allUSStatesError]);
 
   // To open the slider once data has been loaded
   useEffect(() => {
@@ -100,6 +116,14 @@ const USViewMapLayout = () => {
 
   return (
     <>
+      {dataError.error && (
+        <ErrorModal
+          errorMsg={dataError.message}
+          errorStatus={dataError.error}
+          setDataError={setDataError}
+        />
+      )}
+
       {sliderData && sliderButton && (
         <PopupSliderButton
           handlePresentModalPress={handlePresentModalPress}
