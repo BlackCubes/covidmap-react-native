@@ -46,7 +46,7 @@ const DrawerMenu = () => {
           drawerType: dimensions.width >= 768 ? "permanent" : "front",
           drawerHideStatusBarOnOpen: true,
           headerStyle: {
-            backgroundColor: "#2EC2A0",
+            backgroundColor: "#314F63",
             height: 80,
           },
           headerTintColor: "#fff",
