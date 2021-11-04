@@ -234,6 +234,7 @@ const WorldSearchMapLayout = () => {
         <ErrorModal
           errorMsg={dataError.message}
           errorStatus={dataError.error}
+          setDataError={setDataError}
         />
       )}
 
