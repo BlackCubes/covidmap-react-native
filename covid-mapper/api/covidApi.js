@@ -29,7 +29,7 @@ export const covidApi = createApi({
     }),
     getSpecificCountryTotal: builder.query({
       // get totals for a specific country
-      query: (country) => `countries/${country}`,
+      query: (country) => `countries/${country.toLowerCase()}`,
     }),
     getTotalsAllStatesUS: builder.query({
       // get totals for all US states, sortable(greatest to least) by cases, todayCases, deaths, active
@@ -57,7 +57,7 @@ export const covidApi = createApi({
           ? "not-chosen"
           : !usState.length
           ? "not-chosen"
-          : usState;
+          : usState.toLowerCase();
 
         return `states/${endpoint}`;
       },
@@ -95,7 +95,7 @@ export const covidApi = createApi({
           ? "not-chosen"
           : !country.length
           ? "not-chosen"
-          : country;
+          : country.toLowerCase();
         return `historical/${endpoint}`;
       },
       transformResponse: (response) => ({
@@ -155,7 +155,7 @@ export const covidApi = createApi({
           ? "not-chosen"
           : !usState.length
           ? "not-chosen"
-          : usState;
+          : usState.toLowerCase();
 
         return `historical/usacounties/${endpoint}`;
       },

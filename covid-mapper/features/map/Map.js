@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from "react";
 import MapView, { Marker, Circle, Callout } from "react-native-maps";
 import styled from "styled-components";
-import { Text } from "react-native";
+
 
 const StyledMapView = styled(MapView).attrs((props) => ({
   width: props.mapviewWidth,
   height: props.mapviewHeight,
 }))``;
 
-const MapComponent = ({ mapviewHeight, mapviewRegion, mapviewWidth }) => {
+const MapComponent = ({
+  mapviewHeight,
+  mapviewRegion,
+  mapviewWidth,
+  userLocation,
+}) => {
   const [markers, setMarkers] = useState([
     {
       type: "userMarker",
       title: "Current Location",
-      color: "green",
+      color: "red",
       latlong: {
         latitude: mapviewRegion.latitude,
         longitude: mapviewRegion.longitude,
@@ -22,7 +27,7 @@ const MapComponent = ({ mapviewHeight, mapviewRegion, mapviewWidth }) => {
     {
       type: "searchedMarker",
       title: "Searched Location",
-      color: "red",
+      color: "green",
       latlong: {
         latitude: mapviewRegion.latitude,
         longitude: mapviewRegion.longitude,
@@ -45,6 +50,22 @@ const MapComponent = ({ mapviewHeight, mapviewRegion, mapviewWidth }) => {
       );
     }
   }, [mapviewRegion]);
+
+  useEffect(() => {
+    if (userLocation) {
+      setMarkers((previousRegions) =>
+        previousRegions.map((prevRegion) => {
+          if (prevRegion.type === "userMarker") {
+            prevRegion.latlong = {
+              latitude: userLocation.coords.latitude,
+              longitude: userLocation.coords.longitude,
+            };
+          }
+          return prevRegion;
+        })
+      );
+    }
+  }, [userLocation]);
 
   return (
     <StyledMapView
