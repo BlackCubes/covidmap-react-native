@@ -17,7 +17,7 @@ import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { PopupSlider, PopupSliderButton } from "./components/popup-slider";
 import MapComponent from "../map/Map";
 import Searchbar from "../searchbar/Searchbar";
-import { useGetAllUSCountiesFromStateQuery } from "../../api/covidApi";
+import { useGetAllUSCountiesFromStateQuery, useGetUSCountyCoordinatesQuery } from "../../api/covidApi";
 import FloatingSearchButton from "../../commons/components/FloatingSearchButton/FloatingSearchButton";
 import { PreviousRegionButton } from "../../commons/components/PreviousRegionButton";
 import { centroidRegion, retrieveCountyData } from "../../utils";
@@ -63,6 +63,16 @@ const USSearchMapLayout = () => {
     error: usCountiesError,
     refetch: refetchUSCounties,
   } = useGetAllUSCountiesFromStateQuery(searchUSState);
+
+  // For obtaininig array of counties object, with "coordinates" & "state"(string; in case of different states having counties with same name)
+  const {
+    data: countyCoordinatesData,
+    isLoading: countyCoordinatesLoading,
+    isSuccess: countyCooordinatesSuccess,
+    error: countyCoordinatesError
+  } = useGetUSCountyCoordinatesQuery(searchUSCounty)
+
+  console.log('COUNTY COORDS: ', countyCoordinatesData)
 
   const [mapRegion, setMapRegion] = useState({
     latitude: 36.778259,
@@ -145,7 +155,7 @@ const USSearchMapLayout = () => {
         mapviewWidth,
         mapviewHeight
       );
-
+  
       setMapRegion(centeredRegion);
       setPrevRegion(centeredRegion);
 
@@ -169,6 +179,13 @@ const USSearchMapLayout = () => {
       setSliderHeader(`${searchUSCounty} Data`);
     }
   }, [searchUSCounty, usCountiesData]);
+
+  useEffect(()=>{
+    if(countyCoordinatesData){
+      // Filter out the county object whose "state" value matches searchUSState
+      const targetCountyObj = countyCoordinatesData.filter(countyObj=>countyObj.state===searchUSState)[0];
+    }
+  },[countyCoordinatesData])
 
   return (
     <>
