@@ -100,8 +100,10 @@ const USSearchMapLayout = () => {
   const [sliderButton, setSliderButton] = useState(true);
 
   const handleSearchSubmit = (inputValue) => {
-    // If there are no inputs for this, then it is the initial start.
+    // If there are no inputs for State, then it is the initial start.
     if (!searchUSState.length && !searchUSCounty.length) {
+      // Refetch belongs here since the States data should be refetched. The County data
+      // would be extracted out of the States data, and so no refetch after the else block.
       refetchUSCounties();
 
       setSearchUSState(inputValue);
@@ -138,15 +140,22 @@ const USSearchMapLayout = () => {
 
   // To render to the slider if the user entered a US State.
   useEffect(() => {
+    // First check if the user has entered a State and if the data is not being fetched.
     if (searchUSState.length && !usCountiesFetching) {
+      // After the fetch, check to see first if there are errors from the API.
       if (usCountiesError) {
         setDataError({
           error: true,
           message: usCountiesError.data.message,
         });
 
+        // Reset the searchState to an empty string. This is the case if the user entered
+        // the wrong name of the State.
         setSearchUSState("");
+
+        // Check to see if the API call was a success.
       } else if (usCountiesSuccess) {
+        // Get the centered region.
         const centeredRegion = centroidRegion(
           "united_states",
           searchUSState,
@@ -155,15 +164,20 @@ const USSearchMapLayout = () => {
           mapviewHeight
         );
 
+        // Update the placeholder and store the previous placeholder in case the user
+        // reverts back to selecting a State.
         setPrevPlaceholder(searchPlaceholder);
         setSearchPlaceholder("Search by county");
 
+        // Set the centered region.
         setMapRegion(centeredRegion);
         setPrevRegion(centeredRegion);
 
+        // Update the slider data to be displayed.
         setSliderData(usCountiesData);
         setSliderDataLoading(usCountiesLoading);
 
+        // Update the slider header to display the user's selected State.
         setSliderHeader(`${searchUSState} Data`);
       }
     }
@@ -171,12 +185,17 @@ const USSearchMapLayout = () => {
 
   // To render to the slider if the user entered a US County.
   useEffect(() => {
+    // First check if the user has entered a County and if the API data exists so that
+    // the County could be extracted from it (don't want to extract from NULL).
     if (searchUSCounty.length && usCountiesData) {
+      // Extract the selected county, if it exists.
       const selectedCountyData = retrieveCountyData(
         searchUSCounty,
         usCountiesData
       );
 
+      // If the extracted selected county does not exist, let the user know what they
+      // typed is incorrect.
       if (!selectedCountyData) {
         setDataError({
           error: true,
