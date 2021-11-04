@@ -183,15 +183,69 @@ export const covidApi = createApi({
     }),
     getTotalPeopleVaccinatedByCountries: builder.query({
       query: () => `vaccine/coverage/countries`,
+      transformResponse: (response) =>
+        response.map((country) => ({
+          vaccines: cartesianCoordinateConverter(country.timeline),
+          hasTimelineSequence:
+            typeof country.timeline === "number" ? false : true,
+          country: country.country,
+          state: "",
+          updatedAt: country.updatedAt ?? 0,
+          population: country.population ?? 0,
+        })),
     }),
     getTotalPeopleVaccinatedByCountry: builder.query({
-      query: (country) => `vaccine/coverage/countries/${country}`,
+      query: (country) => {
+        const endpoint = !country
+          ? "not-chosen"
+          : !country.length
+          ? "not-chosen"
+          : country.toLowerCase();
+
+        return `vaccine/coverage/countries/${endpoint}`;
+      },
+      transformResponse: (response) => ({
+        vaccines: cartesianCoordinateConverter(response.timeline),
+        hasTimelineSequence:
+          typeof response.timeline === "number" ? false : true,
+        country: "",
+        state: "",
+        updatedAt: response.updatedAt ?? 0,
+        population: response.population ?? 0,
+      }),
     }),
     getTotalPeopleVaccinatedByStates: builder.query({
       query: () => `vaccine/coverage/states`,
+      transformResponse: (response) =>
+        response.map((state) => ({
+          vaccines: cartesianCoordinateConverter(state.timeline),
+          hasTimelineSequence:
+            typeof state.timeline === "number" ? false : true,
+          country: "",
+          state: state.state,
+          updatedAt: response.updatedAt ?? 0,
+          population: response.population ?? 0,
+        })),
     }),
     getTotalPeopleVaccinatedByState: builder.query({
-      query: (state) => `vaccine/coverage/states/${state}`,
+      query: (state) => {
+        const endpoint = !state
+          ? "not-chosen"
+          : !state.length
+          ? "not-chosen"
+          : state.toLowerCase();
+
+        return `vaccine/coverage/states/${endpoint}`;
+      },
+      transformResponse: (response) => ({
+        vaccines: cartesianCoordinateConverter(response.timeline),
+        hasTimelineSequence:
+          typeof response.timeline === "number" ? false : true,
+        country: "",
+        state: "",
+        updatedAt: response.updatedAt ?? 0,
+        population: response.population ?? 0,
+      }),
     }),
   }),
 });
