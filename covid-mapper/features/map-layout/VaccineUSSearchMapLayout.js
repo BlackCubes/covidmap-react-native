@@ -144,7 +144,7 @@ const VaccineUSSearchMapLayout = () => {
       } else if (vaccinatedStateSuccess) {
         // Get the centered region.
         const centeredRegion = centroidRegion(
-          "countries",
+          "united_states",
           searchState,
           mapRegion,
           mapviewWidth,
