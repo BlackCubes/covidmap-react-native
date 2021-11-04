@@ -65,6 +65,8 @@ const USSearchMapLayout = () => {
   const {
     data: usCountiesData,
     isLoading: usCountiesLoading,
+    isFetching: usCountiesFetching,
+    isSuccess: usCountiesSuccess,
     error: usCountiesError,
     refetch: refetchUSCounties,
   } = useGetAllUSCountiesFromStateQuery(searchUSState);
@@ -105,8 +107,8 @@ const USSearchMapLayout = () => {
 
   const handleSearchSubmit = (inputValue) => {
     // If there are no inputs for this, then it is the initial start.
-    refetchUSCounties();
     if (!searchUSState.length && !searchUSCounty.length) {
+      refetchUSCounties();
       setSearchUSState(inputValue);
       // setPrevPlaceholder(searchPlaceholder);
       // setSearchPlaceholder("Search by county");
@@ -143,7 +145,7 @@ const USSearchMapLayout = () => {
 
   // To render to the slider if the user entered a US State.
   useEffect(() => {
-    if (searchUSState.length) {
+    if (searchUSState.length && !usCountiesFetching) {
       if (usCountiesError) {
         setDataError({
           error: true,
@@ -152,7 +154,7 @@ const USSearchMapLayout = () => {
 
         setSearchUSState("");
         // refetchUSCounties();
-      } else if (!usCountiesError && usCountiesData) {
+      } else if (usCountiesSuccess) {
         const centeredRegion = centroidRegion(
           "united_states",
           searchUSState,
@@ -175,8 +177,7 @@ const USSearchMapLayout = () => {
         // refetchUSCounties();
       }
     }
-  }, [searchUSState, usCountiesData, usCountiesError]);
-  console.log("loading: ", usCountiesLoading);
+  }, [searchUSState, usCountiesError, usCountiesFetching, usCountiesSuccess]);
 
   // useEffect(() => {
   //   if (searchUSState.length && usCountiesError)
