@@ -201,7 +201,8 @@ const USSearchMapLayout = () => {
         Example: California and New York both have a "Kings county". This filters the county(in the right US state) user searched for.
       */
       const targetCountyObj = countyCoordinatesData.filter(
-        (countyObj) => countyObj.state === searchUSState
+        (countyObj) =>
+          countyObj.state.toLowerCase() === searchUSState.toLowerCase()
       )[0];
 
       // object with latitude and longtitude properties(stirngs)
