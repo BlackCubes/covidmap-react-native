@@ -15,17 +15,13 @@ import { useGetGlobalCovidStatsQuery } from "../../api/covidApi";
 import { ErrorModal } from "./../../commons/components/ErrorModal";
 
 const WorldMapLayout = () => {
-  const {
-    data: globalCovidStatsData,
-    isLoading: globalCovidStatsLoading,
-    error: globalCovidStatsError,
-  } = useGetGlobalCovidStatsQuery();
+  const { data: globalCovidStatsData, error: globalCovidStatsError } =
+    useGetGlobalCovidStatsQuery();
 
   const [userLocation, setUserLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
 
   const [sliderData, setSliderData] = useState(null);
-  const [sliderDataLoading, setSliderDataLoading] = useState(null);
   const [dataError, setDataError] = useState({
     error: false,
     message: "",
@@ -66,7 +62,6 @@ const WorldMapLayout = () => {
   useEffect(() => {
     if (globalCovidStatsData) {
       setSliderData(globalCovidStatsData);
-      setSliderDataLoading(globalCovidStatsLoading);
     }
   }, [globalCovidStatsData]);
 

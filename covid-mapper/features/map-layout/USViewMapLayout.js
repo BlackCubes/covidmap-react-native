@@ -15,17 +15,13 @@ import { useGetTotalsAllStatesUSQuery } from "../../api/covidApi";
 import { ErrorModal } from "../../commons/components/ErrorModal";
 
 const USViewMapLayout = () => {
-  const {
-    data: allUSStatesData,
-    isLoading: allUSStatesLoading,
-    error: allUSStatesError,
-  } = useGetTotalsAllStatesUSQuery();
+  const { data: allUSStatesData, error: allUSStatesError } =
+    useGetTotalsAllStatesUSQuery();
 
   const [userLocation, setUserLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
 
   const [sliderData, setSliderData] = useState(null);
-  const [sliderDataLoading, setSliderDataLoading] = useState(null);
   const [dataError, setDataError] = useState({
     error: false,
     message: "",
@@ -66,7 +62,6 @@ const USViewMapLayout = () => {
   useEffect(() => {
     if (allUSStatesData) {
       setSliderData(allUSStatesData);
-      setSliderDataLoading(allUSStatesLoading);
     }
   }, [allUSStatesData]);
 
