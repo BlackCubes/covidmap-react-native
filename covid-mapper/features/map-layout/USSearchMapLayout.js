@@ -11,7 +11,10 @@ import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { PopupSlider, PopupSliderButton } from "./components/popup-slider";
 import MapComponent from "../map/Map";
 import Searchbar from "../searchbar/Searchbar";
-import { useGetAllUSCountiesFromStateQuery } from "../../api/covidApi";
+import {
+  useGetAllUSCountiesFromStateQuery,
+  useGetUSCountyCoordinatesQuery,
+} from "../../api/covidApi";
 import { ErrorModal } from "../../commons/components/ErrorModal";
 import FloatingSearchButton from "../../commons/components/FloatingSearchButton/FloatingSearchButton";
 import { PreviousRegionButton } from "../../commons/components/PreviousRegionButton";
@@ -34,7 +37,6 @@ const USSearchMapLayout = () => {
   const [errorMsg, setErrorMsg] = useState(null);
 
   const [sliderData, setSliderData] = useState(null);
-  const [sliderDataLoading, setSliderDataLoading] = useState(null);
   const [dataError, setDataError] = useState({
     error: false,
     message: "",
@@ -58,12 +60,19 @@ const USSearchMapLayout = () => {
 
   const {
     data: usCountiesData,
-    isLoading: usCountiesLoading,
     isFetching: usCountiesFetching,
     isSuccess: usCountiesSuccess,
     error: usCountiesError,
     refetch: refetchUSCounties,
   } = useGetAllUSCountiesFromStateQuery(searchUSState);
+
+  // For obtaininig array of counties object, with "coordinates" & "state"(string; in case of different states having counties with same name)
+  const {
+    data: countyCoordinatesData,
+    isFetching: countyCoordinatesFetching,
+    isSuccess: countyCooordinatesSuccess,
+    error: countyCoordinatesError,
+  } = useGetUSCountyCoordinatesQuery(searchUSCounty);
 
   const [mapRegion, setMapRegion] = useState({
     latitude: 36.778259,
@@ -178,7 +187,6 @@ const USSearchMapLayout = () => {
 
         // Update the slider data to be displayed.
         setSliderData(usCountiesData);
-        setSliderDataLoading(usCountiesLoading);
 
         // Update the slider header to display the user's selected State.
         setSliderHeader(`${searchUSState} Data`);
@@ -186,32 +194,53 @@ const USSearchMapLayout = () => {
     }
   }, [searchUSState, usCountiesError, usCountiesFetching, usCountiesSuccess]);
 
-  // To render to the slider if the user entered a US County.
   useEffect(() => {
-    // First check if the user has entered a County and if the API data exists so that
-    // the County could be extracted from it (don't want to extract from NULL).
-    if (searchUSCounty.length && usCountiesData) {
-      // Extract the selected county, if it exists.
-      const selectedCountyData = retrieveCountyData(
-        searchUSCounty,
-        usCountiesData
-      );
-
-      // If the extracted selected county does not exist, let the user know what they
-      // typed is incorrect.
-      if (!selectedCountyData) {
+    if (searchUSCounty.length && !countyCoordinatesFetching) {
+      if (countyCoordinatesError) {
         setDataError({
           error: true,
-          message: "County not found or doesn't have any historical data",
+          message: countyCoordinatesError.data.message,
         });
-      } else {
+
+        setSearchUSCounty("");
+      } else if (countyCooordinatesSuccess) {
+        /*
+         Filter out the county object whose "state" property value matches searchUSState:
+          Example: California and New York both have a "Kings county". This filters the county(in the right US state) user searched for.
+        */
+        const targetCountyObj = countyCoordinatesData.filter(
+          (countyObj) =>
+            countyObj.state.toLowerCase() === searchUSState.toLowerCase()
+        )[0];
+
+        // object with latitude and longtitude properties(stirngs)
+        const { coordinates } = targetCountyObj;
+        const { latitude, longitude } = coordinates;
+
+        setMapRegion({
+          latitude: parseInt(latitude),
+          longitude: parseInt(longitude),
+          latitudeDelta: 1.0922,
+          longitudeDelta: 1.0421,
+        });
+
+        // Extract the selected county, if it exists.
+        const selectedCountyData = retrieveCountyData(
+          searchUSCounty,
+          usCountiesData
+        );
+
         setSliderData(selectedCountyData);
-        setSliderDataLoading(usCountiesLoading);
 
         setSliderHeader(`${searchUSCounty} Data`);
       }
     }
-  }, [searchUSCounty, usCountiesData]);
+  }, [
+    searchUSCounty,
+    countyCoordinatesError,
+    countyCoordinatesFetching,
+    countyCooordinatesSuccess,
+  ]);
 
   return (
     <>
@@ -231,6 +260,7 @@ const USSearchMapLayout = () => {
       ></FloatingSearchButton>
       {searchBarActive ? (
         <Searchbar
+          dataLoading={usCountiesFetching || countyCoordinatesFetching || false}
           handleSearchSubmit={handleSearchSubmit}
           searchPlaceholder={searchPlaceholder}
           opacityLevel={fadeAnim}
@@ -240,21 +270,24 @@ const USSearchMapLayout = () => {
         <></>
       )}
 
-      {searchUSState.length > 0 && !dataError.error && (
-        <PreviousRegionButton
-          previousMapRegion={prevRegion}
-          previousRegionTitle="state"
-          previousSearchPlaceholder={prevPlaceholder}
-          searchLandmass={searchUSState}
-          searchSubLandmass={searchUSCounty}
-          setMapRegion={setMapRegion}
-          setSearchLandmass={setSearchUSState}
-          setSearchPlaceholder={setSearchPlaceholder}
-          setSearchSubLandmass={setSearchUSCounty}
-        />
-      )}
+      {!usCountiesFetching &&
+        !countyCoordinatesFetching &&
+        searchUSState.length > 0 &&
+        !dataError.error && (
+          <PreviousRegionButton
+            previousMapRegion={prevRegion}
+            previousRegionTitle="state"
+            previousSearchPlaceholder={prevPlaceholder}
+            searchLandmass={searchUSState}
+            searchSubLandmass={searchUSCounty}
+            setMapRegion={setMapRegion}
+            setSearchLandmass={setSearchUSState}
+            setSearchPlaceholder={setSearchPlaceholder}
+            setSearchSubLandmass={setSearchUSCounty}
+          />
+        )}
 
-      {!sliderData ? null : !sliderButton ? null : (
+      {usCountiesFetching ? null : countyCoordinatesFetching ? null : !sliderData ? null : !sliderButton ? null : (
         <PopupSliderButton
           handlePresentModalPress={handlePresentModalPress}
           setSliderButton={setSliderButton}
@@ -262,14 +295,17 @@ const USSearchMapLayout = () => {
       )}
 
       <BottomSheetModalProvider>
-        {!dataError.error && sliderData && (
-          <PopupSlider
-            setSliderButton={setSliderButton}
-            sliderData={sliderData}
-            sliderHeader={sliderHeader}
-            bottomSheetModalRef={bottomSheetModalRef}
-          />
-        )}
+        {!usCountiesFetching &&
+          !countyCoordinatesFetching &&
+          !dataError.error &&
+          sliderData && (
+            <PopupSlider
+              setSliderButton={setSliderButton}
+              sliderData={sliderData}
+              sliderHeader={sliderHeader}
+              bottomSheetModalRef={bottomSheetModalRef}
+            />
+          )}
 
         <Pressable onPressOut={Keyboard.dismiss}>
           <MapComponent

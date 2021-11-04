@@ -28,7 +28,6 @@ const SearchbarInput = styled.TextInput`
   border-radius: 50px;
 `;
 
-
 const SearchbarSpinnerLoading = styled.View`
   position: absolute;
   right: 5%;
@@ -40,35 +39,31 @@ const Searchbar = ({
   opacityLevel,
   handlePresentModalPress,
   dataLoading,
-  searchOptionsAlertMessage
+  searchOptionsAlertMessage,
 }) => {
   const [searchInput, setSearchInput] = useState("");
   const [isFocus, setIsFocus] = useState(false);
   const [isSearchIconPressedIn, setIsSearchIconPressedIn] = useState(false);
-  
 
   // For later use: if searchOptions doesn't contain search input, render Alert
 
-        // Returns boolean for conditionally rendering Alert in Searchbar
-      let validSearchInput;
-      // if(searchOptionsAlertMessage.length>0){
-      //   validSearchInput = searchOptionsAlertMessage.some(region=>region===searchInput.toLowerCase())
-      // } 
+  // Returns boolean for conditionally rendering Alert in Searchbar
+  let validSearchInput;
+  // if(searchOptionsAlertMessage.length>0){
+  //   validSearchInput = searchOptionsAlertMessage.some(region=>region===searchInput.toLowerCase())
+  // }
 
-      // const CreateSearchOptionsAlert = ()=>Alert.alert( "What you could search for: \n\n",
-      // `${searchOptionsAlertMessage.map(region=><Text>{capitalize(region)+',\n'}</Text>)}`,
-      // [
-      //   {
-      //     text: "Cancel",
-      //   },
-      // ])
+  // const CreateSearchOptionsAlert = ()=>Alert.alert( "What you could search for: \n\n",
+  // `${searchOptionsAlertMessage.map(region=><Text>{capitalize(region)+',\n'}</Text>)}`,
+  // [
+  //   {
+  //     text: "Cancel",
+  //   },
+  // ])
 
-       
-      if(validSearchInput){
-        CreateSearchOptionsAlert();
-      }
-
-  
+  if (validSearchInput) {
+    CreateSearchOptionsAlert();
+  }
 
   return (
     <Animated.View
@@ -82,10 +77,13 @@ const Searchbar = ({
           onPressIn={() => setIsSearchIconPressedIn(true)}
           onPressOut={() => setIsSearchIconPressedIn(false)}
           onPress={() => {
-            handleSearchSubmit(searchInput);
-            setSearchInput("");
-            handlePresentModalPress();
-            Keyboard.dismiss();
+            // If the data is being fetched, don't let them submit anything.
+            if (!dataLoading) {
+              handleSearchSubmit(searchInput);
+              setSearchInput("");
+              handlePresentModalPress();
+              Keyboard.dismiss();
+            }
           }}
         >
           <SearchbarIcon
@@ -105,9 +103,12 @@ const Searchbar = ({
         onBlur={() => setIsFocus(!searchInput.length ? false : true)}
         onChangeText={(text) => setSearchInput(text)}
         onSubmitEditing={() => {
-          handleSearchSubmit(searchInput);
-          handlePresentModalPress();
-          setSearchInput("");
+          // If the data is being fetched, don't let them submit anything.
+          if (!dataLoading) {
+            handleSearchSubmit(searchInput);
+            handlePresentModalPress();
+            setSearchInput("");
+          }
         }}
       />
 

@@ -173,6 +173,27 @@ export const covidApi = createApi({
           population: response.population ?? 0,
         })),
     }),
+    getUSCountyCoordinates: builder.query({
+      query: (county) => {
+        const endpoint = !county
+          ? "not-chosen"
+          : !county.length
+          ? "not-chosen"
+          : county.toLowerCase();
+        return `jhucsse/counties/${endpoint}`;
+      },
+      transformResponse: (response) =>
+        response.map((countyObj) => {
+          const { province, coordinates, county, updatedAt, stats } = countyObj;
+          return {
+            state: province,
+            county,
+            coordinates,
+            updatedAt,
+            stats
+          };
+        }),
+    }),
 
     // VACCINES
     getVaccinesTrialData: builder.query({
@@ -258,6 +279,7 @@ export const {
   useGetTotalOneUSStateQuery,
   useGetAllCountriesProvincesHistoricalQuery,
   useGetAllUSCountiesFromStateQuery,
+  useGetUSCountyCoordinatesQuery,
   useGetCountryHistoricalQuery,
   useGetCountriesHistoricalQuery,
   useGetProvinceHistoricalQuery,
