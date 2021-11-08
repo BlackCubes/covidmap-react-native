@@ -79,8 +79,9 @@ const PopupSlider = ({
       ) : (
         <BottomSheetFlatList
           data={sliderData}
-          initialNumToRender={2}
-          keyExtractor={(item, index) => item + index}
+          initialNumToRender={10}
+          onE
+          keyExtractor={(item, index) => `${item.county}-${index}`}
           renderItem={({ item }) => (
             <PopupSliderData
               cases={item.cases}
