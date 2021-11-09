@@ -1761,6 +1761,13 @@
     "redux-thunk" "^2.3.0"
     "reselect" "^4.0.0"
 
+"@stream-io/flat-list-mvcp@^0.10.1", "@stream-io/flat-list-mvcp@>=0.10.0":
+  "integrity" "sha512-/snvyGqEO/7WKrcFOUxh1s1GPfYaUOwr7wyWgZogOUrGXE75zzEvOe39mooMoCJ8G92govZoAO5LCkftXQUoAQ=="
+  "resolved" "https://registry.npmjs.org/@stream-io/flat-list-mvcp/-/flat-list-mvcp-0.10.1.tgz"
+  "version" "0.10.1"
+  dependencies:
+    "lodash.debounce" "^4.0.8"
+
 "@types/geojson@^7946.0.7":
   "integrity" "sha512-1rkryxURpr6aWP7R786/UQOkJ3PcpQiWkAXBmdWc7ryFWqN6a4xfK7BtjXvFBKO9LjQ+MWQSWxYeZX1OApnArA=="
   "resolved" "https://registry.npmjs.org/@types/geojson/-/geojson-7946.0.8.tgz"
@@ -5407,6 +5414,11 @@
   "integrity" "sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
+
+"react-native-bidirectional-infinite-scroll@^0.3.3":
+  "integrity" "sha512-zxYJDjrxTkGqg83WH3fSdufg79XZ7xDDn9HdHlKo9avAcz92Rf28/ivDeUM2aOUmmboqJK8BqtVByT6cF/taYg=="
+  "resolved" "https://registry.npmjs.org/react-native-bidirectional-infinite-scroll/-/react-native-bidirectional-infinite-scroll-0.3.3.tgz"
+  "version" "0.3.3"
 
 "react-native-chart-kit@^6.11.0":
   "integrity" "sha512-mRSfW+mcyVSi0UZKFucru5h5TPB6UcWrMi/DphICRpPJWlvIVAv/6VYGFA57NFDLoRVufFjbsRRrms+TOq61jw=="

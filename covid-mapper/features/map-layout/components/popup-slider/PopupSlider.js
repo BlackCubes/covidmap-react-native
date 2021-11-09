@@ -1,12 +1,13 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styled from "styled-components/native";
 import {
   BottomSheetModal,
   BottomSheetFlatList,
   BottomSheetScrollView,
 } from "@gorhom/bottom-sheet";
-import { capitalize } from "../../../../utils";
+import { capitalize, loadMore } from "../../../../utils";
 import PopupSliderData from "./PopupSliderData";
+import Spinner from "../../../../commons/components/Spinner/Spinner";
 
 const PopupSliderHeader = styled.View`
   padding-top: 17px;
@@ -31,13 +32,34 @@ const PopupContent = styled.Text`
   color: #18181f;
 `;
 
+const PAGE_SIZE = 20;
+
 const PopupSlider = ({
   setSliderButton,
   sliderData,
   sliderHeader,
   bottomSheetModalRef,
 }) => {
+  // This is for the infinite scroll simulator to not render all the data at once.
+  const [dataLoader, setDataLoader] = useState([]);
+  // This is for the infinite scroll simulator to conditionally show the spinner.
+  const [isLoaderSpinner, setIsLoaderSpinner] = useState(true);
+  // This is for the infinite scroll simulator to paginate.
+  const [page, setPage] = useState(1);
+  // This is the starting and ending height of the Slider.
   const snapPoints = useMemo(() => ["7%", "82%"], []);
+
+  // This is for the infinite scroll simulator that initializes the dataLoader if the
+  // API data is an array and not an object.
+  useEffect(() => {
+    if (
+      sliderData &&
+      typeof sliderData === "object" &&
+      Array.isArray(sliderData)
+    ) {
+      setDataLoader(sliderData.slice(0, PAGE_SIZE));
+    }
+  }, [sliderData]);
 
   if (!sliderData) return null;
 
@@ -61,6 +83,10 @@ const PopupSlider = ({
         </PopupSliderHeaderText>
       </PopupSliderHeader>
 
+      {/* Since the API data could either be an array or an object, this checks what data
+          structure it is. If it is an object, then display the data with no FlatList.
+          Otherwise, if it is an array, then display the data with the FlatList.
+      */}
       {typeof sliderData === "object" && !Array.isArray(sliderData) ? (
         <BottomSheetScrollView>
           <PopupSliderData
@@ -78,9 +104,27 @@ const PopupSlider = ({
         </BottomSheetScrollView>
       ) : (
         <BottomSheetFlatList
-          data={sliderData}
-          initialNumToRender={2}
-          keyExtractor={(item, index) => item + index}
+          data={dataLoader}
+          initialNumToRender={PAGE_SIZE}
+          onEndReached={() => {
+            // This is done because the onEndReached would still be activated even when
+            // you reach to the end of the Slider scroll.
+            if (dataLoader.length !== sliderData.length) {
+              setDataLoader((prevState) => {
+                const newData = loadMore(sliderData, page, PAGE_SIZE, setPage);
+
+                return prevState.concat(newData);
+              });
+            }
+
+            // If the length of the dataLoader equals the same as the sliderData, then stop
+            // the Spinner.
+            dataLoader.length === sliderData.length
+              ? setIsLoaderSpinner(false)
+              : setIsLoaderSpinner(true);
+          }}
+          ListFooterComponent={isLoaderSpinner ? <Spinner /> : null}
+          keyExtractor={(item, index) => `${item.county}-${index}`}
           renderItem={({ item }) => (
             <PopupSliderData
               cases={item.cases}
