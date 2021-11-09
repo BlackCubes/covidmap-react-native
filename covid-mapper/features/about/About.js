@@ -1,11 +1,12 @@
 import * as React from "react";
-import { SafeAreaView, Text, ScrollView, Image } from "react-native";
+import { SafeAreaView, Text, ScrollView, Pressable, View } from "react-native";
 import styled from "styled-components/native";
 import Spinner from "../../commons/components/Spinner/Spinner";
 import { useFonts, NotoSans_400Regular } from "@expo-google-fonts/noto-sans";
 import AboutSection from "./component/AboutSection";
 import { teamData } from "../../utils/teamData";
-
+import { LinkedInIcon } from "../../commons/components/Icons";
+import * as Linking from "expo-linking";
 const Container = styled.View`
   height: auto;
   width: 100%;
@@ -34,6 +35,17 @@ const LogoImage = styled.Image`
 const Intro = styled.Text`
   text-align: center;
   font-size: 18px;
+`;
+
+const ConnectSection = styled.View`
+  height: 120px;
+  width: 100%;
+  margin-top: 8%;
+`;
+
+const LinkedInWrapper = styled.View`
+  display: flex;
+  flex-direction: column;
 `;
 
 const About = () => {
@@ -75,6 +87,35 @@ const About = () => {
             {teamData.map((person) => (
               <AboutSection key={person.name} item={person} />
             ))}
+
+            <ConnectSection>
+              <Text
+                style={{
+                  textAlign: "center",
+                  marginTop: "10%",
+                  fontSize: 20,
+                  fontStyle: "italic",
+                  color: "#4092e5",
+                  paddingBottom: '4%'
+                }}
+              >
+                Connect with Us
+              </Text>
+              {/* LinkedIn Icons */}
+              <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
+              {teamData.map((person) => (
+                <Pressable
+                  key={person.name}
+                  onPress={() => Linking.openURL(person.linkedIn)}
+                >
+                  <LinkedInWrapper>
+                    <LinkedInIcon />
+                    <Text style={{color: '#494949'}}>{person.name}</Text>
+                  </LinkedInWrapper>
+                </Pressable>
+              ))}
+              </View>
+            </ConnectSection>
           </Container>
         </ScrollView>
       )}

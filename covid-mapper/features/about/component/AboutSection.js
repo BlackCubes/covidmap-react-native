@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Text } from "react-native";
 import styled from "styled-components/native";
-import { ToadIcon } from "../../../commons/components/Icons";
+import { ToadIcon, LinkedInIcon } from "../../../commons/components/Icons";
 const SectionContainer = styled.View`
   margin: 6% 0% 0% 0%;
 `;
@@ -28,7 +28,7 @@ const AboutSection = ({ item }) => {
     <SectionContainer>
       <NameWrapper>
         <ToadIcon />
-        <Name style={{ fontFamily: "NotoSans_400Regular", borderColor: "red" }}>
+        <Name style={{ fontFamily: "NotoSans_400Regular" }}>
           {item.name}
         </Name>
         <FlipToad>
