@@ -41,7 +41,7 @@ const PopupSlider = ({
   bottomSheetModalRef,
 }) => {
   const [dataLoader, setDataLoader] = useState([]);
-  const [isLoaderSpinner, setIsLoaderSpinner] = useState(false);
+  const [isLoaderSpinner, setIsLoaderSpinner] = useState(true);
   const [page, setPage] = useState(1);
   const snapPoints = useMemo(() => ["7%", "82%"], []);
 
@@ -97,15 +97,19 @@ const PopupSlider = ({
           data={dataLoader}
           initialNumToRender={PAGE_SIZE}
           onEndReached={() => {
-            setDataLoader((prevState) => {
-              const newData = loadMore(sliderData, page, PAGE_SIZE, setPage);
+            if (dataLoader.length !== sliderData.length) {
+              setDataLoader((prevState) => {
+                const newData = loadMore(sliderData, page, PAGE_SIZE, setPage);
 
-              return prevState.concat(newData);
-            });
+                return prevState.concat(newData);
+              });
+            }
 
-            setIsLoaderSpinner(!isLoaderSpinner);
+            dataLoader.length === sliderData.length
+              ? setIsLoaderSpinner(false)
+              : setIsLoaderSpinner(true);
           }}
-          ListFooterComponent={<Spinner />}
+          ListFooterComponent={isLoaderSpinner ? <Spinner /> : null}
           keyExtractor={(item, index) => `${item.county}-${index}`}
           renderItem={({ item }) => (
             <PopupSliderData
