@@ -8,7 +8,11 @@ import {
 } from "react-native";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
-import { PopupSlider, PopupSliderButton } from "./components/popup-slider";
+import {
+  PopupSlider,
+  PopupSliderArray,
+  PopupSliderButton,
+} from "./components/popup-slider";
 import MapComponent from "../map/Map";
 import Searchbar from "../searchbar/Searchbar";
 import {
@@ -230,7 +234,7 @@ const USSearchMapLayout = () => {
           usCountiesData
         );
 
-        setSliderData(selectedCountyData);
+        setSliderData([selectedCountyData]);
 
         setSliderHeader(`${searchUSCounty} Data`);
       }
@@ -300,10 +304,11 @@ const USSearchMapLayout = () => {
           !dataError.error &&
           sliderData && (
             <PopupSlider
+              bottomSheetModalRef={bottomSheetModalRef}
               setSliderButton={setSliderButton}
               sliderData={sliderData}
               sliderHeader={sliderHeader}
-              bottomSheetModalRef={bottomSheetModalRef}
+              SliderStructureComponent={PopupSliderArray}
             />
           )}
 

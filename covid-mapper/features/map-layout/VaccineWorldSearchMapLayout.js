@@ -8,7 +8,11 @@ import {
 } from "react-native";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
-import { PopupSlider, PopupSliderButton } from "./components/popup-slider";
+import {
+  PopupSlider,
+  PopupSliderButton,
+  PopupSliderObject,
+} from "./components/popup-slider";
 import MapComponent from "../map/Map";
 import Searchbar from "../searchbar/Searchbar";
 import { useGetTotalPeopleVaccinatedByCountryQuery } from "../../api/covidApi";
@@ -203,10 +207,11 @@ const VaccineWorldSearchMapLayout = () => {
       <BottomSheetModalProvider>
         {!dataError.error && sliderData && (
           <PopupSlider
+            bottomSheetModalRef={bottomSheetModalRef}
             setSliderButton={setSliderButton}
             sliderData={sliderData}
             sliderHeader={sliderHeader}
-            bottomSheetModalRef={bottomSheetModalRef}
+            SliderStructureComponent={PopupSliderObject}
           />
         )}
 

@@ -9,7 +9,11 @@ import * as Location from "expo-location";
 import { useWindowDimensions, Pressable, Keyboard } from "react-native";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
-import { PopupSlider, PopupSliderButton } from "./components/popup-slider";
+import {
+  PopupSlider,
+  PopupSliderButton,
+  PopupSliderObject,
+} from "./components/popup-slider";
 import MapComponent from "../map/Map";
 import { useGetGlobalCovidStatsQuery } from "../../api/covidApi";
 import { ErrorModal } from "./../../commons/components/ErrorModal";
@@ -128,10 +132,11 @@ const WorldMapLayout = () => {
 
       <BottomSheetModalProvider>
         <PopupSlider
+          bottomSheetModalRef={bottomSheetModalRef}
           setSliderButton={setSliderButton}
           sliderData={sliderData}
           sliderHeader={sliderHeader}
-          bottomSheetModalRef={bottomSheetModalRef}
+          SliderStructureComponent={PopupSliderObject}
         />
 
         <Pressable onPressOut={Keyboard.dismiss}>
