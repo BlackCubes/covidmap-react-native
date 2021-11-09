@@ -51,7 +51,7 @@ const PopupSlider = ({
     ) {
       setDataLoader(sliderData.slice(0, PAGE_SIZE));
     }
-  }, []);
+  }, [sliderData]);
 
   if (!sliderData) return null;
 
