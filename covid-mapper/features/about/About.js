@@ -10,8 +10,8 @@ const Container = styled.View`
   height: 100%;
   width: 100%;
   display: flex;
-  padding-right: 5%;
-  padding-left: 5%;
+  padding-right: 8%;
+  padding-left: 8%;
   justify-content: center;
 `;
 
@@ -42,13 +42,15 @@ const About = () => {
         <SafeAreaView>
           <Container>
             <Title
-              style={{ fontFamily: "NotoSans_400Regular", textAlign: "center", paddingTop: '10%' }}
+              style={{ fontFamily: "NotoSans_400Regular", textAlign: "center", padding: '6%' }}
             >
-              Our Story{"\n"}
+              Our Story
             </Title>
             <Text style={{ fontFamily: "NotoSans_400Regular", textAlign: "center" }}>
-              We are a team of developers from Central California learning React
-              Native for mobile app development.{"\n"} Our developer team consists of:
+              We are software engineers based in Central California, coming together from various backgrounds to learn React
+              and React Native for app development. 
+              {"\n\n"}
+              This project is actually our first mobile app ever, and it is cross-platform (built for both Android and iOS).{"\n\n"} Our team consists of:
             </Text>
             <FlatList
               data={teamData}

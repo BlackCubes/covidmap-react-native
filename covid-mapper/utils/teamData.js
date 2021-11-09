@@ -10,6 +10,6 @@ export const teamData = [
     },
     {
       name: "Connie L.",
-      body: "About Connie...",
+      body: "I come from a biology background, but coding is what I actually found my passion in. I've been through a full-stack software engineer immersive program. Now, I work under Bitwise Industries and still learning more about javascript and varius technologies.",
     },
   ];
