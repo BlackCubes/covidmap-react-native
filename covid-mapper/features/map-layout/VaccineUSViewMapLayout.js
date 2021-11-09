@@ -3,7 +3,11 @@ import { Keyboard, Pressable, useWindowDimensions } from "react-native";
 import * as Location from "expo-location";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
-import { PopupSlider, PopupSliderButton } from "./components/popup-slider";
+import {
+  PopupSlider,
+  PopupSliderArray,
+  PopupSliderButton,
+} from "./components/popup-slider";
 import MapComponent from "../map/Map";
 import { useGetTotalPeopleVaccinatedByStatesQuery } from "../../api/covidApi";
 
@@ -98,10 +102,11 @@ const VaccineUSViewMapLayout = () => {
 
       <BottomSheetModalProvider>
         <PopupSlider
+          bottomSheetModalRef={bottomSheetModalRef}
           setSliderButton={setSliderButton}
           sliderData={sliderData}
           sliderHeader={sliderHeader}
-          bottomSheetModalRef={bottomSheetModalRef}
+          SliderStructureComponent={PopupSliderArray}
         />
 
         <Pressable onPressOut={Keyboard.dismiss}>
