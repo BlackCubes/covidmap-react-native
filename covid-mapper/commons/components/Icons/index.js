@@ -11,6 +11,8 @@ const USAFlagIcon = () => <FaIcon name="flag-usa" size={15} color="#000" />;
 
 const GlobeIcon = () => <Entypo name="globe" size={15} color="#000" />;
 
+const LinkedInIcon =()=><Entypo name="linkedin-with-circle" size={40} color="#0A66C2"/>
+
 const SyringeIcon = () => <FaIcon name="syringe" size={15} color="#000" />;
 
 const SearchIcon = () => <Icon name="search1" size={20} color="#aaa" />;
@@ -28,4 +30,5 @@ export {
   MenuIcon,
   ToadIcon,
   USAFlagIcon,
+  LinkedInIcon
 };
