@@ -7,6 +7,7 @@ import {
 } from "@gorhom/bottom-sheet";
 import { capitalize, loadMore } from "../../../../utils";
 import PopupSliderData from "./PopupSliderData";
+import Spinner from "../../../../commons/components/Spinner/Spinner";
 
 const PopupSliderHeader = styled.View`
   padding-top: 17px;
@@ -31,7 +32,7 @@ const PopupContent = styled.Text`
   color: #18181f;
 `;
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 20;
 
 const PopupSlider = ({
   setSliderButton,
@@ -40,6 +41,7 @@ const PopupSlider = ({
   bottomSheetModalRef,
 }) => {
   const [dataLoader, setDataLoader] = useState([]);
+  const [isLoaderSpinner, setIsLoaderSpinner] = useState(false);
   const [page, setPage] = useState(1);
   const snapPoints = useMemo(() => ["7%", "82%"], []);
 
@@ -100,7 +102,10 @@ const PopupSlider = ({
 
               return prevState.concat(newData);
             });
+
+            setIsLoaderSpinner(!isLoaderSpinner);
           }}
+          ListFooterComponent={<Spinner />}
           keyExtractor={(item, index) => `${item.county}-${index}`}
           renderItem={({ item }) => (
             <PopupSliderData
