@@ -1,11 +1,11 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styled from "styled-components/native";
 import {
   BottomSheetModal,
   BottomSheetFlatList,
   BottomSheetScrollView,
 } from "@gorhom/bottom-sheet";
-import { capitalize } from "../../../../utils";
+import { capitalize, loadMore } from "../../../../utils";
 import PopupSliderData from "./PopupSliderData";
 
 const PopupSliderHeader = styled.View`
@@ -31,13 +31,27 @@ const PopupContent = styled.Text`
   color: #18181f;
 `;
 
+const PAGE_SIZE = 10;
+
 const PopupSlider = ({
   setSliderButton,
   sliderData,
   sliderHeader,
   bottomSheetModalRef,
 }) => {
+  const [dataLoader, setDataLoader] = useState([]);
+  const [page, setPage] = useState(1);
   const snapPoints = useMemo(() => ["7%", "82%"], []);
+
+  useEffect(() => {
+    if (
+      sliderData &&
+      typeof sliderData === "object" &&
+      Array.isArray(sliderData)
+    ) {
+      setDataLoader(sliderData.slice(0, PAGE_SIZE));
+    }
+  }, []);
 
   if (!sliderData) return null;
 
@@ -78,9 +92,15 @@ const PopupSlider = ({
         </BottomSheetScrollView>
       ) : (
         <BottomSheetFlatList
-          data={sliderData}
-          initialNumToRender={10}
-          onE
+          data={dataLoader}
+          initialNumToRender={PAGE_SIZE}
+          onEndReached={() => {
+            setDataLoader((prevState) => {
+              const newData = loadMore(sliderData, page, PAGE_SIZE, setPage);
+
+              return prevState.concat(newData);
+            });
+          }}
           keyExtractor={(item, index) => `${item.county}-${index}`}
           renderItem={({ item }) => (
             <PopupSliderData
