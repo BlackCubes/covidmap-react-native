@@ -149,7 +149,8 @@ const MapLayout = ({ route }) => {
   const bottomSheetModalRef = useRef(null);
   const snapPoints = useMemo(() => ["25%", "82%"], []);
 
-  const handleSearchSubmit = (inputValue) => {
+  const handleSearchSubmit = (searchInput) => {
+    const inputValue=searchInput.trim();
     // Based on the name of the route to update particular states.
     if (routeName === "Country Province Stats") {
       // If there are no inputs for this, then it is the initial start.
