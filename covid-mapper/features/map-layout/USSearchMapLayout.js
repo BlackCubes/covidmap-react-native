@@ -112,7 +112,8 @@ const USSearchMapLayout = () => {
   // State to handle the opening/closing of the Slider
   const [sliderButton, setSliderButton] = useState(true);
 
-  const handleSearchSubmit = (inputValue) => {
+  const handleSearchSubmit = (searchInput) => {
+    const inputValue = searchInput.trim();
     // There must be a input longer than 0 characters.
     if (inputValue.length) {
       // If there are no inputs for State, then it is the initial start.
