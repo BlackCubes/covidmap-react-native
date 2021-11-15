@@ -1,11 +1,11 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { Text, SafeAreaView, FlatList } from "react-native";
 import styled from "styled-components/native";
 import VaccineItem from "./components/VaccineItem";
 import { useGetVaccinesTrialDataQuery } from "../../api/covidApi";
-import Spinner from '../../commons/components/Spinner/Spinner'
-import uuid from 'react-native-uuid';
-import { useFonts, NotoSans_400Regular} from '@expo-google-fonts/noto-sans';
+import Spinner from "../../commons/components/Spinner/Spinner";
+import uuid from "react-native-uuid";
+import { useFonts, NotoSans_400Regular } from "@expo-google-fonts/noto-sans";
 
 const Container = styled.View`
   height: 100%;
@@ -42,61 +42,60 @@ const ListContainer = styled.View`
   margin-bottom: 2%;
 `;
 
-
 const VaccineLayout = () => {
-  const {
-    data: trialData,
-    isLoading,
-    error,
-  } = useGetVaccinesTrialDataQuery();
+  const { data: trialData, isLoading, error } = useGetVaccinesTrialDataQuery();
+  const [hideText, setHideText] = useState(true);
   let [fontsLoaded] = useFonts({
-    NotoSans_400Regular
+    NotoSans_400Regular,
   });
   if (error) {
-      return (<SafeAreaView>
+    return (
+      <SafeAreaView>
         <Container>
-         <Text>Error: {error}</Text>;
+          <Text>Error: {error}</Text>;
         </Container>
-    </SafeAreaView>)
-  };
-
-  if (isLoading || !fontsLoaded || !trialData) return (<SafeAreaView>
-      <Container>
-        <Spinner/>
-      </Container>
-  </SafeAreaView>);
-
-  
-
-  const renderItem =()=>{
-    return trialData["data"].map(item=>(<VaccineItem
-      key={uuid.v4()}
-      candidate={item.candidate}
-      mechanism={item.mechanism}
-      institutions={item.institutions}
-      details={item.details}
-      sponsors={item.sponsors}
-      trialPhase={item.trialPhase}
-    />))
+      </SafeAreaView>
+    );
   }
+
+  if (isLoading || !fontsLoaded || !trialData)
+    return (
+      <SafeAreaView>
+        <Container>
+          <Spinner />
+        </Container>
+      </SafeAreaView>
+    );
 
   return (
     <SafeAreaView>
       <Container>
         <Header>
-          <Text style={{ color: "#F6F6F6", fontSize: 20 }}>
+          <Text style={{ color: "#F6F6F6", fontSize: 18 }}>
             Vaccine Candidates in Development
           </Text>
         </Header>
         {/* List starts here */}
         <ListContainer>
           <FlatList
-            data={trialData["data"]} 
+            data={trialData["data"]}
             ItemSeparatorComponent={() => <LineSeparator />}
-            initialNumToRender={3}
+            initialNumToRender={5}
             removeClippedSubviews={true}
             keyExtractor={(item, index) => item + index}
-            renderItem={renderItem}
+            renderItem={({ item }) => (
+              <VaccineItem
+                key={uuid.v4()}
+                candidate={item.candidate}
+                mechanism={item.mechanism}
+                institutions={item.institutions}
+                details={item.details}
+                sponsors={item.sponsors}
+                trialPhase={item.trialPhase}
+                hideText={hideText}
+                setHideText={setHideText}
+              />
+            )}
           />
         </ListContainer>
       </Container>

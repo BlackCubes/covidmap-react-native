@@ -65,8 +65,9 @@ const VaccineItem = ({
   details,
   trialPhase,
   institutions,
+  hideText,
+  setHideText
 }) => {
-  const [hideText, setHideText] = useState(true);
   const viewMoreDetails = () => setHideText(!hideText);
 
 
