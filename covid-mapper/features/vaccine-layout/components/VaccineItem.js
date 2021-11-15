@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Text, Pressable, SafeAreaView } from "react-native";
 import styled from "styled-components/native";
 import he from "he";
@@ -65,8 +65,9 @@ const VaccineItem = ({
   details,
   trialPhase,
   institutions,
+  hideText,
+  setHideText
 }) => {
-  const [hideText, setHideText] = useState(true);
   const viewMoreDetails = () => setHideText(!hideText);
 
 
