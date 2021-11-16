@@ -8,12 +8,25 @@ import Spinner from "../../commons/components/Spinner/Spinner";
 const chartWidth = Dimensions.get("window").width - 30;
 const chartHeight = Dimensions.get("window").width - 20;
 
-const CasesOverTimeGraph = ({ graphData }) => {
+const chartConfig = {
+  backgroundColor: "#e26a00",
+  backgroundGradientFrom: "#092979",
+  backgroundGradientTo: "#00b5ff",
+  decimalPlaces: 0,
+  color: (opacity = 1) => `rgba(245, 255, 255, ${opacity})`,
+  labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+  propsForDots: {
+    r: "2",
+    strokeWidth: "2",
+  },
+};
+
+const CasesOverTimeGraph = ({ cases, deaths, recovered }) => {
   let [fontsLoaded] = useFonts({
     NotoSans_400Regular,
   });
 
-  if (!fontsLoaded || !graphData)
+  if (!fontsLoaded || !cases)
     return (
       <SafeAreaView>
         <View
@@ -26,6 +39,25 @@ const CasesOverTimeGraph = ({ graphData }) => {
       </SafeAreaView>
     );
 
+  const data = {
+    labels: cases.map((point) => point.x), // array of date strings
+    datasets: [
+      {
+        data: cases.map((point) => point.y),
+        color: (opacity = 1) => `rgba(255,167,38,${opacity})`, // should be violet
+      },
+      {
+        data: deaths.map((point) => point.y), //map over deaths
+        color: (opacity = 1) => `rgba(250, 21, 55, ${opacity})`, // should be BLUE GRAY
+      },
+      {
+        data: recovered?.map((point) => point.y), //map over recovered(?),
+        color: (opacity = 1) => `rgba(67, 255, 100, ${opacity})`, // should be yellowish
+      },
+    ],
+    legend: ["Cases", "Deaths", "Recovered"],
+  };
+
   return (
     <View
       style={{
@@ -33,35 +65,15 @@ const CasesOverTimeGraph = ({ graphData }) => {
       }}
     >
       <Text style={{ textAlign: "center", fontFamily: "NotoSans_400Regular" }}>
-        Last 30 Days cases/time
+        Data from Past 30 Days
       </Text>
+      {/* CHART */}
       <LineChart
-        data={{
-          labels: graphData.map((point) => point.x),
-          datasets: [
-            {
-              data: graphData.map((point) => {
-                return point.y;
-              }),
-            },
-          ],
-        }}
-        width={chartWidth} // from react-native
+        data={data}
+        width={chartWidth}
         height={chartHeight}
         yAxisInterval={1.7} // optional, defaults to 1
-        chartConfig={{
-          backgroundColor: "#e26a00",
-          backgroundGradientFrom: "#092979",
-          backgroundGradientTo: "#00b5ff",
-          decimalPlaces: 0,
-          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-          labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-          propsForDots: {
-            r: "1",
-            strokeWidth: "2",
-            stroke: "#ffa726",
-          },
-        }}
+        chartConfig={chartConfig}
         bezier
         style={{
           marginVertical: 10,
