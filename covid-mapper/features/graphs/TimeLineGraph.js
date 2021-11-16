@@ -1,27 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Dimensions, View, Text, SafeAreaView } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import numSeparator from "../../utils/numSeparator";
 import { useFonts, NotoSans_400Regular } from "@expo-google-fonts/noto-sans";
 import Spinner from "../../commons/components/Spinner/Spinner";
+import { Rect, Text as TextSVG, Svg } from "react-native-svg";
 
 const chartWidth = Dimensions.get("window").width - 30;
 const chartHeight = Dimensions.get("window").width - 20;
 
 const chartConfig = {
   backgroundColor: "#e26a00",
-  backgroundGradientFrom: "#092979",
-  backgroundGradientTo: "#00b5ff",
+  backgroundGradientTo: "#092979",
+  backgroundGradientFrom: "#08130D",
   decimalPlaces: 0,
   color: (opacity = 1) => `rgba(245, 255, 255, ${opacity})`,
   labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
   propsForDots: {
-    r: "2",
-    strokeWidth: "2",
+    r: "2", // dot radius
   },
 };
 
 const CasesOverTimeGraph = ({ cases, deaths, recovered }) => {
+  let [tooltipPos, setTooltipPos] = useState({
+    x: 0,
+    y: 0,
+    visible: false,
+    value: 0,
+    toolTipX: "",
+    toolTipY: 0
+  });
+
   let [fontsLoaded] = useFonts({
     NotoSans_400Regular,
   });
@@ -44,15 +53,15 @@ const CasesOverTimeGraph = ({ cases, deaths, recovered }) => {
     datasets: [
       {
         data: cases.map((point) => point.y),
-        color: (opacity = 1) => `rgba(255,167,38,${opacity})`, // should be violet
+        color: (opacity = 1) => `rgba(255,167,38,${opacity})`, // yellow
       },
       {
         data: deaths.map((point) => point.y), //map over deaths
-        color: (opacity = 1) => `rgba(250, 21, 55, ${opacity})`, // should be BLUE GRAY
+        color: (opacity = 1) => `rgba(250, 21, 55, ${opacity})`, // red
       },
       {
-        data: recovered?.map((point) => point.y), //map over recovered(?),
-        color: (opacity = 1) => `rgba(67, 255, 100, ${opacity})`, // should be yellowish
+        data: recovered?.map((point) => point.y), // if 'recovered' is available
+        color: (opacity = 1) => `rgba(67, 255, 100, ${opacity})`, // green
       },
     ],
     legend: ["Cases", "Deaths", "Recovered"],
@@ -69,6 +78,7 @@ const CasesOverTimeGraph = ({ cases, deaths, recovered }) => {
       </Text>
       {/* CHART */}
       <LineChart
+        
         data={data}
         width={chartWidth}
         height={chartHeight}
@@ -85,6 +95,50 @@ const CasesOverTimeGraph = ({ cases, deaths, recovered }) => {
         formatYLabel={(value) => numSeparator(value / 1000 ? value : "")}
         verticalLabelRotation={90}
         horizontalLabelRotation={-45}
+        decorator={() => {
+          return tooltipPos.visible ? (
+            <View>
+              <Svg>
+                <Rect
+                  x={tooltipPos.x - 25}
+                  y={tooltipPos.y + 18}
+                  width="80"
+                  height="25"
+                  fill="#549185"
+                  rx={6}
+                />
+                <TextSVG
+                // Text Alignment
+                  x={tooltipPos.x-14} 
+                  y={tooltipPos.y + 32} // increase to lower
+                  fill="white"
+                  fontSize="10"
+                  style={{ textAlign: "center" }}
+                >
+                  {numSeparator(tooltipPos.value)}
+                </TextSVG>
+              </Svg>
+            </View>
+          ) : null;
+        }}
+        onDataPointClick={(data) => {
+          let isSamePoint = tooltipPos.x === data.x && tooltipPos.y === data.y; // boolean
+
+          isSamePoint
+            ? setTooltipPos((previousState) => {
+                return {
+                  ...previousState,
+                  value: data.value,
+                  visible: !previousState.visible,
+                };
+              })
+            : setTooltipPos({
+                x: data.x,
+                value: data.value,
+                y: data.y,
+                visible: true,
+              });
+        }}
       />
     </View>
   );
