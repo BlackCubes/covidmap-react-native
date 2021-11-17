@@ -110,7 +110,7 @@ const PopupSliderData = ({
       )}
     </SliderDataInfo>
 
-    {hasTimelineSequence ? <CasesOverTimeGraph graphData={cases} /> : null}
+    {hasTimelineSequence ? <CasesOverTimeGraph cases={cases} recovered={recovered} deaths={deaths} /> : null}
   </SliderDataWrapper>
 );
 

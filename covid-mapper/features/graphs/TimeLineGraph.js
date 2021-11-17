@@ -1,19 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { Dimensions, View, Text, SafeAreaView } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import numSeparator from "../../utils/numSeparator";
 import { useFonts, NotoSans_400Regular } from "@expo-google-fonts/noto-sans";
 import Spinner from "../../commons/components/Spinner/Spinner";
+import { Rect, Text as TextSVG, Svg } from "react-native-svg";
 
 const chartWidth = Dimensions.get("window").width - 30;
 const chartHeight = Dimensions.get("window").width - 20;
 
-const CasesOverTimeGraph = ({ graphData }) => {
+const chartConfig = {
+  backgroundColor: "#e26a00",
+  backgroundGradientTo: "#092979",
+  backgroundGradientFrom: "#08130D",
+  decimalPlaces: 0,
+  color: (opacity = 1) => `rgba(245, 255, 255, ${opacity})`,
+  labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+  propsForDots: {
+    r: "2", // dot radius
+  },
+};
+
+const CasesOverTimeGraph = ({ cases, deaths, recovered }) => {
+  let [tooltipPos, setTooltipPos] = useState({
+    x: 0,
+    y: 0,
+    visible: false,
+    value: 0,
+    toolTipX: "",
+    toolTipY: 0
+  });
+
   let [fontsLoaded] = useFonts({
     NotoSans_400Regular,
   });
 
-  if (!fontsLoaded || !graphData)
+  if (!fontsLoaded || !cases)
     return (
       <SafeAreaView>
         <View
@@ -26,6 +48,25 @@ const CasesOverTimeGraph = ({ graphData }) => {
       </SafeAreaView>
     );
 
+  const data = {
+    labels: cases.map((point) => point.x), // array of date strings
+    datasets: [
+      {
+        data: cases.map((point) => point.y),
+        color: (opacity = 1) => `rgba(255,167,38,${opacity})`, // yellow
+      },
+      {
+        data: deaths.map((point) => point.y), //map over deaths
+        color: (opacity = 1) => `rgba(250, 21, 55, ${opacity})`, // red
+      },
+      {
+        data: recovered?.map((point) => point.y), // if 'recovered' is available
+        color: (opacity = 1) => `rgba(67, 255, 100, ${opacity})`, // green
+      },
+    ],
+    legend: ["Cases", "Deaths", "Recovered"],
+  };
+
   return (
     <View
       style={{
@@ -33,35 +74,16 @@ const CasesOverTimeGraph = ({ graphData }) => {
       }}
     >
       <Text style={{ textAlign: "center", fontFamily: "NotoSans_400Regular" }}>
-        Last 30 Days cases/time
+        Data from Past 30 Days
       </Text>
+      {/* CHART */}
       <LineChart
-        data={{
-          labels: graphData.map((point) => point.x),
-          datasets: [
-            {
-              data: graphData.map((point) => {
-                return point.y;
-              }),
-            },
-          ],
-        }}
-        width={chartWidth} // from react-native
+        
+        data={data}
+        width={chartWidth}
         height={chartHeight}
         yAxisInterval={1.7} // optional, defaults to 1
-        chartConfig={{
-          backgroundColor: "#e26a00",
-          backgroundGradientFrom: "#092979",
-          backgroundGradientTo: "#00b5ff",
-          decimalPlaces: 0,
-          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-          labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-          propsForDots: {
-            r: "1",
-            strokeWidth: "2",
-            stroke: "#ffa726",
-          },
-        }}
+        chartConfig={chartConfig}
         bezier
         style={{
           marginVertical: 10,
@@ -73,6 +95,50 @@ const CasesOverTimeGraph = ({ graphData }) => {
         formatYLabel={(value) => numSeparator(value / 1000 ? value : "")}
         verticalLabelRotation={90}
         horizontalLabelRotation={-45}
+        decorator={() => {
+          return tooltipPos.visible ? (
+            <View>
+              <Svg>
+                <Rect
+                  x={tooltipPos.x - 25}
+                  y={tooltipPos.y + 18}
+                  width="80"
+                  height="25"
+                  fill="#549185"
+                  rx={6}
+                />
+                <TextSVG
+                // Text Alignment
+                  x={tooltipPos.x-14} 
+                  y={tooltipPos.y + 32} // increase to lower
+                  fill="white"
+                  fontSize="10"
+                  style={{ textAlign: "center" }}
+                >
+                  {numSeparator(tooltipPos.value)}
+                </TextSVG>
+              </Svg>
+            </View>
+          ) : null;
+        }}
+        onDataPointClick={(data) => {
+          let isSamePoint = tooltipPos.x === data.x && tooltipPos.y === data.y; // boolean
+
+          isSamePoint
+            ? setTooltipPos((previousState) => {
+                return {
+                  ...previousState,
+                  value: data.value,
+                  visible: !previousState.visible,
+                };
+              })
+            : setTooltipPos({
+                x: data.x,
+                value: data.value,
+                y: data.y,
+                visible: true,
+              });
+        }}
       />
     </View>
   );
