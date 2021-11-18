@@ -15,6 +15,7 @@ export const covidApi = createApi({
         cases: response.cases,
         deaths: response.deaths,
         recovered: response.recovered,
+        hasVaccines: false,
         hasTimelineSequence: typeof response.cases === "number" ? false : true,
         country: "",
         provinces: "",
@@ -43,6 +44,7 @@ export const covidApi = createApi({
           cases: state.cases,
           deaths: state.deaths,
           recovered: state.recovered ?? "No info",
+          hasVaccines: false,
           hasTimelineSequence: typeof state.cases === "number" ? false : true,
           country: "",
           provinces: "",
@@ -67,6 +69,7 @@ export const covidApi = createApi({
         cases: response.cases,
         deaths: response.deaths,
         recovered: response.recovered,
+        hasVaccines: false,
         hasTimelineSequence: typeof response.cases === "number" ? false : true,
         country: "",
         provinces: "",
@@ -84,6 +87,7 @@ export const covidApi = createApi({
         cases: cartesianCoordinateConverter(response.cases),
         deaths: cartesianCoordinateConverter(response.deaths),
         recovered: cartesianCoordinateConverter(response.recovered),
+        hasVaccines: false,
         hasTimelineSequence: typeof response.cases === "number" ? false : true,
         country: "",
         provinces: "",
@@ -106,6 +110,7 @@ export const covidApi = createApi({
         cases: cartesianCoordinateConverter(response.timeline.cases),
         deaths: cartesianCoordinateConverter(response.timeline.deaths),
         recovered: cartesianCoordinateConverter(response.timeline.recovered),
+        hasVaccines: false,
         hasTimelineSequence:
           typeof response.timeline.cases === "number" ? false : true,
         country: "",
@@ -141,6 +146,7 @@ export const covidApi = createApi({
         cases: cartesianCoordinateConverter(response.timeline.cases),
         deaths: cartesianCoordinateConverter(response.timeline.deaths),
         recovered: cartesianCoordinateConverter(response.timeline.recovered),
+        hasVaccines: false,
         hasTimelineSequence:
           typeof response.timeline.cases === "number" ? false : true,
         country: "",
@@ -170,6 +176,7 @@ export const covidApi = createApi({
           cases: cartesianCoordinateConverter(county.timeline.cases),
           deaths: cartesianCoordinateConverter(county.timeline.deaths),
           recovered: cartesianCoordinateConverter(county.timeline.recovered),
+          hasVaccines: false,
           hasTimelineSequence:
             typeof county.timeline.cases === "number" ? false : true,
           country: "",
@@ -216,6 +223,7 @@ export const covidApi = createApi({
           cases: cartesianCoordinateConverter(country.timeline),
           deaths: [],
           recovered: [],
+          hasVaccines: true,
           hasTimelineSequence:
             typeof country.timeline === "number" ? false : true,
           country: country.country,
@@ -240,6 +248,7 @@ export const covidApi = createApi({
         cases: cartesianCoordinateConverter(response.timeline),
         deaths: [],
         recovered: [],
+        hasVaccines: true,
         hasTimelineSequence:
           typeof response.timeline === "number" ? false : true,
         country: "",
@@ -257,6 +266,7 @@ export const covidApi = createApi({
           cases: cartesianCoordinateConverter(state.timeline),
           deaths: [],
           recovered: [],
+          hasVaccines: true,
           hasTimelineSequence:
             typeof state.timeline === "number" ? false : true,
           country: "",
@@ -281,6 +291,7 @@ export const covidApi = createApi({
         cases: cartesianCoordinateConverter(response.timeline),
         deaths: [],
         recovered: [],
+        hasVaccines: true,
         hasTimelineSequence:
           typeof response.timeline === "number" ? false : true,
         country: "",
