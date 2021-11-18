@@ -16,6 +16,23 @@ const chartConfig = {
   labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
 };
 
+const subTitle = (deaths, population, recovered) => {
+  const subTitlesArray = [];
+  let subTitlesEnding = "cases";
+
+  if (population > 0) {
+    subTitlesArray.push("cases");
+
+    subTitlesEnding = "pop.";
+  }
+
+  if (deaths > 0) subTitlesArray.push("deaths");
+
+  if (recovered > 0) subTitlesArray.push("recovered");
+
+  return `(on ${subTitlesArray.join("/")} per ${subTitlesEnding})`;
+};
+
 const OverviewGraph = ({ cases, deaths, population, recovered }) => {
   let [fontsLoaded] = useFonts({
     NotoSans_400Regular,
@@ -40,8 +57,6 @@ const OverviewGraph = ({ cases, deaths, population, recovered }) => {
   };
 
   const divideBy = population > 0 ? population : cases;
-
-  const subTitle = population > 0 ? "population" : "cases";
 
   if (population && population > 0 && cases) {
     data.labels.push("Cases");
@@ -68,7 +83,7 @@ const OverviewGraph = ({ cases, deaths, population, recovered }) => {
       }}
     >
       <Text style={{ textAlign: "center", fontFamily: "NotoSans_400Regular" }}>
-        Summary (on deaths/recovered per {subTitle})
+        Summary {subTitle(deaths, population, recovered)}
       </Text>
       {/* CHART */}
       <ProgressChart
