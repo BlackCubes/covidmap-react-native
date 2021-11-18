@@ -13,6 +13,7 @@ const PopupSliderHeaderText = styled.Text`
   font-size: 20px;
   font-weight: bold;
   margin-right: 15px;
+  text-decoration: underline;
 `;
 
 const PopupSlider = ({
