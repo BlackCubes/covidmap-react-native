@@ -5,7 +5,7 @@ import { CasesOverTimeGraph, OverviewGraph } from "../../../graphs";
 import numSeparator from "../../../../utils/numSeparator";
 
 const SliderDataWrapper = styled.View`
-  padding: 3px 17px 17px 17px;
+  padding: 3px 17px 17px 12px;
 `;
 
 const SliderDataPopulation = styled.Text`

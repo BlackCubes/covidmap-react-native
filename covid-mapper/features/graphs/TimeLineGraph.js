@@ -6,7 +6,7 @@ import { useFonts, NotoSans_400Regular } from "@expo-google-fonts/noto-sans";
 import Spinner from "../../commons/components/Spinner/Spinner";
 import { Rect, Text as TextSVG, Svg } from "react-native-svg";
 
-const chartWidth = Dimensions.get("window").width - 30;
+const chartWidth = Dimensions.get("window").width - 20;
 const chartHeight = Dimensions.get("window").width - 20;
 
 const chartConfig = {
@@ -97,7 +97,7 @@ const CasesOverTimeGraph = ({ cases, deaths, recovered, hasVaccines }) => {
         chartConfig={chartConfig}
         bezier
         style={{
-          marginVertical: 10,
+          marginVertical: 8,
           borderRadius: 8,
         }}
         formatXLabel={(value) =>
@@ -105,22 +105,23 @@ const CasesOverTimeGraph = ({ cases, deaths, recovered, hasVaccines }) => {
         }
         formatYLabel={(value) => numSeparator(value / 1000 ? value : "")}
         verticalLabelRotation={90}
-        horizontalLabelRotation={-45}
+        horizontalLabelRotation={-60}
         decorator={() => {
           return tooltipPos.visible ? (
             <View>
               <Svg>
+                {/* Tooltip */}
                 <Rect
                   x={tooltipPos.x - 25}
                   y={tooltipPos.y + 18}
-                  width="80"
+                  width="86"
                   height="25"
-                  fill="#549185"
+                  fill="#000"
                   rx={6}
                 />
                 <TextSVG
                   // Text Alignment
-                  x={tooltipPos.x - 14}
+                  x={tooltipPos.x - 18}
                   y={tooltipPos.y + 32} // increase to lower
                   fill="white"
                   fontSize="10"
