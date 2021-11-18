@@ -1,8 +1,5 @@
 import * as React from "react";
 import {
-  Button,
-  View,
-  Text,
   useWindowDimensions,
   SafeAreaView,
 } from "react-native";
@@ -20,7 +17,6 @@ import {
   WorldSearchMapLayout,
   WorldViewMapLayout,
 } from "../map-layout";
-import MapLayout from "../map-layout/MapLayout";
 import About from "../about/About";
 import VaccineLayout from "../vaccine-layout/VaccineLayout";
 import { useFonts, NotoSans_400Regular } from "@expo-google-fonts/noto-sans";
