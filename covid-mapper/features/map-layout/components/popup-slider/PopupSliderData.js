@@ -33,6 +33,10 @@ const SliderDataInfoValues = styled.Text`
   padding-left: 2px;
 `;
 
+const SliderDataBoldInfoValues = styled(SliderDataInfoValues)`
+  font-weight: bold;
+`;
+
 const PopupSliderData = ({
   cases,
   country,
@@ -60,9 +64,7 @@ const PopupSliderData = ({
     <SliderDataInfo>
       {country.length > 0 && (
         <>
-          <SliderDataInfoHeader>Country</SliderDataInfoHeader>
-
-          <SliderDataInfoValues>{country}</SliderDataInfoValues>
+          <SliderDataBoldInfoValues>{country}</SliderDataBoldInfoValues>
         </>
       )}
 
@@ -76,15 +78,13 @@ const PopupSliderData = ({
 
       {state.length > 0 && (
         <>
-          <SliderDataInfoValues>{state}</SliderDataInfoValues>
+          <SliderDataBoldInfoValues>{state}</SliderDataBoldInfoValues>
         </>
       )}
 
       {county.length > 0 && (
         <>
-          <SliderDataInfoHeader>County</SliderDataInfoHeader>
-
-          <SliderDataInfoValues>{county}</SliderDataInfoValues>
+          <SliderDataBoldInfoValues>{county}</SliderDataBoldInfoValues>
         </>
       )}
 
@@ -109,7 +109,14 @@ const PopupSliderData = ({
       )}
     </SliderDataInfo>
 
-    {hasTimelineSequence ? <CasesOverTimeGraph cases={cases} recovered={recovered} deaths={deaths}  hasVaccines={hasVaccines}/> : null}
+    {hasTimelineSequence ? (
+      <CasesOverTimeGraph
+        cases={cases}
+        recovered={recovered}
+        deaths={deaths}
+        hasVaccines={hasVaccines}
+      />
+    ) : null}
   </SliderDataWrapper>
 );
 
