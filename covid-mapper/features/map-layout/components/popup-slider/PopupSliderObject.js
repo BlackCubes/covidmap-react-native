@@ -16,6 +16,7 @@ const PopupSliderObject = ({ sliderData }) => (
       recovered={sliderData.recovered}
       state={sliderData.state}
       updatedAt={sliderData.updatedAt}
+      hasVaccines={sliderData.hasVaccines}
     />
   </BottomSheetScrollView>
 );

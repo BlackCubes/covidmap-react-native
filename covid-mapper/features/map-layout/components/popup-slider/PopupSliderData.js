@@ -38,6 +38,7 @@ const PopupSliderData = ({
   country,
   county,
   deaths,
+  hasVaccines,
   hasTimelineSequence,
   population,
   provinces,
@@ -75,8 +76,6 @@ const PopupSliderData = ({
 
       {state.length > 0 && (
         <>
-          <SliderDataInfoHeader>State</SliderDataInfoHeader>
-
           <SliderDataInfoValues>{state}</SliderDataInfoValues>
         </>
       )}
@@ -110,7 +109,7 @@ const PopupSliderData = ({
       )}
     </SliderDataInfo>
 
-    {hasTimelineSequence ? <CasesOverTimeGraph cases={cases} recovered={recovered} deaths={deaths} /> : null}
+    {hasTimelineSequence ? <CasesOverTimeGraph cases={cases} recovered={recovered} deaths={deaths}  hasVaccines={hasVaccines}/> : null}
   </SliderDataWrapper>
 );
 

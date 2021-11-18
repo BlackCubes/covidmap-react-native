@@ -21,14 +21,14 @@ const chartConfig = {
   },
 };
 
-const CasesOverTimeGraph = ({ cases, deaths, recovered }) => {
+const CasesOverTimeGraph = ({ cases, deaths, recovered, hasVaccines }) => {
   let [tooltipPos, setTooltipPos] = useState({
     x: 0,
     y: 0,
     visible: false,
     value: 0,
     toolTipX: "",
-    toolTipY: 0
+    toolTipY: 0,
   });
 
   let [fontsLoaded] = useFonts({
@@ -49,23 +49,35 @@ const CasesOverTimeGraph = ({ cases, deaths, recovered }) => {
     );
 
   const data = {
-    labels: cases.map((point) => point.x), // array of date strings
-    datasets: [
-      {
-        data: cases.map((point) => point.y),
-        color: (opacity = 1) => `rgba(255,167,38,${opacity})`, // yellow
-      },
-      {
-        data: deaths.map((point) => point.y), //map over deaths
-        color: (opacity = 1) => `rgba(250, 21, 55, ${opacity})`, // red
-      },
-      {
-        data: recovered?.map((point) => point.y), // if 'recovered' is available
-        color: (opacity = 1) => `rgba(67, 255, 100, ${opacity})`, // green
-      },
-    ],
-    legend: ["Cases", "Deaths", "Recovered"],
+    labels: cases.map((point) => point.x),
+    datasets: [],
+    legend: [],
   };
+
+  if (cases?.length) {
+    data.datasets.push({
+      data: cases.map((point) => point.y),
+      color: (opacity = 1) => `rgba(255,167,38,${opacity})`, // yellow
+    });
+    const labelValue = hasVaccines ? "Vaccinated" : "Cases";
+    data.legend.push(labelValue);
+  }
+
+  if (deaths?.length) {
+    data.datasets.push({
+      data: deaths.map((point) => point.y), //map over deaths
+      color: (opacity = 1) => `rgba(250, 21, 55, ${opacity})`, // red
+    });
+    data.legend.push("Deaths");
+  }
+
+  if (recovered?.length) {
+    data.datasets.push({
+      data: recovered?.map((point) => point.y), // if 'recovered' is available
+      color: (opacity = 1) => `rgba(67, 255, 100, ${opacity})`, // green
+    });
+    data.legend.push("Recovered");
+  }
 
   return (
     <View
@@ -78,7 +90,6 @@ const CasesOverTimeGraph = ({ cases, deaths, recovered }) => {
       </Text>
       {/* CHART */}
       <LineChart
-        
         data={data}
         width={chartWidth}
         height={chartHeight}
@@ -108,8 +119,8 @@ const CasesOverTimeGraph = ({ cases, deaths, recovered }) => {
                   rx={6}
                 />
                 <TextSVG
-                // Text Alignment
-                  x={tooltipPos.x-14} 
+                  // Text Alignment
+                  x={tooltipPos.x - 14}
                   y={tooltipPos.y + 32} // increase to lower
                   fill="white"
                   fontSize="10"

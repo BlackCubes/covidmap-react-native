@@ -62,6 +62,7 @@ const PopupSliderArray = ({ sliderData }) => {
           recovered={item.recovered}
           state={item.state}
           updatedAt={item.updatedAt}
+          hasVaccines={item.hasVaccines}
         />
       )}
     />
