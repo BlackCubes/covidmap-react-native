@@ -48,24 +48,6 @@ const CasesOverTimeGraph = ({ cases, deaths, recovered, hasVaccines }) => {
       </SafeAreaView>
     );
 
-  // const data = {
-  //   labels: cases.map((point) => point.x), // array of date strings
-  //   datasets: [
-  //     {
-  //       data: cases.map((point) => point.y),
-  //       color: (opacity = 1) => `rgba(255,167,38,${opacity})`, // yellow
-  //     },
-  //     {
-  //       data: deaths.map((point) => point.y), //map over deaths
-  //       color: (opacity = 1) => `rgba(250, 21, 55, ${opacity})`, // red
-  //     },
-  //     {
-  //       data: recovered?.map((point) => point.y), // if 'recovered' is available
-  //       color: (opacity = 1) => `rgba(67, 255, 100, ${opacity})`, // green
-  //     },
-  //   ],
-  //   legend: ["Cases", "Deaths", "Recovered"],
-  // };
   const data = {
     labels: cases.map((point) => point.x),
     datasets: [],
