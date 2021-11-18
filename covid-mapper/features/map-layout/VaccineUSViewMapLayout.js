@@ -14,9 +14,6 @@ import { useGetTotalPeopleVaccinatedByStatesQuery } from "../../api/covidApi";
 const VaccineUSViewMapLayout = () => {
   const {
     data: statesVaccinatedData,
-    error: statesVaccinatedError,
-    isFetching: statesVaccinatedFetching,
-    isSuccess: statesVaccinatedSuccess,
   } = useGetTotalPeopleVaccinatedByStatesQuery();
 
   const [userLocation, setUserLocation] = useState(null);

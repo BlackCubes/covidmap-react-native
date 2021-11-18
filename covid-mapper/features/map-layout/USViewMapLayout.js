@@ -3,7 +3,6 @@ import React, {
   useState,
   useRef,
   useCallback,
-  useMemo,
 } from "react";
 import * as Location from "expo-location";
 import { useWindowDimensions, Pressable, Keyboard } from "react-native";

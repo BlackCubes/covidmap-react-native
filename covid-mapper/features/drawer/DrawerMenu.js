@@ -1,8 +1,5 @@
 import * as React from "react";
 import {
-  Button,
-  View,
-  Text,
   useWindowDimensions,
   SafeAreaView,
 } from "react-native";
