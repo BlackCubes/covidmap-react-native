@@ -11,11 +11,15 @@ const SliderDataWrapper = styled.View`
 const SliderDataPopulation = styled.Text`
   font-size: 10px;
   margin-bottom: 4px;
+  padding-right: 2px;
+  padding-left: 2px;
 `;
 
 const SliderDataUpdate = styled.Text`
   font-size: 10px;
   margin-bottom: 10px;
+  padding-right: 2px;
+  padding-left: 2px;
 `;
 
 const SliderDataInfo = styled.View`
@@ -54,16 +58,6 @@ const PopupSliderData = ({
 
   return (
     <SliderDataWrapper>
-      {population > 0 && (
-        <SliderDataPopulation>
-          {numSeparator(population)} total population size
-        </SliderDataPopulation>
-      )}
-
-      {updatedAt > 0 && (
-        <SliderDataUpdate>(updated on {updatedAt})</SliderDataUpdate>
-      )}
-
       <SliderDataInfo>
         {country.length > 0 && (
           <>
@@ -89,6 +83,16 @@ const PopupSliderData = ({
           <>
             <SliderDataBoldInfoValues>{county}</SliderDataBoldInfoValues>
           </>
+        )}
+
+        {population > 0 && (
+          <SliderDataPopulation>
+            {numSeparator(population)} total population size
+          </SliderDataPopulation>
+        )}
+
+        {updatedAt > 0 && (
+          <SliderDataUpdate>(updated on {updatedAt})</SliderDataUpdate>
         )}
 
         {!hasTimelineSequence && (
