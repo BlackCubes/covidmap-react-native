@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 
-import CasesOverTimeGraph from "../../../graphs/TimeLineGraph";
+import { CasesOverTimeGraph, OverviewGraph } from "../../../graphs";
 import numSeparator from "../../../../utils/numSeparator";
 
 const SliderDataWrapper = styled.View`
@@ -11,11 +11,15 @@ const SliderDataWrapper = styled.View`
 const SliderDataPopulation = styled.Text`
   font-size: 10px;
   margin-bottom: 4px;
+  padding-right: 2px;
+  padding-left: 2px;
 `;
 
 const SliderDataUpdate = styled.Text`
   font-size: 10px;
   margin-bottom: 10px;
+  padding-right: 2px;
+  padding-left: 2px;
 `;
 
 const SliderDataInfo = styled.View`
@@ -49,75 +53,89 @@ const PopupSliderData = ({
   recovered,
   state,
   updatedAt,
-}) => (
-  <SliderDataWrapper>
-    {population > 0 && (
-      <SliderDataPopulation>
-        {numSeparator(population)} total population size
-      </SliderDataPopulation>
-    )}
+}) => {
+  const divideBy = population > 0 ? population : cases;
 
-    {updatedAt > 0 && (
-      <SliderDataUpdate>(updated on {updatedAt})</SliderDataUpdate>
-    )}
+  return (
+    <SliderDataWrapper>
+      <SliderDataInfo>
+        {country.length > 0 && (
+          <>
+            <SliderDataBoldInfoValues>{country}</SliderDataBoldInfoValues>
+          </>
+        )}
 
-    <SliderDataInfo>
-      {country.length > 0 && (
-        <>
-          <SliderDataBoldInfoValues>{country}</SliderDataBoldInfoValues>
-        </>
+        {provinces.length > 0 && (
+          <>
+            <SliderDataInfoHeader>Provinces</SliderDataInfoHeader>
+
+            <SliderDataInfoValues>{provinces}</SliderDataInfoValues>
+          </>
+        )}
+
+        {state.length > 0 && (
+          <>
+            <SliderDataBoldInfoValues>{state}</SliderDataBoldInfoValues>
+          </>
+        )}
+
+        {county.length > 0 && (
+          <>
+            <SliderDataBoldInfoValues>{county}</SliderDataBoldInfoValues>
+          </>
+        )}
+
+        {population > 0 && (
+          <SliderDataPopulation>
+            {numSeparator(population)} total population size
+          </SliderDataPopulation>
+        )}
+
+        {updatedAt > 0 && (
+          <SliderDataUpdate>(updated on {updatedAt})</SliderDataUpdate>
+        )}
+
+        {!hasTimelineSequence && (
+          <SliderDataInfoValues>
+            Cases: {numSeparator(cases)}
+            {population && population > 0
+              ? `or ${((cases / divideBy) * 100).toPrecision(4)}%`
+              : ""}
+          </SliderDataInfoValues>
+        )}
+
+        {!hasTimelineSequence && (
+          <SliderDataInfoValues>
+            Recovered: {numSeparator(recovered)} or{" "}
+            {((recovered / divideBy) * 100).toPrecision(4)}%{" "}
+          </SliderDataInfoValues>
+        )}
+
+        {!hasTimelineSequence && (
+          <SliderDataInfoValues>
+            Deaths: {numSeparator(deaths)} or{" "}
+            {((deaths / divideBy) * 100).toPrecision(4)}%
+          </SliderDataInfoValues>
+        )}
+      </SliderDataInfo>
+
+      {hasTimelineSequence ? (
+        <CasesOverTimeGraph
+          cases={cases}
+          recovered={recovered}
+          deaths={deaths}
+          hasVaccines={hasVaccines}
+        />
+      ) : (
+        <OverviewGraph
+          cases={cases}
+          deaths={deaths}
+          population={population}
+          recovered={recovered}
+        />
       )}
-
-      {provinces.length > 0 && (
-        <>
-          <SliderDataInfoHeader>Provinces</SliderDataInfoHeader>
-
-          <SliderDataInfoValues>{provinces}</SliderDataInfoValues>
-        </>
-      )}
-
-      {state.length > 0 && (
-        <>
-          <SliderDataBoldInfoValues>{state}</SliderDataBoldInfoValues>
-        </>
-      )}
-
-      {county.length > 0 && (
-        <>
-          <SliderDataBoldInfoValues>{county}</SliderDataBoldInfoValues>
-        </>
-      )}
-
-      {!hasTimelineSequence && (
-        <SliderDataInfoValues>
-          Cases: {numSeparator(cases)}
-        </SliderDataInfoValues>
-      )}
-
-      {!hasTimelineSequence && (
-        <SliderDataInfoValues>
-          Recovered: {numSeparator(recovered)} or{" "}
-          {((recovered / cases) * 100).toPrecision(4)}%{" "}
-        </SliderDataInfoValues>
-      )}
-
-      {!hasTimelineSequence && (
-        <SliderDataInfoValues>
-          Deaths: {numSeparator(deaths)} or{" "}
-          {((deaths / cases) * 100).toPrecision(4)}%
-        </SliderDataInfoValues>
-      )}
-    </SliderDataInfo>
-
-    {hasTimelineSequence ? (
-      <CasesOverTimeGraph
-        cases={cases}
-        recovered={recovered}
-        deaths={deaths}
-        hasVaccines={hasVaccines}
-      />
-    ) : null}
-  </SliderDataWrapper>
-);
+    </SliderDataWrapper>
+  );
+};
 
 export default PopupSliderData;
