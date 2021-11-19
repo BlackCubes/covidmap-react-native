@@ -1,0 +1,5416 @@
+{
+  "countries": {
+    "afghanistan": {
+      "centroid": {
+        "latitude": "33.7680065",
+        "longitude": "66.2385139"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "29.37719997",
+          "longitude": "60.51760339"
+        },
+        "north_east": {
+          "latitude": "38.49106818",
+          "longitude": "74.88986199"
+        }
+      }
+    },
+    "albania": {
+      "centroid": {
+        "latitude": "41.000028",
+        "longitude": "19.9999619"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "39.6448625",
+          "longitude": "19.1246095"
+        },
+        "north_east": {
+          "latitude": "42.6610848",
+          "longitude": "21.0574335"
+        }
+      }
+    },
+    "algeria": {
+      "centroid": {
+        "latitude": "28.0000272",
+        "longitude": "2.9999825"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "18.968147",
+          "longitude": "-8.668908"
+        },
+        "north_east": {
+          "latitude": "37.2962055",
+          "longitude": "11.997337"
+        }
+      }
+    },
+    "andorra": {
+      "centroid": {
+        "latitude": "42.5407167",
+        "longitude": "1.5732033"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "42.4288238",
+          "longitude": "1.4135781"
+        },
+        "north_east": {
+          "latitude": "42.6559357",
+          "longitude": "1.7863837"
+        }
+      }
+    },
+    "angola": {
+      "centroid": {
+        "latitude": "-11.8775768",
+        "longitude": "17.5691241"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-18.038945",
+          "longitude": "11.4609793"
+        },
+        "north_east": {
+          "latitude": "-4.3880634",
+          "longitude": "24.0878856"
+        }
+      }
+    },
+    "antigua and barbuda": {
+      "centroid": {
+        "latitude": "17.2234721",
+        "longitude": "-61.9554608"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "16.7573901",
+          "longitude": "-62.5536517"
+        },
+        "north_east": {
+          "latitude": "17.929",
+          "longitude": "-61.447857"
+        }
+      }
+    },
+    "argentina": {
+      "centroid": {
+        "latitude": "-34.9964963",
+        "longitude": "-64.9672817"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-55.1850761",
+          "longitude": "-73.5600329"
+        },
+        "north_east": {
+          "latitude": "-21.781168",
+          "longitude": "-53.6374515"
+        }
+      }
+    },
+    "armenia": {
+      "centroid": {
+        "latitude": "40.7696272",
+        "longitude": "44.6736646"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "38.8404775",
+          "longitude": "43.4471395"
+        },
+        "north_east": {
+          "latitude": "41.300712",
+          "longitude": "46.6333087"
+        }
+      }
+    },
+    "australia": {
+      "centroid": {
+        "latitude": "-24.7761086",
+        "longitude": "134.755"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-55.3228175",
+          "longitude": "72.2460938"
+        },
+        "north_east": {
+          "latitude": "-9.0882278",
+          "longitude": "168.2249543"
+        }
+      }
+    },
+    "austria": {
+      "centroid": {
+        "latitude": "47.59397",
+        "longitude": "14.12456"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "46.3722761",
+          "longitude": "9.5307487"
+        },
+        "north_east": {
+          "latitude": "49.0205305",
+          "longitude": "17.160776"
+        }
+      }
+    },
+    "azerbaijan": {
+      "centroid": {
+        "latitude": "40.3936294",
+        "longitude": "47.7872508"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "38.3929551",
+          "longitude": "44.7633701"
+        },
+        "north_east": {
+          "latitude": "41.9502947",
+          "longitude": "51.0090302"
+        }
+      }
+    },
+    "bahamas": {
+      "centroid": {
+        "latitude": "24.7736546",
+        "longitude": "-78.0000547"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "20.7059846",
+          "longitude": "-80.7001941"
+        },
+        "north_east": {
+          "latitude": "27.4734551",
+          "longitude": "-72.4477521"
+        }
+      }
+    },
+    "bahrain": {
+      "centroid": {
+        "latitude": "26.1551249",
+        "longitude": "50.5344606"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "25.535",
+          "longitude": "50.2697989"
+        },
+        "north_east": {
+          "latitude": "26.6872444",
+          "longitude": "50.9233693"
+        }
+      }
+    },
+    "bangladesh": {
+      "centroid": {
+        "latitude": "23.5031022",
+        "longitude": "90.0038652"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "20.3756582",
+          "longitude": "88.0075306"
+        },
+        "north_east": {
+          "latitude": "26.6382534",
+          "longitude": "92.6804979"
+        }
+      }
+    },
+    "barbados": {
+      "centroid": {
+        "latitude": "13.1500331",
+        "longitude": "-59.5250305"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "12.845",
+          "longitude": "-59.8562115"
+        },
+        "north_east": {
+          "latitude": "13.535",
+          "longitude": "-59.2147175"
+        }
+      }
+    },
+    "belarus": {
+      "centroid": {
+        "latitude": "53.4250605",
+        "longitude": "27.6971358"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "51.2575982",
+          "longitude": "23.1783344"
+        },
+        "north_east": {
+          "latitude": "56.17218",
+          "longitude": "32.7627809"
+        }
+      }
+    },
+    "belgium": {
+      "centroid": {
+        "latitude": "50.6402809",
+        "longitude": "4.6667145"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "49.4969821",
+          "longitude": "2.3889137"
+        },
+        "north_east": {
+          "latitude": "51.5516667",
+          "longitude": "6.408097"
+        }
+      }
+    },
+    "belize": {
+      "centroid": {
+        "latitude": "16.8259793",
+        "longitude": "-88.7600927"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "15.8857286",
+          "longitude": "-89.2262083"
+        },
+        "north_east": {
+          "latitude": "18.496001",
+          "longitude": "-87.3098494"
+        }
+      }
+    },
+    "benin": {
+      "centroid": {
+        "latitude": "9.5293472",
+        "longitude": "2.2584408"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "6.0398696",
+          "longitude": "0.776667"
+        },
+        "north_east": {
+          "latitude": "12.4092447",
+          "longitude": "3.843343"
+        }
+      }
+    },
+    "bhutan": {
+      "centroid": {
+        "latitude": "27.549511",
+        "longitude": "90.5119273"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "26.702016",
+          "longitude": "88.7464724"
+        },
+        "north_east": {
+          "latitude": "28.246987",
+          "longitude": "92.1252321"
+        }
+      }
+    },
+    "bolivia": {
+      "centroid": {
+        "latitude": "-17.0568696",
+        "longitude": "-64.9912286"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-22.8982742",
+          "longitude": "-69.6450073"
+        },
+        "north_east": {
+          "latitude": "-9.6689438",
+          "longitude": "-57.453"
+        }
+      }
+    },
+    "bosnia": {
+      "centroid": {
+        "latitude": "44.3053476",
+        "longitude": "17.5961467"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "42.5553114",
+          "longitude": "15.7287433"
+        },
+        "north_east": {
+          "latitude": "45.2764135",
+          "longitude": "19.6237311"
+        }
+      }
+    },
+    "botswana": {
+      "centroid": {
+        "latitude": "-23.1681782",
+        "longitude": "24.5928742"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-26.9059669",
+          "longitude": "19.9986474"
+        },
+        "north_east": {
+          "latitude": "-17.778137",
+          "longitude": "29.375304"
+        }
+      }
+    },
+    "brazil": {
+      "centroid": {
+        "latitude": "-10.3333333",
+        "longitude": "-53.2"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-33.8689056",
+          "longitude": "-73.9830625"
+        },
+        "north_east": {
+          "latitude": "5.2842873",
+          "longitude": "-28.6341164"
+        }
+      }
+    },
+    "brunei": {
+      "centroid": {
+        "latitude": "4.4137155",
+        "longitude": "114.5653908"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "4.002508",
+          "longitude": "114.0758734"
+        },
+        "north_east": {
+          "latitude": "5.1011857",
+          "longitude": "115.3635623"
+        }
+      }
+    },
+    "bulgaria": {
+      "centroid": {
+        "latitude": "42.6073975",
+        "longitude": "25.4856617"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "41.2353929",
+          "longitude": "22.3571459"
+        },
+        "north_east": {
+          "latitude": "44.2167064",
+          "longitude": "28.8875409"
+        }
+      }
+    },
+    "burkina faso": {
+      "centroid": {
+        "latitude": "12.0753083",
+        "longitude": "-1.6880314"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "9.4104718",
+          "longitude": "-5.5132416"
+        },
+        "north_east": {
+          "latitude": "15.084",
+          "longitude": "2.4089717"
+        }
+      }
+    },
+    "burma": {
+      "centroid": {
+        "latitude": "17.1750495",
+        "longitude": "95.9999652"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "9.4399432",
+          "longitude": "92.1719423"
+        },
+        "north_east": {
+          "latitude": "28.547835",
+          "longitude": "101.1700796"
+        }
+      }
+    },
+    "burundi": {
+      "centroid": {
+        "latitude": "-3.426449",
+        "longitude": "29.9324519"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-4.4693155",
+          "longitude": "29.0007401"
+        },
+        "north_east": {
+          "latitude": "-2.3096796",
+          "longitude": "30.8498462"
+        }
+      }
+    },
+    "cabo verde": {
+      "centroid": {
+        "latitude": "16.0000552",
+        "longitude": "-24.0083947"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "14.8031546",
+          "longitude": "-25.3609478"
+        },
+        "north_east": {
+          "latitude": "17.2053108",
+          "longitude": "-22.6673416"
+        }
+      }
+    },
+    "cambodia": {
+      "centroid": {
+        "latitude": "13.5066394",
+        "longitude": "104.869423"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "9.4752639",
+          "longitude": "102.3338282"
+        },
+        "north_east": {
+          "latitude": "14.6904224",
+          "longitude": "107.6276788"
+        }
+      }
+    },
+    "cameroon": {
+      "centroid": {
+        "latitude": "4.6125522",
+        "longitude": "13.1535811"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "1.6546659",
+          "longitude": "8.3822176"
+        },
+        "north_east": {
+          "latitude": "13.083333",
+          "longitude": "16.1921476"
+        }
+      }
+    },
+    "canada": {
+      "centroid": {
+        "latitude": "61.0666922",
+        "longitude": "-107.991707"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "41.6765556",
+          "longitude": "-141.00275"
+        },
+        "north_east": {
+          "latitude": "83.3362128",
+          "longitude": "-52.3231981"
+        }
+      }
+    },
+    "central african republic": {
+      "centroid": {
+        "latitude": "7.0323598",
+        "longitude": "19.9981227"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "2.2156553",
+          "longitude": "14.4155426"
+        },
+        "north_east": {
+          "latitude": "11.001389",
+          "longitude": "27.4540764"
+        }
+      }
+    },
+    "chad": {
+      "centroid": {
+        "latitude": "15.6134137",
+        "longitude": "19.0156172"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "7.44107",
+          "longitude": "13.47348"
+        },
+        "north_east": {
+          "latitude": "23.4975",
+          "longitude": "24.0"
+        }
+      }
+    },
+    "chile": {
+      "centroid": {
+        "latitude": "-31.7613365",
+        "longitude": "-71.3187697"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-56.725",
+          "longitude": "-109.6795789"
+        },
+        "north_east": {
+          "latitude": "-17.4983998",
+          "longitude": "-66.0753474"
+        }
+      }
+    },
+    "china": {
+      "centroid": {
+        "latitude": "35.000074",
+        "longitude": "104.999927"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "8.8383436",
+          "longitude": "73.4997347"
+        },
+        "north_east": {
+          "latitude": "53.5608154",
+          "longitude": "134.7754563"
+        }
+      }
+    },
+    "colombia": {
+      "centroid": {
+        "latitude": "4.099917",
+        "longitude": "-72.9088133"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-4.2316872",
+          "longitude": "-82.1243666"
+        },
+        "north_east": {
+          "latitude": "16.0571269",
+          "longitude": "-66.8511907"
+        }
+      }
+    },
+    "comoros": {
+      "centroid": {
+        "latitude": "-12.2045176",
+        "longitude": "44.2832964"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-12.621",
+          "longitude": "43.025305"
+        },
+        "north_east": {
+          "latitude": "-11.165",
+          "longitude": "44.7451922"
+        }
+      }
+    },
+    "congo": {
+      "centroid": {
+        "latitude": "-0.7264327",
+        "longitude": "15.6419155"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-5.149089",
+          "longitude": "11.0048205"
+        },
+        "north_east": {
+          "latitude": "3.713056",
+          "longitude": "18.643611"
+        }
+      }
+    },
+    "drc": {
+      "centroid": {
+        "latitude": "-2.9814344",
+        "longitude": "23.8222636"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-13.459035",
+          "longitude": "12.039074"
+        },
+        "north_east": {
+          "latitude": "5.3920026",
+          "longitude": "31.3056758"
+        }
+      }
+    },
+    "costa rica": {
+      "centroid": {
+        "latitude": "10.2735633",
+        "longitude": "-84.0739102"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "5.3329698",
+          "longitude": "-87.2722647"
+        },
+        "north_east": {
+          "latitude": "11.2195684",
+          "longitude": "-82.5060208"
+        }
+      }
+    },
+    "côte d'ivoire": {
+      "centroid": {
+        "latitude": "7.9897371",
+        "longitude": "-5.5679458"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "4.1621205",
+          "longitude": "-8.601725"
+        },
+        "north_east": {
+          "latitude": "10.740197",
+          "longitude": "-2.493031"
+        }
+      }
+    },
+    "croatia": {
+      "centroid": {
+        "latitude": "45.5643442",
+        "longitude": "17.0118954"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "42.1765993",
+          "longitude": "13.2104814"
+        },
+        "north_east": {
+          "latitude": "46.555029",
+          "longitude": "19.4470842"
+        }
+      }
+    },
+    "cuba": {
+      "centroid": {
+        "latitude": "23.0131338",
+        "longitude": "-80.8328748"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "19.6275294",
+          "longitude": "-85.1679702"
+        },
+        "north_east": {
+          "latitude": "23.4816972",
+          "longitude": "-73.9190004"
+        }
+      }
+    },
+    "cyprus": {
+      "centroid": {
+        "latitude": "34.9823018",
+        "longitude": "33.1451285"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "34.4383706",
+          "longitude": "32.0227581"
+        },
+        "north_east": {
+          "latitude": "35.913252",
+          "longitude": "34.8553182"
+        }
+      }
+    },
+    "czechia": {
+      "centroid": {
+        "latitude": "49.8167003",
+        "longitude": "15.4749544"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "48.5518083",
+          "longitude": "12.0905901"
+        },
+        "north_east": {
+          "latitude": "51.0557036",
+          "longitude": "18.859216"
+        }
+      }
+    },
+    "denmark": {
+      "centroid": {
+        "latitude": "55.670249",
+        "longitude": "10.3333283"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "54.4516667",
+          "longitude": "7.7153255"
+        },
+        "north_east": {
+          "latitude": "57.9524297",
+          "longitude": "15.5530641"
+        }
+      }
+    },
+    "diamond princess": {
+      "centroid": {
+        "latitude": "",
+        "longitude": ""
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "",
+          "longitude": ""
+        },
+        "north_east": {
+          "latitude": "",
+          "longitude": ""
+        }
+      }
+    },
+    "djibouti": {
+      "centroid": {
+        "latitude": "11.8145966",
+        "longitude": "42.8453061"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "10.9149547",
+          "longitude": "41.7713139"
+        },
+        "north_east": {
+          "latitude": "12.7923081",
+          "longitude": "43.6579046"
+        }
+      }
+    },
+    "dominica": {
+      "centroid": {
+        "latitude": "15.4113138",
+        "longitude": "-61.3653618"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "15.0074207",
+          "longitude": "-61.6869184"
+        },
+        "north_east": {
+          "latitude": "15.7872222",
+          "longitude": "-61.0329895"
+        }
+      }
+    },
+    "dominican republic": {
+      "centroid": {
+        "latitude": "19.0974031",
+        "longitude": "-70.3028026"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "17.2701708",
+          "longitude": "-72.0574706"
+        },
+        "north_east": {
+          "latitude": "21.303433",
+          "longitude": "-68.1101463"
+        }
+      }
+    },
+    "ecuador": {
+      "centroid": {
+        "latitude": "-1.3397668",
+        "longitude": "-79.3666965"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-5.0159314",
+          "longitude": "-92.2072392"
+        },
+        "north_east": {
+          "latitude": "1.8835964",
+          "longitude": "-75.192504"
+        }
+      }
+    },
+    "egypt": {
+      "centroid": {
+        "latitude": "26.2540493",
+        "longitude": "29.2675469"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "22.0",
+          "longitude": "24.6499112"
+        },
+        "north_east": {
+          "latitude": "31.8330854",
+          "longitude": "37.1153517"
+        }
+      }
+    },
+    "el salvador": {
+      "centroid": {
+        "latitude": "13.8000382",
+        "longitude": "-88.9140683"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "12.976046",
+          "longitude": "-90.1790975"
+        },
+        "north_east": {
+          "latitude": "14.4510488",
+          "longitude": "-87.6351394"
+        }
+      }
+    },
+    "equatorial guinea": {
+      "centroid": {
+        "latitude": "1.613172",
+        "longitude": "10.5170357"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-1.6732196",
+          "longitude": "5.4172943"
+        },
+        "north_east": {
+          "latitude": "3.989",
+          "longitude": "11.3598628"
+        }
+      }
+    },
+    "eritrea": {
+      "centroid": {
+        "latitude": "15.9500319",
+        "longitude": "37.9999668"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "12.3548219",
+          "longitude": "36.4333653"
+        },
+        "north_east": {
+          "latitude": "18.0709917",
+          "longitude": "43.3001714"
+        }
+      }
+    },
+    "estonia": {
+      "centroid": {
+        "latitude": "58.7523778",
+        "longitude": "25.3319078"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "57.5092997",
+          "longitude": "21.3826069"
+        },
+        "north_east": {
+          "latitude": "59.9383754",
+          "longitude": "28.2100175"
+        }
+      }
+    },
+    "swaziland": {
+      "centroid": {
+        "latitude": "-26.5624806",
+        "longitude": "31.3991317"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-27.3175201",
+          "longitude": "30.7908"
+        },
+        "north_east": {
+          "latitude": "-25.71876",
+          "longitude": "32.1349923"
+        }
+      }
+    },
+    "ethiopia": {
+      "centroid": {
+        "latitude": "10.2116702",
+        "longitude": "38.6521203"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "3.397448",
+          "longitude": "32.9975838"
+        },
+        "north_east": {
+          "latitude": "14.8940537",
+          "longitude": "47.9823797"
+        }
+      }
+    },
+    "fiji": {
+      "centroid": {
+        "latitude": "-18.1239696",
+        "longitude": "179.0122737"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-21.9434274",
+          "longitude": "172.0"
+        },
+        "north_east": {
+          "latitude": "-12.2613866",
+          "longitude": "-178.5"
+        }
+      }
+    },
+    "finland": {
+      "centroid": {
+        "latitude": "63.2467777",
+        "longitude": "25.9209164"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "59.4541578",
+          "longitude": "19.0832098"
+        },
+        "north_east": {
+          "latitude": "70.0922939",
+          "longitude": "31.5867071"
+        }
+      }
+    },
+    "france": {
+      "centroid": {
+        "latitude": "46.603354",
+        "longitude": "1.8883335"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "41.2632185",
+          "longitude": "-5.4534286"
+        },
+        "north_east": {
+          "latitude": "51.268318",
+          "longitude": "9.8678344"
+        }
+      }
+    },
+    "gabon": {
+      "centroid": {
+        "latitude": "-0.8999695",
+        "longitude": "11.6899699"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-4.1012261",
+          "longitude": "8.5002246"
+        },
+        "north_east": {
+          "latitude": "2.3182171",
+          "longitude": "14.539444"
+        }
+      }
+    },
+    "gambia": {
+      "centroid": {
+        "latitude": "13.470062",
+        "longitude": "-15.4900464"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "13.061",
+          "longitude": "-17.0288254"
+        },
+        "north_east": {
+          "latitude": "13.8253137",
+          "longitude": "-13.797778"
+        }
+      }
+    },
+    "georgia": {
+      "centroid": {
+        "latitude": "41.6809707",
+        "longitude": "44.0287382"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "41.0552922",
+          "longitude": "39.8844803"
+        },
+        "north_east": {
+          "latitude": "43.5864294",
+          "longitude": "46.7365373"
+        }
+      }
+    },
+    "germany": {
+      "centroid": {
+        "latitude": "51.0834196",
+        "longitude": "10.4234469"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "47.2701114",
+          "longitude": "5.8663153"
+        },
+        "north_east": {
+          "latitude": "55.099161",
+          "longitude": "15.0419319"
+        }
+      }
+    },
+    "ghana": {
+      "centroid": {
+        "latitude": "8.0300284",
+        "longitude": "-1.0800271"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "4.5392525",
+          "longitude": "-3.260786"
+        },
+        "north_east": {
+          "latitude": "11.1748562",
+          "longitude": "1.2732942"
+        }
+      }
+    },
+    "greece": {
+      "centroid": {
+        "latitude": "38.9953683",
+        "longitude": "21.9877132"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "34.7006096",
+          "longitude": "19.2477876"
+        },
+        "north_east": {
+          "latitude": "41.7488862",
+          "longitude": "29.7296986"
+        }
+      }
+    },
+    "grenada": {
+      "centroid": {
+        "latitude": "12.1360374",
+        "longitude": "-61.6904045"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "11.786",
+          "longitude": "-62.0065868"
+        },
+        "north_east": {
+          "latitude": "12.5966532",
+          "longitude": "-61.1732143"
+        }
+      }
+    },
+    "guatemala": {
+      "centroid": {
+        "latitude": "15.6356088",
+        "longitude": "-89.8988087"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "13.6345804",
+          "longitude": "-92.3105242"
+        },
+        "north_east": {
+          "latitude": "17.8165947",
+          "longitude": "-88.1755849"
+        }
+      }
+    },
+    "guinea": {
+      "centroid": {
+        "latitude": "10.7226226",
+        "longitude": "-10.7083587"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "7.1906045",
+          "longitude": "-15.5680508"
+        },
+        "north_east": {
+          "latitude": "12.67563",
+          "longitude": "-7.6381993"
+        }
+      }
+    },
+    "guinea-bissau": {
+      "centroid": {
+        "latitude": "12.100035",
+        "longitude": "-14.9000214"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "10.6514215",
+          "longitude": "-16.894523"
+        },
+        "north_east": {
+          "latitude": "12.6862384",
+          "longitude": "-13.6348777"
+        }
+      }
+    },
+    "guyana": {
+      "centroid": {
+        "latitude": "4.8417097",
+        "longitude": "-58.6416891"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "1.1710017",
+          "longitude": "-61.414905"
+        },
+        "north_east": {
+          "latitude": "8.6038842",
+          "longitude": "-56.4689543"
+        }
+      }
+    },
+    "haiti": {
+      "centroid": {
+        "latitude": "19.1399952",
+        "longitude": "-72.3570972"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "17.9099291",
+          "longitude": "-75.2384618"
+        },
+        "north_east": {
+          "latitude": "20.2181368",
+          "longitude": "-71.6217461"
+        }
+      }
+    },
+    "holy see": {
+      "centroid": {
+        "latitude": "41.9029",
+        "longitude": "12.4534"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "41.9002044",
+          "longitude": "12.4457442"
+        },
+        "north_east": {
+          "latitude": "41.9073912",
+          "longitude": "12.4583653"
+        }
+      }
+    },
+    "honduras": {
+      "centroid": {
+        "latitude": "15.2572432",
+        "longitude": "-86.0755145"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "12.9808485",
+          "longitude": "-89.3568207"
+        },
+        "north_east": {
+          "latitude": "17.619526",
+          "longitude": "-82.1729621"
+        }
+      }
+    },
+    "hungary": {
+      "centroid": {
+        "latitude": "47.1817585",
+        "longitude": "19.5060937"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "45.737128",
+          "longitude": "16.1138867"
+        },
+        "north_east": {
+          "latitude": "48.585257",
+          "longitude": "22.8977094"
+        }
+      }
+    },
+    "iceland": {
+      "centroid": {
+        "latitude": "64.9841821",
+        "longitude": "-18.1059013"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "63.0859177",
+          "longitude": "-25.0135069"
+        },
+        "north_east": {
+          "latitude": "67.353",
+          "longitude": "-12.8046162"
+        }
+      }
+    },
+    "india": {
+      "centroid": {
+        "latitude": "22.3511148",
+        "longitude": "78.6677428"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "6.5546079",
+          "longitude": "68.1113787"
+        },
+        "north_east": {
+          "latitude": "35.6745457",
+          "longitude": "97.395561"
+        }
+      }
+    },
+    "indonesia": {
+      "centroid": {
+        "latitude": "-2.4833826",
+        "longitude": "117.8902853"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-11.2085669",
+          "longitude": "94.7717124"
+        },
+        "north_east": {
+          "latitude": "6.2744496",
+          "longitude": "141.0194444"
+        }
+      }
+    },
+    "iran": {
+      "centroid": {
+        "latitude": "32.6475314",
+        "longitude": "54.5643516"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "24.8465103",
+          "longitude": "44.0318908"
+        },
+        "north_east": {
+          "latitude": "39.7816502",
+          "longitude": "63.3332704"
+        }
+      }
+    },
+    "iraq": {
+      "centroid": {
+        "latitude": "33.0955793",
+        "longitude": "44.1749775"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "29.0585661",
+          "longitude": "38.7936719"
+        },
+        "north_east": {
+          "latitude": "37.380932",
+          "longitude": "48.8412702"
+        }
+      }
+    },
+    "ireland": {
+      "centroid": {
+        "latitude": "52.865196",
+        "longitude": "-7.9794599"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "51.222",
+          "longitude": "-11.0133788"
+        },
+        "north_east": {
+          "latitude": "55.636",
+          "longitude": "-5.6582363"
+        }
+      }
+    },
+    "israel": {
+      "centroid": {
+        "latitude": "31.5313113",
+        "longitude": "34.8667654"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "29.4533796",
+          "longitude": "34.2674994"
+        },
+        "north_east": {
+          "latitude": "33.3356317",
+          "longitude": "35.8950234"
+        }
+      }
+    },
+    "italy": {
+      "centroid": {
+        "latitude": "42.6384261",
+        "longitude": "12.674297"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "35.2889616",
+          "longitude": "6.6272658"
+        },
+        "north_east": {
+          "latitude": "47.0921462",
+          "longitude": "18.7844746"
+        }
+      }
+    },
+    "jamaica": {
+      "centroid": {
+        "latitude": "18.1850507",
+        "longitude": "-77.3947693"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "16.5899443",
+          "longitude": "-78.5782366"
+        },
+        "north_east": {
+          "latitude": "18.7256394",
+          "longitude": "-75.7541143"
+        }
+      }
+    },
+    "japan": {
+      "centroid": {
+        "latitude": "36.5748441",
+        "longitude": "139.2394179"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "20.2145811",
+          "longitude": "122.7141754"
+        },
+        "north_east": {
+          "latitude": "45.7112046",
+          "longitude": "154.205541"
+        }
+      }
+    },
+    "jordan": {
+      "centroid": {
+        "latitude": "31.1667049",
+        "longitude": "36.941628"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "29.183401",
+          "longitude": "34.8844372"
+        },
+        "north_east": {
+          "latitude": "33.3750617",
+          "longitude": "39.3012981"
+        }
+      }
+    },
+    "kazakhstan": {
+      "centroid": {
+        "latitude": "47.2286086",
+        "longitude": "65.2093197"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "40.5686476",
+          "longitude": "46.4932179"
+        },
+        "north_east": {
+          "latitude": "55.4421701",
+          "longitude": "87.3156316"
+        }
+      }
+    },
+    "kenya": {
+      "centroid": {
+        "latitude": "1.4419683",
+        "longitude": "38.4313975"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-4.8995204",
+          "longitude": "33.9098987"
+        },
+        "north_east": {
+          "latitude": "4.62",
+          "longitude": "41.899578"
+        }
+      }
+    },
+    "kiribati": {
+      "centroid": {
+        "latitude": "1.8709185",
+        "longitude": "-157.3626011"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-7.0516717",
+          "longitude": "-179.1645388"
+        },
+        "north_east": {
+          "latitude": "7.9483283",
+          "longitude": "-164.1645388"
+        }
+      }
+    },
+    "s. korea": {
+      "centroid": {
+        "latitude": "36.638392",
+        "longitude": "127.6961188"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "32.9104556",
+          "longitude": "124.354847"
+        },
+        "north_east": {
+          "latitude": "38.623477",
+          "longitude": "132.1467806"
+        }
+      }
+    },
+    "kosovo": {
+      "centroid": {
+        "latitude": "42.5833",
+        "longitude": "21.0001"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "41.8597479994",
+          "longitude": "20.0113451461"
+        },
+        "north_east": {
+          "latitude": "43.275610776",
+          "longitude": "21.7911303023"
+        }
+      }
+    },
+    "kuwait": {
+      "centroid": {
+        "latitude": "29.2733964",
+        "longitude": "47.4979476"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "28.5243622",
+          "longitude": "46.5526837"
+        },
+        "north_east": {
+          "latitude": "30.1038082",
+          "longitude": "49.0046809"
+        }
+      }
+    },
+    "kyrgyzstan": {
+      "centroid": {
+        "latitude": "41.5089324",
+        "longitude": "74.724091"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "39.1728437",
+          "longitude": "69.2649523"
+        },
+        "north_east": {
+          "latitude": "43.2667971",
+          "longitude": "80.2295793"
+        }
+      }
+    },
+    "lao people's democratic republic": {
+      "centroid": {
+        "latitude": "20.0171109",
+        "longitude": "103.378253"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "13.9096752",
+          "longitude": "100.0843247"
+        },
+        "north_east": {
+          "latitude": "22.5086717",
+          "longitude": "107.6349989"
+        }
+      }
+    },
+    "latvia": {
+      "centroid": {
+        "latitude": "56.8406494",
+        "longitude": "24.7537645"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "55.6746505",
+          "longitude": "20.6715407"
+        },
+        "north_east": {
+          "latitude": "58.0855688",
+          "longitude": "28.2414904"
+        }
+      }
+    },
+    "lebanon": {
+      "centroid": {
+        "latitude": "33.8750629",
+        "longitude": "35.843409"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "33.0479858",
+          "longitude": "34.8825667"
+        },
+        "north_east": {
+          "latitude": "34.6923543",
+          "longitude": "36.625"
+        }
+      }
+    },
+    "lesotho": {
+      "centroid": {
+        "latitude": "-29.6039267",
+        "longitude": "28.3350193"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-30.6772773",
+          "longitude": "27.0114632"
+        },
+        "north_east": {
+          "latitude": "-28.570615",
+          "longitude": "29.4557099"
+        }
+      }
+    },
+    "liberia": {
+      "centroid": {
+        "latitude": "5.7499721",
+        "longitude": "-9.3658524"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "4.1555907",
+          "longitude": "-11.6080764"
+        },
+        "north_east": {
+          "latitude": "8.5519861",
+          "longitude": "-7.367323"
+        }
+      }
+    },
+    "libyan arab jamahiriya": {
+      "centroid": {
+        "latitude": "26.8234472",
+        "longitude": "18.1236723"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "19.5008138",
+          "longitude": "9.391081"
+        },
+        "north_east": {
+          "latitude": "33.3545898",
+          "longitude": "25.3770629"
+        }
+      }
+    },
+    "liechtenstein": {
+      "centroid": {
+        "latitude": "47.1416307",
+        "longitude": "9.5531527"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "47.0484291",
+          "longitude": "9.4716736"
+        },
+        "north_east": {
+          "latitude": "47.270581",
+          "longitude": "9.6357143"
+        }
+      }
+    },
+    "lithuania": {
+      "centroid": {
+        "latitude": "55.3500003",
+        "longitude": "23.7499997"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "53.8967893",
+          "longitude": "20.653783"
+        },
+        "north_east": {
+          "latitude": "56.4504213",
+          "longitude": "26.8355198"
+        }
+      }
+    },
+    "luxembourg": {
+      "centroid": {
+        "latitude": "49.8158683",
+        "longitude": "6.1296751"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "49.4969821",
+          "longitude": "4.9684415"
+        },
+        "north_east": {
+          "latitude": "50.430377",
+          "longitude": "6.0344254"
+        }
+      }
+    },
+    "ms zaandam": {
+      "centroid": {
+        "latitude": "",
+        "longitude": ""
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "",
+          "longitude": ""
+        },
+        "north_east": {
+          "latitude": "",
+          "longitude": ""
+        }
+      }
+    },
+    "madagascar": {
+      "centroid": {
+        "latitude": "-18.9249604",
+        "longitude": "46.4416422"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-25.6071002",
+          "longitude": "43.2202072"
+        },
+        "north_east": {
+          "latitude": "-11.9519693",
+          "longitude": "50.4862553"
+        }
+      }
+    },
+    "malawi": {
+      "centroid": {
+        "latitude": "-13.2687204",
+        "longitude": "33.9301963"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-17.1296031",
+          "longitude": "32.6703616"
+        },
+        "north_east": {
+          "latitude": "-9.3683261",
+          "longitude": "35.9185731"
+        }
+      }
+    },
+    "malaysia": {
+      "centroid": {
+        "latitude": "4.5693754",
+        "longitude": "102.2656823"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-5.1076241",
+          "longitude": "105.3471939"
+        },
+        "north_east": {
+          "latitude": "9.8923759",
+          "longitude": "120.3471939"
+        }
+      }
+    },
+    "maldives": {
+      "centroid": {
+        "latitude": "4.7064352",
+        "longitude": "73.3287853"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-0.9074935",
+          "longitude": "72.3554187"
+        },
+        "north_east": {
+          "latitude": "7.3106246",
+          "longitude": "73.9700962"
+        }
+      }
+    },
+    "mali": {
+      "centroid": {
+        "latitude": "16.3700359",
+        "longitude": "-2.2900239"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "10.147811",
+          "longitude": "-12.2402835"
+        },
+        "north_east": {
+          "latitude": "25.001084",
+          "longitude": "4.2673828"
+        }
+      }
+    },
+    "malta": {
+      "centroid": {
+        "latitude": "35.8885993",
+        "longitude": "14.4476911"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "35.6029696",
+          "longitude": "13.9324226"
+        },
+        "north_east": {
+          "latitude": "36.2852706",
+          "longitude": "14.8267966"
+        }
+      }
+    },
+    "marshall islands": {
+      "centroid": {
+        "latitude": "8.230817",
+        "longitude": "167.7953224"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-0.5481258",
+          "longitude": "163.4985095"
+        },
+        "north_east": {
+          "latitude": "14.4518742",
+          "longitude": "178.4985095"
+        }
+      }
+    },
+    "mauritania": {
+      "centroid": {
+        "latitude": "20.2540382",
+        "longitude": "-9.2399263"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "14.7209909",
+          "longitude": "-17.068081"
+        },
+        "north_east": {
+          "latitude": "27.314942",
+          "longitude": "-4.8333344"
+        }
+      }
+    },
+    "mauritius": {
+      "centroid": {
+        "latitude": "-20.2759451",
+        "longitude": "57.5703566"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-20.725",
+          "longitude": "56.3825151"
+        },
+        "north_east": {
+          "latitude": "-10.138",
+          "longitude": "63.7151319"
+        }
+      }
+    },
+    "mexico": {
+      "centroid": {
+        "latitude": "22.5000485",
+        "longitude": "-100.000037"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "14.3886243",
+          "longitude": "-118.59919"
+        },
+        "north_east": {
+          "latitude": "32.7186553",
+          "longitude": "-86.493266"
+        }
+      }
+    },
+    "micronesia": {
+      "centroid": {
+        "latitude": "8.6062347",
+        "longitude": "151.8327443"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "0.827",
+          "longitude": "137.2234512"
+        },
+        "north_east": {
+          "latitude": "10.291",
+          "longitude": "163.2364054"
+        }
+      }
+    },
+    "moldova": {
+      "centroid": {
+        "latitude": "47.2879608",
+        "longitude": "28.5670941"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "45.4674139",
+          "longitude": "26.6162189"
+        },
+        "north_east": {
+          "latitude": "48.4918695",
+          "longitude": "30.1636756"
+        }
+      }
+    },
+    "monaco": {
+      "centroid": {
+        "latitude": "43.7323492",
+        "longitude": "7.4276832"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "43.7247599",
+          "longitude": "7.4090279"
+        },
+        "north_east": {
+          "latitude": "43.7519311",
+          "longitude": "7.4398704"
+        }
+      }
+    },
+    "mongolia": {
+      "centroid": {
+        "latitude": "46.8250388",
+        "longitude": "103.8499736"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "41.5800276",
+          "longitude": "87.73762"
+        },
+        "north_east": {
+          "latitude": "52.1496",
+          "longitude": "119.931949"
+        }
+      }
+    },
+    "montenegro": {
+      "centroid": {
+        "latitude": "42.9868853",
+        "longitude": "19.5180992"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "41.7495999",
+          "longitude": "18.4195781"
+        },
+        "north_east": {
+          "latitude": "43.5585061",
+          "longitude": "20.3561641"
+        }
+      }
+    },
+    "morocco": {
+      "centroid": {
+        "latitude": "31.1728205",
+        "longitude": "-7.3362482"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "21.3365321",
+          "longitude": "-17.2551456"
+        },
+        "north_east": {
+          "latitude": "36.0505269",
+          "longitude": "-0.998429"
+        }
+      }
+    },
+    "mozambique": {
+      "centroid": {
+        "latitude": "-19.302233",
+        "longitude": "34.9144977"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-26.9209427",
+          "longitude": "30.2138197"
+        },
+        "north_east": {
+          "latitude": "-10.3252149",
+          "longitude": "41.0545908"
+        }
+      }
+    },
+    "namibia": {
+      "centroid": {
+        "latitude": "-23.2335499",
+        "longitude": "17.3231107"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-28.96945",
+          "longitude": "11.5280384"
+        },
+        "north_east": {
+          "latitude": "-16.9634855",
+          "longitude": "25.2617671"
+        }
+      }
+    },
+    "nepal": {
+      "centroid": {
+        "latitude": "28.1083929",
+        "longitude": "84.0917139"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "26.3477581",
+          "longitude": "80.0586226"
+        },
+        "north_east": {
+          "latitude": "30.446945",
+          "longitude": "88.2015257"
+        }
+      }
+    },
+    "netherlands": {
+      "centroid": {
+        "latitude": "52.2288689",
+        "longitude": "5.3214503"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "50.7295671",
+          "longitude": "1.9193492"
+        },
+        "north_east": {
+          "latitude": "53.7253321",
+          "longitude": "7.2274985"
+        }
+      }
+    },
+    "new zealand": {
+      "centroid": {
+        "latitude": "-41.5000831",
+        "longitude": "172.8344077"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-52.8213687",
+          "longitude": "-179.059153"
+        },
+        "north_east": {
+          "latitude": "-29.0303303",
+          "longitude": "179.3643594"
+        }
+      }
+    },
+    "nicaragua": {
+      "centroid": {
+        "latitude": "12.6090157",
+        "longitude": "-85.2936911"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "10.7076565",
+          "longitude": "-87.901532"
+        },
+        "north_east": {
+          "latitude": "15.0331183",
+          "longitude": "-82.6227023"
+        }
+      }
+    },
+    "niger": {
+      "centroid": {
+        "latitude": "17.7356214",
+        "longitude": "9.3238432"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "11.693756",
+          "longitude": "0.1689653"
+        },
+        "north_east": {
+          "latitude": "23.517178",
+          "longitude": "15.996667"
+        }
+      }
+    },
+    "nigeria": {
+      "centroid": {
+        "latitude": "9.6000359",
+        "longitude": "7.9999721"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "4.0690959",
+          "longitude": "2.676932"
+        },
+        "north_east": {
+          "latitude": "13.885645",
+          "longitude": "14.678014"
+        }
+      }
+    },
+    "macedonia": {
+      "centroid": {
+        "latitude": "41.6171214",
+        "longitude": "21.7168387"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "40.8536596",
+          "longitude": "20.4529023"
+        },
+        "north_east": {
+          "latitude": "42.3735359",
+          "longitude": "23.034051"
+        }
+      }
+    },
+    "norway": {
+      "centroid": {
+        "latitude": "60.5000209",
+        "longitude": "9.0999715"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "57.7590052",
+          "longitude": "4.0875274"
+        },
+        "north_east": {
+          "latitude": "71.3848787",
+          "longitude": "31.7614911"
+        }
+      }
+    },
+    "oman": {
+      "centroid": {
+        "latitude": "21.0000287",
+        "longitude": "57.0036901"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "16.4649608",
+          "longitude": "52"
+        },
+        "north_east": {
+          "latitude": "26.7026737",
+          "longitude": "60.054577"
+        }
+      }
+    },
+    "pakistan": {
+      "centroid": {
+        "latitude": "30.3308401",
+        "longitude": "71.247499"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "23.5393916",
+          "longitude": "60.872855"
+        },
+        "north_east": {
+          "latitude": "37.084107",
+          "longitude": "77.1203914"
+        }
+      }
+    },
+    "palau": {
+      "centroid": {
+        "latitude": "5.3783537",
+        "longitude": "132.9102573"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "2.748",
+          "longitude": "131.0685462"
+        },
+        "north_east": {
+          "latitude": "8.222",
+          "longitude": "134.7714735"
+        }
+      }
+    },
+    "panama": {
+      "centroid": {
+        "latitude": "8.559559",
+        "longitude": "-81.1308434"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "7.0338679",
+          "longitude": "-83.0517245"
+        },
+        "north_east": {
+          "latitude": "9.8701757",
+          "longitude": "-77.1393779"
+        }
+      }
+    },
+    "papua new guinea": {
+      "centroid": {
+        "latitude": "-5.6816069",
+        "longitude": "144.2489081"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-13.1816069",
+          "longitude": "136.7489081"
+        },
+        "north_east": {
+          "latitude": "1.8183931",
+          "longitude": "151.7489081"
+        }
+      }
+    },
+    "paraguay": {
+      "centroid": {
+        "latitude": "-23.3165935",
+        "longitude": "-58.1693445"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-27.6063935",
+          "longitude": "-62.6442036"
+        },
+        "north_east": {
+          "latitude": "-19.2876472",
+          "longitude": "-54.258"
+        }
+      }
+    },
+    "peru": {
+      "centroid": {
+        "latitude": "-6.8699697",
+        "longitude": "-75.0458515"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-20.1984472",
+          "longitude": "-84.6356535"
+        },
+        "north_east": {
+          "latitude": "-0.0392818",
+          "longitude": "-68.6519906"
+        }
+      }
+    },
+    "philippines": {
+      "centroid": {
+        "latitude": "12.7503486",
+        "longitude": "122.7312101"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "4.2158064",
+          "longitude": "114.0952145"
+        },
+        "north_east": {
+          "latitude": "21.3217806",
+          "longitude": "126.8072562"
+        }
+      }
+    },
+    "poland": {
+      "centroid": {
+        "latitude": "52.215933",
+        "longitude": "19.134422"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "49.0020468",
+          "longitude": "14.1229707"
+        },
+        "north_east": {
+          "latitude": "55.0336963",
+          "longitude": "24.145783"
+        }
+      }
+    },
+    "portugal": {
+      "centroid": {
+        "latitude": "40.0332629",
+        "longitude": "-7.8896263"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "29.8288021",
+          "longitude": "-31.5575303"
+        },
+        "north_east": {
+          "latitude": "42.1543112",
+          "longitude": "-6.1891593"
+        }
+      }
+    },
+    "qatar": {
+      "centroid": {
+        "latitude": "25.3336984",
+        "longitude": "51.2295295"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "24.4707534",
+          "longitude": "50.5675"
+        },
+        "north_east": {
+          "latitude": "26.3830212",
+          "longitude": "52.638011"
+        }
+      }
+    },
+    "romania": {
+      "centroid": {
+        "latitude": "45.9852129",
+        "longitude": "24.6859225"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "43.618682",
+          "longitude": "20.2619773"
+        },
+        "north_east": {
+          "latitude": "48.2653964",
+          "longitude": "30.0454257"
+        }
+      }
+    },
+    "russia": {
+      "centroid": {
+        "latitude": "64.6863136",
+        "longitude": "97.7453061"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "41.1850968",
+          "longitude": "19.6389"
+        },
+        "north_east": {
+          "latitude": "82.0586232",
+          "longitude": "180"
+        }
+      }
+    },
+    "rwanda": {
+      "centroid": {
+        "latitude": "-1.9646631",
+        "longitude": "30.0644358"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-2.8389804",
+          "longitude": "28.8617546"
+        },
+        "north_east": {
+          "latitude": "-1.0474083",
+          "longitude": "30.8990738"
+        }
+      }
+    },
+    "saint kitts and nevis": {
+      "centroid": {
+        "latitude": "17.250512",
+        "longitude": "-62.6725973"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "16.895",
+          "longitude": "-63.051129"
+        },
+        "north_east": {
+          "latitude": "17.6158146",
+          "longitude": "-62.3303519"
+        }
+      }
+    },
+    "saint lucia": {
+      "centroid": {
+        "latitude": "13.8250489",
+        "longitude": "-60.975036"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "13.508",
+          "longitude": "-61.2853867"
+        },
+        "north_east": {
+          "latitude": "14.2725",
+          "longitude": "-60.6669363"
+        }
+      }
+    },
+    "saint vincent and the grenadines": {
+      "centroid": {
+        "latitude": "12.90447",
+        "longitude": "-61.2765569"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "12.5166548",
+          "longitude": "-61.6657471"
+        },
+        "north_east": {
+          "latitude": "13.583",
+          "longitude": "-60.9094146"
+        }
+      }
+    },
+    "samoa": {
+      "centroid": {
+        "latitude": "-13.7693895",
+        "longitude": "-172.12005"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-14.2770916",
+          "longitude": "-173.0091864"
+        },
+        "north_east": {
+          "latitude": "-13.2381892",
+          "longitude": "-171.1929229"
+        }
+      }
+    },
+    "san marino": {
+      "centroid": {
+        "latitude": "43.9458623",
+        "longitude": "12.458306"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "43.8937002",
+          "longitude": "12.4033246"
+        },
+        "north_east": {
+          "latitude": "43.992093",
+          "longitude": "12.5160665"
+        }
+      }
+    },
+    "sao tome and principe": {
+      "centroid": {
+        "latitude": "0.8875498",
+        "longitude": "6.9648718"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-0.2135137",
+          "longitude": "6.260642"
+        },
+        "north_east": {
+          "latitude": "1.9257601",
+          "longitude": "7.6704783"
+        }
+      }
+    },
+    "saudi arabia": {
+      "centroid": {
+        "latitude": "25.6242618",
+        "longitude": "42.3528328"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "16.29",
+          "longitude": "34.4571718"
+        },
+        "north_east": {
+          "latitude": "32.1543377",
+          "longitude": "55.6666851"
+        }
+      }
+    },
+    "senegal": {
+      "centroid": {
+        "latitude": "14.4750607",
+        "longitude": "-14.4529612"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "12.2372838",
+          "longitude": "-17.7862419"
+        },
+        "north_east": {
+          "latitude": "16.6919712",
+          "longitude": "-11.3458996"
+        }
+      }
+    },
+    "serbia": {
+      "centroid": {
+        "latitude": "44.1534121",
+        "longitude": "20.55144"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "42.2322435",
+          "longitude": "18.8142875"
+        },
+        "north_east": {
+          "latitude": "46.1900524",
+          "longitude": "23.006309"
+        }
+      }
+    },
+    "seychelles": {
+      "centroid": {
+        "latitude": "-4.6574977",
+        "longitude": "55.4540146"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-10.4649258",
+          "longitude": "45.9988759"
+        },
+        "north_east": {
+          "latitude": "-3.512",
+          "longitude": "56.4979396"
+        }
+      }
+    },
+    "sierra leone": {
+      "centroid": {
+        "latitude": "8.6400349",
+        "longitude": "-11.8400269"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "6.755",
+          "longitude": "-13.5003389"
+        },
+        "north_east": {
+          "latitude": "9.999973",
+          "longitude": "-10.271683"
+        }
+      }
+    },
+    "singapore": {
+      "centroid": {
+        "latitude": "1.357107",
+        "longitude": "103.8194992"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "1.1304753",
+          "longitude": "103.6920359"
+        },
+        "north_east": {
+          "latitude": "1.4504753",
+          "longitude": "104.0120359"
+        }
+      }
+    },
+    "slovakia": {
+      "centroid": {
+        "latitude": "48.7411522",
+        "longitude": "19.4528646"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "47.7314286",
+          "longitude": "16.8331891"
+        },
+        "north_east": {
+          "latitude": "49.6138162",
+          "longitude": "22.56571"
+        }
+      }
+    },
+    "slovenia": {
+      "centroid": {
+        "latitude": "45.8133113",
+        "longitude": "14.4808369"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "45.4214242",
+          "longitude": "13.3754696"
+        },
+        "north_east": {
+          "latitude": "46.8766816",
+          "longitude": "16.5967702"
+        }
+      }
+    },
+    "solomon islands": {
+      "centroid": {
+        "latitude": "-8.7053941",
+        "longitude": "159.1070694"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-13.2424298",
+          "longitude": "155.3190556"
+        },
+        "north_east": {
+          "latitude": "-4.81085",
+          "longitude": "170.3964667"
+        }
+      }
+    },
+    "somalia": {
+      "centroid": {
+        "latitude": "8.3676771",
+        "longitude": "49.083416"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-1.8031969",
+          "longitude": "40.98918"
+        },
+        "north_east": {
+          "latitude": "12.1889121",
+          "longitude": "51.6177696"
+        }
+      }
+    },
+    "south africa": {
+      "centroid": {
+        "latitude": "-28.8166236",
+        "longitude": "24.991639"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-47.1788335",
+          "longitude": "16.3335213"
+        },
+        "north_east": {
+          "latitude": "-22.1250301",
+          "longitude": "38.2898954"
+        }
+      }
+    },
+    "south sudan": {
+      "centroid": {
+        "latitude": "7.8699431",
+        "longitude": "29.6667897"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "3.48897998",
+          "longitude": "23.44777797"
+        },
+        "north_east": {
+          "latitude": "12.23638895",
+          "longitude": "35.94899696"
+        }
+      }
+    },
+    "spain": {
+      "centroid": {
+        "latitude": "39.3260685",
+        "longitude": "-4.8379791"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "27.4335426",
+          "longitude": "-18.3936845"
+        },
+        "north_east": {
+          "latitude": "43.9933088",
+          "longitude": "4.5918885"
+        }
+      }
+    },
+    "sri lanka": {
+      "centroid": {
+        "latitude": "7.5554942",
+        "longitude": "80.7137847"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "5.719",
+          "longitude": "79.3959205"
+        },
+        "north_east": {
+          "latitude": "10.035",
+          "longitude": "82.0810141"
+        }
+      }
+    },
+    "sudan": {
+      "centroid": {
+        "latitude": "14.5844444",
+        "longitude": "29.4917691"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "8.685278",
+          "longitude": "21.8145046"
+        },
+        "north_east": {
+          "latitude": "22.224918",
+          "longitude": "39.0576252"
+        }
+      }
+    },
+    "summer olympics 2020": {
+      "centroid": {
+        "latitude": "",
+        "longitude": ""
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "",
+          "longitude": ""
+        },
+        "north_east": {
+          "latitude": "",
+          "longitude": ""
+        }
+      }
+    },
+    "suriname": {
+      "centroid": {
+        "latitude": "4.1413025",
+        "longitude": "-56.0771187"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "1.8312802",
+          "longitude": "-58.070833"
+        },
+        "north_east": {
+          "latitude": "6.225",
+          "longitude": "-53.8433358"
+        }
+      }
+    },
+    "sweden": {
+      "centroid": {
+        "latitude": "59.6749712",
+        "longitude": "14.5208584"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "55.1331192",
+          "longitude": "10.5930952"
+        },
+        "north_east": {
+          "latitude": "69.0599699",
+          "longitude": "24.1776819"
+        }
+      }
+    },
+    "switzerland": {
+      "centroid": {
+        "latitude": "46.7985624",
+        "longitude": "8.2319736"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "45.817995",
+          "longitude": "5.9559113"
+        },
+        "north_east": {
+          "latitude": "47.8084648",
+          "longitude": "10.4922941"
+        }
+      }
+    },
+    "syrian arab republic": {
+      "centroid": {
+        "latitude": "34.6401861",
+        "longitude": "39.0494106"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "32.311354",
+          "longitude": "35.4714427"
+        },
+        "north_east": {
+          "latitude": "37.3184589",
+          "longitude": "42.3745687"
+        }
+      }
+    },
+    "taiwan": {
+      "centroid": {
+        "latitude": "23.9739374",
+        "longitude": "120.9820179"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "10.374269",
+          "longitude": "114.3599058"
+        },
+        "north_east": {
+          "latitude": "26.4372222",
+          "longitude": "122.297"
+        }
+      }
+    },
+    "tajikistan": {
+      "centroid": {
+        "latitude": "38.6281733",
+        "longitude": "70.8156541"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "36.6711153",
+          "longitude": "67.3332775"
+        },
+        "north_east": {
+          "latitude": "41.0450935",
+          "longitude": "75.1539563"
+        }
+      }
+    },
+    "tanzania": {
+      "centroid": {
+        "latitude": "-6.5247123",
+        "longitude": "35.7878438"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-11.761254",
+          "longitude": "29.3269773"
+        },
+        "north_east": {
+          "latitude": "-0.9854812",
+          "longitude": "40.6584071"
+        }
+      }
+    },
+    "thailand": {
+      "centroid": {
+        "latitude": "14.8971921",
+        "longitude": "100.83273"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "5.612851",
+          "longitude": "97.3438072"
+        },
+        "north_east": {
+          "latitude": "20.4648337",
+          "longitude": "105.636812"
+        }
+      }
+    },
+    "timor-leste": {
+      "centroid": {
+        "latitude": "-8.5151979",
+        "longitude": "125.8375756"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-9.5642775",
+          "longitude": "124.0415703"
+        },
+        "north_east": {
+          "latitude": "-8.0895459",
+          "longitude": "127.5335392"
+        }
+      }
+    },
+    "togo": {
+      "centroid": {
+        "latitude": "8.7800265",
+        "longitude": "1.0199765"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "5.926547",
+          "longitude": "-0.1439746"
+        },
+        "north_east": {
+          "latitude": "11.1395102",
+          "longitude": "1.8087605"
+        }
+      }
+    },
+    "trinidad and tobago": {
+      "centroid": {
+        "latitude": "10.8677845",
+        "longitude": "-60.9821067"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "9.8732106",
+          "longitude": "-62.083056"
+        },
+        "north_east": {
+          "latitude": "11.5628372",
+          "longitude": "-60.2895848"
+        }
+      }
+    },
+    "tunisia": {
+      "centroid": {
+        "latitude": "33.8439408",
+        "longitude": "9.400138"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "30.230236",
+          "longitude": "7.5219807"
+        },
+        "north_east": {
+          "latitude": "37.7612052",
+          "longitude": "11.8801133"
+        }
+      }
+    },
+    "turkey": {
+      "centroid": {
+        "latitude": "38.9597594",
+        "longitude": "34.9249653"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "35.8076804",
+          "longitude": "25.6212891"
+        },
+        "north_east": {
+          "latitude": "42.297",
+          "longitude": "44.8176638"
+        }
+      }
+    },
+    "usa": {
+      "centroid": {
+        "latitude": "39.7837304",
+        "longitude": "-100.445882"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "24.9493",
+          "longitude": "-125.0011"
+        },
+        "north_east": {
+          "latitude": "49.5904",
+          "longitude": "-66.9326"
+        }
+      }
+    },
+    "uganda": {
+      "centroid": {
+        "latitude": "1.5333554",
+        "longitude": "32.2166578"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-1.4823179",
+          "longitude": "29.573433"
+        },
+        "north_east": {
+          "latitude": "4.2340766",
+          "longitude": "35.000308"
+        }
+      }
+    },
+    "ukraine": {
+      "centroid": {
+        "latitude": "49.4871968",
+        "longitude": "31.2718321"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "44.184598",
+          "longitude": "22.137059"
+        },
+        "north_east": {
+          "latitude": "52.3791473",
+          "longitude": "40.2275801"
+        }
+      }
+    },
+    "uae": {
+      "centroid": {
+        "latitude": "24.0002488",
+        "longitude": "53.9994829"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "22.6444",
+          "longitude": "51.498"
+        },
+        "north_east": {
+          "latitude": "26.2822",
+          "longitude": "56.3834"
+        }
+      }
+    },
+    "uk": {
+      "centroid": {
+        "latitude": "54.7023545",
+        "longitude": "-3.2765753"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "49.674",
+          "longitude": "-14.015517"
+        },
+        "north_east": {
+          "latitude": "61.061",
+          "longitude": "2.0919117"
+        }
+      }
+    },
+    "uruguay": {
+      "centroid": {
+        "latitude": "-32.8755548",
+        "longitude": "-56.0201525"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-35.7824481",
+          "longitude": "-58.4948438"
+        },
+        "north_east": {
+          "latitude": "-30.0853962",
+          "longitude": "-53.0755833"
+        }
+      }
+    },
+    "uzbekistan": {
+      "centroid": {
+        "latitude": "41.32373",
+        "longitude": "63.9528098"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "37.1821164",
+          "longitude": "55.9977865"
+        },
+        "north_east": {
+          "latitude": "45.590118",
+          "longitude": "73.1397362"
+        }
+      }
+    },
+    "vanuatu": {
+      "centroid": {
+        "latitude": "-16.5255069",
+        "longitude": "168.1069154"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-20.4627425",
+          "longitude": "166.3355255"
+        },
+        "north_east": {
+          "latitude": "-12.8713777",
+          "longitude": "170.449982"
+        }
+      }
+    },
+    "venezuela": {
+      "centroid": {
+        "latitude": "8.0018709",
+        "longitude": "-66.1109318"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "0.647529",
+          "longitude": "-73.3529632"
+        },
+        "north_east": {
+          "latitude": "15.9158431",
+          "longitude": "-59.5427079"
+        }
+      }
+    },
+    "vietnam": {
+      "centroid": {
+        "latitude": "13.2904027",
+        "longitude": "108.4265113"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "8.1790665",
+          "longitude": "102.14441"
+        },
+        "north_east": {
+          "latitude": "23.393395",
+          "longitude": "114.3337595"
+        }
+      }
+    },
+    "west bank and gaza": {
+      "centroid": {
+        "latitude": "31.8702888",
+        "longitude": "35.4492109"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "31.2201289",
+          "longitude": "34.0689732"
+        },
+        "north_east": {
+          "latitude": "32.5521479",
+          "longitude": "35.5739235"
+        }
+      }
+    },
+    "yemen": {
+      "centroid": {
+        "latitude": "16.3471243",
+        "longitude": "47.8915271"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "11.9084802",
+          "longitude": "41.60825"
+        },
+        "north_east": {
+          "latitude": "19.0",
+          "longitude": "54.7389375"
+        }
+      }
+    },
+    "zambia": {
+      "centroid": {
+        "latitude": "-14.5189121",
+        "longitude": "27.5589884"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-18.0765945",
+          "longitude": "21.9993509"
+        },
+        "north_east": {
+          "latitude": "-8.2712822",
+          "longitude": "33.701111"
+        }
+      }
+    },
+    "zimbabwe": {
+      "centroid": {
+        "latitude": "-18.4554963",
+        "longitude": "29.7468414"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-22.4241096",
+          "longitude": "25.2373"
+        },
+        "north_east": {
+          "latitude": "-15.6097033",
+          "longitude": "33.0683413"
+        }
+      }
+    }
+  },
+  "provinces": {
+    "australian capital territory": {
+      "centroid": {
+        "latitude": "-35.4883502",
+        "longitude": "149.0026942"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-35.92052958",
+          "longitude": "148.76279868"
+        },
+        "north_east": {
+          "latitude": "-35.12441307",
+          "longitude": "149.39929702"
+        }
+      }
+    },
+    "new south wales": {
+      "centroid": {
+        "latitude": "-31.8759835",
+        "longitude": "147.2869493"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-37.52801391",
+          "longitude": "140.9992596"
+        },
+        "north_east": {
+          "latitude": "-28.14152623",
+          "longitude": "159.33903104"
+        }
+      }
+    },
+    "northern territory": {
+      "centroid": {
+        "latitude": "-19.8516101",
+        "longitude": "133.2303375"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-25.99862001",
+          "longitude": "128.99998249"
+        },
+        "north_east": {
+          "latitude": "-10.85246281",
+          "longitude": "138.02737108"
+        }
+      }
+    },
+    "queensland": {
+      "centroid": {
+        "latitude": "-22.1646782",
+        "longitude": "144.5844903"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-29.17787505",
+          "longitude": "137.99627037"
+        },
+        "north_east": {
+          "latitude": "-9.08801251",
+          "longitude": "153.61160343"
+        }
+      }
+    },
+    "south australia": {
+      "centroid": {
+        "latitude": "-30.5343665",
+        "longitude": "135.6301212"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-38.11331081",
+          "longitude": "129.00139493"
+        },
+        "north_east": {
+          "latitude": "-25.99639151",
+          "longitude": "141.00295249"
+        }
+      }
+    },
+    "tasmania": {
+      "centroid": {
+        "latitude": "-42.035067",
+        "longitude": "146.6366887"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-55.17305416",
+          "longitude": "143.74882098"
+        },
+        "north_east": {
+          "latitude": "-39.19847776",
+          "longitude": "159.08408272"
+        }
+      }
+    },
+    "victoria": {
+      "centroid": {
+        "latitude": "-36.5986096",
+        "longitude": "144.6780052"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-39.19848673",
+          "longitude": "140.96190162,"
+        },
+        "north_east": {
+          "latitude": "-33.98079743",
+          "longitude": "150.03328204"
+        }
+      }
+    },
+    "western australia": {
+      "centroid": {
+        "latitude": "-25.2303005",
+        "longitude": "121.0187246"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-35.24185032",
+          "longitude": "112.86566965"
+        },
+        "north_east": {
+          "latitude": "-13.50768528",
+          "longitude": "129.01996864"
+        }
+      }
+    },
+    "alberta": {
+      "centroid": {
+        "latitude": "55.001251",
+        "longitude": "-115.002136"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "48.99666667",
+          "longitude": "-120.00138356"
+        },
+        "north_east": {
+          "latitude": "60.00042153",
+          "longitude": "-110.0047639"
+        }
+      }
+    },
+    "british columbia": {
+      "centroid": {
+        "latitude": "55.001251",
+        "longitude": "-125.002441"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "48.22455559",
+          "longitude": "-139.05367067"
+        },
+        "north_east": {
+          "latitude": "60.00229999",
+          "longitude": "-114.05382244"
+        }
+      }
+    },
+    "diamond princess": {
+      "centroid": {
+        "latitude": "",
+        "longitude": ""
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "",
+          "longitude": ""
+        },
+        "north_east": {
+          "latitude": "",
+          "longitude": ""
+        }
+      }
+    },
+    "grand princess": {
+      "centroid": {
+        "latitude": "",
+        "longitude": ""
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "",
+          "longitude": ""
+        },
+        "north_east": {
+          "latitude": "",
+          "longitude": ""
+        }
+      }
+    },
+    "manitoba": {
+      "centroid": {
+        "latitude": "55.001251",
+        "longitude": "-97.001038"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "48.99897647",
+          "longitude": "-102.00761154,"
+        },
+        "north_east": {
+          "latitude": "59.99925996",
+          "longitude": "-88.99081624"
+        }
+      }
+    },
+    "new brunswick": {
+      "centroid": {
+        "latitude": "46.500283",
+        "longitude": "-66.750183"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "44.55611885",
+          "longitude": "-69.05346637"
+        },
+        "north_east": {
+          "latitude": "48.08965933",
+          "longitude": "-63.61471167"
+        }
+      }
+    },
+    "newfoundland and labrador": {
+      "centroid": {
+        "latitude": "53.8217327",
+        "longitude": "-61.2295532"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "46.60466294",
+          "longitude": "-67.82168535"
+        },
+        "north_east": {
+          "latitude": "60.37774396",
+          "longitude": "-52.61276554,"
+        }
+      }
+    },
+    "northwest territories": {
+      "centroid": {
+        "latitude": "65.0000004",
+        "longitude": "-118"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "59.99811994",
+          "longitude": "-136.58800108"
+        },
+        "north_east": {
+          "latitude": "79.12998166",
+          "longitude": "-102.00047578"
+        }
+      }
+    },
+    "nova scotia": {
+      "centroid": {
+        "latitude": "45.1960403",
+        "longitude": "-63.1653789"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "43.27181968",
+          "longitude": "-66.44708156"
+        },
+        "north_east": {
+          "latitude": "47.23508063",
+          "longitude": "-59.61883002"
+        }
+      }
+    },
+    "nunavut": {
+      "centroid": {
+        "latitude": "65.0377727",
+        "longitude": "-92.5540791"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "51.15664674",
+          "longitude": "-120.68302096"
+        },
+        "north_east": {
+          "latitude": "83.33621278",
+          "longitude": "-59.61367674"
+        }
+      }
+    },
+    "ontario": {
+      "centroid": {
+        "latitude": "50.000678",
+        "longitude": "-86.000977"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "41.67655558",
+          "longitude": "-95.15373996"
+        },
+        "north_east": {
+          "latitude": "56.85936349",
+          "longitude": "-74.32010623"
+        }
+      }
+    },
+    "prince edward island": {
+      "centroid": {
+        "latitude": "46.5035453",
+        "longitude": "-63.5955171"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "45.9572042459",
+          "longitude": "-64.418812218"
+        },
+        "north_east": {
+          "latitude": "47.0592158663",
+          "longitude": "-61.9771007922"
+        }
+      }
+    },
+    "quebec": {
+      "centroid": {
+        "latitude": "52.4760892",
+        "longitude": "-71.8258668"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "44.99136887",
+          "longitude": "-79.77413502"
+        },
+        "north_east": {
+          "latitude": "62.58048624",
+          "longitude": "-57.10548643"
+        }
+      }
+    },
+    "repatriated travellers": {
+      "centroid": {
+        "latitude": "",
+        "longitude": ""
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "",
+          "longitude": ""
+        },
+        "north_east": {
+          "latitude": "",
+          "longitude": ""
+        }
+      }
+    },
+    "saskatchewan": {
+      "centroid": {
+        "latitude": "55.5321257",
+        "longitude": "-106.1412243"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "48.99880556",
+          "longitude": "-110.00636527"
+        },
+        "north_east": {
+          "latitude": "59.99981996",
+          "longitude": "-101.36190761"
+        }
+      }
+    },
+    "yukon": {
+      "centroid": {
+        "latitude": "63.000147",
+        "longitude": "-136.002502"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "59.99483683",
+          "longitude": "-141.00275007"
+        },
+        "north_east": {
+          "latitude": "69.84587993",
+          "longitude": "-123.8114711"
+        }
+      }
+    },
+    "anhui": {
+      "centroid": {
+        "latitude": "32",
+        "longitude": "117"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "29.39522735",
+          "longitude": "114.87665167"
+        },
+        "north_east": {
+          "latitude": "34.65374364",
+          "longitude": "119.64532023"
+        }
+      }
+    },
+    "beijing": {
+      "centroid": {
+        "latitude": "39.906217",
+        "longitude": "116.3912757"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "39.44161129",
+          "longitude": "115.41720856"
+        },
+        "north_east": {
+          "latitude": "41.05955832",
+          "longitude": "117.50798513"
+        }
+      }
+    },
+    "chongqing": {
+      "centroid": {
+        "latitude": "29.5647398",
+        "longitude": "106.5478767"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "28.16174397",
+          "longitude": "105.28683058"
+        },
+        "north_east": {
+          "latitude": "32.20366305",
+          "longitude": "110.19444285"
+        }
+      }
+    },
+    "fujian": {
+      "centroid": {
+        "latitude": "26.5450001",
+        "longitude": "117.842778"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "23.25998603",
+          "longitude": "115.84675663"
+        },
+        "north_east": {
+          "latitude": "28.32052286",
+          "longitude": "121.03366372"
+        }
+      }
+    },
+    "gansu": {
+      "centroid": {
+        "latitude": "38.0000001",
+        "longitude": "101.9999999"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "32.59871355",
+          "longitude": "92.33865012"
+        },
+        "north_east": {
+          "latitude": "42.79448739",
+          "longitude": "108.70762625"
+        }
+      }
+    },
+    "guangdong": {
+      "centroid": {
+        "latitude": "23.1357694",
+        "longitude": "113.1982688"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "20.11980542",
+          "longitude": "109.44947958"
+        },
+        "north_east": {
+          "latitude": "25.51951646",
+          "longitude": "117.66435657"
+        }
+      }
+    },
+    "guangxi": {
+      "centroid": {
+        "latitude": "24",
+        "longitude": "109"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "20.70299997",
+          "longitude": "104.44823852"
+        },
+        "north_east": {
+          "latitude": "26.38639066",
+          "longitude": "112.05689998"
+        }
+      }
+    },
+    "guizhou": {
+      "centroid": {
+        "latitude": "27",
+        "longitude": "107"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "24.62071719",
+          "longitude": "103.59998548"
+        },
+        "north_east": {
+          "latitude": "29.22444624",
+          "longitude": "109.59399902"
+        }
+      }
+    },
+    "hainan": {
+      "centroid": {
+        "latitude": "19.2000001",
+        "longitude": "109.5999999"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "8.83834353",
+          "longitude": "108.38822855"
+        },
+        "north_east": {
+          "latitude": "20.34391245",
+          "longitude": "117.86905262"
+        }
+      }
+    },
+    "hebei": {
+      "centroid": {
+        "latitude": "39.0000001",
+        "longitude": "116"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "36.04622268",
+          "longitude": "113.46027364"
+        },
+        "north_east": {
+          "latitude": "42.61764063",
+          "longitude": "121.02487102"
+        }
+      }
+    },
+    "heilongjiang": {
+      "centroid": {
+        "latitude": "48.0000047",
+        "longitude": "127.999992"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "43.41870499",
+          "longitude": "121.18431845"
+        },
+        "north_east": {
+          "latitude": "53.56081537",
+          "longitude": "134.77545626"
+        }
+      }
+    },
+    "henan": {
+      "centroid": {
+        "latitude": "34.0000001",
+        "longitude": "113.9999999"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "31.3844585",
+          "longitude": "110.35511203"
+        },
+        "north_east": {
+          "latitude": "36.36677909",
+          "longitude": "116.64473099"
+        }
+      }
+    },
+    "hong kong": {
+      "centroid": {
+        "latitude": "22.2793278",
+        "longitude": "114.1628131"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "22.13672216",
+          "longitude": "113.81711104"
+        },
+        "north_east": {
+          "latitude": "22.56833326",
+          "longitude": "114.50244436"
+        }
+      }
+    },
+    "hubei": {
+      "centroid": {
+        "latitude": "31.1521276",
+        "longitude": "112.8782776"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "29.03292814",
+          "longitude": "108.36258026"
+        },
+        "north_east": {
+          "latitude": "33.27277287",
+          "longitude": "116.13222589"
+        }
+      }
+    },
+    "hunan": {
+      "centroid": {
+        "latitude": "27.6662087",
+        "longitude": "111.7487063"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "24.64021785",
+          "longitude": "108.78609436"
+        },
+        "north_east": {
+          "latitude": "30.12842578",
+          "longitude": "114.25559824"
+        }
+      }
+    },
+    "inner mongolia": {
+      "centroid": {
+        "latitude": "43.2443242",
+        "longitude": "114.3251664"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "37.40671008",
+          "longitude": "97.17171182"
+        },
+        "north_east": {
+          "latitude": "53.33288963",
+          "longitude": "126.06980158"
+        }
+      }
+    },
+    "jiangsu": {
+      "centroid": {
+        "latitude": "33.0000001",
+        "longitude": "119.9999999"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "30.76026345",
+          "longitude": "116.35635379"
+        },
+        "north_east": {
+          "latitude": "35.37258588",
+          "longitude": "122.3851954"
+        }
+      }
+    },
+    "jiangxi": {
+      "centroid": {
+        "latitude": "28",
+        "longitude": "116"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "24.48884739",
+          "longitude": "113.57490053"
+        },
+        "north_east": {
+          "latitude": "30.07998685",
+          "longitude": "118.48216294"
+        }
+      }
+    },
+    "jilin": {
+      "centroid": {
+        "latitude": "42.9995032",
+        "longitude": "125.9816054"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "40.86163996",
+          "longitude": "121.63571453"
+        },
+        "north_east": {
+          "latitude": "46.30298467",
+          "longitude": "131.31136496"
+        }
+      }
+    },
+    "liaoning": {
+      "centroid": {
+        "latitude": "40.9975197",
+        "longitude": "122.9955469"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "38.45999999",
+          "longitude": "118.83322705"
+        },
+        "north_east": {
+          "latitude": "43.49064242",
+          "longitude": "125.78740688"
+        }
+      }
+    },
+    "macau": {
+      "centroid": {
+        "latitude": "22.1757605",
+        "longitude": "113.5514142"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "22.07666666",
+          "longitude": "113.52816656"
+        },
+        "north_east": {
+          "latitude": "22.21703605",
+          "longitude": "113.63013886"
+        }
+      }
+    },
+    "ningxia": {
+      "centroid": {
+        "latitude": "37.0000001",
+        "longitude": "105.9999999"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "35.23535535",
+          "longitude": "104.28420057"
+        },
+        "north_east": {
+          "latitude": "39.38516663",
+          "longitude": "107.65253742"
+        }
+      }
+    },
+    "qinghai": {
+      "centroid": {
+        "latitude": "35.4070952",
+        "longitude": "95.9521157"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "31.60180443",
+          "longitude": "89.40221656"
+        },
+        "north_east": {
+          "latitude": "39.2142318",
+          "longitude": "103.07047442"
+        }
+      }
+    },
+    "shaanxi": {
+      "centroid": {
+        "latitude": "35.8894105",
+        "longitude": "109.1357285"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "31.70666506",
+          "longitude": "105.487304"
+        },
+        "north_east": {
+          "latitude": "39.58677646",
+          "longitude": "111.24247789"
+        }
+      }
+    },
+    "shandong": {
+      "centroid": {
+        "latitude": "36.0000001",
+        "longitude": "118.9999999"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "34.37857774",
+          "longitude": "114.81691024"
+        },
+        "north_east": {
+          "latitude": "38.52183295",
+          "longitude": "122.95675779"
+        }
+      }
+    },
+    "shanghai": {
+      "centroid": {
+        "latitude": "31.2322758",
+        "longitude": "121.4692071"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "30.6614383",
+          "longitude": "120.85201706"
+        },
+        "north_east": {
+          "latitude": "31.87856398",
+          "longitude": "123.33420872"
+        }
+      }
+    },
+    "shanxi": {
+      "centroid": {
+        "latitude": "37",
+        "longitude": "112"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "34.58226193",
+          "longitude": "110.22144599"
+        },
+        "north_east": {
+          "latitude": "40.74504417",
+          "longitude": "114.56551425"
+        }
+      }
+    },
+    "sichuan": {
+      "centroid": {
+        "latitude": "30.5000001",
+        "longitude": "102.4999999"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "26.04816586",
+          "longitude": "97.34737539"
+        },
+        "north_east": {
+          "latitude": "34.31245358",
+          "longitude": "108.54266654"
+        }
+      }
+    },
+    "tianjin": {
+      "centroid": {
+        "latitude": "39.0856735",
+        "longitude": "117.1951073"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "38.43728327",
+          "longitude": "116.70448298"
+        },
+        "north_east": {
+          "latitude": "40.25201107",
+          "longitude": "118.06000026"
+        }
+      }
+    },
+    "tibet": {
+      "centroid": {
+        "latitude": "29.8556443",
+        "longitude": "90.8749807"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "26.8",
+          "longitude": "78.2"
+        },
+        "north_east": {
+          "latitude": "40",
+          "longitude": "104.5"
+        }
+      }
+    },
+    "unknown": {
+      "centroid": {
+        "latitude": "",
+        "longitude": ""
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "",
+          "longitude": ""
+        },
+        "north_east": {
+          "latitude": "",
+          "longitude": ""
+        }
+      }
+    },
+    "xinjiang": {
+      "centroid": {
+        "latitude": "42.4804953",
+        "longitude": "85.4633464"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "34.33484282",
+          "longitude": "73.49973467"
+        },
+        "north_east": {
+          "latitude": "49.17872898",
+          "longitude": "96.38726224"
+        }
+      }
+    },
+    "yunnan": {
+      "centroid": {
+        "latitude": "25",
+        "longitude": "102"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "21.14313899",
+          "longitude": "97.52800406"
+        },
+        "north_east": {
+          "latitude": "29.22572054",
+          "longitude": "106.19420613"
+        }
+      }
+    },
+    "zhejiang": {
+      "centroid": {
+        "latitude": "29.0000001",
+        "longitude": "119.9999999"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "26.85910016",
+          "longitude": "118.02240692"
+        },
+        "north_east": {
+          "latitude": "31.18257835",
+          "longitude": "123.39362234"
+        }
+      }
+    },
+    "faroe islands": {
+      "centroid": {
+        "latitude": "62.0448724",
+        "longitude": "-7.0322972"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "61.2875077404",
+          "longitude": "-7.79961505"
+        },
+        "north_east": {
+          "latitude": "62.4464366523",
+          "longitude": "-6.1406795031"
+        }
+      }
+    },
+    "greenland": {
+      "centroid": {
+        "latitude": "77.6192349",
+        "longitude": "-42.8125967"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "59.51538694",
+          "longitude": "-74.12504166"
+        },
+        "north_east": {
+          "latitude": "83.87517192",
+          "longitude": "-10.02887594"
+        }
+      }
+    },
+    "french guiana": {
+      "centroid": {
+        "latitude": "4.0039882",
+        "longitude": "-52.999998"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "2.11222196",
+          "longitude": "-54.60278006"
+        },
+        "north_east": {
+          "latitude": "5.97799996",
+          "longitude": "-51.56936436"
+        }
+      }
+    },
+    "french polynesia": {
+      "centroid": {
+        "latitude": "-16.0344249",
+        "longitude": "-146.0490931"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-28.09902327",
+          "longitude": "-154.93605997"
+        },
+        "north_east": {
+          "latitude": "-7.65921737",
+          "longitude": "-134.24479906"
+        }
+      }
+    },
+    "guadeloupe": {
+      "centroid": {
+        "latitude": "16.2305103",
+        "longitude": "-61.687126"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "15.64441093",
+          "longitude": "-62.01803908"
+        },
+        "north_east": {
+          "latitude": "16.71399995",
+          "longitude": "-60.79196563"
+        }
+      }
+    },
+    "martinique": {
+      "centroid": {
+        "latitude": "14.6367927",
+        "longitude": "-61.0158269"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "14.3887031",
+          "longitude": "-61.22908154"
+        },
+        "north_east": {
+          "latitude": "14.87870287",
+          "longitude": "-60.8095833"
+        }
+      }
+    },
+    "mayotte": {
+      "centroid": {
+        "latitude": "-12.823048",
+        "longitude": "45.1520755"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-13.27325543",
+          "longitude": "44.74366754"
+        },
+        "north_east": {
+          "latitude": "-12.37902706",
+          "longitude": "45.50703462"
+        }
+      }
+    },
+    "new caledonia": {
+      "centroid": {
+        "latitude": "-21.3019905",
+        "longitude": "165.4880773"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-23.22175098",
+          "longitude": "157.98475404"
+        },
+        "north_east": {
+          "latitude": "-17.68686163",
+          "longitude": "172.30571514"
+        }
+      }
+    },
+    "reunion": {
+      "centroid": {
+        "latitude": "-21.1307379",
+        "longitude": "55.5364801"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-21.38973081",
+          "longitude": "55.21642674"
+        },
+        "north_east": {
+          "latitude": "-20.87171368",
+          "longitude": "55.83669235"
+        }
+      }
+    },
+    "saint barthelemy": {
+      "centroid": {
+        "latitude": "17.9036287",
+        "longitude": "-62.8115688"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "17.67093099",
+          "longitude": "-63.06639003"
+        },
+        "north_east": {
+          "latitude": "18.13755682",
+          "longitude": "-62.58440193"
+        }
+      }
+    },
+    "saint pierre and miquelon": {
+      "centroid": {
+        "latitude": "46.9568928",
+        "longitude": "-56.3934609"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "46.55071727",
+          "longitude": "-56.69729613"
+        },
+        "north_east": {
+          "latitude": "47.36499997",
+          "longitude": "-55.90333334"
+        }
+      }
+    },
+    "st martin": {
+      "centroid": {
+        "latitude": "18.083333",
+        "longitude": "-63.05"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "17.89635347",
+          "longitude": "-63.36056432"
+        },
+        "north_east": {
+          "latitude": "18.19027773",
+          "longitude": "-62.76440632"
+        }
+      }
+    },
+    "wallis and futuna": {
+      "centroid": {
+        "latitude": "-13.289402",
+        "longitude": "-176.204224"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-14.36218493",
+          "longitude": "-178.18175331"
+        },
+        "north_east": {
+          "latitude": "-13.1832441",
+          "longitude": "-176.12478733"
+        }
+      }
+    },
+    "aruba": {
+      "centroid": {
+        "latitude": "12.4902998",
+        "longitude": "-69.9609842"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "12.26277795",
+          "longitude": "-70.26958765"
+        },
+        "north_east": {
+          "latitude": "12.82299996",
+          "longitude": "-69.66122601"
+        }
+      }
+    },
+    "bonaire, sint eustatius and saba": {
+      "centroid": {
+        "latitude": "12.21286",
+        "longitude": "-68.29445"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "11.82499994",
+          "longitude": "-68.62553191"
+        },
+        "north_east": {
+          "latitude": "12.51199992",
+          "longitude": "-67.99079661"
+        }
+      }
+    },
+    "curacao": {
+      "centroid": {
+        "latitude": "12.1176488",
+        "longitude": "-68.9309263"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "11.77699997",
+          "longitude": "-69.36734936"
+        },
+        "north_east": {
+          "latitude": "12.59199999",
+          "longitude": "-68.44134738"
+        }
+      }
+    },
+    "sint maarten": {
+      "centroid": {
+        "latitude": "18.0423736",
+        "longitude": "-63.0549948"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "17.89635347",
+          "longitude": "-63.36056432"
+        },
+        "north_east": {
+          "latitude": "18.19027773",
+          "longitude": "-62.76440632"
+        }
+      }
+    },
+    "cook islands": {
+      "centroid": {
+        "latitude": "-19.9196729",
+        "longitude": "-157.9753369"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-22.15807003",
+          "longitude": "-166.08564687"
+        },
+        "north_east": {
+          "latitude": "-8.71687927",
+          "longitude": "-157.10893291"
+        }
+      }
+    },
+    "anguilla": {
+      "centroid": {
+        "latitude": "18.1954947",
+        "longitude": "-63.0750234"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "18.06154536",
+          "longitude": "-63.63919923"
+        },
+        "north_east": {
+          "latitude": "18.79511938",
+          "longitude": "-62.71254497"
+        }
+      }
+    },
+    "bermuda": {
+      "centroid": {
+        "latitude": "32.3018217",
+        "longitude": "-64.7603583"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "32.04696505",
+          "longitude": "-65.12322223"
+        },
+        "north_east": {
+          "latitude": "32.59136924",
+          "longitude": "-64.41098426"
+        }
+      }
+    },
+    "british virgin islands": {
+      "centroid": {
+        "latitude": "18.4024395",
+        "longitude": "-64.5661642"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "18.10553107",
+          "longitude": "-64.95596118"
+        },
+        "north_east": {
+          "latitude": "18.95038014",
+          "longitude": "-64.05972946"
+        }
+      }
+    },
+    "cayman islands": {
+      "centroid": {
+        "latitude": "19.7031822",
+        "longitude": "-79.9174627"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "19.06206188",
+          "longitude": "-81.63137483"
+        },
+        "north_east": {
+          "latitude": "19.95737587",
+          "longitude": "-79.51109548"
+        }
+      }
+    },
+    "channel islands": {
+      "centroid": {
+        "latitude": "49.372284",
+        "longitude": "-2.364351"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "48.8687334829",
+          "longitude": "-3.02185798"
+        },
+        "north_east": {
+          "latitude": "49.9401278374",
+          "longitude": "-1.8353345425"
+        }
+      }
+    },
+    "falkland islands (malvinas)": {
+      "centroid": {
+        "latitude": "-51.9666424",
+        "longitude": "-59.5500387"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-53.11867668",
+          "longitude": "-61.77267722"
+        },
+        "north_east": {
+          "latitude": "-50.79730072",
+          "longitude": "-57.36623671"
+        }
+      }
+    },
+    "gibraltar": {
+      "centroid": {
+        "latitude": "36.140807",
+        "longitude": "-5.3541295"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "36.05875496",
+          "longitude": "-5.4006553"
+        },
+        "north_east": {
+          "latitude": "36.15503755",
+          "longitude": "-5.27666114"
+        }
+      }
+    },
+    "isle of man": {
+      "centroid": {
+        "latitude": "54.1936805",
+        "longitude": "-4.5591148"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "53.84499994",
+          "longitude": "-5.17072855"
+        },
+        "north_east": {
+          "latitude": "54.55342876",
+          "longitude": "-3.96540618"
+        }
+      }
+    },
+    "montserrat": {
+      "centroid": {
+        "latitude": "16.7417041",
+        "longitude": "-62.1916844"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "16.47499995",
+          "longitude": "-62.45066707"
+        },
+        "north_east": {
+          "latitude": "17.01529777",
+          "longitude": "-61.93538186"
+        }
+      }
+    },
+    "saint helena, ascension and tristan da cunha": {
+      "centroid": {
+        "latitude": "-15.9654552",
+        "longitude": "-5.7025756"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-40.57000002",
+          "longitude": "-14.62269457"
+        },
+        "north_east": {
+          "latitude": "-7.69000007",
+          "longitude": "-5.42341536"
+        }
+      }
+    },
+    "turks and caicos islands": {
+      "centroid": {
+        "latitude": "21.7214683",
+        "longitude": "-71.6201783"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "20.95534178",
+          "longitude": "-72.67990466"
+        },
+        "north_east": {
+          "latitude": "22.16309884",
+          "longitude": "-70.86435911"
+        }
+      }
+    }
+  },
+  "united_states": {
+    "alabama": {
+      "centroid": {
+        "latitude": "32.318230",
+        "longitude": "-86.902298"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "30.223334",
+          "longitude": "-88.473227"
+        },
+        "north_east": {
+          "latitude": "35.008028",
+          "longitude": "-84.88908"
+        }
+      }
+    },
+    "alaska": {
+      "centroid": {
+        "latitude": "66.160507",
+        "longitude": "-153.369141"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "51.214183",
+          "longitude": "-179.148909"
+        },
+        "north_east": {
+          "latitude": "71.365162",
+          "longitude": "179.77847"
+        }
+      }
+    },
+    "american samoa": {
+      "centroid": {
+        "latitude": "-14.270972",
+        "longitude": "-170.132217"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "-14.548699",
+          "longitude": "-171.089874"
+        },
+        "north_east": {
+          "latitude": "-11.046934",
+          "longitude": "-168.1433"
+        }
+      }
+    },
+    "arizona": {
+      "centroid": {
+        "latitude": "34.048927",
+        "longitude": "-111.093735"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "31.332177",
+          "longitude": "-114.81651"
+        },
+        "north_east": {
+          "latitude": "37.00426",
+          "longitude": "-109.045223"
+        }
+      }
+    },
+    "arkansas": {
+      "centroid": {
+        "latitude": "34.799999",
+        "longitude": "-92.199997"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "33.004106",
+          "longitude": "-94.617919"
+        },
+        "north_east": {
+          "latitude": "36.4996",
+          "longitude": "-89.644395"
+        }
+      }
+    },
+    "california": {
+      "centroid": {
+        "latitude": "36.778259",
+        "longitude": "-119.417931"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "32.534156",
+          "longitude": "-124.409591"
+        },
+        "north_east": {
+          "latitude": "42.009518",
+          "longitude": "-114.131211"
+        }
+      }
+    },
+    "colorado": {
+      "centroid": {
+        "latitude": "39.113014",
+        "longitude": "-105.358887"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "36.992426",
+          "longitude": "-109.060253"
+        },
+        "north_east": {
+          "latitude": "41.003444",
+          "longitude": "-102.041524"
+        }
+      }
+    },
+    "commonwealth of the northern mariana islands": {
+      "centroid": {
+        "latitude": "15.188830",
+        "longitude": "145.753500"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "14.110472",
+          "longitude": "144.886331"
+        },
+        "north_east": {
+          "latitude": "20.553802",
+          "longitude": "146.064818"
+        }
+      }
+    },
+    "connecticut": {
+      "centroid": {
+        "latitude": "41.599998",
+        "longitude": "-72.699997"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "40.980144",
+          "longitude": "-73.727775"
+        },
+        "north_east": {
+          "latitude": "42.050587",
+          "longitude": "-71.786994"
+        }
+      }
+    },
+    "delaware": {
+      "centroid": {
+        "latitude": "39.000000",
+        "longitude": "-75.500000"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "38.451013",
+          "longitude": "-75.788658"
+        },
+        "north_east": {
+          "latitude": "39.839007",
+          "longitude": "-75.048939"
+        }
+      }
+    },
+    "district of columbia": {
+      "centroid": {
+        "latitude": "38.907192",
+        "longitude": "-77.036873"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "38.791645",
+          "longitude": "-77.119759"
+        },
+        "north_east": {
+          "latitude": "38.99511",
+          "longitude": "-76.909395"
+        }
+      }
+    },
+    "florida": {
+      "centroid": {
+        "latitude": "27.994402",
+        "longitude": "-81.760254"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "24.523096",
+          "longitude": "-87.634938"
+        },
+        "north_east": {
+          "latitude": "31.000888",
+          "longitude": "-80.031362"
+        }
+      }
+    },
+    "georgia": {
+      "centroid": {
+        "latitude": "33.247875",
+        "longitude": "-83.441162"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "30.357851",
+          "longitude": "-85.605165"
+        },
+        "north_east": {
+          "latitude": "35.000659",
+          "longitude": "-80.839729"
+        }
+      }
+    },
+    "guam": {
+      "centroid": {
+        "latitude": "13.444304",
+        "longitude": "144.793732"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "13.234189",
+          "longitude": "144.618068"
+        },
+        "north_east": {
+          "latitude": "13.654383",
+          "longitude": "144.956712"
+        }
+      }
+    },
+    "hawaii": {
+      "centroid": {
+        "latitude": "19.741755",
+        "longitude": "-155.844437"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "18.910361",
+          "longitude": "-178.334698"
+        },
+        "north_east": {
+          "latitude": "28.402123",
+          "longitude": "-154.806773"
+        }
+      }
+    },
+    "idaho": {
+      "centroid": {
+        "latitude": "44.068203",
+        "longitude": "-114.742043"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "41.988057",
+          "longitude": "-117.243027"
+        },
+        "north_east": {
+          "latitude": "49.001146",
+          "longitude": "-111.043564"
+        }
+      }
+    },
+    "illinois": {
+      "centroid": {
+        "latitude": "40.000000",
+        "longitude": "-89.000000"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "36.970298",
+          "longitude": "-91.513079"
+        },
+        "north_east": {
+          "latitude": "42.508481",
+          "longitude": "-87.494756"
+        }
+      }
+    },
+    "indiana": {
+      "centroid": {
+        "latitude": "40.273502",
+        "longitude": "-86.126976"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "37.771742",
+          "longitude": "-88.09776"
+        },
+        "north_east": {
+          "latitude": "41.760592",
+          "longitude": "-84.784579"
+        }
+      }
+    },
+    "iowa": {
+      "centroid": {
+        "latitude": "42.032974",
+        "longitude": "-93.581543"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "40.375501",
+          "longitude": "-96.639704"
+        },
+        "north_east": {
+          "latitude": "43.501196",
+          "longitude": "-90.140061"
+        }
+      }
+    },
+    "kansas": {
+      "centroid": {
+        "latitude": "38.500000",
+        "longitude": "-98.000000"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "36.993016",
+          "longitude": "-102.051744"
+        },
+        "north_east": {
+          "latitude": "40.003162",
+          "longitude": "-94.588413"
+        }
+      }
+    },
+    "kentucky": {
+      "centroid": {
+        "latitude": "37.839333",
+        "longitude": "-84.270020"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "36.497129",
+          "longitude": "-89.571509"
+        },
+        "north_east": {
+          "latitude": "39.147458",
+          "longitude": "-81.964971"
+        }
+      }
+    },
+    "louisiana": {
+      "centroid": {
+        "latitude": "30.391830",
+        "longitude": "-92.329102"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "28.928609",
+          "longitude": "-94.043147"
+        },
+        "north_east": {
+          "latitude": "33.019457",
+          "longitude": "-88.817017"
+        }
+      }
+    },
+    "maine": {
+      "centroid": {
+        "latitude": "45.367584",
+        "longitude": "-68.972168"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "42.977764",
+          "longitude": "-71.083924"
+        },
+        "north_east": {
+          "latitude": "47.459686",
+          "longitude": "-66.949895"
+        }
+      }
+    },
+    "maryland": {
+      "centroid": {
+        "latitude": "39.045753",
+        "longitude": "-76.641273"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "37.911717",
+          "longitude": "-79.487651"
+        },
+        "north_east": {
+          "latitude": "39.723043",
+          "longitude": "-75.048939"
+        }
+      }
+    },
+    "massachusetts": {
+      "centroid": {
+        "latitude": "42.407211",
+        "longitude": "-71.382439"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "41.237964",
+          "longitude": "-73.508142"
+        },
+        "north_east": {
+          "latitude": "42.886589",
+          "longitude": "-69.928393"
+        }
+      }
+    },
+    "michigan": {
+      "centroid": {
+        "latitude": "44.182205",
+        "longitude": "-84.506836"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "41.696118",
+          "longitude": "-90.418136"
+        },
+        "north_east": {
+          "latitude": "48.2388",
+          "longitude": "-82.413474"
+        }
+      }
+    },
+    "minnesota": {
+      "centroid": {
+        "latitude": "46.392410",
+        "longitude": "-94.636230"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "43.499356",
+          "longitude": "-97.239209"
+        },
+        "north_east": {
+          "latitude": "49.384358",
+          "longitude": "-89.491739"
+        }
+      }
+    },
+    "mississippi": {
+      "centroid": {
+        "latitude": "33.000000",
+        "longitude": "-90.000000"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "30.173943",
+          "longitude": "-91.655009"
+        },
+        "north_east": {
+          "latitude": "34.996052",
+          "longitude": "-88.097888"
+        }
+      }
+    },
+    "missouri": {
+      "centroid": {
+        "latitude": "38.573936",
+        "longitude": "-92.603760"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "35.995683",
+          "longitude": "-95.774704"
+        },
+        "north_east": {
+          "latitude": "40.61364",
+          "longitude": "-89.098843"
+        }
+      }
+    },
+    "montana": {
+      "centroid": {
+        "latitude": "46.965260",
+        "longitude": "-109.533691"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "44.358221",
+          "longitude": "-116.050003"
+        },
+        "north_east": {
+          "latitude": "49.00139",
+          "longitude": "-104.039138"
+        }
+      }
+    },
+    "nebraska": {
+      "centroid": {
+        "latitude": "41.500000",
+        "longitude": "-100.000000"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "39.999998",
+          "longitude": "-104.053514"
+        },
+        "north_east": {
+          "latitude": "43.001708",
+          "longitude": "-95.30829"
+        }
+      }
+    },
+    "nevada": {
+      "centroid": {
+        "latitude": "39.876019",
+        "longitude": "-117.224121"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "35.001857",
+          "longitude": "-120.005746"
+        },
+        "north_east": {
+          "latitude": "42.002207",
+          "longitude": "-114.039648"
+        }
+      }
+    },
+    "new hampshire": {
+      "centroid": {
+        "latitude": "44.000000",
+        "longitude": "-71.500000"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "42.69699",
+          "longitude": "-72.557247"
+        },
+        "north_east": {
+          "latitude": "45.305476",
+          "longitude": "-70.610621"
+        }
+      }
+    },
+    "new jersey": {
+      "centroid": {
+        "latitude": "39.833851",
+        "longitude": "-74.871826"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "38.928519",
+          "longitude": "-75.559614"
+        },
+        "north_east": {
+          "latitude": "41.357423",
+          "longitude": "-73.893979"
+        }
+      }
+    },
+    "new mexico": {
+      "centroid": {
+        "latitude": "34.307144",
+        "longitude": "-106.018066"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "31.332301",
+          "longitude": "-109.050173"
+        },
+        "north_east": {
+          "latitude": "37.000232",
+          "longitude": "-103.001964"
+        }
+      }
+    },
+    "new york": {
+      "centroid": {
+        "latitude": "43.000000",
+        "longitude": "-75.000000"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "40.496103",
+          "longitude": "-79.762152"
+        },
+        "north_east": {
+          "latitude": "45.01585",
+          "longitude": "-71.856214"
+        }
+      }
+    },
+    "north carolina": {
+      "centroid": {
+        "latitude": "35.782169",
+        "longitude": "-80.793457"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "33.842316",
+          "longitude": "-84.321869"
+        },
+        "north_east": {
+          "latitude": "36.588117",
+          "longitude": "-75.460621"
+        }
+      }
+    },
+    "north dakota": {
+      "centroid": {
+        "latitude": "47.650589",
+        "longitude": "-100.437012"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "45.935054",
+          "longitude": "-104.0489"
+        },
+        "north_east": {
+          "latitude": "49.000574",
+          "longitude": "-96.554507"
+        }
+      }
+    },
+    "ohio": {
+      "centroid": {
+        "latitude": "40.367474",
+        "longitude": "-82.996216"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "38.403202",
+          "longitude": "-84.820159"
+        },
+        "north_east": {
+          "latitude": "41.977523",
+          "longitude": "-80.518693"
+        }
+      }
+    },
+    "oklahoma": {
+      "centroid": {
+        "latitude": "36.084621",
+        "longitude": "-96.921387"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "33.615833",
+          "longitude": "-103.002565"
+        },
+        "north_east": {
+          "latitude": "37.002206",
+          "longitude": "-94.430662"
+        }
+      }
+    },
+    "oregon": {
+      "centroid": {
+        "latitude": "44.000000",
+        "longitude": "-120.500000"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "41.991794",
+          "longitude": "-124.566244"
+        },
+        "north_east": {
+          "latitude": "46.292035",
+          "longitude": "-116.463504"
+        }
+      }
+    },
+    "pennsylvania": {
+      "centroid": {
+        "latitude": "41.203323",
+        "longitude": "-77.194527"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "39.7198",
+          "longitude": "-80.519891"
+        },
+        "north_east": {
+          "latitude": "42.26986",
+          "longitude": "-74.689516"
+        }
+      }
+    },
+    "puerto rico": {
+      "centroid": {
+        "latitude": "18.220833",
+        "longitude": "-66.590149"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "17.88328",
+          "longitude": "-67.945404"
+        },
+        "north_east": {
+          "latitude": "18.515683",
+          "longitude": "-65.220703"
+        }
+      }
+    },
+    "rhode island": {
+      "centroid": {
+        "latitude": "41.700001",
+        "longitude": "-71.500000"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "41.146339",
+          "longitude": "-71.862772"
+        },
+        "north_east": {
+          "latitude": "42.018798",
+          "longitude": "-71.12057"
+        }
+      }
+    },
+    "south carolina": {
+      "centroid": {
+        "latitude": "33.836082",
+        "longitude": "-81.163727"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "32.0346",
+          "longitude": "-83.35391"
+        },
+        "north_east": {
+          "latitude": "35.215402",
+          "longitude": "-78.54203"
+        }
+      }
+    },
+    "south dakota": {
+      "centroid": {
+        "latitude": "44.500000",
+        "longitude": "-100.000000"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "42.479635",
+          "longitude": "-104.057698"
+        },
+        "north_east": {
+          "latitude": "45.94545",
+          "longitude": "-96.436589"
+        }
+      }
+    },
+    "tennessee": {
+      "centroid": {
+        "latitude": "35.860119",
+        "longitude": "-86.660156"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "34.982972",
+          "longitude": "-90.310298"
+        },
+        "north_east": {
+          "latitude": "36.678118",
+          "longitude": "-81.6469"
+        }
+      }
+    },
+    "texas": {
+      "centroid": {
+        "latitude": "31.000000",
+        "longitude": "-100.000000"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "25.837377",
+          "longitude": "-106.645646"
+        },
+        "north_east": {
+          "latitude": "36.500704",
+          "longitude": "-93.508292"
+        }
+      }
+    },
+    "united states virgin islands": {
+      "centroid": {
+        "latitude": "18.335766",
+        "longitude": "-64.896332"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "17.673976",
+          "longitude": "-65.085452"
+        },
+        "north_east": {
+          "latitude": "18.412655",
+          "longitude": "-64.564907"
+        }
+      }
+    },
+    "utah": {
+      "centroid": {
+        "latitude": "39.419220",
+        "longitude": "-111.950684"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "36.997968",
+          "longitude": "-114.052962"
+        },
+        "north_east": {
+          "latitude": "42.001567",
+          "longitude": "-109.041058"
+        }
+      }
+    },
+    "vermont": {
+      "centroid": {
+        "latitude": "44.000000",
+        "longitude": "-72.699997"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "42.726853",
+          "longitude": "-73.43774"
+        },
+        "north_east": {
+          "latitude": "45.016659",
+          "longitude": "-71.464555"
+        }
+      }
+    },
+    "virginia": {
+      "centroid": {
+        "latitude": "37.926868",
+        "longitude": "-78.024902"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "36.540738",
+          "longitude": "-83.675395"
+        },
+        "north_east": {
+          "latitude": "39.466012",
+          "longitude": "-75.242266"
+        }
+      }
+    },
+    "washington": {
+      "centroid": {
+        "latitude": "47.751076",
+        "longitude": "-120.740135"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "45.543541",
+          "longitude": "-124.763068"
+        },
+        "north_east": {
+          "latitude": "49.002494",
+          "longitude": "-116.915989"
+        }
+      }
+    },
+    "west virginia": {
+      "centroid": {
+        "latitude": "39.000000",
+        "longitude": "-80.500000"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "37.201483",
+          "longitude": "-82.644739"
+        },
+        "north_east": {
+          "latitude": "40.638801",
+          "longitude": "-77.719519"
+        }
+      }
+    },
+    "wisconsin": {
+      "centroid": {
+        "latitude": "44.500000",
+        "longitude": "-89.500000"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "42.491983",
+          "longitude": "-92.888114"
+        },
+        "north_east": {
+          "latitude": "47.080621",
+          "longitude": "-86.805415"
+        }
+      }
+    },
+    "wyoming": {
+      "centroid": {
+        "latitude": "43.075970",
+        "longitude": "-107.290283"
+      },
+      "bounding_box": {
+        "south_west": {
+          "latitude": "40.994746",
+          "longitude": "-111.056888"
+        },
+        "north_east": {
+          "latitude": "45.005904",
+          "longitude": "-104.05216"
+        }
+      }
+    }
+  }
+}
