@@ -50,8 +50,8 @@ export const covidApi = createApi({
           provinces: "",
           state: state.state,
           county: "",
-          updatedAt: response.cases ?? 0,
-          population: response.population ?? 0,
+          updatedAt: state.cases ?? 0,
+          population: state.population ?? 0,
         })),
     }),
     getTotalOneUSState: builder.query({
@@ -183,8 +183,8 @@ export const covidApi = createApi({
           provinces: "",
           state: "",
           county: capitalize(county.county, true),
-          updatedAt: response.cases ?? 0,
-          population: response.population ?? 0,
+          updatedAt: county.cases ?? 0,
+          population: county.population ?? 0,
         })),
     }),
     getUSCountyCoordinates: builder.query({
@@ -273,8 +273,8 @@ export const covidApi = createApi({
           provinces: "",
           state: state.state,
           county: "",
-          updatedAt: response.updatedAt ?? 0,
-          population: response.population ?? 0,
+          updatedAt: state.updatedAt ?? 0,
+          population: state.population ?? 0,
         })),
     }),
     getTotalPeopleVaccinatedByState: builder.query({
