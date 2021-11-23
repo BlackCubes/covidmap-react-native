@@ -26,9 +26,9 @@ const subTitle = (deaths, population, recovered) => {
     subTitlesEnding = "pop.";
   }
 
-  if (deaths > 0) subTitlesArray.push("deaths");
-
   if (recovered > 0) subTitlesArray.push("recovered");
+
+  if (deaths > 0) subTitlesArray.push("deaths");
 
   return `(on ${subTitlesArray.join("/")} per ${subTitlesEnding})`;
 };
@@ -58,12 +58,6 @@ const OverviewGraph = ({ cases, deaths, population, recovered }) => {
 
   const divideBy = population > 0 ? population : cases;
 
-  if (population && population > 0 && cases) {
-    data.labels.push("Cases");
-
-    data.data.push(cases / divideBy);
-  }
-
   if (deaths) {
     data.labels.push("Deaths");
 
@@ -74,6 +68,12 @@ const OverviewGraph = ({ cases, deaths, population, recovered }) => {
     data.labels.push("Recovered");
 
     data.data.push(recovered / divideBy);
+  }
+
+  if (population && population > 0 && cases) {
+    data.labels.push("Cases");
+
+    data.data.push(cases / divideBy);
   }
 
   return (
@@ -90,7 +90,7 @@ const OverviewGraph = ({ cases, deaths, population, recovered }) => {
         data={data}
         width={chartWidth}
         height={chartHeight}
-        strokeWidth={2}
+        strokeWidth={5}
         radius={19}
         chartConfig={chartConfig}
       />
