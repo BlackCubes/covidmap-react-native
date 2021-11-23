@@ -99,7 +99,7 @@ const PopupSliderData = ({
           <SliderDataInfoValues>
             Cases: {numSeparator(cases)}
             {population && population > 0
-              ? `or ${((cases / divideBy) * 100).toPrecision(4)}%`
+              ? ` or ${((cases / divideBy) * 100).toPrecision(4)}%`
               : ""}
           </SliderDataInfoValues>
         )}
