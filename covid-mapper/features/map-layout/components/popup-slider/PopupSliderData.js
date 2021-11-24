@@ -55,6 +55,7 @@ const PopupSliderData = ({
   updatedAt,
 }) => {
   const divideBy = population > 0 ? population : cases;
+
   return (
     <SliderDataWrapper>
       <SliderDataInfo>
@@ -90,7 +91,7 @@ const PopupSliderData = ({
           </SliderDataPopulation>
         )}
 
-        {updatedAt > 0 && (
+        {typeof updatedAt === "string" && (
           <SliderDataUpdate>(updated on {updatedAt})</SliderDataUpdate>
         )}
 
