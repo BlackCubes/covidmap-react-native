@@ -21,8 +21,7 @@ export const covidApi = createApi({
         provinces: "",
         state: "",
         county: "",
-        updatedAt: response.cases ?? 0,
-        population: response.population ?? 0,
+        updatedAt: new Date(response.updated).toString() ?? 0, // response.updated is in miliseconds since Jan 1, 1970, need to convert to string 
       }),
     }),
     getEachCountriesTotals: builder.query({

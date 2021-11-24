@@ -55,7 +55,6 @@ const PopupSliderData = ({
   updatedAt,
 }) => {
   const divideBy = population > 0 ? population : cases;
-
   return (
     <SliderDataWrapper>
       <SliderDataInfo>
