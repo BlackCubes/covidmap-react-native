@@ -45,12 +45,12 @@ const USViewMapLayout = () => {
       mapviewWidth) /
       mapviewHeight;
 
-  const mapRegion = {
+  const [mapRegion, setMapRegion] = useState({
     latitude: initialLatitude,
     longitude: initialLongitude,
     latitudeDelta: initialLatitudeDelta,
     longitudeDelta: initialLongitudeDelta,
-  };
+  });
 
   // -------Handles the modal
   const handlePresentModalPress = useCallback(() => {
@@ -97,6 +97,11 @@ const USViewMapLayout = () => {
 
       let location = await Location.getCurrentPositionAsync({});
       setUserLocation(location);
+      setMapRegion((prevRegion) => ({
+        ...prevRegion,
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+      }));
     })();
   }, []);
 
