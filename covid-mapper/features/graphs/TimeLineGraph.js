@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Dimensions, View, Text, SafeAreaView } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import numSeparator from "../../utils/numSeparator";
-import { useFonts, NotoSans_400Regular } from "@expo-google-fonts/noto-sans";
+import { useFonts, NotoSans_400Regular, NotoSans_700Bold } from "@expo-google-fonts/noto-sans";
 import Spinner from "../../commons/components/Spinner/Spinner";
 import { Rect, Text as TextSVG, Svg } from "react-native-svg";
 
@@ -33,6 +33,7 @@ const CasesOverTimeGraph = ({ cases, deaths, recovered, hasVaccines }) => {
 
   let [fontsLoaded] = useFonts({
     NotoSans_400Regular,
+    NotoSans_700Bold
   });
 
   if (!fontsLoaded || !cases)
@@ -85,7 +86,7 @@ const CasesOverTimeGraph = ({ cases, deaths, recovered, hasVaccines }) => {
         width: "100%",
       }}
     >
-      <Text style={{ textAlign: "center", fontFamily: "NotoSans_400Regular" }}>
+      <Text style={{ textAlign: "center", fontFamily: "NotoSans_700Bold" }}>
         Data from Past 30 Days
       </Text>
       {/* CHART */}
