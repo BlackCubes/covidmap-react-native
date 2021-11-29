@@ -1,9 +1,4 @@
-import React, {
-  useEffect,
-  useState,
-  useRef,
-  useCallback,
-} from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import * as Location from "expo-location";
 import { useWindowDimensions, Pressable, Keyboard } from "react-native";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
@@ -16,6 +11,7 @@ import {
 import MapComponent from "../map/Map";
 import { useGetTotalsAllStatesUSQuery } from "../../api/covidApi";
 import { ErrorModal } from "../../commons/components/ErrorModal";
+import coordinates from "../../utils/coordinates.json";
 
 const USViewMapLayout = () => {
   const { data: allUSStatesData, error: allUSStatesError } =
@@ -33,14 +29,28 @@ const USViewMapLayout = () => {
   const { width: mapviewWidth, height: mapviewHeight } = useWindowDimensions();
 
   const sliderHeader = "US Total Data";
+
+  const initialLatitude = parseFloat(
+    coordinates.countries.usa.centroid.latitude
+  );
+  const initialLongitude = parseFloat(
+    coordinates.countries.usa.centroid.longitude
+  );
+  const initialLatitudeDelta =
+    parseFloat(coordinates.countries.usa.bounding_box.north_east.latitude) -
+    parseFloat(coordinates.countries.usa.bounding_box.south_west.latitude);
+  const initialLongitudeDelta =
+    parseFloat(coordinates.countries.usa.bounding_box.north_east.latitude) -
+    (parseFloat(coordinates.countries.usa.bounding_box.south_west.latitude) *
+      mapviewWidth) /
+      mapviewHeight;
+
   const mapRegion = {
-    latitude: 36.778259,
-    longitude: -119.417931,
-    latitudeDelta: 11.0922,
-    longitudeDelta: 11.0421,
+    latitude: initialLatitude,
+    longitude: initialLongitude,
+    latitudeDelta: initialLatitudeDelta,
+    longitudeDelta: initialLongitudeDelta,
   };
-
-
 
   // -------Handles the modal
   const handlePresentModalPress = useCallback(() => {

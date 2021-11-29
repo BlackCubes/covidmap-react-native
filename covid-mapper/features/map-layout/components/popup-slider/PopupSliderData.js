@@ -91,7 +91,7 @@ const PopupSliderData = ({
           </SliderDataPopulation>
         )}
 
-        {updatedAt > 0 && (
+        {typeof updatedAt === "string" && (
           <SliderDataUpdate>(updated on {updatedAt})</SliderDataUpdate>
         )}
 
