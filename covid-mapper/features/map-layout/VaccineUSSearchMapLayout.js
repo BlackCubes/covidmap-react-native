@@ -111,13 +111,16 @@ const VaccineUSSearchMapLayout = () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== "granted") {
         setErrorMsg("Permission to access location was denied");
-
-        setUserLocation(mapRegion);
         return;
       }
 
       let location = await Location.getCurrentPositionAsync({});
       setUserLocation(location);
+      setMapRegion((prevRegion) => ({
+        ...prevRegion,
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+      }));
     })();
   }, []);
 
