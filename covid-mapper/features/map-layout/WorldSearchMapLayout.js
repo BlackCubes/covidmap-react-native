@@ -23,6 +23,7 @@ import { ErrorModal } from "../../commons/components/ErrorModal";
 import FloatingSearchButton from "../../commons/components/FloatingSearchButton/FloatingSearchButton";
 import { PreviousRegionButton } from "../../commons/components/PreviousRegionButton";
 import { centroidRegion } from "../../utils";
+import coordinates from "../../utils/coordinates.json";
 
 const fadeInSearchBar = (fadeAnim) => {
   Animated.timing(fadeAnim, {
@@ -79,20 +80,35 @@ const WorldSearchMapLayout = () => {
     province: searchProvince,
   });
 
+  const initialLatitude = parseFloat(
+    coordinates.countries.turkey.centroid.latitude
+  );
+  const initialLongitude = parseFloat(
+    coordinates.countries.turkey.centroid.longitude
+  );
+  const initialLatitudeDelta =
+    parseFloat(coordinates.countries.russia.bounding_box.north_east.latitude) -
+    parseFloat(coordinates.countries.senegal.bounding_box.south_west.latitude);
+  const initialLongitudeDelta =
+    parseFloat(coordinates.countries.russia.bounding_box.north_east.latitude) -
+    (parseFloat(
+      coordinates.countries.senegal.bounding_box.south_west.latitude
+    ) *
+      mapviewWidth) /
+      mapviewHeight;
+
   const [mapRegion, setMapRegion] = useState({
-    latitude: 36.778259,
-    longitude: -119.417931,
-    latitudeDelta: 11.0922,
-    longitudeDelta: 11.0421,
+    latitude: initialLatitude,
+    longitude: initialLongitude,
+    latitudeDelta: initialLatitudeDelta,
+    longitudeDelta: initialLongitudeDelta,
   });
   const [prevRegion, setPrevRegion] = useState({
-    latitude: 36.778259,
-    longitude: -119.417931,
-    latitudeDelta: 11.0922,
-    longitudeDelta: 11.0421,
+    latitude: initialLatitude,
+    longitude: initialLongitude,
+    latitudeDelta: initialLatitudeDelta,
+    longitudeDelta: initialLongitudeDelta,
   });
-
-
 
   // -------Handles the modal
   const handlePresentModalPress = useCallback(() => {
@@ -130,13 +146,16 @@ const WorldSearchMapLayout = () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== "granted") {
         setErrorMsg("Permission to access location was denied");
-
-        setUserLocation(mapRegion);
         return;
       }
 
       let location = await Location.getCurrentPositionAsync({});
       setUserLocation(location);
+      setMapRegion((prevRegion) => ({
+        ...prevRegion,
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+      }));
     })();
   }, []);
 

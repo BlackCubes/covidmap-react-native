@@ -2,7 +2,7 @@
   "expo": {
     "name": "covid-mapper",
     "slug": "covid-mapper",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -13,9 +13,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.clai011.kovvi"

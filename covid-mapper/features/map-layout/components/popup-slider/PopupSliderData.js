@@ -91,29 +91,36 @@ const PopupSliderData = ({
           </SliderDataPopulation>
         )}
 
-        {updatedAt > 0 && (
+        {typeof updatedAt === "string" && (
           <SliderDataUpdate>(updated on {updatedAt})</SliderDataUpdate>
         )}
 
         {!hasTimelineSequence && (
           <SliderDataInfoValues>
-            Cases: {numSeparator(cases)}
+            <SliderDataBoldInfoValues>
+            Cases: 
+            </SliderDataBoldInfoValues>
+            {numSeparator(cases)}
             {population && population > 0
-              ? `or ${((cases / divideBy) * 100).toPrecision(4)}%`
+              ? ` or ${((cases / divideBy) * 100).toPrecision(4)}%`
               : ""}
           </SliderDataInfoValues>
         )}
 
         {!hasTimelineSequence && (
           <SliderDataInfoValues>
-            Recovered: {numSeparator(recovered)} or{" "}
+            <SliderDataBoldInfoValues>
+            Recovered: 
+            </SliderDataBoldInfoValues> {numSeparator(recovered)} or{" "}
             {((recovered / divideBy) * 100).toPrecision(4)}%{" "}
           </SliderDataInfoValues>
         )}
 
         {!hasTimelineSequence && (
           <SliderDataInfoValues>
-            Deaths: {numSeparator(deaths)} or{" "}
+            <SliderDataBoldInfoValues>
+            Deaths: 
+            </SliderDataBoldInfoValues> {numSeparator(deaths)} or{" "}
             {((deaths / divideBy) * 100).toPrecision(4)}%
           </SliderDataInfoValues>
         )}

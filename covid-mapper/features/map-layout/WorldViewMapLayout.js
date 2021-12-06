@@ -1,9 +1,4 @@
-import React, {
-  useEffect,
-  useState,
-  useRef,
-  useCallback,
-} from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import * as Location from "expo-location";
 import { useWindowDimensions, Pressable, Keyboard } from "react-native";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
@@ -16,6 +11,7 @@ import {
 import MapComponent from "../map/Map";
 import { useGetGlobalCovidStatsQuery } from "../../api/covidApi";
 import { ErrorModal } from "./../../commons/components/ErrorModal";
+import coordinates from "../../utils/coordinates.json";
 
 const WorldMapLayout = () => {
   const { data: globalCovidStatsData, error: globalCovidStatsError } =
@@ -33,14 +29,30 @@ const WorldMapLayout = () => {
   const { width: mapviewWidth, height: mapviewHeight } = useWindowDimensions();
 
   const sliderHeader = "World Data";
-  const mapRegion = {
-    latitude: 36.778259,
-    longitude: -119.417931,
-    latitudeDelta: 11.0922,
-    longitudeDelta: 11.0421,
-  };
 
+  const initialLatitude = parseFloat(
+    coordinates.countries.turkey.centroid.latitude
+  );
+  const initialLongitude = parseFloat(
+    coordinates.countries.turkey.centroid.longitude
+  );
+  const initialLatitudeDelta =
+    parseFloat(coordinates.countries.russia.bounding_box.north_east.latitude) -
+    parseFloat(coordinates.countries.senegal.bounding_box.south_west.latitude);
+  const initialLongitudeDelta =
+    parseFloat(coordinates.countries.russia.bounding_box.north_east.latitude) -
+    (parseFloat(
+      coordinates.countries.senegal.bounding_box.south_west.latitude
+    ) *
+      mapviewWidth) /
+      mapviewHeight;
 
+  const [mapRegion, setMapRegion] = useState({
+    latitude: initialLatitude,
+    longitude: initialLongitude,
+    latitudeDelta: initialLatitudeDelta,
+    longitudeDelta: initialLongitudeDelta,
+  });
 
   // -------Handles the modal
   const handlePresentModalPress = useCallback(() => {
@@ -87,6 +99,11 @@ const WorldMapLayout = () => {
 
       let location = await Location.getCurrentPositionAsync({});
       setUserLocation(location);
+      setMapRegion((prevRegion) => ({
+        ...prevRegion,
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+      }));
     })();
   }, []);
 

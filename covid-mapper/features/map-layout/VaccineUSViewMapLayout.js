@@ -10,11 +10,11 @@ import {
 } from "./components/popup-slider";
 import MapComponent from "../map/Map";
 import { useGetTotalPeopleVaccinatedByStatesQuery } from "../../api/covidApi";
+import coordinates from "../../utils/coordinates.json";
 
 const VaccineUSViewMapLayout = () => {
-  const {
-    data: statesVaccinatedData,
-  } = useGetTotalPeopleVaccinatedByStatesQuery();
+  const { data: statesVaccinatedData } =
+    useGetTotalPeopleVaccinatedByStatesQuery();
 
   const [userLocation, setUserLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -24,14 +24,28 @@ const VaccineUSViewMapLayout = () => {
   const { width: mapviewWidth, height: mapviewHeight } = useWindowDimensions();
 
   const sliderHeader = "US Vaccinated Data";
-  const mapRegion = {
-    latitude: 36.778259,
-    longitude: -119.417931,
-    latitudeDelta: 11.0922,
-    longitudeDelta: 11.0421,
-  };
 
+  const initialLatitude = parseFloat(
+    coordinates.countries.usa.centroid.latitude
+  );
+  const initialLongitude = parseFloat(
+    coordinates.countries.usa.centroid.longitude
+  );
+  const initialLatitudeDelta =
+    parseFloat(coordinates.countries.usa.bounding_box.north_east.latitude) -
+    parseFloat(coordinates.countries.usa.bounding_box.south_west.latitude);
+  const initialLongitudeDelta =
+    parseFloat(coordinates.countries.usa.bounding_box.north_east.latitude) -
+    (parseFloat(coordinates.countries.usa.bounding_box.south_west.latitude) *
+      mapviewWidth) /
+      mapviewHeight;
 
+  const [mapRegion, setMapRegion] = useState({
+    latitude: initialLatitude,
+    longitude: initialLongitude,
+    latitudeDelta: initialLatitudeDelta,
+    longitudeDelta: initialLongitudeDelta,
+  });
 
   // -------Handles the modal
   const handlePresentModalPress = useCallback(() => {
@@ -63,6 +77,11 @@ const VaccineUSViewMapLayout = () => {
 
       let location = await Location.getCurrentPositionAsync({});
       setUserLocation(location);
+      setMapRegion((prevRegion) => ({
+        ...prevRegion,
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+      }));
     })();
   }, []);
 
