@@ -48,6 +48,16 @@ const LinkedInWrapper = styled.View`
   flex-direction: column;
 `;
 
+const VersionInfoView = styled.View`
+  margin-top: 60px;
+  align-items: center;
+`;
+
+const VersionInfoText = styled.Text`
+  color: rgba(53, 104, 147, 0.7);
+  font-size: 12px;
+`;
+
 const About = () => {
   let [fontsLoaded] = useFonts({
     NotoSans_400Regular,
@@ -96,26 +106,36 @@ const About = () => {
                   fontSize: 20,
                   fontStyle: "italic",
                   color: "#4092e5",
-                  paddingBottom: '4%'
+                  paddingBottom: "4%",
                 }}
               >
                 Connect with Us
               </Text>
               {/* LinkedIn Icons */}
-              <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
-              {teamData.map((person) => (
-                <Pressable
-                  key={person.name}
-                  onPress={() => Linking.openURL(person.linkedIn)}
-                >
-                  <LinkedInWrapper>
-                    <LinkedInIcon />
-                    <Text style={{color: '#494949'}}>{person.name}</Text>
-                  </LinkedInWrapper>
-                </Pressable>
-              ))}
+              <View
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-evenly",
+                }}
+              >
+                {teamData.map((person) => (
+                  <Pressable
+                    key={person.name}
+                    onPress={() => Linking.openURL(person.linkedIn)}
+                  >
+                    <LinkedInWrapper>
+                      <LinkedInIcon />
+                      <Text style={{ color: "#494949" }}>{person.name}</Text>
+                    </LinkedInWrapper>
+                  </Pressable>
+                ))}
               </View>
             </ConnectSection>
+
+            <VersionInfoView>
+              <VersionInfoText>Version 0.2.0</VersionInfoText>
+            </VersionInfoView>
           </Container>
         </ScrollView>
       )}
