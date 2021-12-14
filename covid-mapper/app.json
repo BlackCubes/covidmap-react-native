@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "covid-mapper",
-    "slug": "covid-mapper",
+    "name": "kovvi",
+    "slug": "kovvi",
     "version": "0.1.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
